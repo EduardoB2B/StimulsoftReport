@@ -3,14 +3,14 @@ using Microsoft.AspNetCore.Hosting;
 using Stimulsoft.Report;
 using Stimulsoft.Report.Export;
 using Stimulsoft.Report.Web;
-using StimulsoftReportDemo.Models;
-using StimulsoftReportDemo.Data;
+using StimulsoftReport.Models;
+using StimulsoftReport.Data;
 using System.Data;
 using System.IO;
 using System.Threading.Tasks;
 using System;
 
-namespace StimulsoftReportDemo.Services
+namespace StimulsoftReport.Services
 {
     public class ReportService : IReportService
     {

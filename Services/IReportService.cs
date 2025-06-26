@@ -1,9 +1,9 @@
-using StimulsoftReportDemo.Models;
+using StimulsoftReport.Models;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
-namespace StimulsoftReportDemo.Services
+namespace StimulsoftReport.Services
 {
     public interface IReportService
     {

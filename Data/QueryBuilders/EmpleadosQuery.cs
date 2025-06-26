@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System;
 
-namespace StimulsoftReportDemo.QueryBuilders
+namespace StimulsoftReport.QueryBuilders
 {
     /// <summary>
     /// Contiene la lógica para construir y ejecutar el query SQL del reporte "MaestroEmpleadosReport".

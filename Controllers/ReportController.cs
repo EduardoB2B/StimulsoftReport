@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Text.Json;
 using System.Threading.Tasks;
-using StimulsoftReportDemo.Models;
-using StimulsoftReportDemo.Services; // Asegúrate de tener esta carpeta y el servicio creado
+using StimulsoftReport.Models;
+using StimulsoftReport.Services; // Asegúrate de tener esta carpeta y el servicio creado
 
-namespace StimulsoftReportDemo.Controllers
+namespace StimulsoftReport.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

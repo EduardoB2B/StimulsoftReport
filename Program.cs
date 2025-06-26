@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
-using StimulsoftReportDemo.Services;
-using StimulsoftReportDemo.Data;
+using StimulsoftReport.Services;
+using StimulsoftReport.Data;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);

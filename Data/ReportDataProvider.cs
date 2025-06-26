@@ -1,11 +1,11 @@
 using Microsoft.Extensions.Configuration;
-using StimulsoftReportDemo.QueryBuilders;
+using StimulsoftReport.QueryBuilders;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
-namespace StimulsoftReportDemo.Data
+namespace StimulsoftReport.Data
 {
     /// <summary>
     /// Implementación que resuelve qué query ejecutar según el nombre del reporte.

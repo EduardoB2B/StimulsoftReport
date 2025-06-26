@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
-namespace StimulsoftReportDemo.Data
+namespace StimulsoftReport.Data
 {
     /// <summary>
     /// Contrato para la obtención de datos dinámicos según el nombre del reporte.

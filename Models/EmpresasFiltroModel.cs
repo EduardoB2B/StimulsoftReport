@@ -1,7 +1,7 @@
 using System.Data;
 using System.Collections.Generic;
 
-namespace StimulsoftReportDemo.Models
+namespace StimulsoftReport.Models
 {
     public class EmpresasFiltroModel
     {
