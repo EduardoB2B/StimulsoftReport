@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <CalculationMode>Interpretation</CalculationMode>
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="1">
+      <DATA Ref="2" type="DataTableSource" isKey="true">
+        <Alias>DATA</Alias>
+        <Columns isList="true" count="4">
+          <value>Mb_Epr_ids,System.String</value>
+          <value>Mb_webip,System.String</value>
+          <value>Mb_Epr_cod,System.String</value>
+          <value>GruEmpPathWeb,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>bf47844af62f46859f45c02a31e12df2</Key>
+        <Name>DATA</Name>
+        <NameInSource>DATA</NameInSource>
+      </DATA>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <UserFunctions isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>8b3dbff87bc642fe9d1b9c48a65a4478</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="3" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="4">
+        <ReportTitle Ref="4" type="ReportTitleBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,1.4</ClientRectangle>
+          <Components isList="true" count="2">
+            <ReportTitleText Ref="5" type="Text" isKey="true">
+              <Border>None;[59:88:125];1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,19,1.4</ClientRectangle>
+              <ComponentStyle>Azul 50%_Título_Informe1</ComponentStyle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Name>ReportTitleText</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>DATA</Text>
+              <TextBrush>[0:0:25]</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </ReportTitleText>
+            <Text2 Ref="6" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16,0.4,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text2</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{Today}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text2>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>ReportTitle</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </ReportTitle>
+        <Header Ref="7" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2.6,19,0.6</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text1 Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.8,0.2,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text1</Name>
+              <Page isRef="3" />
+              <Parent isRef="7" />
+              <Text>Id Empresa
+</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
+            <Text4 Ref="9" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0.2,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text4</Name>
+              <Page isRef="3" />
+              <Parent isRef="7" />
+              <Text>Nombre</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text4>
+            <Text5 Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8,0.2,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text5</Name>
+              <Page isRef="3" />
+              <Parent isRef="7" />
+              <Text>Web IP</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text5>
+            <Text8 Ref="11" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.4,0.2,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text8</Name>
+              <Page isRef="3" />
+              <Parent isRef="7" />
+              <Text>Web Path</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text8>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>Header</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </Header>
+        <Data Ref="12" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,4,19,1</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text3 Ref="13" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0.2,4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text3</Name>
+              <Page isRef="3" />
+              <Parent isRef="12" />
+              <Text>{DATA.Mb_Epr_ids}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text3>
+            <Text6 Ref="14" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8,0.2,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text6</Name>
+              <Page isRef="3" />
+              <Parent isRef="12" />
+              <Text>{DATA.Mb_webip}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text6>
+            <Text7 Ref="15" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.8,0.2,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text7</Name>
+              <Page isRef="3" />
+              <Parent isRef="12" />
+              <Text>{DATA.Mb_Epr_cod}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text7>
+            <Text9 Ref="16" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.4,0.2,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text9</Name>
+              <Page isRef="3" />
+              <Parent isRef="12" />
+              <Text>{DATA.GruEmpPathWeb}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text9>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>DATA</DataSourceName>
+          <EvenStyle>Azul 50%_Datos1_Estilo Pares</EvenStyle>
+          <Expressions isList="true" count="0" />
+          <FilterMode>Or</FilterMode>
+          <Filters isList="true" count="0" />
+          <Name>Data</Name>
+          <OddStyle>Azul 50%_Datos1_Estilo Impar</OddStyle>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Sort isList="true" count="0" />
+        </Data>
+        <Footer Ref="17" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,5.8,19,0.6</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>Footer</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </Footer>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Expressions isList="true" count="0" />
+      <Guid>26fa5e2966eb4332b3e07e1bd201f211</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportAuthor>Eduardo Hernández</ReportAuthor>
+  <ReportChanged>6/22/2025 1:27:12 PM</ReportChanged>
+  <ReportCreated>6/21/2025 6:40:04 PM</ReportCreated>
+  <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\HumanDev\StimulsoftReportDemo\Reports\EmpresasReport.mrt</ReportFile>
+  <ReportGuid>5202e8dffd2c4511bf0e75db1c449299</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2025.2.5.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="13">
+    <Azul_x0020_50_x0025__Título_Informe1 Ref="18" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[59:88:125];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item18 Ref="19" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
+          <Placement>ReportTitle</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item18>
+      </Conditions>
+      <Font>Arial,14,Bold</Font>
+      <Name>Azul 50%_Título_Informe1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:25]</TextBrush>
+    </Azul_x0020_50_x0025__Título_Informe1>
+    <Azul_x0020_50_x0025__Título_Informe2 Ref="20" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[59:88:125];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item20 Ref="21" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>ReportTitle</Placement>
+          <PlacementNestedLevel>2</PlacementNestedLevel>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item20>
+      </Conditions>
+      <Font>Arial,10,Bold</Font>
+      <Name>Azul 50%_Título_Informe2</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:25]</TextBrush>
+    </Azul_x0020_50_x0025__Título_Informe2>
+    <Azul_x0020_50_x0025__Resumen_Informe1 Ref="22" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[59:88:125];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item22 Ref="23" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
+          <Placement>ReportSummary</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item22>
+      </Conditions>
+      <Font>Arial,12,Bold</Font>
+      <Name>Azul 50%_Resumen_Informe1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:25]</TextBrush>
+    </Azul_x0020_50_x0025__Resumen_Informe1>
+    <Azul_x0020_50_x0025__Resumen_Informe2 Ref="24" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[59:88:125];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item24 Ref="25" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>ReportSummary</Placement>
+          <PlacementNestedLevel>2</PlacementNestedLevel>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item24>
+      </Conditions>
+      <Font>Arial,10,Bold</Font>
+      <Name>Azul 50%_Resumen_Informe2</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:25]</TextBrush>
+    </Azul_x0020_50_x0025__Resumen_Informe2>
+    <Azul_x0020_50_x0025__Encabezado_Página Ref="26" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[59:88:125];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item26 Ref="27" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
+          <Placement>PageHeader</Placement>
+          <Type>ComponentType, Placement</Type>
+        </Item26>
+      </Conditions>
+      <Font>Arial,10</Font>
+      <Name>Azul 50%_Encabezado_Página</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:25]</TextBrush>
+    </Azul_x0020_50_x0025__Encabezado_Página>
+    <Azul_x0020_50_x0025__Pie_Página Ref="28" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[59:88:125];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item28 Ref="29" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
+          <Placement>PageFooter</Placement>
+          <Type>ComponentType, Placement</Type>
+        </Item28>
+      </Conditions>
+      <Font>Arial,10</Font>
+      <Name>Azul 50%_Pie_Página</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:25]</TextBrush>
+    </Azul_x0020_50_x0025__Pie_Página>
+    <Azul_x0020_50_x0025__Encabezado_Grupo1 Ref="30" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <AllowUseBorderSidesFromLocation>True</AllowUseBorderSidesFromLocation>
+      <Border>None;[59:88:125];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item30 Ref="31" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>GroupHeader</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item30>
+      </Conditions>
+      <Font>Arial,13,Bold</Font>
+      <Name>Azul 50%_Encabezado_Grupo1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[9:38:75]</TextBrush>
+    </Azul_x0020_50_x0025__Encabezado_Grupo1>
+    <Azul_x0020_50_x0025__Pie_Grupo1 Ref="32" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <AllowUseBorderSidesFromLocation>True</AllowUseBorderSidesFromLocation>
+      <Border>None;[59:88:125];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item32 Ref="33" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
+          <Placement>GroupFooter</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item32>
+      </Conditions>
+      <Font>Arial,13,Bold</Font>
+      <Name>Azul 50%_Pie_Grupo1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[9:38:75]</TextBrush>
+    </Azul_x0020_50_x0025__Pie_Grupo1>
+    <Azul_x0020_50_x0025__Encabezado1 Ref="34" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <AllowUseBorderSidesFromLocation>True</AllowUseBorderSidesFromLocation>
+      <Border>None;[59:88:125];1;Solid;False;4;Black;True</Border>
+      <Brush>[159:188:225]</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item34 Ref="35" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>Header</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item34>
+      </Conditions>
+      <Font>Arial,8,Bold</Font>
+      <Name>Azul 50%_Encabezado1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:25]</TextBrush>
+    </Azul_x0020_50_x0025__Encabezado1>
+    <Azul_x0020_50_x0025__Datos1 Ref="36" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <AllowUseBorderSidesFromLocation>True</AllowUseBorderSidesFromLocation>
+      <Border>None;[59:88:125];1;Solid;False;4;Black;True</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item36 Ref="37" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>Data</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item36>
+      </Conditions>
+      <Font>Arial,8</Font>
+      <Name>Azul 50%_Datos1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:25]</TextBrush>
+    </Azul_x0020_50_x0025__Datos1>
+    <Azul_x0020_50_x0025__Datos1_Estilo_x0020_Impar Ref="38" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <AllowUseBorderSidesFromLocation>True</AllowUseBorderSidesFromLocation>
+      <Border>None;[59:88:125];1;Solid;False;4;Black;True</Border>
+      <Brush>[255:255:255]</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item38 Ref="39" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>DataOddStyle</Placement>
+          <Type>Placement, PlacementNestedLevel</Type>
+        </Item38>
+      </Conditions>
+      <Font>Arial,8</Font>
+      <Name>Azul 50%_Datos1_Estilo Impar</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:25]</TextBrush>
+    </Azul_x0020_50_x0025__Datos1_Estilo_x0020_Impar>
+    <Azul_x0020_50_x0025__Datos1_Estilo_x0020_Pares Ref="40" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <AllowUseBorderSidesFromLocation>True</AllowUseBorderSidesFromLocation>
+      <Border>None;[59:88:125];1;Solid;False;4;Black;True</Border>
+      <Brush>[234:255:255]</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item40 Ref="41" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>DataEvenStyle</Placement>
+          <Type>Placement, PlacementNestedLevel</Type>
+        </Item40>
+      </Conditions>
+      <Font>Arial,8</Font>
+      <Name>Azul 50%_Datos1_Estilo Pares</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:25]</TextBrush>
+    </Azul_x0020_50_x0025__Datos1_Estilo_x0020_Pares>
+    <Azul_x0020_50_x0025__Pie1 Ref="42" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <AllowUseBorderSidesFromLocation>True</AllowUseBorderSidesFromLocation>
+      <Border>None;[59:88:125];1;Solid;False;4;Black;True</Border>
+      <Brush>[179:208:245]</Brush>
+      <CollectionName>Azul 50%</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item42 Ref="43" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
+          <Placement>Footer</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item42>
+      </Conditions>
+      <Font>Arial,8</Font>
+      <Name>Azul 50%_Pie1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:25]</TextBrush>
+    </Azul_x0020_50_x0025__Pie1>
+  </Styles>
+</StiSerializer>
