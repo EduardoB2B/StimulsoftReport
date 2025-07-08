@@ -9,6 +9,7 @@ using System.Data;
 using System.IO;
 using System.Threading.Tasks;
 using System;
+using System.Collections.Generic;
 
 namespace StimulsoftReport.Services
 {
@@ -24,11 +25,10 @@ namespace StimulsoftReport.Services
         }
 
         /// <summary>
-        /// Genera un archivo PDF a partir de un .mrt, aplicando los filtros y recuperando datos dinámicamente.
+        /// Genera un reporte usando filtros para extraer datos de SQL.
         /// </summary>
-        public async Task<byte[]> GenerateReportAsync(ReportRequest request)
+        public async Task<byte[]> GenerateReportFromFiltersAsync(ReportFilterRequest request)
         {
-            // 1. Localizar la plantilla .mrt
             var reportPath = Path.Combine(_env.ContentRootPath, "Reports", $"{request.ReportName}.mrt");
 
             if (!File.Exists(reportPath))
@@ -37,30 +37,77 @@ namespace StimulsoftReport.Services
             var report = new StiReport();
             report.Load(reportPath);
 
-            // 2. Obtener datos desde el proveedor según el nombre del reporte
-            var data = await _dataProvider.GetDataAsync(request.ReportName, request.Filtros);
-
-            if (data == null || data.Rows.Count == 0)
-                throw new Exception("No se recuperaron datos para el reporte.");
-
-            foreach (DataRow row in data.Rows)
+            // Obtener datos desde SQL usando filtros
+            var dataTables = await _dataProvider.GetDataFromFiltersAsync(request.ReportName, request.Filtros);
+            Console.WriteLine("Datos recuperados desde SQL:");
+            foreach (var kvp in dataTables)
             {
-                foreach (DataColumn col in data.Columns)
-                {
-                    Console.Write($"{col.ColumnName}: {row[col]} | ");
-                }
-                Console.WriteLine();
+                Console.WriteLine($"Tabla: {kvp.Key}, Filas: {kvp.Value.Rows.Count}");
             }
 
-            // 3. Registrar directamente el DataTable con el nombre esperado por el .mrt
-            report.RegData("DATA", data);
-            report.Dictionary.Databases.Clear(); // Limpia posibles conexiones embebidas
+            if (dataTables == null || dataTables.Count == 0)
+                throw new Exception("No se recuperaron datos para el reporte.");
+
+            // Registrar DataTables
+            foreach (var kvp in dataTables)
+            {
+                report.RegData(kvp.Key, kvp.Value);
+
+                // Compatibilidad: si solo hay una tabla y el nombre no es "DATA", regístrala también como "DATA"
+                if (dataTables.Count == 1 && kvp.Key != "DATA")
+                {
+                    report.RegData("DATA", kvp.Value);
+                }
+            }
+
+            report.Dictionary.Databases.Clear();
             report.Dictionary.Synchronize();
 
+            return await RenderReportToPdf(report);
+        }
 
-            // 4. Renderizar y exportar a PDF
-            // report.Compile();
-            report.Render(false);
+        /// <summary>
+        /// Genera un reporte usando data ya preparada por el cliente.
+        /// </summary>
+        public async Task<byte[]> GenerateReportFromDataAsync(ReportDataRequest request)
+        {
+            var reportPath = Path.Combine(_env.ContentRootPath, "Reports", $"{request.ReportName}.mrt");
+
+            if (!File.Exists(reportPath))
+                throw new FileNotFoundException($"El archivo de plantilla '{reportPath}' no existe.");
+
+            var report = new StiReport();
+            report.Load(reportPath);
+
+            // Convertir data preparada a DataTables
+            var dataTables = await _dataProvider.GetDataFromObjectAsync(request.ReportName, request.Data);
+            Console.WriteLine("Datos recuperados desde objeto preparado:");
+            foreach (var kvp in dataTables)
+            {
+                Console.WriteLine($"Tabla: {kvp.Key}, Filas: {kvp.Value.Rows.Count}");
+            }
+
+            if (dataTables == null || dataTables.Count == 0)
+                throw new Exception("No se pudieron convertir los datos para el reporte.");
+
+            // Registrar DataTables
+            foreach (var kvp in dataTables)
+            {
+                report.RegData(kvp.Key, kvp.Value);
+            }
+
+            report.Dictionary.Databases.Clear();
+            report.Dictionary.Synchronize();
+
+            return await RenderReportToPdf(report);
+        }
+
+        /// <summary>
+        /// Método común para renderizar el reporte a PDF.
+        /// </summary>
+        private async Task<byte[]> RenderReportToPdf(StiReport report)
+        {
+            await Task.Run(() => report.Render(false));
 
             using var stream = new MemoryStream();
             var pdfSettings = new StiPdfExportSettings();

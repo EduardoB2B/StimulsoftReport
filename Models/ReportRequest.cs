@@ -3,10 +3,12 @@ using System.Collections.Generic;
 
 namespace StimulsoftReport.Models
 {
-    public class ReportRequest
+    /// <summary>
+    /// Request para reportes que extraen datos de SQL usando filtros.
+    /// </summary>
+    public class ReportFilterRequest
     {
         public string ReportName { get; set; } = string.Empty;
-        public Dictionary<string, object> Filtros { get; set; } = new();
-
+        public Dictionary<string, object> Filtros { get; set; } = new Dictionary<string, object>();
     }
 }

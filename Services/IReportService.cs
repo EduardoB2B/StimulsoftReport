@@ -7,6 +7,14 @@ namespace StimulsoftReport.Services
 {
     public interface IReportService
     {
-        Task<byte[]> GenerateReportAsync(ReportRequest request);
+        /// <summary>
+        /// Genera un reporte usando filtros para extraer datos de SQL.
+        /// </summary>
+        Task<byte[]> GenerateReportFromFiltersAsync(ReportFilterRequest request);
+
+        /// <summary>
+        /// Genera un reporte usando data ya preparada por el cliente.
+        /// </summary>
+        Task<byte[]> GenerateReportFromDataAsync(ReportDataRequest request);
     }
 }
