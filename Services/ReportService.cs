@@ -1,120 +1,122 @@
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Hosting;
-using Stimulsoft.Report;
-using Stimulsoft.Report.Export;
-using Stimulsoft.Report.Web;
-using StimulsoftReport.Models;
-using StimulsoftReport.Data;
+using System;
 using System.Data;
 using System.IO;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
-using System;
-using System.Collections.Generic;
+using Microsoft.Extensions.Options;
+using Stimulsoft.Report;
+using StimulsoftReport.Configuration;
 
 namespace StimulsoftReport.Services
 {
-    public class ReportService : IReportService
+    public class ReportService
     {
-        private readonly IReportDataProvider _dataProvider;
-        private readonly IWebHostEnvironment _env;
+        private readonly string _templatesFolder;
 
-        public ReportService(IReportDataProvider dataProvider, IWebHostEnvironment env)
+        public ReportService(IOptions<ReportSettings> options)
         {
-            _dataProvider = dataProvider;
-            _env = env;
+            _templatesFolder = options.Value.TemplatesFolder;
         }
 
-        /// <summary>
-        /// Genera un reporte usando filtros para extraer datos de SQL.
-        /// </summary>
-        public async Task<byte[]> GenerateReportFromFiltersAsync(ReportFilterRequest request)
+        public async Task<(bool Success, string Message, string? PdfPath)> GenerateReportAsync(string reportName, string jsonFilePath)
         {
-            var reportPath = Path.Combine(_env.ContentRootPath, "Reports", $"{request.ReportName}.mrt");
+            var templatePath = Path.Combine(_templatesFolder, $"{reportName}.mrt");
 
-            if (!File.Exists(reportPath))
-                throw new FileNotFoundException($"El archivo de plantilla '{reportPath}' no existe.");
+            if (!File.Exists(templatePath))
+                return (false, $"Plantilla no encontrada en {templatePath}", null);
 
-            var report = new StiReport();
-            report.Load(reportPath);
+            if (!File.Exists(jsonFilePath))
+                return (false, $"Archivo JSON no encontrado en {jsonFilePath}", null);
 
-            // Obtener datos desde SQL usando filtros
-            var dataTables = await _dataProvider.GetDataFromFiltersAsync(request.ReportName, request.Filtros);
-            Console.WriteLine("Datos recuperados desde SQL:");
-            foreach (var kvp in dataTables)
+            var directory = Path.GetDirectoryName(jsonFilePath);
+            if (directory == null)
+                return (false, "La ruta del archivo JSON no tiene directorio válido.", null);
+
+            try
             {
-                Console.WriteLine($"Tabla: {kvp.Key}, Filas: {kvp.Value.Rows.Count}");
+                var report = new StiReport();
+                report.Load(templatePath);
+
+                var jsonString = await File.ReadAllTextAsync(jsonFilePath);
+                var jsonNode = JsonNode.Parse(jsonString);
+                var jsonObject = jsonNode as JsonObject;
+
+                if (jsonObject == null)
+                    return (false, "El JSON no es un objeto válido.", null);
+
+                RegisterData(report, jsonObject);
+
+                report.Dictionary.Databases.Clear();
+                report.Dictionary.Synchronize();
+
+                report.Compile();
+                report.Render(false);
+
+                var pdfFileName = Path.GetFileNameWithoutExtension(jsonFilePath) + ".pdf";
+                var pdfFullPath = Path.Combine(directory, pdfFileName);
+
+                report.ExportDocument(StiExportFormat.Pdf, pdfFullPath);
+
+                return (true, "Reporte generado correctamente", pdfFullPath);
+            }
+            catch (Exception ex)
+            {
+                return (false, $"Error generando reporte: {ex.Message}", null);
+            }
+        }
+
+        private void RegisterData(StiReport report, JsonObject jsonObject)
+        {
+            // Tabla Data con propiedades simples
+            var dataTable = new DataTable("Data");
+
+            foreach (var prop in jsonObject)
+            {
+                if (prop.Value is JsonArray)
+                    continue; // Ignorar arrays
+
+                dataTable.Columns.Add(prop.Key, typeof(string));
             }
 
-            if (dataTables == null || dataTables.Count == 0)
-                throw new Exception("No se recuperaron datos para el reporte.");
+            var row = dataTable.NewRow();
 
-            // Registrar DataTables
-            foreach (var kvp in dataTables)
+            foreach (var prop in jsonObject)
             {
-                report.RegData(kvp.Key, kvp.Value);
+                if (prop.Value is JsonArray)
+                    continue;
 
-                // Compatibilidad: si solo hay una tabla y el nombre no es "DATA", regístrala también como "DATA"
-                if (dataTables.Count == 1 && kvp.Key != "DATA")
+                row[prop.Key] = prop.Value?.ToString() ?? "";
+            }
+
+            dataTable.Rows.Add(row);
+            report.RegData("Data", dataTable);
+
+            // Tabla Detalle con arreglo de objetos
+            if (jsonObject.TryGetPropertyValue("Detalle", out var detalleNode) && detalleNode is JsonArray detalleArray)
+            {
+                var detalleTable = new DataTable("Detalle");
+
+                if (detalleArray.Count > 0 && detalleArray[0] is JsonObject firstDetalle)
                 {
-                    report.RegData("DATA", kvp.Value);
+                    foreach (var col in firstDetalle)
+                    {
+                        detalleTable.Columns.Add(col.Key, typeof(string));
+                    }
+
+                    foreach (var item in detalleArray)
+                    {
+                        var detalleRow = detalleTable.NewRow();
+                        var obj = item as JsonObject;
+                        foreach (var col in obj)
+                        {
+                            detalleRow[col.Key] = col.Value?.ToString() ?? "";
+                        }
+                        detalleTable.Rows.Add(detalleRow);
+                    }
                 }
+
+                report.RegData("Detalle", detalleTable);
             }
-
-            report.Dictionary.Databases.Clear();
-            report.Dictionary.Synchronize();
-
-            return await RenderReportToPdf(report);
-        }
-
-        /// <summary>
-        /// Genera un reporte usando data ya preparada por el cliente.
-        /// </summary>
-        public async Task<byte[]> GenerateReportFromDataAsync(ReportDataRequest request)
-        {
-            var reportPath = Path.Combine(_env.ContentRootPath, "Reports", $"{request.ReportName}.mrt");
-
-            if (!File.Exists(reportPath))
-                throw new FileNotFoundException($"El archivo de plantilla '{reportPath}' no existe.");
-
-            var report = new StiReport();
-            report.Load(reportPath);
-
-            // Convertir data preparada a DataTables
-            var dataTables = await _dataProvider.GetDataFromObjectAsync(request.ReportName, request.Data);
-            Console.WriteLine("Datos recuperados desde objeto preparado:");
-            foreach (var kvp in dataTables)
-            {
-                Console.WriteLine($"Tabla: {kvp.Key}, Filas: {kvp.Value.Rows.Count}");
-            }
-
-            if (dataTables == null || dataTables.Count == 0)
-                throw new Exception("No se pudieron convertir los datos para el reporte.");
-
-            // Registrar DataTables
-            foreach (var kvp in dataTables)
-            {
-                report.RegData(kvp.Key, kvp.Value);
-            }
-
-            report.Dictionary.Databases.Clear();
-            report.Dictionary.Synchronize();
-
-            return await RenderReportToPdf(report);
-        }
-
-        /// <summary>
-        /// Método común para renderizar el reporte a PDF.
-        /// </summary>
-        private async Task<byte[]> RenderReportToPdf(StiReport report)
-        {
-            await Task.Run(() => report.Render(false));
-
-            using var stream = new MemoryStream();
-            var pdfSettings = new StiPdfExportSettings();
-            var pdfService = new StiPdfExportService();
-            pdfService.ExportPdf(report, stream, pdfSettings);
-
-            return stream.ToArray();
         }
     }
 }
