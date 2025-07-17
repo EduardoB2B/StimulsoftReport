@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visor de Reporte CFDI</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #viewer { width: 100%; height: 800px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Visor de Reporte CFDI</h1>
+    <div id="viewer"></div>
+
+    <!-- Carga el visor local con defer -->
+    <script src="/js/stimulsoft.viewer.js" defer></script>
+
+    <script defer>
+        window.onload = function() {
+            // Si tienes licencia, ponla aquí
+            // Stimulsoft.Base.StiLicense.key = "TU_CLAVE_DE_LICENCIA";
+
+            var viewer = new Stimulsoft.Viewer.StiViewer(null, "StiViewer", false);
+            viewer.renderHtml("viewer");
+
+            viewer.onBeginProcessData = function (args) {
+                args.url = "http://localhost:5000/api/CFDIVisor/preview-from-file";
+                args.method = "GET";
+            };
+        };
+    </script>
+</body>
+</html>
