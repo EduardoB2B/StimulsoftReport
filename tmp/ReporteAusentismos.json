@@ -1,0 +1,54 @@
+{
+    "Empresa": "1",
+    "RazonSocial": "INDISTRIA ILUMINADORA DE ALMACENES                          ",
+    "TipoReporte": "",
+    "Fecha": "2025-07-16",
+    "RFC": "IIA040805DZ4",
+    "Nomi_tipo": "002",
+    "Nomi_des": "NOMINA QUINCENAL    ",
+    "Anio": 2025,
+    "PrCodigo": "",
+    "Mes": "Enero",
+    "Detalle": [
+        {
+            "NoEmpleado": 1001,
+            "NombreEmpleado": "AGUASCALIENTES AGUASCALIENTES AGUASCALIENTES",
+            "Vacaciones": 2.00000,
+            "Incapacidad": 0,
+            "Faltas": 0,
+            "Retardos": 0
+        },
+        {
+            "NoEmpleado": 1002,
+            "NombreEmpleado": "AGUASCALIENTES AGUASCALIENTES AGUASCALIENTES",
+            "Vacaciones": 2.00000,
+            "Incapacidad": 0,
+            "Faltas": 0,
+            "Retardos": 0
+        },
+        {
+            "NoEmpleado": 1003,
+            "NombreEmpleado": "AGUASCALIENTES AGUASCALIENTES AGUASCALIENTES",
+            "Vacaciones": 2.00000,
+            "Incapacidad": 0,
+            "Faltas": 0,
+            "Retardos": 0
+        },
+        {
+            "NoEmpleado": 1004,
+            "NombreEmpleado": "AGUASCALIENTES AGUASCALIENTES AGUASCALIENTES",
+            "Vacaciones": 2.00000,
+            "Incapacidad": 0,
+            "Faltas": 0,
+            "Retardos": 0
+        },
+        {
+            "NoEmpleado": 1005,
+            "NombreEmpleado": "AGUASCALIENTES AGUASCALIENTES AGUASCALIENTES",
+            "Vacaciones": 2.00000,
+            "Incapacidad": 0,
+            "Faltas": 0,
+            "Retardos": 0
+        }
+    ]
+}

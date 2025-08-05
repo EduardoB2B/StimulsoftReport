@@ -1,0 +1,11 @@
+{
+    "TemplateFile": "ReportAusentismos.mrt",
+    "DataSourceMappings": {
+        "Data": "",
+        "Detalle": "Detalle"
+    },
+    "RequiredDataSources": [
+        "Data",
+        "Detalle"
+    ]
+}

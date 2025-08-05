@@ -16,18 +16,19 @@ namespace StimulsoftReport.Controllers
             _reportService = reportService;
         }
 
-        [HttpPost("generate")]
-        public async Task<IActionResult> Generate([FromBody] ReportRequest? request)
+        [HttpPost]
+        public async Task<IActionResult> GenerateReport([FromBody] ReportRequest request)
         {
-            if (string.IsNullOrWhiteSpace(request?.ReportName) || string.IsNullOrWhiteSpace(request?.JsonFilePath))
-                return BadRequest("Debe proporcionar el nombre del reporte y la ruta del archivo JSON.");
-
-            var (success, message, pdfPath) = await _reportService.GenerateReportAsync(request.ReportName!, request.JsonFilePath!);
+            var (success, message, pdfPath) = await _reportService.GenerateReportAsync(
+                request.ReportName,
+                request.JsonFilePath,
+                request.SqlParams
+            );
 
             if (!success)
-                return BadRequest(new { success = false, message });
+                return BadRequest(new { message });
 
-            return Ok(new { success = true, message, pdfPath });
+            return Ok(new { message, pdfPath });
         }
     }
 }

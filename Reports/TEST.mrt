@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <CalculationMode>Interpretation</CalculationMode>
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="21">
+      <Empleador Ref="2" type="DataTableSource" isKey="true">
+        <Alias>Empleador</Alias>
+        <Columns isList="true" count="9">
+          <value>Com_Dsc,System.String</value>
+          <value>calleNo,System.String</value>
+          <value>coloniaDelegacion,System.String</value>
+          <value>CP,System.String</value>
+          <value>Com_RFC,System.String</value>
+          <value>Regimen,System.String</value>
+          <value>RegistroPatronal,System.String</value>
+          <value>CurpCombinar,System.String</value>
+          <value>EmpImagen,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>2fcc0e51fce747fa926ecff9e7d963de</Key>
+        <Name>Empleador</Name>
+        <NameInSource>Data</NameInSource>
+      </Empleador>
+      <Colaborador Ref="3" type="DataTableSource" isKey="true">
+        <Alias>Colaborador</Alias>
+        <Columns isList="true" count="28">
+          <value>NumEmpleado,System.String</value>
+          <value>EmpaNombreCompleto,System.String</value>
+          <value>EmpaCURP,System.String</value>
+          <value>VarDatEmplTit,System.String</value>
+          <value>SalarioBase,System.String</value>
+          <value>PlazaCatalogo,System.String</value>
+          <value>EmpaRFC,System.String</value>
+          <value>PlazaNomiDsc,System.String</value>
+          <value>PuestoDsc,System.String</value>
+          <value>PeriodicidadPago,System.String</value>
+          <value>NivelPuestoDsc,System.String</value>
+          <value>NumDiasPagados,System.String</value>
+          <value>Periodo,System.String</value>
+          <value>lblFecIngreso,System.String</value>
+          <value>EmpFechaIngreso,System.String</value>
+          <value>CPFecPag,System.String</value>
+          <value>RegFiscalReceptor,System.String</value>
+          <value>CPReceptor,System.String</value>
+          <value>LblINSS,System.String</value>
+          <value>NumSeguridadSocial,System.String</value>
+          <value>VarDatEmplTitSDI,System.String</value>
+          <value>SDI,System.String</value>
+          <value>LblAntiguedad,System.String</value>
+          <value>AntSemanas,System.String</value>
+          <value>datoDinTitulo1,System.String</value>
+          <value>datosDinTitulo2,System.String</value>
+          <value>datoDin1,System.String</value>
+          <value>datoDin2,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>00b6dde9ebf24bf7a0aa343359aa6da7</Key>
+        <Name>Colaborador</Name>
+        <NameInSource>Data</NameInSource>
+      </Colaborador>
+      <PercepcionesItem Ref="4" type="DataTableSource" isKey="true">
+        <Alias>PercepcionesItem</Alias>
+        <Columns isList="true" count="5">
+          <value>DscPercepcion,System.String</value>
+          <value>cantUnidadPercepcion,System.String</value>
+          <value>ClavePercepcion,System.String</value>
+          <value>ImporteBGLetra,System.String</value>
+          <value>ImportePLetra,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>9f42083505b846e9880fcf9c296119d6</Key>
+        <Name>PercepcionesItem</Name>
+        <NameInSource>Data</NameInSource>
+      </PercepcionesItem>
+      <DeduccionesItem Ref="5" type="DataTableSource" isKey="true">
+        <Alias>DeduccionesItem</Alias>
+        <Columns isList="true" count="4">
+          <value>DscDeduccion,System.String</value>
+          <value>cantUnidadDeduccion,System.String</value>
+          <value>ClaveDeduccion,System.String</value>
+          <value>ImporteDLetra,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>fbee7c78e9ce4082a828eb23fdd94271</Key>
+        <Name>DeduccionesItem</Name>
+        <NameInSource>Data</NameInSource>
+      </DeduccionesItem>
+      <TotalPercepciones Ref="6" type="DataTableSource" isKey="true">
+        <Alias>TotalPercepciones</Alias>
+        <Columns isList="true" count="1">
+          <value>importeTotal,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>271002df0dee4b92841e7bba21ffba36</Key>
+        <Name>TotalPercepciones</Name>
+        <NameInSource>Data</NameInSource>
+      </TotalPercepciones>
+      <TotalDeducciones Ref="7" type="DataTableSource" isKey="true">
+        <Alias>TotalDeducciones</Alias>
+        <Columns isList="true" count="1">
+          <value>importeTotalDed,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>29bd0444c42a46f2911011149cd47d86</Key>
+        <Name>TotalDeducciones</Name>
+        <NameInSource>Data</NameInSource>
+      </TotalDeducciones>
+      <OtrosPagosItem Ref="8" type="DataTableSource" isKey="true">
+        <Alias>OtrosPagosItem</Alias>
+        <Columns isList="true" count="3">
+          <value>TipoOtroPago,System.String</value>
+          <value>ClaveOtroPago,System.String</value>
+          <value>importeOLetra,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>acbdefea1b8645ef924cc67819a8a15e</Key>
+        <Name>OtrosPagosItem</Name>
+        <NameInSource>Data</NameInSource>
+      </OtrosPagosItem>
+      <TotalOtrosPagos Ref="9" type="DataTableSource" isKey="true">
+        <Alias>TotalOtrosPagos</Alias>
+        <Columns isList="true" count="1">
+          <value>importetotalO,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>8eb3d598659b40acb94b329f252c3cc0</Key>
+        <Name>TotalOtrosPagos</Name>
+        <NameInSource>Data</NameInSource>
+      </TotalOtrosPagos>
+      <SubsidioItem Ref="10" type="DataTableSource" isKey="true">
+        <Alias>SubsidioItem</Alias>
+        <Columns isList="true" count="3">
+          <value>tipoSubsidio,System.String</value>
+          <value>Subhpl_glosa,System.String</value>
+          <value>importeSubLetra,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>5e4cc78967a94714a120f9f2a4b12489</Key>
+        <Name>SubsidioItem</Name>
+        <NameInSource>Data</NameInSource>
+      </SubsidioItem>
+      <TotalSubsidio Ref="11" type="DataTableSource" isKey="true">
+        <Alias>TotalSubsidio</Alias>
+        <Columns isList="true" count="1">
+          <value>importeTotSubLetra,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>39476bcc9ea34f648f4af9c18d2e2f38</Key>
+        <Name>TotalSubsidio</Name>
+        <NameInSource>Data</NameInSource>
+      </TotalSubsidio>
+      <Subtotales Ref="12" type="DataTableSource" isKey="true">
+        <Alias>Subtotales</Alias>
+        <Columns isList="true" count="6">
+          <value>importeTotal,System.String</value>
+          <value>DescuentoLetra,System.String</value>
+          <value>importetotalO,System.String</value>
+          <value>RetenidoLetra,System.String</value>
+          <value>SubtotalLetra,System.String</value>
+          <value>TotalPagarLetra,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>e3bff23059b648a3bbedc5ec09d082b1</Key>
+        <Name>Subtotales</Name>
+        <NameInSource>Data</NameInSource>
+      </Subtotales>
+      <SubtotalesDinItem Ref="13" type="DataTableSource" isKey="true">
+        <Alias>SubtotalesDinItem</Alias>
+        <Columns isList="true" count="2">
+          <value>EtiquetaDin,System.String</value>
+          <value>MontoSimplificadoC,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>93285937cebf46cc8b96e7651e4bd596</Key>
+        <Name>SubtotalesDinItem</Name>
+        <NameInSource>Data</NameInSource>
+      </SubtotalesDinItem>
+      <ComprobanteFiscal Ref="14" type="DataTableSource" isKey="true">
+        <Alias>ComprobanteFiscal</Alias>
+        <Columns isList="true" count="9">
+          <value>UUIDTimbre,System.String</value>
+          <value>SerieFolioFiscalOrig,System.String</value>
+          <value>FechaTimbre,System.String</value>
+          <value>NoCertificado,System.String</value>
+          <value>NoCertificadoSATTimbre,System.String</value>
+          <value>titFechaHr,System.String</value>
+          <value>Fecha,System.String</value>
+          <value>MetodoPago,System.String</value>
+          <value>LugExpedicion,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>b65756d102714e65a7b3f8576b6b38df</Key>
+        <Name>ComprobanteFiscal</Name>
+        <NameInSource>Data</NameInSource>
+      </ComprobanteFiscal>
+      <Subcontratacion Ref="15" type="DataTableSource" isKey="true">
+        <Alias>Subcontratacion</Alias>
+        <Columns isList="true" count="6">
+          <value>LugExpedicion,System.String</value>
+          <value>SubConRFC1,System.String</value>
+          <value>Porc1,System.String</value>
+          <value>RFC2,System.String</value>
+          <value>SubConRFC2,System.String</value>
+          <value>Porc2,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>35a5a87b68504d7ea41c705f6e534ae2</Key>
+        <Name>Subcontratacion</Name>
+        <NameInSource>Data</NameInSource>
+      </Subcontratacion>
+      <Incidencias Ref="16" type="DataTableSource" isKey="true">
+        <Alias>Incidencias</Alias>
+        <Columns isList="true" count="6">
+          <value>incidenciaCve,System.String</value>
+          <value>incidenciaDsc,System.String</value>
+          <value>IncidenciaCve2,System.String</value>
+          <value>IncidenciaDsc2,System.String</value>
+          <value>ValorTexto,System.String</value>
+          <value>ValorTexto2,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>80770e6affdd4c38aea58a97b81961ea</Key>
+        <Name>Incidencias</Name>
+        <NameInSource>Data</NameInSource>
+      </Incidencias>
+      <DatoDinamicoItem Ref="17" type="DataTableSource" isKey="true">
+        <Alias>DatoDinamicoItem</Alias>
+        <Columns isList="true" count="4">
+          <value>titulo1,System.String</value>
+          <value>datoDinamico1,System.String</value>
+          <value>titulo2,System.String</value>
+          <value>datoDinamico2,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>7faddd384e3e4ecc837ac08d0ed45b07</Key>
+        <Name>DatoDinamicoItem</Name>
+        <NameInSource>Data</NameInSource>
+      </DatoDinamicoItem>
+      <CalendarioItem Ref="18" type="DataTableSource" isKey="true">
+        <Alias>CalendarioItem</Alias>
+        <Columns isList="true" count="3">
+          <value>Cal_Dia,System.String</value>
+          <value>Cal_Entrada,System.String</value>
+          <value>Cal_Salida,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>629323e82f1e4b74a6562d087fa2d3f6</Key>
+        <Name>CalendarioItem</Name>
+        <NameInSource>Data</NameInSource>
+      </CalendarioItem>
+      <JornadaItem Ref="19" type="DataTableSource" isKey="true">
+        <Alias>JornadaItem</Alias>
+        <Columns isList="true" count="2">
+          <value>JorDia,System.String</value>
+          <value>TurnoDsc,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>24e41a67dd4e4764be86981b338a34dc</Key>
+        <Name>JornadaItem</Name>
+        <NameInSource>Data</NameInSource>
+      </JornadaItem>
+      <Leyenda Ref="20" type="DataTableSource" isKey="true">
+        <Alias>Leyenda</Alias>
+        <Columns isList="true" count="1">
+          <value>LeyendaCom,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>b5c110517c3a447db4b38a90c0fc7a22</Key>
+        <Name>Leyenda</Name>
+        <NameInSource>Data</NameInSource>
+      </Leyenda>
+      <Firma Ref="21" type="DataTableSource" isKey="true">
+        <Alias>Firma</Alias>
+        <Columns isList="true" count="8">
+          <value>ImagenQR,System.String</value>
+          <value>SelloCFDTimbre,System.String</value>
+          <value>SelloSATTimbre,System.String</value>
+          <value>Cadena1,System.String</value>
+          <value>Cadena2,System.String</value>
+          <value>Cadena3,System.String</value>
+          <value>Cadena4,System.String</value>
+          <value>UUIDTimbreCanc,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>10b9b4409a544b8cb6fd70f91eded60a</Key>
+        <Name>Firma</Name>
+        <NameInSource>Data</NameInSource>
+      </Firma>
+      <Grafica Ref="22" type="DataTableSource" isKey="true">
+        <Alias>Grafica</Alias>
+        <Columns isList="true" count="7">
+          <value>Categoria,System.String</value>
+          <value>imagen2,System.String</value>
+          <value>PTUBER,System.String</value>
+          <value>imagen3,System.String</value>
+          <value>PTSEG,System.String</value>
+          <value>imagen4,System.String</value>
+          <value>PTRES,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>8f0f43d4fb6a4b24a1d71c86bb8059cb</Key>
+        <Name>Grafica</Name>
+        <NameInSource>Data</NameInSource>
+      </Grafica>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <UserFunctions isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>4a5278dd742b400e8bf87f3ddecafa4c</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="23" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="2">
+        <Text1 Ref="24" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1,1.2,3.8,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Font>Arial,8</Font>
+          <Name>Text1</Name>
+          <Page isRef="23" />
+          <Parent isRef="23" />
+          <Text>{Empleador.Com_Dsc}</Text>
+          <TextBrush>Black</TextBrush>
+        </Text1>
+        <Text2 Ref="25" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>8.8,1.4,3.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Font>Arial,8</Font>
+          <Name>Text2</Name>
+          <Page isRef="23" />
+          <Parent isRef="23" />
+          <Text>{Empleador.calleNo}</Text>
+          <TextBrush>Black</TextBrush>
+        </Text2>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Expressions isList="true" count="0" />
+      <Guid>e8382d7817374495bb7d6fe48c1dfef7</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
+  <ReportChanged>8/1/2025 11:04:56 AM</ReportChanged>
+  <ReportCreated>8/1/2025 11:04:27 AM</ReportCreated>
+  <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\TEST.mrt</ReportFile>
+  <ReportGuid>a63098f25eae411fade0a29bec57d19e</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2025.3.2.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

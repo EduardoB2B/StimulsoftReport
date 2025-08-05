@@ -3,306 +3,309 @@
   <CalculationMode>Interpretation</CalculationMode>
   <Dictionary Ref="1" type="Dictionary" isKey="true">
     <BusinessObjects isList="true" count="0" />
-    <Databases isList="true" count="1">
-      <XML Ref="2" type="Stimulsoft.Report.Dictionary.StiXmlDatabase" isKey="true">
-        <Alias>XML</Alias>
-        <Key />
-        <Name>XML</Name>
-        <PathData>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\cfdi_ejemplo.xml</PathData>
-        <PathSchema />
-      </XML>
-    </Databases>
-    <DataSources isList="true" count="14">
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="21">
+      <Empleador Ref="2" type="DataTableSource" isKey="true">
+        <Alias>Empleador</Alias>
+        <Columns isList="true" count="9">
+          <value>Com_Dsc,System.String</value>
+          <value>calleNo,System.String</value>
+          <value>coloniaDelegacion,System.String</value>
+          <value>CP,System.String</value>
+          <value>Com_RFC,System.String</value>
+          <value>Regimen,System.String</value>
+          <value>RegistroPatronal,System.String</value>
+          <value>CurpCombinar,System.String</value>
+          <value>EmpImagen,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>2fcc0e51fce747fa926ecff9e7d963de</Key>
+        <Name>Empleador</Name>
+        <NameInSource>Data</NameInSource>
+      </Empleador>
       <Colaborador Ref="3" type="DataTableSource" isKey="true">
         <Alias>Colaborador</Alias>
-        <Columns isList="true" count="20">
-          <value>NumeroEmpleado,System.String</value>
-          <value>Nombre,System.String</value>
-          <value>Departamento,System.String</value>
-          <value>CURP,System.String</value>
-          <value>Puesto,System.String</value>
-          <value>RFC,System.String</value>
-          <value>NivelPuesto,System.String</value>
-          <value>NSS,System.String</value>
-          <value>RegimenEmpleado,System.String</value>
-          <value>TipoNomina,System.String</value>
-          <value>RegimenFiscal,System.String</value>
-          <value>SalarioBaseCotizacion,System.String</value>
-          <value>CodigoPostal,System.String</value>
+        <Columns isList="true" count="28">
+          <value>NumEmpleado,System.String</value>
+          <value>EmpaNombreCompleto,System.String</value>
+          <value>EmpaCURP,System.String</value>
+          <value>VarDatEmplTit,System.String</value>
+          <value>SalarioBase,System.String</value>
+          <value>PlazaCatalogo,System.String</value>
+          <value>EmpaRFC,System.String</value>
+          <value>PlazaNomiDsc,System.String</value>
+          <value>PuestoDsc,System.String</value>
           <value>PeriodicidadPago,System.String</value>
-          <value>FechaPago,System.String</value>
-          <value>PeriodoPagado,System.String</value>
+          <value>NivelPuestoDsc,System.String</value>
           <value>NumDiasPagados,System.String</value>
-          <value>FechaIngreso,System.String</value>
-          <value>Antiguedad,System.String</value>
+          <value>Periodo,System.String</value>
+          <value>lblFecIngreso,System.String</value>
+          <value>EmpFechaIngreso,System.String</value>
+          <value>CPFecPag,System.String</value>
+          <value>RegFiscalReceptor,System.String</value>
+          <value>CPReceptor,System.String</value>
+          <value>LblINSS,System.String</value>
+          <value>NumSeguridadSocial,System.String</value>
+          <value>VarDatEmplTitSDI,System.String</value>
           <value>SDI,System.String</value>
+          <value>LblAntiguedad,System.String</value>
+          <value>AntSemanas,System.String</value>
+          <value>datoDinTitulo1,System.String</value>
+          <value>datosDinTitulo2,System.String</value>
+          <value>datoDin1,System.String</value>
+          <value>datoDin2,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
-        <Key>2bbab786aa034b04b38eab4ecb3da492</Key>
+        <Key>00b6dde9ebf24bf7a0aa343359aa6da7</Key>
         <Name>Colaborador</Name>
-        <NameInSource>XML.Colaborador</NameInSource>
+        <NameInSource>Data</NameInSource>
       </Colaborador>
-      <Concepto Ref="4" type="DataTableSource" isKey="true">
-        <Alias>Concepto</Alias>
-        <Columns isList="true" count="7">
-          <value>Cantidad,System.String</value>
-          <value>ClaveUnidad,System.String</value>
-          <value>Descripcion,System.String</value>
-          <value>PrecioUnitario,System.String</value>
-          <value>Importe,System.String</value>
-          <value>ClaveProductoServicio,System.String</value>
-          <value>ConceptoPago_Id,System.Int32</value>
-        </Columns>
-        <Dictionary isRef="1" />
-        <Key>1d7af420c34a4651827866c23645a09b</Key>
-        <Name>Concepto</Name>
-        <NameInSource>XML.Concepto</NameInSource>
-      </Concepto>
-      <ConceptoPago Ref="5" type="DataTableSource" isKey="true">
-        <Alias>ConceptoPago</Alias>
-        <Columns isList="true" count="1">
-          <value>ConceptoPago_Id,System.Int32</value>
-        </Columns>
-        <Dictionary isRef="1" />
-        <Key>1b96304720ca4d58993ddd2b1ffe0ce9</Key>
-        <Name>ConceptoPago</Name>
-        <NameInSource>XML.ConceptoPago</NameInSource>
-      </ConceptoPago>
-      <DatoFiscal Ref="6" type="DataTableSource" isKey="true">
-        <Alias>DatoFiscal</Alias>
-        <Columns isList="true" count="14">
-          <value>FolioFiscal,System.String</value>
-          <value>FechaCertificacion,System.String</value>
-          <value>NumeroCertificado,System.String</value>
-          <value>FechaEmision,System.String</value>
-          <value>NumeroSerieSAT,System.String</value>
-          <value>TipoNomina,System.String</value>
-          <value>MetodoPago,System.String</value>
-          <value>LugarExpedicion,System.String</value>
-          <value>SelloCFDI,System.String</value>
-          <value>SelloSAT,System.String</value>
-          <value>CadenaOriginal,System.String</value>
-          <value>ImporteLetra,System.String</value>
-          <value>Antiguedad,System.String</value>
-          <value>DatosFiscales_Id,System.Int32</value>
-        </Columns>
-        <Dictionary isRef="1" />
-        <Key>7cfb7207119c427d9338403e2e422052</Key>
-        <Name>DatoFiscal</Name>
-        <NameInSource>XML.DatoFiscal</NameInSource>
-      </DatoFiscal>
-      <DatosFiscales Ref="7" type="DataTableSource" isKey="true">
-        <Alias>DatosFiscales</Alias>
-        <Columns isList="true" count="1">
-          <value>DatosFiscales_Id,System.Int32</value>
-        </Columns>
-        <Dictionary isRef="1" />
-        <Key>65e3b40fcfa54f64abfa92bd1fce8d91</Key>
-        <Name>DatosFiscales</Name>
-        <NameInSource>XML.DatosFiscales</NameInSource>
-      </DatosFiscales>
-      <Deduccion Ref="8" type="DataTableSource" isKey="true">
-        <Alias>Deduccion</Alias>
+      <PercepcionesItem Ref="4" type="DataTableSource" isKey="true">
+        <Alias>PercepcionesItem</Alias>
         <Columns isList="true" count="5">
-          <value>ClaveSAT,System.String</value>
-          <value>Descripcion,System.String</value>
-          <value>Importe,System.String</value>
-          <value>Tipo,System.String</value>
-          <value>Deducciones_Id,System.Int32</value>
+          <value>DscPercepcion,System.String</value>
+          <value>cantUnidadPercepcion,System.String</value>
+          <value>ClavePercepcion,System.String</value>
+          <value>ImporteBGLetra,System.String</value>
+          <value>ImportePLetra,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
-        <Key>079492d9ea7348c1b1a865491496e256</Key>
-        <Name>Deduccion</Name>
-        <NameInSource>XML.Deduccion</NameInSource>
-      </Deduccion>
-      <Deducciones Ref="9" type="DataTableSource" isKey="true">
-        <Alias>Deducciones</Alias>
+        <Key>9f42083505b846e9880fcf9c296119d6</Key>
+        <Name>PercepcionesItem</Name>
+        <NameInSource>Data</NameInSource>
+      </PercepcionesItem>
+      <DeduccionesItem Ref="5" type="DataTableSource" isKey="true">
+        <Alias>DeduccionesItem</Alias>
+        <Columns isList="true" count="4">
+          <value>DscDeduccion,System.String</value>
+          <value>cantUnidadDeduccion,System.String</value>
+          <value>ClaveDeduccion,System.String</value>
+          <value>ImporteDLetra,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>fbee7c78e9ce4082a828eb23fdd94271</Key>
+        <Name>DeduccionesItem</Name>
+        <NameInSource>Data</NameInSource>
+      </DeduccionesItem>
+      <TotalPercepciones Ref="6" type="DataTableSource" isKey="true">
+        <Alias>TotalPercepciones</Alias>
         <Columns isList="true" count="1">
-          <value>Deducciones_Id,System.Int32</value>
+          <value>importeTotal,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
-        <Key>5200e93d98d1467686963c3a3b009e3e</Key>
-        <Name>Deducciones</Name>
-        <NameInSource>XML.Deducciones</NameInSource>
-      </Deducciones>
-      <Empleador Ref="10" type="DataTableSource" isKey="true">
-        <Alias>Empleador</Alias>
-        <Columns isList="true" count="5">
-          <value>RazonSocial,System.String</value>
-          <value>Direccion,System.String</value>
-          <value>RFC,System.String</value>
-          <value>RegimenFiscal,System.String</value>
-          <value>RegistroPatronal,System.String</value>
-        </Columns>
-        <Dictionary isRef="1" />
-        <Key>e619db8ee34c46aabcfcbab6fe48f820</Key>
-        <Name>Empleador</Name>
-        <NameInSource>XML.Empleador</NameInSource>
-      </Empleador>
-      <OtroPago Ref="11" type="DataTableSource" isKey="true">
-        <Alias>OtroPago</Alias>
-        <Columns isList="true" count="5">
-          <value>ClaveSAT,System.String</value>
-          <value>Descripcion,System.String</value>
-          <value>Importe,System.String</value>
-          <value>Tipo,System.String</value>
-          <value>OtrosPagos_Id,System.Int32</value>
-        </Columns>
-        <Dictionary isRef="1" />
-        <Key>427694e4ef474202b38b0620e24a9046</Key>
-        <Name>OtroPago</Name>
-        <NameInSource>XML.OtroPago</NameInSource>
-      </OtroPago>
-      <OtrosPagos Ref="12" type="DataTableSource" isKey="true">
-        <Alias>OtrosPagos</Alias>
+        <Key>271002df0dee4b92841e7bba21ffba36</Key>
+        <Name>TotalPercepciones</Name>
+        <NameInSource>Data</NameInSource>
+      </TotalPercepciones>
+      <TotalDeducciones Ref="7" type="DataTableSource" isKey="true">
+        <Alias>TotalDeducciones</Alias>
         <Columns isList="true" count="1">
-          <value>OtrosPagos_Id,System.Int32</value>
+          <value>importeTotalDed,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
-        <Key>0ecab8e003ec4525a0c2b8d20924cd88</Key>
-        <Name>OtrosPagos</Name>
-        <NameInSource>XML.OtrosPagos</NameInSource>
-      </OtrosPagos>
-      <Percepcion Ref="13" type="DataTableSource" isKey="true">
-        <Alias>Percepcion</Alias>
+        <Key>29bd0444c42a46f2911011149cd47d86</Key>
+        <Name>TotalDeducciones</Name>
+        <NameInSource>Data</NameInSource>
+      </TotalDeducciones>
+      <OtrosPagosItem Ref="8" type="DataTableSource" isKey="true">
+        <Alias>OtrosPagosItem</Alias>
+        <Columns isList="true" count="3">
+          <value>TipoOtroPago,System.String</value>
+          <value>ClaveOtroPago,System.String</value>
+          <value>importeOLetra,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>acbdefea1b8645ef924cc67819a8a15e</Key>
+        <Name>OtrosPagosItem</Name>
+        <NameInSource>Data</NameInSource>
+      </OtrosPagosItem>
+      <TotalOtrosPagos Ref="9" type="DataTableSource" isKey="true">
+        <Alias>TotalOtrosPagos</Alias>
+        <Columns isList="true" count="1">
+          <value>importetotalO,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>8eb3d598659b40acb94b329f252c3cc0</Key>
+        <Name>TotalOtrosPagos</Name>
+        <NameInSource>Data</NameInSource>
+      </TotalOtrosPagos>
+      <SubsidioItem Ref="10" type="DataTableSource" isKey="true">
+        <Alias>SubsidioItem</Alias>
+        <Columns isList="true" count="3">
+          <value>tipoSubsidio,System.String</value>
+          <value>Subhpl_glosa,System.String</value>
+          <value>importeSubLetra,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>5e4cc78967a94714a120f9f2a4b12489</Key>
+        <Name>SubsidioItem</Name>
+        <NameInSource>Data</NameInSource>
+      </SubsidioItem>
+      <TotalSubsidio Ref="11" type="DataTableSource" isKey="true">
+        <Alias>TotalSubsidio</Alias>
+        <Columns isList="true" count="1">
+          <value>importeTotSubLetra,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>39476bcc9ea34f648f4af9c18d2e2f38</Key>
+        <Name>TotalSubsidio</Name>
+        <NameInSource>Data</NameInSource>
+      </TotalSubsidio>
+      <Subtotales Ref="12" type="DataTableSource" isKey="true">
+        <Alias>Subtotales</Alias>
         <Columns isList="true" count="6">
-          <value>ClaveSAT,System.String</value>
-          <value>Unidades,System.String</value>
-          <value>Descripcion,System.String</value>
-          <value>Importe,System.String</value>
-          <value>Tipo,System.String</value>
-          <value>Percepciones_Id,System.Int32</value>
+          <value>importeTotal,System.String</value>
+          <value>DescuentoLetra,System.String</value>
+          <value>importetotalO,System.String</value>
+          <value>RetenidoLetra,System.String</value>
+          <value>SubtotalLetra,System.String</value>
+          <value>TotalPagarLetra,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
-        <Key>560f7beee00c4d10bafc984bbc48cb4b</Key>
-        <Name>Percepcion</Name>
-        <NameInSource>XML.Percepcion</NameInSource>
-      </Percepcion>
-      <Percepciones Ref="14" type="DataTableSource" isKey="true">
-        <Alias>Percepciones</Alias>
-        <Columns isList="true" count="1">
-          <value>Percepciones_Id,System.Int32</value>
+        <Key>e3bff23059b648a3bbedc5ec09d082b1</Key>
+        <Name>Subtotales</Name>
+        <NameInSource>Data</NameInSource>
+      </Subtotales>
+      <SubtotalesDinItem Ref="13" type="DataTableSource" isKey="true">
+        <Alias>SubtotalesDinItem</Alias>
+        <Columns isList="true" count="2">
+          <value>EtiquetaDin,System.String</value>
+          <value>MontoSimplificadoC,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
-        <Key>a41cb89071f44795bb518c54eaffc0dd</Key>
-        <Name>Percepciones</Name>
-        <NameInSource>XML.Percepciones</NameInSource>
-      </Percepciones>
-      <Total Ref="15" type="DataTableSource" isKey="true">
-        <Alias>Total</Alias>
+        <Key>93285937cebf46cc8b96e7651e4bd596</Key>
+        <Name>SubtotalesDinItem</Name>
+        <NameInSource>Data</NameInSource>
+      </SubtotalesDinItem>
+      <ComprobanteFiscal Ref="14" type="DataTableSource" isKey="true">
+        <Alias>ComprobanteFiscal</Alias>
         <Columns isList="true" count="9">
-          <value>TotalPercepciones,System.String</value>
-          <value>TotalDeducciones,System.String</value>
-          <value>TotalOtrosPagos,System.String</value>
-          <value>Subtotal,System.String</value>
-          <value>TotalRetenciones,System.String</value>
-          <value>NetoPagar,System.String</value>
-          <value>SubsidioCausado,System.String</value>
-          <value>Descuento,System.String</value>
-          <value>Totales_Id,System.Int32</value>
+          <value>UUIDTimbre,System.String</value>
+          <value>SerieFolioFiscalOrig,System.String</value>
+          <value>FechaTimbre,System.String</value>
+          <value>NoCertificado,System.String</value>
+          <value>NoCertificadoSATTimbre,System.String</value>
+          <value>titFechaHr,System.String</value>
+          <value>Fecha,System.String</value>
+          <value>MetodoPago,System.String</value>
+          <value>LugExpedicion,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
-        <Key>d827e929150141c09556e940e35b52c4</Key>
-        <Name>Total</Name>
-        <NameInSource>XML.Total</NameInSource>
-      </Total>
-      <Totales Ref="16" type="DataTableSource" isKey="true">
-        <Alias>Totales</Alias>
+        <Key>b65756d102714e65a7b3f8576b6b38df</Key>
+        <Name>ComprobanteFiscal</Name>
+        <NameInSource>Data</NameInSource>
+      </ComprobanteFiscal>
+      <Subcontratacion Ref="15" type="DataTableSource" isKey="true">
+        <Alias>Subcontratacion</Alias>
+        <Columns isList="true" count="6">
+          <value>LugExpedicion,System.String</value>
+          <value>SubConRFC1,System.String</value>
+          <value>Porc1,System.String</value>
+          <value>RFC2,System.String</value>
+          <value>SubConRFC2,System.String</value>
+          <value>Porc2,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>35a5a87b68504d7ea41c705f6e534ae2</Key>
+        <Name>Subcontratacion</Name>
+        <NameInSource>Data</NameInSource>
+      </Subcontratacion>
+      <Incidencias Ref="16" type="DataTableSource" isKey="true">
+        <Alias>Incidencias</Alias>
+        <Columns isList="true" count="6">
+          <value>incidenciaCve,System.String</value>
+          <value>incidenciaDsc,System.String</value>
+          <value>IncidenciaCve2,System.String</value>
+          <value>IncidenciaDsc2,System.String</value>
+          <value>ValorTexto,System.String</value>
+          <value>ValorTexto2,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>80770e6affdd4c38aea58a97b81961ea</Key>
+        <Name>Incidencias</Name>
+        <NameInSource>Data</NameInSource>
+      </Incidencias>
+      <DatoDinamicoItem Ref="17" type="DataTableSource" isKey="true">
+        <Alias>DatoDinamicoItem</Alias>
+        <Columns isList="true" count="4">
+          <value>titulo1,System.String</value>
+          <value>datoDinamico1,System.String</value>
+          <value>titulo2,System.String</value>
+          <value>datoDinamico2,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>7faddd384e3e4ecc837ac08d0ed45b07</Key>
+        <Name>DatoDinamicoItem</Name>
+        <NameInSource>Data</NameInSource>
+      </DatoDinamicoItem>
+      <CalendarioItem Ref="18" type="DataTableSource" isKey="true">
+        <Alias>CalendarioItem</Alias>
+        <Columns isList="true" count="3">
+          <value>Cal_Dia,System.String</value>
+          <value>Cal_Entrada,System.String</value>
+          <value>Cal_Salida,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>629323e82f1e4b74a6562d087fa2d3f6</Key>
+        <Name>CalendarioItem</Name>
+        <NameInSource>Data</NameInSource>
+      </CalendarioItem>
+      <JornadaItem Ref="19" type="DataTableSource" isKey="true">
+        <Alias>JornadaItem</Alias>
+        <Columns isList="true" count="2">
+          <value>JorDia,System.String</value>
+          <value>TurnoDsc,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>24e41a67dd4e4764be86981b338a34dc</Key>
+        <Name>JornadaItem</Name>
+        <NameInSource>Data</NameInSource>
+      </JornadaItem>
+      <Leyenda Ref="20" type="DataTableSource" isKey="true">
+        <Alias>Leyenda</Alias>
         <Columns isList="true" count="1">
-          <value>Totales_Id,System.Int32</value>
+          <value>LeyendaCom,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
-        <Key>832311d8d17048d59dc3ce9faa3b4fee</Key>
-        <Name>Totales</Name>
-        <NameInSource>XML.Totales</NameInSource>
-      </Totales>
+        <Key>b5c110517c3a447db4b38a90c0fc7a22</Key>
+        <Name>Leyenda</Name>
+        <NameInSource>Data</NameInSource>
+      </Leyenda>
+      <Firma Ref="21" type="DataTableSource" isKey="true">
+        <Alias>Firma</Alias>
+        <Columns isList="true" count="8">
+          <value>ImagenQR,System.String</value>
+          <value>SelloCFDTimbre,System.String</value>
+          <value>SelloSATTimbre,System.String</value>
+          <value>Cadena1,System.String</value>
+          <value>Cadena2,System.String</value>
+          <value>Cadena3,System.String</value>
+          <value>Cadena4,System.String</value>
+          <value>UUIDTimbreCanc,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>10b9b4409a544b8cb6fd70f91eded60a</Key>
+        <Name>Firma</Name>
+        <NameInSource>Data</NameInSource>
+      </Firma>
+      <Grafica Ref="22" type="DataTableSource" isKey="true">
+        <Alias>Grafica</Alias>
+        <Columns isList="true" count="7">
+          <value>Categoria,System.String</value>
+          <value>imagen2,System.String</value>
+          <value>PTUBER,System.String</value>
+          <value>imagen3,System.String</value>
+          <value>PTSEG,System.String</value>
+          <value>imagen4,System.String</value>
+          <value>PTRES,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>8f0f43d4fb6a4b24a1d71c86bb8059cb</Key>
+        <Name>Grafica</Name>
+        <NameInSource>Data</NameInSource>
+      </Grafica>
     </DataSources>
-    <Relations isList="true" count="6">
-      <ConceptoPago Ref="17" type="DataRelation" isKey="true">
-        <Alias>ConceptoPago</Alias>
-        <ChildColumns isList="true" count="1">
-          <value>ConceptoPago_Id</value>
-        </ChildColumns>
-        <ChildSource isRef="4" />
-        <Dictionary isRef="1" />
-        <Name>ConceptoPago</Name>
-        <NameInSource>ConceptoPago_Concepto</NameInSource>
-        <ParentColumns isList="true" count="1">
-          <value>ConceptoPago_Id</value>
-        </ParentColumns>
-        <ParentSource isRef="5" />
-      </ConceptoPago>
-      <DatosFiscales Ref="18" type="DataRelation" isKey="true">
-        <Alias>DatosFiscales</Alias>
-        <ChildColumns isList="true" count="1">
-          <value>DatosFiscales_Id</value>
-        </ChildColumns>
-        <ChildSource isRef="6" />
-        <Dictionary isRef="1" />
-        <Name>DatosFiscales</Name>
-        <NameInSource>DatosFiscales_DatoFiscal</NameInSource>
-        <ParentColumns isList="true" count="1">
-          <value>DatosFiscales_Id</value>
-        </ParentColumns>
-        <ParentSource isRef="7" />
-      </DatosFiscales>
-      <Deducciones Ref="19" type="DataRelation" isKey="true">
-        <Alias>Deducciones</Alias>
-        <ChildColumns isList="true" count="1">
-          <value>Deducciones_Id</value>
-        </ChildColumns>
-        <ChildSource isRef="8" />
-        <Dictionary isRef="1" />
-        <Name>Deducciones</Name>
-        <NameInSource>Deducciones_Deduccion</NameInSource>
-        <ParentColumns isList="true" count="1">
-          <value>Deducciones_Id</value>
-        </ParentColumns>
-        <ParentSource isRef="9" />
-      </Deducciones>
-      <OtrosPagos Ref="20" type="DataRelation" isKey="true">
-        <Alias>OtrosPagos</Alias>
-        <ChildColumns isList="true" count="1">
-          <value>OtrosPagos_Id</value>
-        </ChildColumns>
-        <ChildSource isRef="11" />
-        <Dictionary isRef="1" />
-        <Name>OtrosPagos</Name>
-        <NameInSource>OtrosPagos_OtroPago</NameInSource>
-        <ParentColumns isList="true" count="1">
-          <value>OtrosPagos_Id</value>
-        </ParentColumns>
-        <ParentSource isRef="12" />
-      </OtrosPagos>
-      <Percepciones Ref="21" type="DataRelation" isKey="true">
-        <Alias>Percepciones</Alias>
-        <ChildColumns isList="true" count="1">
-          <value>Percepciones_Id</value>
-        </ChildColumns>
-        <ChildSource isRef="13" />
-        <Dictionary isRef="1" />
-        <Name>Percepciones</Name>
-        <NameInSource>Percepciones_Percepcion</NameInSource>
-        <ParentColumns isList="true" count="1">
-          <value>Percepciones_Id</value>
-        </ParentColumns>
-        <ParentSource isRef="14" />
-      </Percepciones>
-      <Totales Ref="22" type="DataRelation" isKey="true">
-        <Alias>Totales</Alias>
-        <ChildColumns isList="true" count="1">
-          <value>Totales_Id</value>
-        </ChildColumns>
-        <ChildSource isRef="15" />
-        <Dictionary isRef="1" />
-        <Name>Totales</Name>
-        <NameInSource>Totales_Total</NameInSource>
-        <ParentColumns isList="true" count="1">
-          <value>Totales_Id</value>
-        </ParentColumns>
-        <ParentSource isRef="16" />
-      </Totales>
-    </Relations>
+    <Relations isList="true" count="0" />
     <Report isRef="0" />
     <Resources isList="true" count="0" />
     <UserFunctions isList="true" count="0" />
@@ -331,7 +334,7 @@
               <Name>Text4</Name>
               <Page isRef="23" />
               <Parent isRef="24" />
-              <Text>{Empleador.RazonSocial}</Text>
+              <Text>{Empleador.Com_Dsc}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text4>
@@ -345,7 +348,7 @@
               <Name>Text5</Name>
               <Page isRef="23" />
               <Parent isRef="24" />
-              <Text>{Empleador.Direccion}</Text>
+              <Text>{Empleador.CP}{Empleador.coloniaDelegacion}{Empleador.calleNo}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text5>
@@ -358,7 +361,7 @@
               <Name>Text6</Name>
               <Page isRef="23" />
               <Parent isRef="24" />
-              <Text>{Empleador.RFC}</Text>
+              <Text>{Empleador.Com_RFC}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text6>
@@ -371,7 +374,7 @@
               <Name>Text7</Name>
               <Page isRef="23" />
               <Parent isRef="24" />
-              <Text>{Empleador.RegimenFiscal}</Text>
+              <Text>{Empleador.Regimen}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text7>
@@ -440,8 +443,9 @@
                   <Name>Text13</Name>
                   <Page isRef="23" />
                   <Parent isRef="33" />
-                  <Text>{Colaborador.Nombre}</Text>
+                  <Text>{Colaborador.EmpaNombreCompleto}</Text>
                   <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
                 </Text13>
                 <Text3 Ref="35" type="Text" isKey="true">
                   <Brush>[191:191:191]</Brush>
@@ -480,13 +484,14 @@
                   <Name>Text12</Name>
                   <Page isRef="23" />
                   <Parent isRef="33" />
-                  <Text>{Colaborador.NumeroEmpleado}</Text>
+                  <Text>{Colaborador.NumEmpleado}</Text>
                   <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
                 </Text12>
                 <Panel3 Ref="38" type="Panel" isKey="true">
                   <Border>Adv[242:242:242];1;Solid;Transparent;1;Solid;Transparent;0;Solid;[242:242:242];1;Solid;False;1;Black</Border>
                   <Brush>Transparent</Brush>
-                  <ClientRectangle>12.6,0.6,7.4,3.4</ClientRectangle>
+                  <ClientRectangle>12.6,0.6,7.2,3.4</ClientRectangle>
                   <Components isList="true" count="8">
                     <Text40 Ref="39" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -497,8 +502,9 @@
                       <Name>Text40</Name>
                       <Page isRef="23" />
                       <Parent isRef="38" />
-                      <Text>{Colaborador.Puesto}</Text>
+                      <Text>{Colaborador.PuestoDsc}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
                     </Text40>
                     <Text41 Ref="40" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -509,8 +515,9 @@
                       <Name>Text41</Name>
                       <Page isRef="23" />
                       <Parent isRef="38" />
-                      <Text>{Colaborador.NivelPuesto}</Text>
+                      <Text>{Colaborador.NivelPuestoDsc}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
                     </Text41>
                     <Text42 Ref="41" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -521,8 +528,9 @@
                       <Name>Text42</Name>
                       <Page isRef="23" />
                       <Parent isRef="38" />
-                      <Text>{Colaborador.TipoNomina}</Text>
+                      <Text>{Colaborador.PeriodicidadPago}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
                     </Text42>
                     <Text43 Ref="42" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -533,8 +541,9 @@
                       <Name>Text43</Name>
                       <Page isRef="23" />
                       <Parent isRef="38" />
-                      <Text>{Colaborador.PeriodoPagado}</Text>
+                      <Text>{Colaborador.Periodo}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
                     </Text43>
                     <Text44 Ref="43" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -545,8 +554,9 @@
                       <Name>Text44</Name>
                       <Page isRef="23" />
                       <Parent isRef="38" />
-                      <Text>{Colaborador.FechaPago}</Text>
+                      <Text>{Colaborador.CPFecPag}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
                     </Text44>
                     <Text45 Ref="44" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -559,6 +569,7 @@
                       <Parent isRef="38" />
                       <Text>{Colaborador.NumDiasPagados}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>DataColumn</Type>
                     </Text45>
                     <Text46 Ref="45" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -569,8 +580,9 @@
                       <Name>Text46</Name>
                       <Page isRef="23" />
                       <Parent isRef="38" />
-                      <Text>{Colaborador.Antiguedad}</Text>
+                      <Text>{Colaborador.LblAntiguedad}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
                     </Text46>
                     <Text39 Ref="46" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -581,8 +593,9 @@
                       <Name>Text39</Name>
                       <Page isRef="23" />
                       <Parent isRef="38" />
-                      <Text>{Colaborador.Departamento}</Text>
+                      <Text>{Colaborador.PlazaNomiDsc}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
                     </Text39>
                   </Components>
                   <Conditions isList="true" count="0" />
@@ -605,8 +618,9 @@
                       <Name>Text26</Name>
                       <Page isRef="23" />
                       <Parent isRef="47" />
-                      <Text>{Colaborador.RegimenEmpleado}</Text>
+                      <Text>{Colaborador.RegFiscalReceptor}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
                     </Text26>
                     <Text27 Ref="49" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -617,8 +631,9 @@
                       <Name>Text27</Name>
                       <Page isRef="23" />
                       <Parent isRef="47" />
-                      <Text>{Colaborador.SalarioBaseCotizacion}</Text>
+                      <Text>{Colaborador.SalarioBase}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
                     </Text27>
                     <Text28 Ref="50" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -631,6 +646,7 @@
                       <Parent isRef="47" />
                       <Text>{Colaborador.PeriodicidadPago}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>DataColumn</Type>
                     </Text28>
                     <Text29 Ref="51" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -641,8 +657,9 @@
                       <Name>Text29</Name>
                       <Page isRef="23" />
                       <Parent isRef="47" />
-                      <Text>{Colaborador.FechaIngreso}</Text>
+                      <Text>{Colaborador.lblFecIngreso}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
                     </Text29>
                     <Text30 Ref="52" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -655,6 +672,7 @@
                       <Parent isRef="47" />
                       <Text>{Colaborador.SDI}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
                     </Text30>
                     <Text35 Ref="53" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -717,8 +735,9 @@
                       <Name>Text25</Name>
                       <Page isRef="23" />
                       <Parent isRef="47" />
-                      <Text>{Colaborador.NSS}</Text>
+                      <Text>{Colaborador.LblINSS}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
                     </Text25>
                     <Text33 Ref="58" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -755,8 +774,9 @@
                       <Name>Text24</Name>
                       <Page isRef="23" />
                       <Parent isRef="47" />
-                      <Text>{Colaborador.RFC}</Text>
+                      <Text>{Colaborador.EmpaRFC}</Text>
                       <TextBrush>Black</TextBrush>
+                      <Type>DataColumn</Type>
                     </Text24>
                     <Text23 Ref="61" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -767,9 +787,9 @@
                       <Name>Text23</Name>
                       <Page isRef="23" />
                       <Parent isRef="47" />
-                      <Text>{Colaborador.CURP}</Text>
+                      <Text>{Colaborador.EmpaCURP}</Text>
                       <TextBrush>Black</TextBrush>
-                      <Type>DataColumn</Type>
+                      <Type>Expression</Type>
                     </Text23>
                     <Text32 Ref="62" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
@@ -1267,7 +1287,7 @@
               </Components>
               <Conditions isList="true" count="0" />
               <DataRelationName isNull="true" />
-              <DataSourceName>Percepciones</DataSourceName>
+              <DataSourceName>PercepcionesItem</DataSourceName>
               <Expressions isList="true" count="0" />
               <Filters isList="true" count="0" />
               <Name>DataBand1</Name>
@@ -1460,7 +1480,7 @@
               </Components>
               <Conditions isList="true" count="0" />
               <DataRelationName isNull="true" />
-              <DataSourceName>Percepciones</DataSourceName>
+              <DataSourceName>PercepcionesItem</DataSourceName>
               <Expressions isList="true" count="0" />
               <Filters isList="true" count="0" />
               <Name>DataBand2</Name>
@@ -1640,7 +1660,7 @@
               </Components>
               <Conditions isList="true" count="0" />
               <DataRelationName isNull="true" />
-              <DataSourceName>Percepciones</DataSourceName>
+              <DataSourceName>PercepcionesItem</DataSourceName>
               <Expressions isList="true" count="0" />
               <Filters isList="true" count="0" />
               <Name>DataBand3</Name>
@@ -1861,7 +1881,7 @@
               </Components>
               <Conditions isList="true" count="0" />
               <DataRelationName isNull="true" />
-              <DataSourceName>Percepciones</DataSourceName>
+              <DataSourceName>PercepcionesItem</DataSourceName>
               <Expressions isList="true" count="0" />
               <Filters isList="true" count="0" />
               <Name>DataBand4</Name>
@@ -2445,13 +2465,13 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>Eduardo Hernández</ReportAuthor>
-  <ReportChanged>7/10/2025 2:01:58 PM</ReportChanged>
+  <ReportChanged>7/29/2025 9:54:37 AM</ReportChanged>
   <ReportCreated>6/30/2025 1:42:11 PM</ReportCreated>
-  <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\CFDI_XML.mrt</ReportFile>
-  <ReportGuid>0716467869f4495fb914226c9f8a73f9</ReportGuid>
+  <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\SDTReciboNominaCFDI.mrt</ReportFile>
+  <ReportGuid>4dd4821c6bb1402fbc585b749976a3eb</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
-  <ReportVersion>2025.2.5.0</ReportVersion>
+  <ReportVersion>2025.3.2.0</ReportVersion>
   <Script>using System;
 using System.Drawing;
 using System.Windows.Forms;

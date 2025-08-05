@@ -50,7 +50,7 @@
   <GlobalizationStrings isList="true" count="0" />
   <Key>546dc8c8638842e494c5d13682a96812</Key>
   <MetaTags isList="true" count="0" />
-  <Pages isList="true" count="1">
+  <Pages isList="true" count="2">
     <Page1 Ref="4" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
@@ -415,6 +415,7 @@
           <Components isList="true" count="1">
             <DataBand1 Ref="34" type="DataBand" isKey="true">
               <Brush>Transparent</Brush>
+              <BusinessObjectGuid isNull="true" />
               <ClientRectangle>0,0.4,18.6,1</ClientRectangle>
               <Components isList="true" count="6">
                 <Text27 Ref="35" type="Text" isKey="true">
@@ -431,7 +432,7 @@
                 </Text27>
                 <Text28 Ref="36" type="Text" isKey="true">
                   <Brush>Transparent</Brush>
-                  <ClientRectangle>1.6,0,4,0.6</ClientRectangle>
+                  <ClientRectangle>1.6,0,4.2,0.6</ClientRectangle>
                   <Conditions isList="true" count="0" />
                   <Expressions isList="true" count="0" />
                   <Font>Arial,8</Font>
@@ -491,6 +492,8 @@
                 </Text32>
               </Components>
               <Conditions isList="true" count="0" />
+              <DataRelationName isNull="true" />
+              <DataSourceName>Detalle</DataSourceName>
               <Expressions isList="true" count="0" />
               <Filters isList="true" count="0" />
               <Name>DataBand1</Name>
@@ -515,6 +518,70 @@
       <PageWidth>21</PageWidth>
       <Report isRef="0" />
     </Page1>
+    <Page2 Ref="41" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="2">
+        <Text33 Ref="42" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.4,3.2,6.6,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Font>Arial,8</Font>
+          <Name>Text33</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <Text>Se valido contra el RFC</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text33>
+        <GroupHeaderBand1 Ref="43" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,2</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text34 Ref="44" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.4,6.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text34</Name>
+              <Page isRef="41" />
+              <Parent isRef="43" />
+              <Text>Se valido contra el RFC</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text34>
+            <Text35 Ref="45" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.6,0.4,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text35</Name>
+              <Page isRef="41" />
+              <Parent isRef="43" />
+              <Text>{Data.Empresa}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text35>
+          </Components>
+          <Condition>{Data.RFC} != "IIA040805DZ4"</Condition>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>GroupHeaderBand1</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </GroupHeaderBand1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Expressions isList="true" count="0" />
+      <Guid>558b991c22984e1e9bc38e00e03ea9d7</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page2</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+    </Page2>
   </Pages>
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
@@ -528,13 +595,13 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>Eduardo Hernández</ReportAuthor>
-  <ReportChanged>7/16/2025 11:43:19 PM</ReportChanged>
+  <ReportChanged>8/4/2025 9:26:33 PM</ReportChanged>
   <ReportCreated>7/15/2025 1:48:53 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReportAusentismos.mrt</ReportFile>
-  <ReportGuid>defb0e798618447aabb583bf362544b3</ReportGuid>
+  <ReportGuid>221f977df118423c9e65ac52b40297f8</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
-  <ReportVersion>2025.3.1.0</ReportVersion>
+  <ReportVersion>2025.3.2.0</ReportVersion>
   <Script>using System;
 using System.Drawing;
 using System.Windows.Forms;

@@ -1,0 +1,186 @@
+{
+    "Empleador": {
+        "Com_Dsc": "Empresa Ejemplo S.A. de C.V.",
+        "calleNo": "123",
+        "coloniaDelegacion": "Centro",
+        "CP": "06000",
+        "Com_RFC": "EES123456789",
+        "Regimen": "006 General de Ley Personas Morales",
+        "RegistroPatronal": "A123456789",
+        "CurpCombinar": "EESJ800101HDFRRL09",
+        "EmpImagen": "base64string"
+    },
+    "Colaborador": {
+        "NumEmpleado": "001",
+        "EmpaNombreCompleto": "Juan Pérez López",
+        "EmpaCURP": "PELJ800101HDFRRL09",
+        "VarDatEmplTit": "Dato ejemplo",
+        "SalarioBase": "15000.00",
+        "PlazaCatalogo": "A1",
+        "EmpaRFC": "PELJ800101XXX",
+        "PlazaNomiDsc": "Administrativo",
+        "PuestoDsc": "Contador",
+        "PeriodicidadPago": "Quincenal",
+        "NivelPuestoDsc": "Nivel 1",
+        "NumDiasPagados": "15",
+        "Periodo": "2024-07",
+        "lblFecIngreso": "2020-01-15",
+        "EmpFechaIngreso": "2020-01-15",
+        "CPFecPag": "2024-07-15",
+        "RegFiscalReceptor": "601",
+        "CPReceptor": "06000",
+        "LblINSS": "1234567890",
+        "NumSeguridadSocial": "12345678901",
+        "VarDatEmplTitSDI": "Dato SDI",
+        "SDI": "20000.00",
+        "LblAntiguedad": "4 años",
+        "AntSemanas": "208",
+        "datoDinTitulo1": "Título dinámico 1",
+        "datosDinTitulo2": "Título dinámico 2",
+        "datoDin1": "Dato dinámico 1",
+        "datoDin2": "Dato dinámico 2"
+    },
+    "Percepciones": {
+        "PercepcionesItem": [
+            {
+                "DscPercepcion": "Sueldo",
+                "cantUnidadPercepcion": "1",
+                "ClavePercepcion": "001",
+                "ImporteBGLetra": "Quince mil pesos",
+                "ImportePLetra": "Quince mil pesos"
+            }
+        ]
+    },
+    "Deducciones": {
+        "DeduccionesItem": [
+            {
+                "DscDeduccion": "ISR",
+                "cantUnidadDeduccion": "1",
+                "ClaveDeduccion": "002",
+                "ImporteDLetra": "Mil pesos"
+            }
+        ]
+    },
+    "TotalPercepciones": {
+        "importeTotal": 15000.00
+    },
+    "TotalDeducciones": {
+        "importeTotalDed": 1000.00
+    },
+    "OtrosPagos": {
+        "OtrosPagosItem": [
+            {
+                "TipoOtroPago": "Subsidio al empleo",
+                "ClaveOtroPago": "003",
+                "importeOLetra": "Cien pesos"
+            }
+        ]
+    },
+    "TotalOtrosPagos": {
+        "importetotalO": 100.00
+    },
+    "Subsidio": {
+        "SubsidioItem": [
+            {
+                "tipoSubsidio": "Ordinario",
+                "Subhpl_glosa": "Glosa ejemplo",
+                "importeSubLetra": "Cincuenta pesos"
+            }
+        ]
+    },
+    "TotalSubsidio": {
+        "importeTotSubLetra": "Cincuenta pesos"
+    },
+    "Subtotales": {
+        "importeTotal": 14000.00,
+        "DescuentoLetra": "Cien pesos",
+        "importetotalO": 100.00,
+        "RetenidoLetra": "Mil pesos",
+        "SubtotalLetra": "Trece mil pesos",
+        "TotalPagarLetra": "Trece mil pesos"
+    },
+    "SubtotalesDin": {
+        "SubtotalesDinItem": [
+            {
+                "EtiquetaDin": "Etiqueta ejemplo",
+                "MontoSimplificadoC": "500.00"
+            }
+        ]
+    },
+    "ComprobanteFiscal": {
+        "UUIDTimbre": "123e4567-e89b-12d3-a456-426614174000",
+        "SerieFolioFiscalOrig": "A-12345",
+        "FechaTimbre": "2024-07-15T12:00:00",
+        "NoCertificado": "00001000000403258748",
+        "NoCertificadoSATTimbre": "00001000000403258749",
+        "titFechaHr": "2024-07-15T12:00:00",
+        "Fecha": "2024-07-15",
+        "MetodoPago": "PUE",
+        "LugExpedicion": "06000"
+    },
+    "Subcontratacion": {
+        "RFC1": "AAA010101AAA",
+        "SubConRFC1": "BBB010101BBB",
+        "Porc1": "50",
+        "RFC2": "CCC010101CCC",
+        "SubConRFC2": "DDD010101DDD",
+        "Porc2": "50"
+    },
+    "Incidencias": {
+        "incidenciaCve": "001",
+        "incidenciaDsc": "Falta injustificada",
+        "IncidenciaCve2": "002",
+        "IncidenciaDsc2": "Retardo",
+        "ValorTexto": "Texto ejemplo",
+        "ValorTexto2": "Texto ejemplo 2"
+    },
+    "DatoDinamico": {
+        "DatoDinamicoItem": [
+            {
+                "titulo1": "Título 1",
+                "datoDinamico1": "Valor dinámico 1",
+                "titulo2": "Título 2",
+                "datoDinamico2": "Valor dinámico 2"
+            }
+        ]
+    },
+    "Calendario": {
+        "CalendarioItem": [
+            {
+                "Cal_Dia": "Lunes",
+                "Cal_Entrada": "08:00",
+                "Cal_Salida": "17:00"
+            }
+        ]
+    },
+    "Jornada": {
+        "JornadaItem": [
+            {
+                "JorDia": "Lunes",
+                "TurnoDsc": "Matutino"
+            }
+        ]
+    },
+    "Leyenda": {
+        "LeyendaCom": "Este recibo es un ejemplo de CFDI de nómina."
+    },
+    "Firma": {
+        "ImagenQR": "base64string",
+        "SelloCFDTimbre": "sello123",
+        "SelloSATTimbre": "selloSAT123",
+        "Cadena1": "cadena1",
+        "Cadena2": "cadena2",
+        "Cadena3": "cadena3",
+        "Cadena4": "cadena4",
+        "UUIDTimbreCanc": "uuid-cancelacion"
+    },
+    "Grafica": {
+        "Categoria": "Ejemplo",
+        "imagen2": "base64string",
+        "PTUBER": "valor",
+        "imagen3": "base64string",
+        "PTSEG": "valor",
+        "imagen4": "base64string",
+        "PTRES": "valor"
+    }
+}
