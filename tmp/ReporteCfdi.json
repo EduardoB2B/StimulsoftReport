@@ -40,6 +40,14 @@
         "datoDin1": "Dato dinámico 1",
         "datoDin2": "Dato dinámico 2"
     },
+    "ConceptoCFDI": {
+        "Cantidad": "1.00",
+        "ClaveUnidad": "ACT",
+        "Descripcion": "Pago de nómina",
+        "ClaveProdServ": "84111505",
+        "ValorUnitario": "8,066.67",
+        "Importe": "8,066.67"
+    },
     "Percepciones": {
         "PercepcionesItem": [
             {

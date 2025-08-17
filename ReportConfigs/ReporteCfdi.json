@@ -3,6 +3,7 @@
     "DataSourceMappings": {
         "Empleador": "Empleador",
         "Colaborador": "Colaborador",
+        "ConceptoCFDI": "ConceptoCFDI",
         "PercepcionesItem": "Percepciones.PercepcionesItem",
         "DeduccionesItem": "Deducciones.DeduccionesItem",
         "OtrosPagosItem": "OtrosPagos.OtrosPagosItem",
@@ -28,6 +29,7 @@
     "RequiredDataSources": [
         "Empleador",
         "Colaborador",
+        "ConceptoCFDI",
         "PercepcionesItem",
         "DeduccionesItem",
         "OtrosPagosItem",
