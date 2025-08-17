@@ -47,7 +47,16 @@
                 "cantUnidadPercepcion": "1",
                 "ClavePercepcion": "001",
                 "ImporteBGLetra": "Quince mil pesos",
-                "ImportePLetra": "Quince mil pesos"
+                "ImportePLetra": "Quince mil pesos",
+                "Importe": 15000.00
+            },
+            {
+                "DscPercepcion": "Sueldo 2",
+                "cantUnidadPercepcion": "1",
+                "ClavePercepcion": "001",
+                "ImporteBGLetra": "Diecinueve mil pesos",
+                "ImportePLetra": "Diecinueve mil pesos",
+                "Importe": 19000.00
             }
         ]
     },
@@ -57,7 +66,15 @@
                 "DscDeduccion": "ISR",
                 "cantUnidadDeduccion": "1",
                 "ClaveDeduccion": "002",
-                "ImporteDLetra": "Mil pesos"
+                "ImporteDLetra": "Mil pesos",
+                "Importe": 1000.00
+            },
+            {
+                "DscDeduccion": "ISR 2",
+                "cantUnidadDeduccion": "1",
+                "ClaveDeduccion": "002",
+                "ImporteDLetra": "Mil pesos",
+                "Importe": 2000.00
             }
         ]
     },
@@ -70,9 +87,11 @@
     "OtrosPagos": {
         "OtrosPagosItem": [
             {
-                "TipoOtroPago": "Subsidio al empleo",
+                "DscOtroPago": "Subsidio al empleo",
                 "ClaveOtroPago": "003",
-                "importeOLetra": "Cien pesos"
+                "cantUnidadOtroPago": "1",
+                "importeOLetra": "Cien pesos",
+                "Importe": 100.00
             }
         ]
     },
@@ -82,9 +101,10 @@
     "Subsidio": {
         "SubsidioItem": [
             {
-                "tipoSubsidio": "Ordinario",
-                "Subhpl_glosa": "Glosa ejemplo",
-                "importeSubLetra": "Cincuenta pesos"
+                "DscSubsidio": "D002 SUBSIDIO AL EMPLEO",
+                "ClaveSubsidio": "002",
+                "importeSubLetra": "Cero",
+                "Importe": 0
             }
         ]
     },
@@ -111,8 +131,8 @@
         "UUIDTimbre": "123e4567-e89b-12d3-a456-426614174000",
         "SerieFolioFiscalOrig": "A-12345",
         "FechaTimbre": "2024-07-15T12:00:00",
-        "NoCertificado": "00001000000403258748",
-        "NoCertificadoSATTimbre": "00001000000403258749",
+        "NoCertificado": "000010000403258748",
+        "NoCertificadoSATTimbre": "000010000403258749",
         "titFechaHr": "2024-07-15T12:00:00",
         "Fecha": "2024-07-15",
         "MetodoPago": "PUE",
@@ -182,5 +202,29 @@
         "PTSEG": "valor",
         "imagen4": "base64string",
         "PTRES": "valor"
+    },
+    "Totales": {
+        "Subtotal": 8066.67,
+        "TotalOtrosPagos": 0.00,
+        "Retenciones": 85.92,
+        "Descuento": 0.00,
+        "NetoAPagar": 7775.73,
+        "ImporteTotalConLetra": "SIETE MIL SETECIENTOS SETENTA Y CINCO PESOS 73/100 M.N."
+    },
+    "ComprobanteFiscalDigital": {
+        "Serie": "A",
+        "Folio": "12345",
+        "UUID": "123e4567-e89b-12d3-a456-426614174000",
+        "FechaHoraCertificacion": "2024-07-15T12:00:00",
+        "NumeroCertificadoEmisor": "000010000403258748",
+        "NumeroCertificadoSAT": "000010000403258749",
+        "FechaHoraEmision": "2024-07-15T12:00:00",
+        "TipoNominaDetalle": "O=Nómina Ordinaria   E=Nómina Extraordinaria",
+        "MetodoPago": "PUE Pago en una sola exhibición",
+        "LugarExpedicion": "06000",
+        "FechaAntiguedadTexto": "9 de Junio del 2025",
+        "SelloCFDI": "QRrj9L0D439C7/eEA0tNI1qdjTqQsFXkV2ssrnO0D0cwGdzgTYRgNNvJ1d9EuYOgqe/XcmqjGVZ55NTVT0Sl/1/fZvFVwq9dgjpPySYZYP6wtwmkZjUGKwwNM6Z6EhY2nqDTrZedmsUB0AWXCd/krLw2pIC5S+Wbg5MjYA01MawFz/Xc2beqhucnuHyQx847X2WwmtqlKes3AVYmDDgAvKUk3Kmhz2pChNqHsf14azg7UYMIJyfM/J/wESh8zhNkiS1pDL/fK6+xjZTcDwJMLHaSshZR1LGtZZJloCnMav+mwpuri0ASGrO4UZYYGNL430OYXEMmDmth5VP",
+        "SelloSAT": "yWSXUtD+ArjpGK3HV1fhS0teYGVNJCiH1C5Is0rH1WdavnzDqeSfm+Vib6P02WkV8YwmMLAFkAQqo1PQ65/xGyDiEEsciEY2dNPRu6x9qwVu5729APiNHwEUjmQPL+RWrLidEoAlfYpdakyp3NdkjcIylKc7T4tXVX93ED/ZXWLcCS5JfbKW7ZrYGQbVX1cN3gpMzXUZdYBbwnIX4kJ6/WySdhVe9yqDIftQP64Lkfm5jrNWdP4lB6gSVGUlVZLb6BiaKyv7f6N8ZXqzwLwnh1rdfYWrwY8OyFCYdF3XLD/IjI+kn+KG7UfFwfR+9NTVUrxUe3VtqB1p5bq9EKMeJg",
+        "CadenaOriginal": "||1.1|02ad73d1-0531-4d2e-b752-0f5ee34df64d|2025-06-25T10:20:38|CCC1007293K0|QRrj9L0D439C7/eEA0tNI1qdjTqQsFXkV2ssrnO0D0cwGdzgTYRgNNvJ1d9EuYOgqe/XcmqjGVZ55NTVT0Sl/1/fZvFVwqEste documento es una representaciónFIRMA DEL EMPLEADOimpresa de un CFDI9dgjpPySYZYP6wtwmkZjUGKwwNM6Z6EhY2nqDTrZedmsUB0AWXCd/krLw2pIC5S+Wbg5MjYA01MawFz/Xc2beqhucnuHyQx847X2WwmtqlKes3AVYmDDgAvKUk3Kmhz2pChNqHsf14azg7UYMIJyfM/J/wESh8zhNkiS1pDL/fK6+xjZTcDwJMLHaSshZR1LGtZZJloCnMav+mwpuri0ASGrO4UZYYGNL430OYXEMmDmth5VP/l9fc2w==|00001000000712418445"
     }
 }

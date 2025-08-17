@@ -21,7 +21,9 @@
         "Incidencias": "Incidencias",
         "Leyenda": "Leyenda",
         "Firma": "Firma",
-        "Grafica": "Grafica"
+        "Grafica": "Grafica",
+        "Totales": "Totales",
+        "ComprobanteFiscalDigital": "ComprobanteFiscalDigital"
     },
     "RequiredDataSources": [
         "Empleador",
@@ -44,6 +46,8 @@
         "Incidencias",
         "Leyenda",
         "Firma",
-        "Grafica"
+        "Grafica",
+        "Totales",
+        "ComprobanteFiscalDigital"
     ]
 }
