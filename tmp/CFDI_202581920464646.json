@@ -1,0 +1,120 @@
+[
+    {
+        "Com_Dsc": "Empresa Ejemplo S.A. de C.V.",
+        "calleNo": "123",
+        "coloniaDelegacion": "Centro",
+        "CP": "06000",
+        "Com_RFC": "EES123456789",
+        "Regimen": "006 General de Ley Personas Morales",
+        "Direccion": "",
+        "RegistroPatronal": "A123456789",
+        "CurpCombinar": "EESJ800101HDFRRL09",
+        "EmpImagen": "",
+        "Colaborador": {
+            "NumEmpleado": "001",
+            "EmpaNombreCompleto": "Juan Pérez Sánchez",
+            "EmpaCURP": "PELJ800101HDFRRL09",
+            "VarDatEmplTit": "Dato Ejemplo",
+            "SalarioBase": "15000.00",
+            "PlazaCatalogo": "A1",
+            "EmpaRFC": "PELJ800101XXX",
+            "PlazaNomiDsc": "Administrativo",
+            "PuestoDsc": "Contador",
+            "DscRegimenEmpleado": "",
+            "PeriodicidadPago": "Quincenal",
+            "NivelPuestoDsc": "N1",
+            "NumDiasPagados": 15,
+            "Periodo": 0,
+            "lblFecIngreso": "2020-01-15",
+            "EmpFechaIngreso": "2020-01-15",
+            "CPFecPag": "0000-00-00",
+            "RegFiscalReceptor": 601,
+            "CPReceptor": "06000",
+            "LblNSS": "",
+            "NumSeguridadSocial": "",
+            "VarDatEmplTitSDI": "",
+            "SDI": "",
+            "LblAntiguedad": "",
+            "AntSemanas": "",
+            "CFIDescripcionGen": "",
+            "SueldoBaseBrutoD": "0.00000",
+            "EmpFechaAntiguedadC": "",
+            "datoDinTitulo1": "",
+            "datosDinTitulo2": "",
+            "datoDin1": "",
+            "datoDin2": "",
+            "TotalPercepciones": {
+                "importeTotal": "25000.000000"
+            },
+            "TotalSubsidio": {
+                "importeTotSubLetra": "50"
+            },
+            "Subtotales": {
+                "importeTotal": "50.000000",
+                "DescuentoLetra": "40",
+                "importetotalO": "50",
+                "RetenidoLetra": "cincuenta",
+                "SubtotalLetra": "cincuenta",
+                "TotalPagarLetra": ""
+            },
+            "TotalOtrosPagos": {
+                "importetotalO": "500"
+            },
+            "TotalDeducciones": {
+                "importeTotalDed": "1500.00000"
+            },
+            "ComprobanteFiscal": {
+                "UUIDTimbre": "e33994ad-c116-495f-836c-d74d7a9b56f6",
+                "SerieFolioFiscalOrig": "e33994ad-c116-495f-836c-d74d7a9b56f6",
+                "FechaTimbre": "0000-00-00T00:00:00",
+                "NoCertificado": "30001000000500003433",
+                "NoCertificadoSATTimbre": "30001000000500003456",
+                "titFechaHr": "08/07/2025 10:23:35",
+                "Fecha": "0000-00-00",
+                "MetodoPago": "Dispersión",
+                "LugExpedicion": "06760"
+            },
+            "Firma": {
+                "ImagenQR": "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",
+                "SelloCFDTimbre": "S7cRAt+Z2t/zuKozMW7BdHGdA/RtbcRRBCzG2hlBBjEXn5VmqwE0M9vzsddAovK6bOghqx24VEJym/iJtwb3nQULKKUJz0uVQe0vhqoBofQnqweNDR9tG4m10fxCqDnoKH3gyt6FH29LEHq0lZvGa0oK549XfED1zb9/5lFwMfKpo1zxlSeXsSLM91o/wvVwT06CjMEBzOq+juG7oY9PKGZTykSfAINhFd5IaCoR18ytjFcOIZbERBiZol4FqeQ6YDAaTQ4SfmcUmN7RjSeEpjjZBlv13hBk7khLJgbcOYgkM/5vVpfZ0MRJsAAdgnYKajb6aCoiiHbEqFv+oa6f0w==",
+                "SelloSATTimbre": "KIlM5qqEcQzaLOThBr7wEJgwiUVTmb/sQJXgn6v97rx3yuZfv6kq4UiF4WMDJ16+kon7OYhuo/7u3z6Q6v4S4hE5X2UPH65Y66rvcJ/n/sP9wWXP13g+EdNPQH1yBEHPYdKNVoy4jWmsxLi9bAlnACk2glnY2VLPnrfbHIgoCSnjCC+JcTEAxswLjlQqKtrb6uAzYSpF1UHpmhRQK/rrka/ZQ1hSbATsbo5vP03TYHXdoYxuAfyZOdAxlYpP7q3z9ohL9ypqKVkq1rxnBUGoSl3tbioi/eeBb2wMPQGKbF5cM0NnXH33WqbmVgRwn3ken9WRoWoPE7V95uKJzHtiyQ==",
+                "Cadena1": "||1.1|e33994ad-c116-495f-836c-d74d7a9b56f6|2025-07-08T10:33:13|SPR190613I52|Timbre de",
+                "Cadena2": "prueba|S7cRAt+Z2t/zuKozMW7BdHGdA/RtbcRRBCzG2hlBBjEXn5VmqwE0M9vzsddAovK6bOghqx24VEJym/iJtwb3nQULKKUJz0uVQe0vhqoBofQnqweNDR9tG4m10fxCqDnoKH3gyt6FH29LEHq0lZvGa0oK549XfED1zb9",
+                "Cadena3": "/5lFwMfKpo1zxlSeXsSLM91o/wvVwT06CjMEBzOq+juG7oY9PKGZTykSfAINhFd5IaCoR18ytjFcOIZbERBiZol4FqeQ6YDAaTQ4SfmcUmN7RjSeEpjjZBlv13hBk7khLJgbcOYgkM/5vVpfZ0MRJsAAdgnYKajb6aCoiiHbEq",
+                "Cadena4": "Fv+oa6f0w==|30001000000500003456||",
+                "UUIDTimbreCanc": ""
+            }
+        },
+        "Subsidio": [
+            {
+                "tipoSubsidio": "Ordinario",
+                "Subhpl_glosa": "DEMO_EMP",
+                "importeSubLetra": "Cincuenta pesos"
+            }
+        ],
+        "OtrosPagos": [
+            {
+                "TipoOtroPago": "Otro",
+                "ClaveOtroPago": "001",
+                "importeOLetra": 500
+            }
+        ],
+        "Deducciones": [
+            {
+                "DscDeduccion": "ISR",
+                "cantUnidadDeduccion": "1",
+                "ClaveDeduccion": "001",
+                "ImporteDLetra": "Mil Pesos"
+            }
+        ],
+        "Percepciones": [
+            {
+                "DscPercepcion": "Sueldo",
+                "cantUnidadPercepcion": "1",
+                "ClavePercepcion": "001",
+                "ImporteBGLetra": "Quince mil pesos",
+                "ImportePLetra": "Quince mil pesos"
+            }
+        ]
+    }
+]

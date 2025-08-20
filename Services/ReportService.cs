@@ -8,6 +8,7 @@ using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Hosting;
+
 using Stimulsoft.Report;
 using Stimulsoft.Report.Export;
 using StimulsoftReport.Configuration;
@@ -20,11 +21,16 @@ namespace StimulsoftReport.Services
     private readonly string _configsFolder;
     private readonly Dictionary<string, ReportConfig> _reportConfigs;
 
-    public ReportService(IOptions<ReportSettings> options)
+    public ReportService(IOptions<ReportSettings> options, IHostEnvironment env)
     {
-    _templatesFolder = options.Value.TemplatesFolder;
-    _configsFolder = options.Value.ConfigsFolder;
-    _reportConfigs = LoadReportConfigs(_configsFolder);
+        // Asigna las rutas tal cual vienen, asumiendo que SIEMPRE son absolutas
+        _templatesFolder = options.Value.TemplatesFolder?.Trim() ?? "";
+        _configsFolder = options.Value.ConfigsFolder?.Trim() ?? "";
+
+        Console.WriteLine($"[ReportService] TemplatesFolder = {_templatesFolder}");
+        Console.WriteLine($"[ReportService] ConfigsFolder   = {_configsFolder}");
+
+        _reportConfigs = LoadReportConfigs(_configsFolder);
     }
 
     // Carga todos los archivos .json de la carpeta de configuraciones
@@ -74,38 +80,38 @@ namespace StimulsoftReport.Services
 
     if (!string.IsNullOrEmpty(jsonFilePath))
     {
-        if (!File.Exists(jsonFilePath))
-            return (false, $"Archivo JSON no encontrado en {jsonFilePath}", null);
+    if (!File.Exists(jsonFilePath))
+    return (false, $"Archivo JSON no encontrado en {jsonFilePath}", null);
 
-        var jsonString = await File.ReadAllTextAsync(jsonFilePath);
-        var jsonNode = JsonNode.Parse(jsonString);
+    var jsonString = await File.ReadAllTextAsync(jsonFilePath);
+    var jsonNode = JsonNode.Parse(jsonString);
 
-        // Manejar el nuevo formato: si es arreglo, tomar el primer elemento
-        if (jsonNode is JsonArray jsonArray)
-        {
-            if (jsonArray.Count == 0)
-                return (false, "El JSON es un arreglo vacío.", null);
-
-            jsonObject = jsonArray[0] as JsonObject;
-            if (jsonObject == null)
-                return (false, "El primer elemento del arreglo JSON no es un objeto válido.", null);
-        }
-        else
-        {
-            jsonObject = jsonNode as JsonObject;
-            if (jsonObject == null)
-                return (false, "El JSON no es un objeto válido.", null);
-        }
-    }
-    else if (sqlParams != null)
+    // Manejar el nuevo formato: si es arreglo, tomar el primer elemento
+    if (jsonNode is JsonArray jsonArray)
     {
-        // Aquí puedes implementar la lógica para obtener datos desde SQL
-        // jsonObject = await GetDataFromSqlAsync(reportName, sqlParams);
-        return (false, "La obtención de datos desde SQL aún no está implementada.", null);
+    if (jsonArray.Count == 0)
+    return (false, "El JSON es un arreglo vacío.", null);
+
+    jsonObject = jsonArray[0] as JsonObject;
+    if (jsonObject == null)
+    return (false, "El primer elemento del arreglo JSON no es un objeto válido.", null);
     }
     else
     {
-        return (false, "No se proporcionó ni JSON ni parámetros SQL.", null);
+    jsonObject = jsonNode as JsonObject;
+    if (jsonObject == null)
+    return (false, "El JSON no es un objeto válido.", null);
+    }
+    }
+    else if (sqlParams != null)
+    {
+    // Aquí puedes implementar la lógica para obtener datos desde SQL
+    // jsonObject = await GetDataFromSqlAsync(reportName, sqlParams);
+    return (false, "La obtención de datos desde SQL aún no está implementada.", null);
+    }
+    else
+    {
+    return (false, "No se proporcionó ni JSON ni parámetros SQL.", null);
     }
 
     try
