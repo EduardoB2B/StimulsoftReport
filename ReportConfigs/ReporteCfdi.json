@@ -8,7 +8,12 @@
         "Deducciones",
         "Percepciones",
         "ComprobanteFiscal",
-        "Firma"
+        "Firma",
+        "TotalPercepciones",
+        "TotalDeducciones",
+        "TotalOtrosPagos",
+        "TotalSubsidio",
+        "Subtotales"
     ],
     "DataSourceMappings": {
         "Data": "",
@@ -18,6 +23,11 @@
         "Deducciones": "Deducciones",
         "Percepciones": "Percepciones",
         "ComprobanteFiscal": "Colaborador.ComprobanteFiscal",
-        "Firma": "Colaborador.Firma"
+        "Firma": "Colaborador.Firma",
+        "TotalPercepciones": "Colaborador.TotalPercepciones",
+        "TotalDeducciones": "Colaborador.TotalDeducciones",
+        "TotalOtrosPagos": "Colaborador.TotalOtrosPagos",
+        "TotalSubsidio": "Colaborador.TotalSubsidio",
+        "Subtotales": "Colaborador.Subtotales"
     }
 }
