@@ -1,33 +1,10 @@
 {
     "TemplateFile": "ReporteCfdi.mrt",
     "RequiredDataSources": [
-        "Data",
-        "Colaborador",
-        "Subsidio",
-        "OtrosPagos",
-        "Deducciones",
-        "Percepciones",
-        "ComprobanteFiscal",
-        "Firma",
-        "TotalPercepciones",
-        "TotalDeducciones",
-        "TotalOtrosPagos",
-        "TotalSubsidio",
-        "Subtotales"
+        "Empleado"
     ],
     "DataSourceMappings": {
-        "Data": "",
-        "Colaborador": "Colaborador",
-        "Subsidio": "Subsidio",
-        "OtrosPagos": "OtrosPagos",
-        "Deducciones": "Deducciones",
-        "Percepciones": "Percepciones",
-        "ComprobanteFiscal": "Colaborador.ComprobanteFiscal",
-        "Firma": "Colaborador.Firma",
-        "TotalPercepciones": "Colaborador.TotalPercepciones",
-        "TotalDeducciones": "Colaborador.TotalDeducciones",
-        "TotalOtrosPagos": "Colaborador.TotalOtrosPagos",
-        "TotalSubsidio": "Colaborador.TotalSubsidio",
-        "Subtotales": "Colaborador.Subtotales"
+        "Empleado": "",
+        "Colaborador": "Empleado.Colaborador"
     }
 }

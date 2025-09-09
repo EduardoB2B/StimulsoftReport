@@ -1,0 +1,1476 @@
+[
+    {
+        "tamanio": 1,
+        "duplica": 1,
+        "DescTipoNomina": "",
+        "Com_Dsc": "FIGRAL SA DE CV",
+        "calleNo": "JACARANDAS N° 503 Int. 3",
+        "coloniaDelegacion": "NUEVA JACARANDAS, MORELIA",
+        "CP": "C.P. 58099, MICHOACAN",
+        "Com_RFC": "R.F.C. FIG160830544 | Régimen fiscal 601 | Registro patronal C8989228100",
+        "Regimen": "Régimen fiscal 601",
+        "Direccion": "JACARANDAS N° 503 Int. 3 | NUEVA JACARANDAS, MORELIA | C.P. 58099, MICHOACAN",
+        "Ciudad": "",
+        "estado": "",
+        "pais": "",
+        "NoInterior": "",
+        "NoExterior": "",
+        "RegistroPatronal": "Registro patronal C8989228100",
+        "CurpCombinar": "",
+        "EmpImagen": "",
+        "Colaborador": {
+            "NumEmpleado": "N° 2566",
+            "EmpaNombreCompleto": "MARTIN DE LA CRUZ OSORNIO",
+            "EmpaCURP": "CUOM810501HMCRSR06",
+            "VarDatEmplTit": "",
+            "SalarioBase": "293.34",
+            "PlazaCatalogo": "MAXIMA EXPRESS",
+            "EmpaRFC": "CUOM810501MV9",
+            "NominaTipo": "",
+            "PlazaNomiDsc": "250 | O",
+            "PuestoDsc": "MOTOCICLISTA",
+            "Departamento": "",
+            "DscRegimenEmpleado": "Sueldos",
+            "PeriodicidadPago": "04 Quincenal",
+            "NivelPuestoDsc": "OPERATIVOS                                                                                          ",
+            "NumDiasPagados": 1.000,
+            "Periodo": 0,
+            "lblFecIngreso": "Fecha de ingreso",
+            "EmpFechaIngreso": "16 de Julio de 2023",
+            "CPFecPag": "2025-01-15",
+            "RegFiscalReceptor": 605,
+            "CPReceptor": "11850",
+            "LblNSS": "NSS",
+            "NumSeguridadSocial": "30038112386",
+            "VarDatEmplTitSDI": "SDI",
+            "SDI": "293.34",
+            "LblAntiguedad": "Antigüedad",
+            "AntSemanas": "206 Semanas 2 Dias ",
+            "CFIDescripcionGen": "",
+            "SueldoBaseBrutoD": "278.81000",
+            "EmpFechaAntiguedadC": "01 de Febrero de 2021",
+            "datoDinTitulo1": "Fecha de antigüedad",
+            "datosDinTitulo2": "",
+            "datoDin1": "01 de Febrero de 2021",
+            "datoDin2": "",
+            "NetoaPagar": "0.00",
+            "ImporteTotalLetra": "CERO PESOS 00/100 M.N.",
+            "Cantidad": "1.00",
+            "ClavedeUnidad": "ACT",
+            "Descripcion": "Pago de nómina",
+            "ClaveProducto": "84111505",
+            "PUnitario": "4,182.15",
+            "importe": "4,182.15",
+            "TotalPercepciones": {
+                "importeTotal": "4,182.15"
+            },
+            "TotalSubsidio": {
+                "importeTotSubLetra": "0.00"
+            },
+            "Subtotales": {
+                "importeTotal": "",
+                "DescuentoLetra": "4,182.15",
+                "importetotalO": "0.00",
+                "RetenidoLetra": "0.00",
+                "SubtotalLetra": "0.00",
+                "TotalPagarLetra": ""
+            },
+            "TotalOtrosPagos": {
+                "importetotalO": "0.00"
+            },
+            "TotalDeducciones": {
+                "importeTotalDed": "4,182.15"
+            },
+            "ComprobanteFiscal": {
+                "UUIDTimbre": "3943cfa0-bc87-42ed-b43e-d619d42a906a",
+                "Serie": "",
+                "Folio": "",
+                "SerieFolioFiscalOrig": " ",
+                "FechaTimbre": "2025-01-16T23:59:08",
+                "NoCertificado": "00001000000711330597",
+                "NoCertificadoSATTimbre": "00001000000506403528",
+                "titFechaHr": "Fecha y hora de emisión",
+                "Fecha": "2025-01-16",
+                "MetodoPago": "PUE Pago en una sola exhibición",
+                "LugExpedicion": "58099"
+            },
+            "Firma": {
+                "ImagenQR": "R0lGODlhtQC1APcAAAAAAAAAMwAAZgAAmQAAzAAA/wArAAArMwArZgArmQArzAAr/wBVAABVMwBVZgBVmQBVzABV/wCAAACAMwCAZgCAmQCAzACA/wCqAACqMwCqZgCqmQCqzACq/wDVAADVMwDVZgDVmQDVzADV/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMrADMrMzMrZjMrmTMrzDMr/zNVADNVMzNVZjNVmTNVzDNV/zOAADOAMzOAZjOAmTOAzDOA/zOqADOqMzOqZjOqmTOqzDOq/zPVADPVMzPVZjPVmTPVzDPV/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YrAGYrM2YrZmYrmWYrzGYr/2ZVAGZVM2ZVZmZVmWZVzGZV/2aAAGaAM2aAZmaAmWaAzGaA/2aqAGaqM2aqZmaqmWaqzGaq/2bVAGbVM2bVZmbVmWbVzGbV/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5krAJkrM5krZpkrmZkrzJkr/5lVAJlVM5lVZplVmZlVzJlV/5mAAJmAM5mAZpmAmZmAzJmA/5mqAJmqM5mqZpmqmZmqzJmq/5nVAJnVM5nVZpnVmZnVzJnV/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wrAMwrM8wrZswrmcwrzMwr/8xVAMxVM8xVZsxVmcxVzMxV/8yAAMyAM8yAZsyAmcyAzMyA/8yqAMyqM8yqZsyqmcyqzMyq/8zVAMzVM8zVZszVmczVzMzV/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8rAP8rM/8rZv8rmf8rzP8r//9VAP9VM/9VZv9Vmf9VzP9V//+AAP+AM/+AZv+Amf+AzP+A//+qAP+qM/+qZv+qmf+qzP+q///VAP/VM//VZv/Vmf/VzP/V////AP//M///Zv//mf//zP///wAAAAAAAAAAAAAAACH5BAEAAPwALAAAAAC1ALUAAAj/APcJHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuXMGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJMqXeoTgNOnUKNKncoQKkGrC7Ea1LpvqlcAV59W/UrWa8iyaKOOdRqWbVaxB7mmhSuQK8K5c8/iRbsW7EC7cekWlIu3rV+Fe/mCTFy2r2HHgd3WLfxX8F3GX/VKjkh4M+CtVCMf5izYrGiKnzWmhjzZs2XRqVe/dS318maIsi/mTth59G7ToG8/7B37tcPdFZGfrkx7tG21yyUSN96VOmuP02szdz68tHfhiEO3/+Y+vrdh4NXBq/6eeTtq9o+7ax//3Px29MonZodOXz989/Lxlx55A9pXnngDauZbYwBK919/xyFY3HwJ3iehdRjtZ2CBF1KYX4XBLdjcc+d1SGBGGj7IoYcm4kbdhhOK2B6E2LGHn40mbnhdfDTGWCKL6qGII5Ay3kiki+rB+OKQAn5IWnNGEvhbjgweSBaPIGapGI0dpThidLxReaWFY/ao4pZZdsmkjg2GSSSae2GpZJlpcuSljCTO1iRlVs6o5ZlV1rmRk21GuR+SAv5YpIqIKvgelEwqimiMh7bZ6GIYhgfpposGCduSbzIaoKP+cSopmSd+mqSYeJaaqm6YRf8pJ6Bfmlnrn5zGqmCsc7Zqq6+4Atsrr5laROyRhdIqrLKz5orZrsc2u+ytvUor7bGv6oSmtXr6CCZTQtLJraaJWmouuMYGOq6b5XJ5LrqP+rlufaBKWWxOuqIqq773vkuvqcneCm1e/CLb54cIs7ouoa7GWfCeznoa4qSRBgzswGkpuu/B/bpLbqW/YtnSsMz6C6bDEUrMbkwkUysquRojuOOoMLU87cV6xkzhzClnW5LNC3cc7LY5u/rzsxZTbDC7bPYp8rsM94xysEpDnO3Gg7X4rcmwMjZvt1p//PKKOHss6HpeJx0g1v+WTfbTZkfd0J1tsw11veidCrPFcl9BRzTHS8N99t9vF/1r34aTTWmg3k6saruF73240E92CvnUjWe9qrio+l3xSNgKfi2fZ+cJeMZcixR66nfaLbnipCP/ni6xovMdu9CtM065ndGyvqbuKo+ettkY877z1iE/TPilxBsPebxTbn5zvrO7rebx1Udvr8u0d22987LrvfLJvxNcfe2Dlo/66a4PLXPihDeNtuWYIx23+szDLj365ysPfGKCoxvNTme60mVIfXCy3+DwN0D9be976dsf8iKnueclLmjDq2BKMhfA9znNaOSLmLxSd70HFlB8KGwgBgE4QVI57oUVXFzwJmiz+O2uYep62An9Fzj43Y5O4aubBx24Q/aFbW4IZGDzvGdDzt0vgwkToQCXmL0cEpCGCowi/Vglv5EVy1BDFF/9Zvi6IH5Ee1NkWhIFBkIqelFlYMRe/wzXCEEksnEmaFSiGqU4tvyZ0UHS++PXQqRFnVmNfyVsG6buOEcyug+IfVzkAwWpNrE5Mnfc85nzFHnGSH6wZ4asliT7wkEsShCGeQSYJTXZxj2a8IJ3O6UBP0lBTnYSjkPUXhEXyEgxhrFzowSbLHdZyuStMoWEvCEoK1lLH5qvmclk5OpAVzJaeu6ZeXtcB7tHzUwic3xGVKUrt8mro3kTmMsMp+VIObZpqu6LeGunMrsYQlaC8524DKQ8HTnIe8qOki2M5SEDWkbcedKO9kwOPPUpzXketJ/5K57t5BjKX6Iyns+05SyrmMlsRnN9CCXn1DQKUFqmUYhO9CdGQf9KUmUitIYLZWE6eSnTcZLwgPlcpykv9zkNPq59iMTp1Xoq0np9U4Z+0iVJlGpNgWbOozRNYE7NOVRxFlWWUEUqUG+KQznGcYTqvCpLeVjTEmaVi7n84SRJV9EMmjWtoUrpGNeaUbKOFHxwtVoTQapVKzqQejXyakyLqdCUBnMlZ80pYaFn0USyJLFV5Sk/hWnBwCYUr8PUJkErB9XDqoSeT4xsUKmIVENq1LGkNaoz7cnURm6RoZdtYGv5B1qfvs6Xcm1sYeu4WGbyzLauNa1mb/nagV7UqmQVayHRadm2ug1oPz2icGfaWaE6l5zCo2tSV7rcpkawuPKD7kfbt7wtepZ0oyjdLh9zK053nneX7MQmHSGL23JydX6Mle96wfpI8P5vgw6F4nzzWl/A/773JOWd6XRfOliX4iTBIY3uJRtb3aFA+LcXZu5pkZLh2+pwbQ2e7Hfdq7DNjpaC4oXm/Egc11cqmLIrBJllWaxX1b74mMz8KsYMXGIY/ralHSXqJlu54G9uGJCR7a334pXeI9u0fzj28ZCR3OThMljEwHXyeaPWV9hWzbowNjGTP2xM12LyuQPmJnrHfMUyL3iuBcQWnD0rVTRDUr8u/qucewnmNlNNwv5t6H5p7EIiTrTGFF0t1kTpxikbenIt5rIeGf1nBE/60oZV9BEpfeDjqre4RZbtf3P8UEfXOdQfjbNfOR3i2FJ31H7Wsh5XSFvdsvnR/U1lnvdK6zAT95DNs7Zydp9azSc3t5WSDjJypSZdMRNZ1FhOcYVdWdstB7iOqm6vrcd7UGtHu9SeLvC1t9rortrXpN3O65mJyVbMnhvF6RZspAkMaG/Lub61ljei+dvlynL03YtuNZDHGtoOw+vgCE+4whfO8IY7/OEQj7jEJ07xilv84hjPuMY3zvGOe/zjIA+5yEdO8pLfJCAAOw==",
+                "SelloCFDTimbre": "TD89POUFmCPB+m2wN8VDnCk1fL/hCtYs1kpt4W1j1rdEjiiU1ZgVP9L2vY3HSH0kHmwl5bkwFY51DrhUT8Gz/TiS9UHwIS4mnhWdRh+QYSwLS52ipYDcA2kK1tk01+rCFxWEE0FPn8OL8hqjYk+lWQ3dg28sdvqcvWEBNKZm7addQBa2Mutbl8LcsXP/YRlq/cFNdgt52GsUtBUOfi1pkdWiTyYal79tJfKXgSXJckACOCg7g2jfwbsim9gRi9N3lJYwt05ny4v1NVYu6Vd1g69EYpZvxl1xEJtdGtQ7Pfae8LKzahRKZPs+LeQqWw9UYvWR6HCS8yIwJ4u6vSXOCA==",
+                "SelloSATTimbre": "oe415wtgVROikSGVFAVRyEDVb6pibgTVZiDc2LuJBuGB0lCzDXq3YdtG0gofuhwVMhE483q2c0s71ITCFZiVrWiCDphd/PMZMNvjM1CMXvWv5V7zSDwrbnfyfSMqAT2GZCmWHks4AvmpGjDS/tIJXtMcaII3l2Gjs8Yp3CO512TXtPOM7il1baweLPZgflIjzWN0812UeQJdwMreHL/nCau/KUKcLtgpk/C/piHeKXk+ufkMjGFdoSKxhxGmoOczoCAw9RUA1LXRVkXOJRbgkmdjwF4FTgV15erNqRTf+Jb2cQhoKIw716CarX719vfTASYj6J2kCeHVPFHhksb/zA==",
+                "Cadena1": "||1.1|3943cfa0-bc87-42ed-b43e-d619d42a906a|2025-01-16T23:59:08|CCC1007293K0|TD89POUFmCPB+m2wN8VDnCk1fL/hCtYs1kpt4W1j1rdEjiiU1ZgVP9L2vY3HSH0kHmwl5bkwFY51DrhUT8Gz/TiS9UHwIS",
+                "Cadena2": "4mnhWdRh+QYSwLS52ipYDcA2kK1tk01+rCFxWEE0FPn8OL8hqjYk+lWQ3dg28sdvqcvWEBNKZm7addQBa2Mutbl8LcsXP/YRlq/cFNdgt52GsUtBUOfi1pkdWiTyYal79tJfKXgSXJckACOCg7g2jfwbsim9gRi9N3lJYwt05n",
+                "Cadena3": "y4v1NVYu6Vd1g69EYpZvxl1xEJtdGtQ7Pfae8LKzahRKZPs+LeQqWw9UYvWR6HCS8yIwJ4u6vSXOCA==|00001000000506403528||",
+                "Cadena4": "",
+                "UUIDTimbreCanc": ""
+            }
+        },
+        "Subsidio": [
+            {
+                "tipoSubsidio": "002",
+                "Subhpl_glosa": "Subsidio Causado",
+                "importeSubLetra": "234.35"
+            }
+        ],
+        "Deducciones": [
+            {
+                "DscDeduccion": "002",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D001 ISR",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "4,182.15"
+            },
+            {
+                "DscDeduccion": "001",
+                "cantUnidadDeduccion": "     15.00",
+                "ClaveDeduccion": "D003 CUOTA IMSS",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "4,182.15"
+            }
+        ],
+        "Percepciones": [
+            {
+                "DscPercepcion": "001",
+                "cantUnidadPercepcion": "     15.00",
+                "ClavePercepcion": "P001 SUELDO",
+                "ImporteBGLetra": "",
+                "UnidadMedidaPercepcion": "",
+                "valorUnitario": "0.000000",
+                "ImportePLetra": "4,182.15"
+            }
+        ]
+    },
+    {
+        "tamanio": 1,
+        "duplica": 1,
+        "DescTipoNomina": "",
+        "Com_Dsc": "FIGRAL SA DE CV",
+        "calleNo": "JACARANDAS N° 503 Int. 3",
+        "coloniaDelegacion": "NUEVA JACARANDAS, MORELIA",
+        "CP": "C.P. 58099, MICHOACAN",
+        "Com_RFC": "R.F.C. FIG160830544 | Régimen fiscal 601 | Registro patronal C8989228100",
+        "Regimen": "Régimen fiscal 601",
+        "Direccion": "JACARANDAS N° 503 Int. 3 | NUEVA JACARANDAS, MORELIA | C.P. 58099, MICHOACAN",
+        "Ciudad": "",
+        "estado": "",
+        "pais": "",
+        "NoInterior": "",
+        "NoExterior": "",
+        "RegistroPatronal": "Registro patronal C8989228100",
+        "CurpCombinar": "",
+        "EmpImagen": "",
+        "Colaborador": {
+            "NumEmpleado": "N° 2568",
+            "EmpaNombreCompleto": "MIGUEL ANGEL JAVIER CIENEGA AVALOS",
+            "EmpaCURP": "CIAM841202HGTNVG03",
+            "VarDatEmplTit": "",
+            "SalarioBase": "293.34",
+            "PlazaCatalogo": "MAXIMA EXPRESS",
+            "EmpaRFC": "CIAM841202LKA",
+            "NominaTipo": "",
+            "PlazaNomiDsc": "250 | O",
+            "PuestoDsc": "CHOFER",
+            "Departamento": "",
+            "DscRegimenEmpleado": "Sueldos",
+            "PeriodicidadPago": "04 Quincenal",
+            "NivelPuestoDsc": "OPERATIVOS                                                                                          ",
+            "NumDiasPagados": 15.000,
+            "Periodo": 0,
+            "lblFecIngreso": "Fecha de ingreso",
+            "EmpFechaIngreso": "16 de Julio de 2023",
+            "CPFecPag": "2025-01-15",
+            "RegFiscalReceptor": 605,
+            "CPReceptor": "64480",
+            "LblNSS": "NSS",
+            "NumSeguridadSocial": "63018419406",
+            "VarDatEmplTitSDI": "SDI",
+            "SDI": "293.34",
+            "LblAntiguedad": "Antigüedad",
+            "AntSemanas": "206 Semanas 2 Dias ",
+            "CFIDescripcionGen": "",
+            "SueldoBaseBrutoD": "278.81000",
+            "EmpFechaAntiguedadC": "01 de Febrero de 2021",
+            "datoDinTitulo1": "Fecha de antigüedad",
+            "datosDinTitulo2": "",
+            "datoDin1": "01 de Febrero de 2021",
+            "datoDin2": "",
+            "NetoaPagar": "4,013.45",
+            "ImporteTotalLetra": "CUATRO MIL TRECE PESOS 45/100 M.N.",
+            "Cantidad": "1.00",
+            "ClavedeUnidad": "ACT",
+            "Descripcion": "Pago de nómina",
+            "ClaveProducto": "84111505",
+            "PUnitario": "4,182.15",
+            "importe": "4,182.15",
+            "TotalPercepciones": {
+                "importeTotal": ""
+            },
+            "TotalSubsidio": {
+                "importeTotSubLetra": "234.35"
+            },
+            "Subtotales": {
+                "importeTotal": "",
+                "DescuentoLetra": "104.50",
+                "importetotalO": "0.00",
+                "RetenidoLetra": "64.20",
+                "SubtotalLetra": "4,013.45",
+                "TotalPagarLetra": ""
+            },
+            "TotalOtrosPagos": {
+                "importetotalO": "0.00"
+            },
+            "TotalDeducciones": {
+                "importeTotalDed": "104.50"
+            },
+            "ComprobanteFiscal": {
+                "UUIDTimbre": "45bdb8bc-172a-4d08-a13c-f2fa80e18138",
+                "Serie": "",
+                "Folio": "",
+                "SerieFolioFiscalOrig": " ",
+                "FechaTimbre": "2025-01-16T23:59:09",
+                "NoCertificado": "00001000000711330597",
+                "NoCertificadoSATTimbre": "00001000000506403528",
+                "titFechaHr": "Fecha y hora de emisión",
+                "Fecha": "2025-01-16",
+                "MetodoPago": "PUE Pago en una sola exhibición",
+                "LugExpedicion": "58099"
+            },
+            "Firma": {
+                "ImagenQR": "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",
+                "SelloCFDTimbre": "PGlxfaIq7zFc8mxooLN68cxgllahVxlhwjw/IKC246Fz3qj2EZ1lyS79CSZ11qwxpYRaD2762bP3KPzjLEDug0qTNxEx4C9w0u4HCITJEXSEpmVY2nv7qNXxALJwRqLnIuJTTsWDJh5vRW4pX0CS0mNlVrauwDRdKgxNjB/r8TNIXNfFTNA4Tx0x/2Ivg83DJ6/Q6MadNXgpHpOgNVjebNzKXKIA7fRz+RApiNHLTgA2Q+hSllEUCmn/6+hVTcESTpQFP8TzwvEJ0VUMPXyjI9v4dBvPc1VktC9KKGEWZEvuTnnfLePztFAL6acr4oEjatRXGZVRJ/cGtkxdptgnwA==",
+                "SelloSATTimbre": "PczCLhGUaXonJdigNcZFaFEKuhZ7YaudtdnyUwj1KKe5z2NDFOKOQo1Jy4TkjgyG+j/+hYl7ecyEbHj67gBIRoaZjC33NsoErQzvKHWtbGNqYJPLbRJOck5Uf6F9ZUi4Nipi9F8UqMs+tbMr3Zcohe8EKGGJrldlR/rdb1mOxsMxmMoKK6ZpOcG5x5CBwO1SHO9KaoGW4AMYO1CK/t1vq2bXcokPIHHnoiHsss3eDHjYL4W8nYKJOHrI57qLN4egwa7KeDFvufs5CNARDQJ7KSwpOn5xDE5Q+zlkSup2AlYuc5p8pnNgG64sOxSbUMudFhqXykmvZGiRbyI0MiqUbw==",
+                "Cadena1": "||1.1|45bdb8bc-172a-4d08-a13c-f2fa80e18138|2025-01-16T23:59:09|CCC1007293K0|PGlxfaIq7zFc8mxooLN68cxgllahVxlhwjw/IKC246Fz3qj2EZ1lyS79CSZ11qwxpYRaD2762bP3KPzjLEDug0qTNxEx4C",
+                "Cadena2": "9w0u4HCITJEXSEpmVY2nv7qNXxALJwRqLnIuJTTsWDJh5vRW4pX0CS0mNlVrauwDRdKgxNjB/r8TNIXNfFTNA4Tx0x/2Ivg83DJ6/Q6MadNXgpHpOgNVjebNzKXKIA7fRz+RApiNHLTgA2Q+hSllEUCmn/6+hVTcESTpQFP8Tz",
+                "Cadena3": "wvEJ0VUMPXyjI9v4dBvPc1VktC9KKGEWZEvuTnnfLePztFAL6acr4oEjatRXGZVRJ/cGtkxdptgnwA==|00001000000506403528||",
+                "Cadena4": "",
+                "UUIDTimbreCanc": ""
+            }
+        },
+        "Subsidio": [
+            {
+                "tipoSubsidio": "002",
+                "Subhpl_glosa": "Subsidio Causado",
+                "importeSubLetra": "234.35"
+            }
+        ],
+        "Deducciones": [
+            {
+                "DscDeduccion": "002",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D001 ISR",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.50"
+            },
+            {
+                "DscDeduccion": "001",
+                "cantUnidadDeduccion": "     15.00",
+                "ClaveDeduccion": "D003 CUOTA IMSS",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.50"
+            },
+            {
+                "DscDeduccion": "010",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D005 CREDITO INFONAVIT",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.50"
+            },
+            {
+                "DscDeduccion": "005",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D009 SEGURO DANOS VIVIEND",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.50"
+            },
+            {
+                "DscDeduccion": "004",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D052 OTRAS DEDUCCIONES",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.50"
+            }
+        ]
+    },
+    {
+        "tamanio": 1,
+        "duplica": 1,
+        "DescTipoNomina": "",
+        "Com_Dsc": "FIGRAL SA DE CV",
+        "calleNo": "JACARANDAS N° 503 Int. 3",
+        "coloniaDelegacion": "NUEVA JACARANDAS, MORELIA",
+        "CP": "C.P. 58099, MICHOACAN",
+        "Com_RFC": "R.F.C. FIG160830544 | Régimen fiscal 601 | Registro patronal C8989228100",
+        "Regimen": "Régimen fiscal 601",
+        "Direccion": "JACARANDAS N° 503 Int. 3 | NUEVA JACARANDAS, MORELIA | C.P. 58099, MICHOACAN",
+        "Ciudad": "",
+        "estado": "",
+        "pais": "",
+        "NoInterior": "",
+        "NoExterior": "",
+        "RegistroPatronal": "Registro patronal C8989228100",
+        "CurpCombinar": "",
+        "EmpImagen": "",
+        "Colaborador": {
+            "NumEmpleado": "N° 2571",
+            "EmpaNombreCompleto": "HUGO HERRERA MURILLO",
+            "EmpaCURP": "HEMH740601HMNRRG06",
+            "VarDatEmplTit": "",
+            "SalarioBase": "293.34",
+            "PlazaCatalogo": "MAXIMA EXPRESS",
+            "EmpaRFC": "HEMH740601A7A",
+            "NominaTipo": "",
+            "PlazaNomiDsc": "250 | O",
+            "PuestoDsc": "CHOFER",
+            "Departamento": "",
+            "DscRegimenEmpleado": "Sueldos",
+            "PeriodicidadPago": "04 Quincenal",
+            "NivelPuestoDsc": "OPERATIVOS                                                                                          ",
+            "NumDiasPagados": 15.000,
+            "Periodo": 0,
+            "lblFecIngreso": "Fecha de ingreso",
+            "EmpFechaIngreso": "16 de Julio de 2023",
+            "CPFecPag": "2025-01-15",
+            "RegFiscalReceptor": 605,
+            "CPReceptor": "58040",
+            "LblNSS": "NSS",
+            "NumSeguridadSocial": "53927482041",
+            "VarDatEmplTitSDI": "SDI",
+            "SDI": "293.34",
+            "LblAntiguedad": "Antigüedad",
+            "AntSemanas": "186 Semanas 4 Dias ",
+            "CFIDescripcionGen": "",
+            "SueldoBaseBrutoD": "278.81000",
+            "EmpFechaAntiguedadC": "19 de Junio de 2021",
+            "datoDinTitulo1": "Fecha de antigüedad",
+            "datosDinTitulo2": "",
+            "datoDin1": "19 de Junio de 2021",
+            "datoDin2": "",
+            "NetoaPagar": "3,106.10",
+            "ImporteTotalLetra": "TRES MIL CIENTO SEIS PESOS 10/100 M.N.",
+            "Cantidad": "1.00",
+            "ClavedeUnidad": "ACT",
+            "Descripcion": "Pago de nómina",
+            "ClaveProducto": "84111505",
+            "PUnitario": "4,182.15",
+            "importe": "4,182.15",
+            "TotalPercepciones": {
+                "importeTotal": ""
+            },
+            "TotalSubsidio": {
+                "importeTotSubLetra": "234.35"
+            },
+            "Subtotales": {
+                "importeTotal": "",
+                "DescuentoLetra": "1,011.85",
+                "importetotalO": "0.00",
+                "RetenidoLetra": "64.20",
+                "SubtotalLetra": "3,106.10",
+                "TotalPagarLetra": ""
+            },
+            "TotalOtrosPagos": {
+                "importetotalO": "0.00"
+            },
+            "TotalDeducciones": {
+                "importeTotalDed": "313.45"
+            },
+            "ComprobanteFiscal": {
+                "UUIDTimbre": "bca8915d-98ce-4870-aeae-ff4776affcf5",
+                "Serie": "",
+                "Folio": "",
+                "SerieFolioFiscalOrig": " ",
+                "FechaTimbre": "2025-01-16T23:59:10",
+                "NoCertificado": "00001000000711330597",
+                "NoCertificadoSATTimbre": "00001000000506403528",
+                "titFechaHr": "Fecha y hora de emisión",
+                "Fecha": "2025-01-16",
+                "MetodoPago": "PUE Pago en una sola exhibición",
+                "LugExpedicion": "58099"
+            },
+            "Firma": {
+                "ImagenQR": "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",
+                "SelloCFDTimbre": "eYpzq236HlE1FElJGj5rddT7rmLkbcVeS2hLknywScNUN+CrYayAdPI6VnUxqS2rLyp0y9+xdmt5wdNLhMvdrsCaes9LpmQhjkJRUs82+6XNt87s5xSmwNtXhi3J0n7pja0ZKAyv2tRCBX3HsqA9qIuVU/+RGNvccdg5URuVq4k6/VWhbB1JosxlPbdXM6fQkvqblotH13hAJ/wQOfSumZEv8V6bJH1Cq3bbrjLXnbih+edaxD5OdiWtDC/ynEi30wpeguT7uAe1BbU6deIWM6aX/QOzkp1GYXoy+AkYng9SE1vqFokJmV+gKOBb7A49oWPIBs4DdYqrUzg82qJHZw==",
+                "SelloSATTimbre": "PydhAzmKM4yzAGLdBAkLuVqT1UOIYu+jT3V+L777ofQ41kUXFju4hx+YdNJCKebFffCF+aA8sN5Ejxj2P4jo/KtOc211Hf7HNvSJXCy2ygZbSFedxcjiSWp/7smVxMUGl0s2Rwan1D2cbIU8Jej59KFI6aFVjVA7WFUWBQoRsKZ5UujOaKojv1cSf3JHdse8D97/SuwX5ox7jLHlCQZywObwDJjGrxST8LL0ILU5QFzFGg3T2Ja5RvAwIy1Zr2/Tx4ajsXBEY7S99xdFR3Bg0T8K7YhnYXMcoYPw/xzx8sG5JdAMaxYZ+y9ZauCLzLqa6mTm9YWaCrWYtbQo7mkx1g==",
+                "Cadena1": "||1.1|bca8915d-98ce-4870-aeae-ff4776affcf5|2025-01-16T23:59:10|CCC1007293K0|eYpzq236HlE1FElJGj5rddT7rmLkbcVeS2hLknywScNUN+CrYayAdPI6VnUxqS2rLyp0y9+xdmt5wdNLhMvdrsCaes9Lpm",
+                "Cadena2": "QhjkJRUs82+6XNt87s5xSmwNtXhi3J0n7pja0ZKAyv2tRCBX3HsqA9qIuVU/+RGNvccdg5URuVq4k6/VWhbB1JosxlPbdXM6fQkvqblotH13hAJ/wQOfSumZEv8V6bJH1Cq3bbrjLXnbih+edaxD5OdiWtDC/ynEi30wpeguT7",
+                "Cadena3": "uAe1BbU6deIWM6aX/QOzkp1GYXoy+AkYng9SE1vqFokJmV+gKOBb7A49oWPIBs4DdYqrUzg82qJHZw==|00001000000506403528||",
+                "Cadena4": "",
+                "UUIDTimbreCanc": ""
+            }
+        },
+        "Subsidio": [
+            {
+                "tipoSubsidio": "002",
+                "Subhpl_glosa": "Subsidio Causado",
+                "importeSubLetra": "234.35"
+            }
+        ],
+        "Deducciones": [
+            {
+                "DscDeduccion": "002",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D001 ISR",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "313.45"
+            },
+            {
+                "DscDeduccion": "001",
+                "cantUnidadDeduccion": "     15.00",
+                "ClaveDeduccion": "D003 CUOTA IMSS",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "313.45"
+            }
+        ]
+    },
+    {
+        "tamanio": 1,
+        "duplica": 1,
+        "DescTipoNomina": "",
+        "Com_Dsc": "FIGRAL SA DE CV",
+        "calleNo": "JACARANDAS N° 503 Int. 3",
+        "coloniaDelegacion": "NUEVA JACARANDAS, MORELIA",
+        "CP": "C.P. 58099, MICHOACAN",
+        "Com_RFC": "R.F.C. FIG160830544 | Régimen fiscal 601 | Registro patronal C8989228100",
+        "Regimen": "Régimen fiscal 601",
+        "Direccion": "JACARANDAS N° 503 Int. 3 | NUEVA JACARANDAS, MORELIA | C.P. 58099, MICHOACAN",
+        "Ciudad": "",
+        "estado": "",
+        "pais": "",
+        "NoInterior": "",
+        "NoExterior": "",
+        "RegistroPatronal": "Registro patronal C8989228100",
+        "CurpCombinar": "",
+        "EmpImagen": "",
+        "Colaborador": {
+            "NumEmpleado": "N° 2572",
+            "EmpaNombreCompleto": "MARYCRUZ LIEVANO MORALES",
+            "EmpaCURP": "LIMM890503MCSVRR03",
+            "VarDatEmplTit": "",
+            "SalarioBase": "293.34",
+            "PlazaCatalogo": "MAXIMA EXPRESS",
+            "EmpaRFC": "LIMM890503R6A",
+            "NominaTipo": "",
+            "PlazaNomiDsc": "250 | O",
+            "PuestoDsc": "CAPTURISTA",
+            "Departamento": "",
+            "DscRegimenEmpleado": "Sueldos",
+            "PeriodicidadPago": "04 Quincenal",
+            "NivelPuestoDsc": "ADMINISTRATIVOS, ANALISTAS, AUXILIARES Y ASISTENTES                                                 ",
+            "NumDiasPagados": 15.000,
+            "Periodo": 0,
+            "lblFecIngreso": "Fecha de ingreso",
+            "EmpFechaIngreso": "16 de Julio de 2023",
+            "CPFecPag": "2025-01-15",
+            "RegFiscalReceptor": 605,
+            "CPReceptor": "58000",
+            "LblNSS": "NSS",
+            "NumSeguridadSocial": "53118932853",
+            "VarDatEmplTitSDI": "SDI",
+            "SDI": "293.34",
+            "LblAntiguedad": "Antigüedad",
+            "AntSemanas": "206 Semanas 2 Dias ",
+            "CFIDescripcionGen": "",
+            "SueldoBaseBrutoD": "278.81000",
+            "EmpFechaAntiguedadC": "01 de Febrero de 2021",
+            "datoDinTitulo1": "Fecha de antigüedad",
+            "datosDinTitulo2": "",
+            "datoDin1": "01 de Febrero de 2021",
+            "datoDin2": "",
+            "NetoaPagar": "4,013.45",
+            "ImporteTotalLetra": "CUATRO MIL TRECE PESOS 45/100 M.N.",
+            "Cantidad": "1.00",
+            "ClavedeUnidad": "ACT",
+            "Descripcion": "Pago de nómina",
+            "ClaveProducto": "84111505",
+            "PUnitario": "4,182.15",
+            "importe": "4,182.15",
+            "TotalPercepciones": {
+                "importeTotal": ""
+            },
+            "TotalSubsidio": {
+                "importeTotSubLetra": "234.35"
+            },
+            "Subtotales": {
+                "importeTotal": "",
+                "DescuentoLetra": "104.50",
+                "importetotalO": "0.00",
+                "RetenidoLetra": "64.20",
+                "SubtotalLetra": "4,013.45",
+                "TotalPagarLetra": ""
+            },
+            "TotalOtrosPagos": {
+                "importetotalO": "0.00"
+            },
+            "TotalDeducciones": {
+                "importeTotalDed": "104.50"
+            },
+            "ComprobanteFiscal": {
+                "UUIDTimbre": "a2e9145f-1d1d-43e8-aed3-559cc7d50ee9",
+                "Serie": "",
+                "Folio": "",
+                "SerieFolioFiscalOrig": " ",
+                "FechaTimbre": "2025-01-16T23:59:12",
+                "NoCertificado": "00001000000711330597",
+                "NoCertificadoSATTimbre": "00001000000506403528",
+                "titFechaHr": "Fecha y hora de emisión",
+                "Fecha": "2025-01-16",
+                "MetodoPago": "PUE Pago en una sola exhibición",
+                "LugExpedicion": "58099"
+            },
+            "Firma": {
+                "ImagenQR": "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",
+                "SelloCFDTimbre": "WxPP1FsKalshJrt0U4Crip26QWiCzMo84WLrJrSEBRned2m3pSzdN+PiZEufKkIBRyx8WWVAzzNly03Ca2m/mEEyiUOZ4Hwj0vciAAXKhUUUTQLC5/DNkE44Mn0c1cFxVriJ3jv8HXOfSZ4+PrJD4Yk3rJE/heVRRYDfhrNE11I740qJHjZigTj6M0kLhWBeEYJn6jM6Dvmdx/QZc0UKd0X+0NaU8yiCl2nHHabRSk/dH7RRXAVR9cDY8Li+/zqOX7R3LmI159fuqmmqeUqM93NZSjEQbRc3eMxETQOcYvAu5h9I+yJ8OFrEsUFtl7k7TwzO9AUj1T+QGIg6NqfIJQ==",
+                "SelloSATTimbre": "FY6lWk/VCBIsDhItmOMGhrf5OK/zwso5O24yBQnljDbcUA1y1VGA8mQ9F2TyrbaSq3qmQ8tEAlSqwflpYGomDKjHOYT5qfXp52TvgQ7o/X9k+iwT/X8yql2wjG3EILeVm2E6bJyJDbIeHz3WkOCvSqva4FYsdah0bGeyfWtLUtZTbsHOT6P1UqGZE1ZYxzBbueA95SDPmJ5ZiikUPZWagQHkA7tE8cqv6S+Z8haK6EToep1mmkUWaGCJ5TEiIVWfZBBRakZ4DJ4reDKfsQU6dUlm7c5GIxDEZ0eUG9G53wyjudNt7uI2Zy51olnYVNNQ5g+4XyYbLk+eW21fIO97WA==",
+                "Cadena1": "||1.1|a2e9145f-1d1d-43e8-aed3-559cc7d50ee9|2025-01-16T23:59:12|CCC1007293K0|WxPP1FsKalshJrt0U4Crip26QWiCzMo84WLrJrSEBRned2m3pSzdN+PiZEufKkIBRyx8WWVAzzNly03Ca2m/mEEyiUOZ4H",
+                "Cadena2": "wj0vciAAXKhUUUTQLC5/DNkE44Mn0c1cFxVriJ3jv8HXOfSZ4+PrJD4Yk3rJE/heVRRYDfhrNE11I740qJHjZigTj6M0kLhWBeEYJn6jM6Dvmdx/QZc0UKd0X+0NaU8yiCl2nHHabRSk/dH7RRXAVR9cDY8Li+/zqOX7R3LmI1",
+                "Cadena3": "59fuqmmqeUqM93NZSjEQbRc3eMxETQOcYvAu5h9I+yJ8OFrEsUFtl7k7TwzO9AUj1T+QGIg6NqfIJQ==|00001000000506403528||",
+                "Cadena4": "",
+                "UUIDTimbreCanc": ""
+            }
+        },
+        "Subsidio": [
+            {
+                "tipoSubsidio": "002",
+                "Subhpl_glosa": "Subsidio Causado",
+                "importeSubLetra": "234.35"
+            }
+        ],
+        "Deducciones": [
+            {
+                "DscDeduccion": "002",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D001 ISR",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.50"
+            },
+            {
+                "DscDeduccion": "001",
+                "cantUnidadDeduccion": "     15.00",
+                "ClaveDeduccion": "D003 CUOTA IMSS",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.50"
+            }
+        ]
+    },
+    {
+        "tamanio": 1,
+        "duplica": 1,
+        "DescTipoNomina": "",
+        "Com_Dsc": "FIGRAL SA DE CV",
+        "calleNo": "JACARANDAS N° 503 Int. 3",
+        "coloniaDelegacion": "NUEVA JACARANDAS, MORELIA",
+        "CP": "C.P. 58099, MICHOACAN",
+        "Com_RFC": "R.F.C. FIG160830544 | Régimen fiscal 601 | Registro patronal C8989228100",
+        "Regimen": "Régimen fiscal 601",
+        "Direccion": "JACARANDAS N° 503 Int. 3 | NUEVA JACARANDAS, MORELIA | C.P. 58099, MICHOACAN",
+        "Ciudad": "",
+        "estado": "",
+        "pais": "",
+        "NoInterior": "",
+        "NoExterior": "",
+        "RegistroPatronal": "Registro patronal C8989228100",
+        "CurpCombinar": "",
+        "EmpImagen": "",
+        "Colaborador": {
+            "NumEmpleado": "N° 2576",
+            "EmpaNombreCompleto": "LUIS EDUARDO SANCHEZ HERNANDEZ",
+            "EmpaCURP": "SAHL880703HGTNRS09",
+            "VarDatEmplTit": "",
+            "SalarioBase": "293.34",
+            "PlazaCatalogo": "MAXIMA EXPRESS",
+            "EmpaRFC": "SAHL880703544",
+            "NominaTipo": "",
+            "PlazaNomiDsc": "250 | O",
+            "PuestoDsc": "SUPERVISOR  A",
+            "Departamento": "",
+            "DscRegimenEmpleado": "Sueldos",
+            "PeriodicidadPago": "04 Quincenal",
+            "NivelPuestoDsc": "SUPERVISORES                                                                                        ",
+            "NumDiasPagados": 15.000,
+            "Periodo": 0,
+            "lblFecIngreso": "Fecha de ingreso",
+            "EmpFechaIngreso": "16 de Julio de 2023",
+            "CPFecPag": "2025-01-15",
+            "RegFiscalReceptor": 605,
+            "CPReceptor": "27000",
+            "LblNSS": "NSS",
+            "NumSeguridadSocial": "12078818767",
+            "VarDatEmplTitSDI": "SDI",
+            "SDI": "293.34",
+            "LblAntiguedad": "Antigüedad",
+            "AntSemanas": "206 Semanas 2 Dias ",
+            "CFIDescripcionGen": "",
+            "SueldoBaseBrutoD": "278.81000",
+            "EmpFechaAntiguedadC": "01 de Febrero de 2021",
+            "datoDinTitulo1": "Fecha de antigüedad",
+            "datosDinTitulo2": "",
+            "datoDin1": "01 de Febrero de 2021",
+            "datoDin2": "",
+            "NetoaPagar": "4,013.45",
+            "ImporteTotalLetra": "CUATRO MIL TRECE PESOS 45/100 M.N.",
+            "Cantidad": "1.00",
+            "ClavedeUnidad": "ACT",
+            "Descripcion": "Pago de nómina",
+            "ClaveProducto": "84111505",
+            "PUnitario": "4,182.15",
+            "importe": "4,182.15",
+            "TotalPercepciones": {
+                "importeTotal": ""
+            },
+            "TotalSubsidio": {
+                "importeTotSubLetra": "234.35"
+            },
+            "Subtotales": {
+                "importeTotal": "",
+                "DescuentoLetra": "104.50",
+                "importetotalO": "0.00",
+                "RetenidoLetra": "64.20",
+                "SubtotalLetra": "4,013.45",
+                "TotalPagarLetra": ""
+            },
+            "TotalOtrosPagos": {
+                "importetotalO": "0.00"
+            },
+            "TotalDeducciones": {
+                "importeTotalDed": "104.50"
+            },
+            "ComprobanteFiscal": {
+                "UUIDTimbre": "8573979f-9fea-4d23-a2c5-b1eee6314f8f",
+                "Serie": "",
+                "Folio": "",
+                "SerieFolioFiscalOrig": " ",
+                "FechaTimbre": "2025-01-16T23:59:13",
+                "NoCertificado": "00001000000711330597",
+                "NoCertificadoSATTimbre": "00001000000506403528",
+                "titFechaHr": "Fecha y hora de emisión",
+                "Fecha": "2025-01-16",
+                "MetodoPago": "PUE Pago en una sola exhibición",
+                "LugExpedicion": "58099"
+            },
+            "Firma": {
+                "ImagenQR": "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",
+                "SelloCFDTimbre": "WbJ50XMon6EKGoSLziZGoASLlVWEEzbNk1txEEgt4/Y0BrWNcRzOsMZkXxPiO27p0tHq1sLqWkrCGFbtwCNW7FwZ7aikRT6ZhqsPXtwWHppeggTCethiHL5LMI/wB6ly6vHSK8juGpMLTdxe+MvHVGok5F3Fl3KGC7qlrLbaTJo4Spxk9rL64jdqjfskisDc9V0CoIw8UDqqLKF4q60f3VUWhxAi1uG5bpL0dm7HPNSxb1Sy/bbbS2tWYeE3Eg4CjUaBWCelusOvnzybJcZ+GvM83Z7pHP6JAnzy2bV1B2XGZQdClGQiEEsjYSWMcDhBRFuzvfNVAMB+uccYUERWSA==",
+                "SelloSATTimbre": "Ox0p8ie8odGkqRhN9AwD7hzecFOJwWsM81INzo1cYhjAUJhyaAIgs1GWi0tpdXXm1ZTR4F3f52lfZDvjr1NC3eQZAKkIYYVPSlh8BKVVmp8ggUOO8Dco/iPITk+t21NPTNsQaAnbJrozVwjRSu0AK95BSMv3f8OIcL2UhU5sCicYNNnb+MVzo8u7GcTIfxRsWB5U1deR9mLjCsEIS35eR7EHb0yX5TimP567OOYJ3DcgHIGmKWqNmSPAxBBAvFI/AbwykMWARWT+tDFiCaQbpSXRroUL6t+FEj+JWjxDalMCNaPemxLwOc1JSrtAsm4bQr5zZM4wqUdDwgHBYRQG2A==",
+                "Cadena1": "||1.1|8573979f-9fea-4d23-a2c5-b1eee6314f8f|2025-01-16T23:59:13|CCC1007293K0|WbJ50XMon6EKGoSLziZGoASLlVWEEzbNk1txEEgt4/Y0BrWNcRzOsMZkXxPiO27p0tHq1sLqWkrCGFbtwCNW7FwZ7aikRT",
+                "Cadena2": "6ZhqsPXtwWHppeggTCethiHL5LMI/wB6ly6vHSK8juGpMLTdxe+MvHVGok5F3Fl3KGC7qlrLbaTJo4Spxk9rL64jdqjfskisDc9V0CoIw8UDqqLKF4q60f3VUWhxAi1uG5bpL0dm7HPNSxb1Sy/bbbS2tWYeE3Eg4CjUaBWCel",
+                "Cadena3": "usOvnzybJcZ+GvM83Z7pHP6JAnzy2bV1B2XGZQdClGQiEEsjYSWMcDhBRFuzvfNVAMB+uccYUERWSA==|00001000000506403528||",
+                "Cadena4": "",
+                "UUIDTimbreCanc": ""
+            }
+        },
+        "Subsidio": [
+            {
+                "tipoSubsidio": "002",
+                "Subhpl_glosa": "Subsidio Causado",
+                "importeSubLetra": "0.00"
+            }
+        ],
+        "Deducciones": [
+            {
+                "DscDeduccion": "002",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D001 ISR",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.50"
+            },
+            {
+                "DscDeduccion": "001",
+                "cantUnidadDeduccion": "     15.00",
+                "ClaveDeduccion": "D003 CUOTA IMSS",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.50"
+            }
+        ]
+    },
+    {
+        "tamanio": 1,
+        "duplica": 1,
+        "DescTipoNomina": "",
+        "Com_Dsc": "FIGRAL SA DE CV",
+        "calleNo": "JACARANDAS N° 503 Int. 3",
+        "coloniaDelegacion": "NUEVA JACARANDAS, MORELIA",
+        "CP": "C.P. 58099, MICHOACAN",
+        "Com_RFC": "R.F.C. FIG160830544 | Régimen fiscal 601 | Registro patronal C8989228100",
+        "Regimen": "Régimen fiscal 601",
+        "Direccion": "JACARANDAS N° 503 Int. 3 | NUEVA JACARANDAS, MORELIA | C.P. 58099, MICHOACAN",
+        "Ciudad": "",
+        "estado": "",
+        "pais": "",
+        "NoInterior": "",
+        "NoExterior": "",
+        "RegistroPatronal": "Registro patronal C8989228100",
+        "CurpCombinar": "",
+        "EmpImagen": "",
+        "Colaborador": {
+            "NumEmpleado": "N° 2578",
+            "EmpaNombreCompleto": "CARLOS ALBERTO VELEZ IZQUIERDO",
+            "EmpaCURP": "VEIC770909HYNLZR07",
+            "VarDatEmplTit": "",
+            "SalarioBase": "616.58",
+            "PlazaCatalogo": "MAXIMA EXPRESS",
+            "EmpaRFC": "VEIC770909515",
+            "NominaTipo": "",
+            "PlazaNomiDsc": "250 | O",
+            "PuestoDsc": "ADMINISTRADOR",
+            "Departamento": "",
+            "DscRegimenEmpleado": "Sueldos",
+            "PeriodicidadPago": "04 Quincenal",
+            "NivelPuestoDsc": "PROFESIONES                                                                                         ",
+            "NumDiasPagados": 15.000,
+            "Periodo": 0,
+            "lblFecIngreso": "Fecha de ingreso",
+            "EmpFechaIngreso": "16 de Julio de 2023",
+            "CPFecPag": "2025-01-15",
+            "RegFiscalReceptor": 605,
+            "CPReceptor": "58260",
+            "LblNSS": "NSS",
+            "NumSeguridadSocial": "53957710196",
+            "VarDatEmplTitSDI": "SDI",
+            "SDI": "616.58",
+            "LblAntiguedad": "Antigüedad",
+            "AntSemanas": "206 Semanas 2 Dias ",
+            "CFIDescripcionGen": "",
+            "SueldoBaseBrutoD": "586.05000",
+            "EmpFechaAntiguedadC": "01 de Febrero de 2021",
+            "datoDinTitulo1": "Fecha de antigüedad",
+            "datosDinTitulo2": "",
+            "datoDin1": "01 de Febrero de 2021",
+            "datoDin2": "",
+            "NetoaPagar": "7,498.97",
+            "ImporteTotalLetra": "SIETE MIL CUATROCIENTOS NOVENTA Y OCHO PESOS 97/100 M.N.",
+            "Cantidad": "1.00",
+            "ClavedeUnidad": "ACT",
+            "Descripcion": "Pago de nómina",
+            "ClaveProducto": "84111505",
+            "PUnitario": "8,790.75",
+            "importe": "8,790.75",
+            "TotalPercepciones": {
+                "importeTotal": ""
+            },
+            "TotalSubsidio": {
+                "importeTotSubLetra": "0.00"
+            },
+            "Subtotales": {
+                "importeTotal": "",
+                "DescuentoLetra": "237.10",
+                "importetotalO": "0.00",
+                "RetenidoLetra": "1,054.68",
+                "SubtotalLetra": "7,498.97",
+                "TotalPagarLetra": ""
+            },
+            "TotalOtrosPagos": {
+                "importetotalO": "0.00"
+            },
+            "TotalDeducciones": {
+                "importeTotalDed": "237.10"
+            },
+            "ComprobanteFiscal": {
+                "UUIDTimbre": "6d3ea2b5-a0c1-46b4-bd5c-74cd1cfdf0f3",
+                "Serie": "",
+                "Folio": "",
+                "SerieFolioFiscalOrig": " ",
+                "FechaTimbre": "2025-01-16T23:59:14",
+                "NoCertificado": "00001000000711330597",
+                "NoCertificadoSATTimbre": "00001000000506403528",
+                "titFechaHr": "Fecha y hora de emisión",
+                "Fecha": "2025-01-16",
+                "MetodoPago": "PUE Pago en una sola exhibición",
+                "LugExpedicion": "58099"
+            },
+            "Firma": {
+                "ImagenQR": "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",
+                "SelloCFDTimbre": "EbvBWJ3G6kIz7yvEGEa+0GE1m19DxfonR+ES5H/5eZdmitbqBMdOAb8g2r/3Y56Hoj3UamFCoLrl6yXxnJinAF4oIXrMYqRqhg0sO4H9NkPosZRRdFDkEQvBkpndxZCgzmJFholPDXmxySbaNUQj42X/m/zkN/dujOrC3bChQ3TGO9hPYXoSNYAHDlOa1vElBJpomoZ3cqpJtyOD2PWY/lczAZSi+Ue9Z7Pp+g5URaP923dfSKct1VX6LMR06uiE7pMb5H1LP0BTwmeMrcaOrr+Dc2DOdi5+HVLtZ8IwYqA7KEl4pGrsQy3bWgocK/NUTCsBN0L9z7JbIpXfjtemZA==",
+                "SelloSATTimbre": "DPboh54UuvzGNR6XvGuidbX/lQ8Fu6UG4k1PPvW9oa0VUyltQsPlduOGzAD3u+d/wE8lHOB+MmS+V56PTaj322qjyjkSWKyiTSfn4bqL3udSKiDnnNiFd+XSWEXlVr2NAaGK9CwH+RIOQgEeyvQ0hlqgKrta3AiKWzqJSW/PbCG3G9zDFGbOoG3XJM2kxqdGFeAUPkHP1Opy9K7ni5+RyetKhewbOuKmasDfZACVYOqXDLPkcqjI68EicIxjPlNetufcD8GQlKQUwFRP8e6W3aGDQS53qknQ3fGvbTiSWj/DhG+02p7N/J04SDtW4JLsRTLXGcPHdxDcTDKKRpRFRQ==",
+                "Cadena1": "||1.1|6d3ea2b5-a0c1-46b4-bd5c-74cd1cfdf0f3|2025-01-16T23:59:14|CCC1007293K0|EbvBWJ3G6kIz7yvEGEa+0GE1m19DxfonR+ES5H/5eZdmitbqBMdOAb8g2r/3Y56Hoj3UamFCoLrl6yXxnJinAF4oIXrMYq",
+                "Cadena2": "Rqhg0sO4H9NkPosZRRdFDkEQvBkpndxZCgzmJFholPDXmxySbaNUQj42X/m/zkN/dujOrC3bChQ3TGO9hPYXoSNYAHDlOa1vElBJpomoZ3cqpJtyOD2PWY/lczAZSi+Ue9Z7Pp+g5URaP923dfSKct1VX6LMR06uiE7pMb5H1L",
+                "Cadena3": "P0BTwmeMrcaOrr+Dc2DOdi5+HVLtZ8IwYqA7KEl4pGrsQy3bWgocK/NUTCsBN0L9z7JbIpXfjtemZA==|00001000000506403528||",
+                "Cadena4": "",
+                "UUIDTimbreCanc": ""
+            }
+        },
+        "Subsidio": [
+            {
+                "tipoSubsidio": "002",
+                "Subhpl_glosa": "Subsidio Causado",
+                "importeSubLetra": "234.35"
+            }
+        ],
+        "Deducciones": [
+            {
+                "DscDeduccion": "002",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D001 ISR",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "237.10"
+            },
+            {
+                "DscDeduccion": "001",
+                "cantUnidadDeduccion": "     15.00",
+                "ClaveDeduccion": "D003 CUOTA IMSS",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "237.10"
+            },
+            {
+                "DscDeduccion": "010",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D005 CREDITO INFONAVIT",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "237.10"
+            },
+            {
+                "DscDeduccion": "005",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D009 SEGURO DANOS VIVIEND",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "237.10"
+            },
+            {
+                "DscDeduccion": "010",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D029 AJUSTE DESC  INFONAV",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "237.10"
+            },
+            {
+                "DscDeduccion": "011",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D503 PRESTAMO PERSONAL",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "237.10"
+            }
+        ]
+    },
+    {
+        "tamanio": 1,
+        "duplica": 1,
+        "DescTipoNomina": "",
+        "Com_Dsc": "FIGRAL SA DE CV",
+        "calleNo": "JACARANDAS N° 503 Int. 3",
+        "coloniaDelegacion": "NUEVA JACARANDAS, MORELIA",
+        "CP": "C.P. 58099, MICHOACAN",
+        "Com_RFC": "R.F.C. FIG160830544 | Régimen fiscal 601 | Registro patronal C8989228100",
+        "Regimen": "Régimen fiscal 601",
+        "Direccion": "JACARANDAS N° 503 Int. 3 | NUEVA JACARANDAS, MORELIA | C.P. 58099, MICHOACAN",
+        "Ciudad": "",
+        "estado": "",
+        "pais": "",
+        "NoInterior": "",
+        "NoExterior": "",
+        "RegistroPatronal": "Registro patronal C8989228100",
+        "CurpCombinar": "",
+        "EmpImagen": "",
+        "Colaborador": {
+            "NumEmpleado": "N° 4561",
+            "EmpaNombreCompleto": "ANA LUISA SANTIAGO ZAMUDIO",
+            "EmpaCURP": "SAZA901207MMNNMN09",
+            "VarDatEmplTit": "",
+            "SalarioBase": "292.95",
+            "PlazaCatalogo": "MAXIMA EXPRESS",
+            "EmpaRFC": "SAZA901207RB5",
+            "NominaTipo": "",
+            "PlazaNomiDsc": "250 | O",
+            "PuestoDsc": "CHOFER",
+            "Departamento": "",
+            "DscRegimenEmpleado": "Sueldos",
+            "PeriodicidadPago": "04 Quincenal",
+            "NivelPuestoDsc": "OPERATIVOS                                                                                          ",
+            "NumDiasPagados": 15.000,
+            "Periodo": 0,
+            "lblFecIngreso": "Fecha de ingreso",
+            "EmpFechaIngreso": "16 de Julio de 2023",
+            "CPFecPag": "2025-01-15",
+            "RegFiscalReceptor": 605,
+            "CPReceptor": "58880",
+            "LblNSS": "NSS",
+            "NumSeguridadSocial": "53119005410",
+            "VarDatEmplTitSDI": "SDI",
+            "SDI": "292.95",
+            "LblAntiguedad": "Antigüedad",
+            "AntSemanas": "173 Semanas 6 Dias ",
+            "CFIDescripcionGen": "",
+            "SueldoBaseBrutoD": "278.81000",
+            "EmpFechaAntiguedadC": "16 de Septiembre de 2021",
+            "datoDinTitulo1": "Fecha de antigüedad",
+            "datosDinTitulo2": "",
+            "datoDin1": "16 de Septiembre de 2021",
+            "datoDin2": "",
+            "NetoaPagar": "2,888.33",
+            "ImporteTotalLetra": "DOS MIL OCHOCIENTOS OCHENTA Y OCHO PESOS 33/100 M.N.",
+            "Cantidad": "1.00",
+            "ClavedeUnidad": "ACT",
+            "Descripcion": "Pago de nómina",
+            "ClaveProducto": "84111505",
+            "PUnitario": "4,182.15",
+            "importe": "4,182.15",
+            "TotalPercepciones": {
+                "importeTotal": ""
+            },
+            "TotalSubsidio": {
+                "importeTotSubLetra": "234.35"
+            },
+            "Subtotales": {
+                "importeTotal": "",
+                "DescuentoLetra": "1,229.62",
+                "importetotalO": "0.00",
+                "RetenidoLetra": "64.20",
+                "SubtotalLetra": "2,888.33",
+                "TotalPagarLetra": ""
+            },
+            "TotalOtrosPagos": {
+                "importetotalO": "0.00"
+            },
+            "TotalDeducciones": {
+                "importeTotalDed": "422.97"
+            },
+            "ComprobanteFiscal": {
+                "UUIDTimbre": "ed8ec24e-a336-485e-9358-7c95209b7919",
+                "Serie": "",
+                "Folio": "",
+                "SerieFolioFiscalOrig": " ",
+                "FechaTimbre": "2025-01-16T23:59:15",
+                "NoCertificado": "00001000000711330597",
+                "NoCertificadoSATTimbre": "00001000000506403528",
+                "titFechaHr": "Fecha y hora de emisión",
+                "Fecha": "2025-01-16",
+                "MetodoPago": "PUE Pago en una sola exhibición",
+                "LugExpedicion": "58099"
+            },
+            "Firma": {
+                "ImagenQR": "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",
+                "SelloCFDTimbre": "EUmY6C97co5ne879/s4Jqq1V6NPdCWDjwYWvbhpDhptYl10pDN03O87mLs7T3LrXiQtI/4yUr01Q7477TRvdV6mznkq7RyxC9c9V7X8XVe5GeDytYN0V1POwurs8v//TNk8+cXf7Pd3R3TvOX9LrSxKe9lGdLgkuaFlVYSz+IX/BtQiEvKxezAq4t62hGMRarpnq85aJ2Qo0G+Kn9IO4Ln8yI48OY1NmpM8vOyRlFphZYdXb8HlMYswP9JeM33J/IWyFvOyFC70rUpFENKRylTkpKdY7sTZ4MrD10dljT6M09tTnQYcQT1uj5mxxOG7/DJJpmnXFh0uorAQTDLzcOg==",
+                "SelloSATTimbre": "eg/LOC1avgoRV/P1qZB9HJ37+qLXgkQ3Z17bV+RiaP4XTiYtirZmEMwjhGRA82q4V67/vjXC1tQRCvJXuKQMsNf2UebHNn53mp2NR/5hd+U/e07L/aU+2Mx6l7+rNKDn6OZTohPO+TRIye6Tt2V49AFmGdc6KyP9Oh9hRgVw7VKDowIboK7vlp8KLY1IiqKFs0bagOGd8GjppZ920Rf4gtn9HjjN+UZwFj/MnXE6Vq4/PrdIe4rcYDvu8Nl8jJiy57QCOqimRvlA+B/CuU/DvU4JPmw04WtnCn7ClihenWc0eqKf4NMSdJ5IIZ8qd2f2+FwB9DC8jWWY8WXg5g0AuQ==",
+                "Cadena1": "||1.1|ed8ec24e-a336-485e-9358-7c95209b7919|2025-01-16T23:59:15|CCC1007293K0|EUmY6C97co5ne879/s4Jqq1V6NPdCWDjwYWvbhpDhptYl10pDN03O87mLs7T3LrXiQtI/4yUr01Q7477TRvdV6mznkq7Ry",
+                "Cadena2": "xC9c9V7X8XVe5GeDytYN0V1POwurs8v//TNk8+cXf7Pd3R3TvOX9LrSxKe9lGdLgkuaFlVYSz+IX/BtQiEvKxezAq4t62hGMRarpnq85aJ2Qo0G+Kn9IO4Ln8yI48OY1NmpM8vOyRlFphZYdXb8HlMYswP9JeM33J/IWyFvOyF",
+                "Cadena3": "C70rUpFENKRylTkpKdY7sTZ4MrD10dljT6M09tTnQYcQT1uj5mxxOG7/DJJpmnXFh0uorAQTDLzcOg==|00001000000506403528||",
+                "Cadena4": "",
+                "UUIDTimbreCanc": ""
+            }
+        },
+        "Subsidio": [
+            {
+                "tipoSubsidio": "002",
+                "Subhpl_glosa": "Subsidio Causado",
+                "importeSubLetra": "234.35"
+            }
+        ],
+        "Deducciones": [
+            {
+                "DscDeduccion": "002",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D001 ISR",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "422.97"
+            },
+            {
+                "DscDeduccion": "001",
+                "cantUnidadDeduccion": "     15.00",
+                "ClaveDeduccion": "D003 CUOTA IMSS",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "422.97"
+            }
+        ]
+    },
+    {
+        "tamanio": 1,
+        "duplica": 1,
+        "DescTipoNomina": "",
+        "Com_Dsc": "FIGRAL SA DE CV",
+        "calleNo": "JACARANDAS N° 503 Int. 3",
+        "coloniaDelegacion": "NUEVA JACARANDAS, MORELIA",
+        "CP": "C.P. 58099, MICHOACAN",
+        "Com_RFC": "R.F.C. FIG160830544 | Régimen fiscal 601 | Registro patronal C8989228100",
+        "Regimen": "Régimen fiscal 601",
+        "Direccion": "JACARANDAS N° 503 Int. 3 | NUEVA JACARANDAS, MORELIA | C.P. 58099, MICHOACAN",
+        "Ciudad": "",
+        "estado": "",
+        "pais": "",
+        "NoInterior": "",
+        "NoExterior": "",
+        "RegistroPatronal": "Registro patronal C8989228100",
+        "CurpCombinar": "",
+        "EmpImagen": "",
+        "Colaborador": {
+            "NumEmpleado": "N° 5104",
+            "EmpaNombreCompleto": "EMMANUEL MAYA CORREA",
+            "EmpaCURP": "MACE930808HQTYRM09",
+            "VarDatEmplTit": "",
+            "SalarioBase": "292.95",
+            "PlazaCatalogo": "MAXIMA EXPRESS",
+            "EmpaRFC": "MACE9308085B2",
+            "NominaTipo": "",
+            "PlazaNomiDsc": "250 | O",
+            "PuestoDsc": "CHOFER",
+            "Departamento": "",
+            "DscRegimenEmpleado": "Sueldos",
+            "PeriodicidadPago": "04 Quincenal",
+            "NivelPuestoDsc": "OPERATIVOS                                                                                          ",
+            "NumDiasPagados": 15.000,
+            "Periodo": 0,
+            "lblFecIngreso": "Fecha de ingreso",
+            "EmpFechaIngreso": "16 de Julio de 2023",
+            "CPFecPag": "2025-01-15",
+            "RegFiscalReceptor": 605,
+            "CPReceptor": "76000",
+            "LblNSS": "NSS",
+            "NumSeguridadSocial": "02189353119",
+            "VarDatEmplTitSDI": "SDI",
+            "SDI": "292.95",
+            "LblAntiguedad": "Antigüedad",
+            "AntSemanas": "160 Semanas 2 Dias ",
+            "CFIDescripcionGen": "",
+            "SueldoBaseBrutoD": "278.81000",
+            "EmpFechaAntiguedadC": "20 de Diciembre de 2021",
+            "datoDinTitulo1": "Fecha de antigüedad",
+            "datosDinTitulo2": "",
+            "datoDin1": "20 de Diciembre de 2021",
+            "datoDin2": "",
+            "NetoaPagar": "4,013.58",
+            "ImporteTotalLetra": "CUATRO MIL TRECE PESOS 58/100 M.N.",
+            "Cantidad": "1.00",
+            "ClavedeUnidad": "ACT",
+            "Descripcion": "Pago de nómina",
+            "ClaveProducto": "84111505",
+            "PUnitario": "4,182.15",
+            "importe": "4,182.15",
+            "TotalPercepciones": {
+                "importeTotal": ""
+            },
+            "TotalSubsidio": {
+                "importeTotSubLetra": "234.35"
+            },
+            "Subtotales": {
+                "importeTotal": "",
+                "DescuentoLetra": "104.37",
+                "importetotalO": "0.00",
+                "RetenidoLetra": "64.20",
+                "SubtotalLetra": "4,013.58",
+                "TotalPagarLetra": ""
+            },
+            "TotalOtrosPagos": {
+                "importetotalO": "0.00"
+            },
+            "TotalDeducciones": {
+                "importeTotalDed": "104.37"
+            },
+            "ComprobanteFiscal": {
+                "UUIDTimbre": "461c5216-b2ba-43f0-8d9e-2de525df23f7",
+                "Serie": "",
+                "Folio": "",
+                "SerieFolioFiscalOrig": " ",
+                "FechaTimbre": "2025-01-16T23:59:17",
+                "NoCertificado": "00001000000711330597",
+                "NoCertificadoSATTimbre": "00001000000506403528",
+                "titFechaHr": "Fecha y hora de emisión",
+                "Fecha": "2025-01-16",
+                "MetodoPago": "PUE Pago en una sola exhibición",
+                "LugExpedicion": "58099"
+            },
+            "Firma": {
+                "ImagenQR": "R0lGODlhtQC1APcAAAAAAAAAMwAAZgAAmQAAzAAA/wArAAArMwArZgArmQArzAAr/wBVAABVMwBVZgBVmQBVzABV/wCAAACAMwCAZgCAmQCAzACA/wCqAACqMwCqZgCqmQCqzACq/wDVAADVMwDVZgDVmQDVzADV/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMrADMrMzMrZjMrmTMrzDMr/zNVADNVMzNVZjNVmTNVzDNV/zOAADOAMzOAZjOAmTOAzDOA/zOqADOqMzOqZjOqmTOqzDOq/zPVADPVMzPVZjPVmTPVzDPV/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YrAGYrM2YrZmYrmWYrzGYr/2ZVAGZVM2ZVZmZVmWZVzGZV/2aAAGaAM2aAZmaAmWaAzGaA/2aqAGaqM2aqZmaqmWaqzGaq/2bVAGbVM2bVZmbVmWbVzGbV/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5krAJkrM5krZpkrmZkrzJkr/5lVAJlVM5lVZplVmZlVzJlV/5mAAJmAM5mAZpmAmZmAzJmA/5mqAJmqM5mqZpmqmZmqzJmq/5nVAJnVM5nVZpnVmZnVzJnV/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wrAMwrM8wrZswrmcwrzMwr/8xVAMxVM8xVZsxVmcxVzMxV/8yAAMyAM8yAZsyAmcyAzMyA/8yqAMyqM8yqZsyqmcyqzMyq/8zVAMzVM8zVZszVmczVzMzV/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8rAP8rM/8rZv8rmf8rzP8r//9VAP9VM/9VZv9Vmf9VzP9V//+AAP+AM/+AZv+Amf+AzP+A//+qAP+qM/+qZv+qmf+qzP+q///VAP/VM//VZv/Vmf/VzP/V////AP//M///Zv//mf//zP///wAAAAAAAAAAAAAAACH5BAEAAPwALAAAAAC1ALUAAAj/APcJHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuXMGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJMqXeoTgNOnUKNKnYoQKkSrB7EK1LpvqlcABLlW/UrWa8iyaKOOdXr16VqwA7mmdRuXrsK5c8/iRfu2LdusdrsG3hs28Nu9ZkEiLtv3odi6f7cOxls4csLFZPVa9gtXstTKagFvhtw5olyqoktz1qza8eTPpB97bj2b4mnYBmU31J2R98LboWfrHm7YteXEuYs79H2R+eXXwQXjLkh89HLo1WnvVq4ROHLp2vn+/+aeHThoht5R11aMXT34w+4bJ7cO3jxp9O2nO6+YXj95xuPRVx505wVYmnjrfdRfdANOJx91//l3HHcFCufefrblx6CGFb4XG4AJQjhhXvd9KKF2vWlon4UjHqjihRG6SGKICHqo4IstgraijfWByGOHhJXI4ob0pdjidwsCiSOR4S25Y40YTrTgjg9G+dyRPq5mIpOs6QhjkUL+KKWTFBro5Yldbkllah1miGVmY77JJXtyrjmfjCgah2eNWg5pZ3dl3kVgmGdG16eIe36Zp6BgNhfolXi2qeajDyoJZ4iHdmSlpZGm9l2mYUJJKZt0Lgopp/A5qGeVPm5KKEeYff+FaqiD0lgrj0/GGh+suqJJa46/dmorsMP2OmqcxhKL6625Kttsor2yluysxVK7rLPMJnusUNm52aSAuzJ1I7iNnkrqna6KK1G3yFa6pbojsbtujKmaWlOshYq6WL2cBVntq+Milm+rmPGrp7/XCisSvpNe2uOMiFrJ8L+YlorwxA+nZfB1+wYracAbI4oSkpStaibAHjX4rb0bkQwxfuX+qWmM8pbkssYmM6pwmujSe9LNfJ6s88cLhxux0Rh/+m7DsqIMM8uOqtqz1Bnra+jSfhJcrrsBOxd01g4rPeTAYW9L9MxUk73yxUgryvbW56ZccNxfixy32k/ffO/cd+I3LbTdU18duMwsYcyp2IAn7rfOetNkeLCIE62y11pDrVLNf05ZcsVDQ64t3FGvbO3hfIvZebGfg/9uEea3kt4x5+ainrrNPlOc+LRO003m63KfSDm2qrMKMeF9596y248+i5HmvsIuvOX8IR9ztsHrPnzrf6c7r+/JUw+99Tjb/vTZpfZrdN4cMv384reb7a35aRuYpPrgsz96+QefL3/6YIvuOdXEA5Tq6oY+OdnPY/QrnvNGtq3Gjc1T2IMd4uqmPbRZzoEZC1nNClWvDRaugYriIASVJbm2OYx8PwNh8zI4wp2hbIJZMt7qVDgn2ZGraQtUoOkSdsDjDTCE/1sbEDnmQtsRcHk0VB7WjrbC8b3Qe5FD4g9XOL/BRTB2O3xWFEMHNBqGTIObS5j2Kgg/JkmMZt3jXtn/DNgukljtjDf8nRkrJ8LtfQ9ZXZyiEKenRhyK0X05FKDAEBg4tU2udlnUnw4t+LYisrB/h7xhCeO3SF7xLnPS82MPedhCUPlwkOJbIsI2iUlKKs6SgnvkKSVIx/rd7ZU2vCMRVca1RK7Rf6zkIy5VyUg0ShKWVbtiKU3FOlNGD4Am3CX7iqlMYFaxd3t0ZCPfmEZQcvKB8fKlNMM4zWo20nWyNI02Jxm+YPaxgOXUIiDtCMY4Vo6auvxmEFuCwVpuEYtkJOL9UthEZyoSn+s8VACldUVyjrGgn9ynSerpT2O6smjAC6cUiTnOh26HhEyD4S1TIscvEvKi2+TdMgP6/76/1bF9ejRoGEdavdA5sZAWfaktrclSie4voic9aEQ9CElEonCGVOTfDmX6TJWe8IktnaX3crpOdf7Sish8KjSViM2hZk+oRtUkUm2q1DpBEasyNKQXg5jPrkKrhqrU6AVXelWvJlWcfXTqWWvZwX9a64ifZJ7C8thMxsXwdH90KB5JGst7orOjFi3rMVMpULba8Z7M/ClB30pWu96UsVtVKO0EC9CXDdaUkQ0r/qCKVm8h1q+erWRVLVjXfj62mof96yp5icrWlvazFI2nY2dr2JKSdqCXlaltIVtRkH1UuHldaguHeVLWHtekycXpcoUJ1oQ+F7CopCoTbxtLnjpdE6QWUy5pydnc2ibQnH1FL3HZ2NONMtCtZ+Wpev/5TNwF0rn9I6U28RrY+HKTsOw8LwX3K1twitW9/0fRqyfRW0bkLkXBOdsuHDF7X6JAWJ/T1eNp1XVh8GZ4raAFsJG0VV7UUtiqMDVi6XoZrSXGVpcN/ujjoqurEkNqvSBGq157i9ukWTa/0DXxXVds3gALOcgeBmpuuQtN394Ytm1UMjolO1Ene1S1SV7slEXr0ig/GcZetnInuSxlAVd3vqntbOoQ3GQzs1fCRAbsmq3mXTq7OKO7fd6ch9hmIHf3w6Ns6575jF8GX3emTrbzbxFqXD9/l7xeVjScXQtR/0oXyzq1dEjTKeLGslm+ma7pcBndZ0OreKdJTKaNY9xoU39XrmVkZll5bGRXa7eol5U1gGkNV00PGdUaVpD1nV9LWSQTdUn2RHaPSa1Yugpav1Llr21/2mxgHhu+ycb2sjGK5REnWtmYBnevGdrtido3rQS+XlyFvehim9jHlD43X9U6and/ucaiTDen1x3VaPI61qUjN5r9OG92T/rE8Eq4whfO8IY7/OEQj7jEJ07xilv84hjPuMY3zvGOe/zjIA+5yEdO8pKb/OQ6CQgAOw==",
+                "SelloCFDTimbre": "T7VW5ZqtneMBsWgH/9d+uZP6LUkVbSHZi/hdFkOGtcoHzafAlfvwng785PshC0v9vvdKH8K2CTTGWCy0yZTWT85lqV2K7ib866h5T5gtcjF4q89vSxDWBQmoOkWfQlmPFCiBvBZ+Ap1e6+rH7u6SWtOB+f+IcDpPIdtUtEBJ9RbC3E5BlUH9RR3UIzqNKymf479OOg9Adp2QZy2lVEANV3sJ5FKVofQp1CZhSLXlJmK8NKqFRImOqnvArJHh+WcUlWNCeVbtm1qXWLuFq0MqFX+y+qM3Ktl3dc+272/68SS9dYaR2XJQLCbUADnInjRDAoBvxBJ9+yfhX1BoJhDtZg==",
+                "SelloSATTimbre": "HDbQJoIPUjpjdjIVVjqeqJFxIyiHfI/BhfyDmeua8OEXd1qL5fIA3R+Krw2kNmPjNt43GGOGwBb3zRngecngojKLHFouvzp4tmnIzcBTKTuVbkdWt565d4ewXskzfw4QvTIb+Hc1MwPU8BM4n067QyqTteuv3mXZvq2YmI9Qs5eSD/Wc6RZutcw7hLrVby8yvLeAVRM3DS7VSOHAJcrCLgqO/PvjOrJFzafzF9m7hQG+jxDiRPOdHwl4Wm7QG127/O+Jtl94LBMPtpokPSBgF2ArC1USiLDZ64WYK4e+39uOP7myTvPuncw1ETAvE8riXin+EgbNkAP8GvBXwtV55g==",
+                "Cadena1": "||1.1|461c5216-b2ba-43f0-8d9e-2de525df23f7|2025-01-16T23:59:17|CCC1007293K0|T7VW5ZqtneMBsWgH/9d+uZP6LUkVbSHZi/hdFkOGtcoHzafAlfvwng785PshC0v9vvdKH8K2CTTGWCy0yZTWT85lqV2K7i",
+                "Cadena2": "b866h5T5gtcjF4q89vSxDWBQmoOkWfQlmPFCiBvBZ+Ap1e6+rH7u6SWtOB+f+IcDpPIdtUtEBJ9RbC3E5BlUH9RR3UIzqNKymf479OOg9Adp2QZy2lVEANV3sJ5FKVofQp1CZhSLXlJmK8NKqFRImOqnvArJHh+WcUlWNCeVbt",
+                "Cadena3": "m1qXWLuFq0MqFX+y+qM3Ktl3dc+272/68SS9dYaR2XJQLCbUADnInjRDAoBvxBJ9+yfhX1BoJhDtZg==|00001000000506403528||",
+                "Cadena4": "",
+                "UUIDTimbreCanc": ""
+            }
+        },
+        "Subsidio": [
+            {
+                "tipoSubsidio": "002",
+                "Subhpl_glosa": "Subsidio Causado",
+                "importeSubLetra": "234.35"
+            }
+        ],
+        "Deducciones": [
+            {
+                "DscDeduccion": "002",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D001 ISR",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.37"
+            },
+            {
+                "DscDeduccion": "001",
+                "cantUnidadDeduccion": "     15.00",
+                "ClaveDeduccion": "D003 CUOTA IMSS",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.37"
+            }
+        ]
+    },
+    {
+        "tamanio": 1,
+        "duplica": 1,
+        "DescTipoNomina": "",
+        "Com_Dsc": "FIGRAL SA DE CV",
+        "calleNo": "JACARANDAS N° 503 Int. 3",
+        "coloniaDelegacion": "NUEVA JACARANDAS, MORELIA",
+        "CP": "C.P. 58099, MICHOACAN",
+        "Com_RFC": "R.F.C. FIG160830544 | Régimen fiscal 601 | Registro patronal C8989228100",
+        "Regimen": "Régimen fiscal 601",
+        "Direccion": "JACARANDAS N° 503 Int. 3 | NUEVA JACARANDAS, MORELIA | C.P. 58099, MICHOACAN",
+        "Ciudad": "",
+        "estado": "",
+        "pais": "",
+        "NoInterior": "",
+        "NoExterior": "",
+        "RegistroPatronal": "Registro patronal C8989228100",
+        "CurpCombinar": "",
+        "EmpImagen": "",
+        "Colaborador": {
+            "NumEmpleado": "N° 5131",
+            "EmpaNombreCompleto": "MARTIN JIMENEZ ESPINOZA",
+            "EmpaCURP": "JIEM721125HMNMSR08",
+            "VarDatEmplTit": "",
+            "SalarioBase": "292.95",
+            "PlazaCatalogo": "MAXIMA EXPRESS",
+            "EmpaRFC": "JIEM721125NX4",
+            "NominaTipo": "",
+            "PlazaNomiDsc": "250 | O",
+            "PuestoDsc": "CHOFER",
+            "Departamento": "",
+            "DscRegimenEmpleado": "Sueldos",
+            "PeriodicidadPago": "04 Quincenal",
+            "NivelPuestoDsc": "OPERATIVOS                                                                                          ",
+            "NumDiasPagados": 15.000,
+            "Periodo": 0,
+            "lblFecIngreso": "Fecha de ingreso",
+            "EmpFechaIngreso": "16 de Julio de 2023",
+            "CPFecPag": "2025-01-15",
+            "RegFiscalReceptor": 605,
+            "CPReceptor": "58190",
+            "LblNSS": "NSS",
+            "NumSeguridadSocial": "53927213586",
+            "VarDatEmplTitSDI": "SDI",
+            "SDI": "292.95",
+            "LblAntiguedad": "Antigüedad",
+            "AntSemanas": "158 Semanas 4 Dias ",
+            "CFIDescripcionGen": "",
+            "SueldoBaseBrutoD": "278.81000",
+            "EmpFechaAntiguedadC": "01 de Enero de 2022",
+            "datoDinTitulo1": "Fecha de antigüedad",
+            "datosDinTitulo2": "",
+            "datoDin1": "01 de Enero de 2022",
+            "datoDin2": "",
+            "NetoaPagar": "4,013.58",
+            "ImporteTotalLetra": "CUATRO MIL TRECE PESOS 58/100 M.N.",
+            "Cantidad": "1.00",
+            "ClavedeUnidad": "ACT",
+            "Descripcion": "Pago de nómina",
+            "ClaveProducto": "84111505",
+            "PUnitario": "4,182.15",
+            "importe": "4,182.15",
+            "TotalPercepciones": {
+                "importeTotal": ""
+            },
+            "TotalSubsidio": {
+                "importeTotSubLetra": "234.35"
+            },
+            "Subtotales": {
+                "importeTotal": "",
+                "DescuentoLetra": "104.37",
+                "importetotalO": "0.00",
+                "RetenidoLetra": "64.20",
+                "SubtotalLetra": "4,013.58",
+                "TotalPagarLetra": ""
+            },
+            "TotalOtrosPagos": {
+                "importetotalO": "0.00"
+            },
+            "TotalDeducciones": {
+                "importeTotalDed": "104.37"
+            },
+            "ComprobanteFiscal": {
+                "UUIDTimbre": "e40ab769-f8c8-444d-96e3-9124f53673da",
+                "Serie": "",
+                "Folio": "",
+                "SerieFolioFiscalOrig": " ",
+                "FechaTimbre": "2025-01-16T23:59:18",
+                "NoCertificado": "00001000000711330597",
+                "NoCertificadoSATTimbre": "00001000000506403528",
+                "titFechaHr": "Fecha y hora de emisión",
+                "Fecha": "2025-01-16",
+                "MetodoPago": "PUE Pago en una sola exhibición",
+                "LugExpedicion": "58099"
+            },
+            "Firma": {
+                "ImagenQR": "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",
+                "SelloCFDTimbre": "DQxrPrmefmUmtmQT8jO8UJvIXwtK/N+mGXZtPN7APoSNjedUcKFDG4pcDOzktHEBmFXYS9YHacrybKMnG4pHXUwLZAtrJc6ym6eSkjiwY/AGQsP6bMtsaAtYMEwL7K4eEdIvh7OubW3EjRadkUiW+Qk93HB20ooq3SDaQ+lAbgbHd/gzG0fSO7pCKMMqFpztghc0y8KUX38hTP2l1Oll7q0FPGJ721SnzIylHhIXxfcMHvg4wcVdHFqgj6HCoEUU+7qU6bfFS7ZFc3Tp4Cnp6Io6sv3svUgjVktqQQnedgJrrrnE9UDokAPZDNsH5f/bp4X+qb4LBvMn1zHMO1yMow==",
+                "SelloSATTimbre": "rjFwMbSNiNuOK+RKb1nu7AGifWLUVRpWFCcvvhPE3wwZRHtIw9qgp0OKOzi7VFUDITzBidz2bPvfZZyOUj7eAn/RsCcsttca9BAN4NPKt49CZLs6KdgM7CtyHJaX9MNVee0dt3p3JmVVe2m1hEXJ6LpSLpmH9zWrFQAxc+TKp+8T1WiNZ5Txx7t2/16FEQiwP+kW7XHaFLU7zOWdAYH6x7y8+5nS2qOz1vzFxszwY1IcSlfwoocXPPswuugRq54XBQTZWZgjOdKRsItKd6/cNYNLL+ZIvnpbXX3fOGIOmAmBpVNfdypM2FSSPqeWfjzR9Pz2nnCAEAyv7mKkVAZPAA==",
+                "Cadena1": "||1.1|e40ab769-f8c8-444d-96e3-9124f53673da|2025-01-16T23:59:18|CCC1007293K0|DQxrPrmefmUmtmQT8jO8UJvIXwtK/N+mGXZtPN7APoSNjedUcKFDG4pcDOzktHEBmFXYS9YHacrybKMnG4pHXUwLZAtrJc",
+                "Cadena2": "6ym6eSkjiwY/AGQsP6bMtsaAtYMEwL7K4eEdIvh7OubW3EjRadkUiW+Qk93HB20ooq3SDaQ+lAbgbHd/gzG0fSO7pCKMMqFpztghc0y8KUX38hTP2l1Oll7q0FPGJ721SnzIylHhIXxfcMHvg4wcVdHFqgj6HCoEUU+7qU6bfF",
+                "Cadena3": "S7ZFc3Tp4Cnp6Io6sv3svUgjVktqQQnedgJrrrnE9UDokAPZDNsH5f/bp4X+qb4LBvMn1zHMO1yMow==|00001000000506403528||",
+                "Cadena4": "",
+                "UUIDTimbreCanc": ""
+            }
+        },
+        "Subsidio": [
+            {
+                "tipoSubsidio": "002",
+                "Subhpl_glosa": "Subsidio Causado",
+                "importeSubLetra": "234.35"
+            }
+        ],
+        "Deducciones": [
+            {
+                "DscDeduccion": "002",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D001 ISR",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.37"
+            },
+            {
+                "DscDeduccion": "001",
+                "cantUnidadDeduccion": "     15.00",
+                "ClaveDeduccion": "D003 CUOTA IMSS",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.37"
+            }
+        ]
+    },
+    {
+        "tamanio": 1,
+        "duplica": 1,
+        "DescTipoNomina": "",
+        "Com_Dsc": "FIGRAL SA DE CV",
+        "calleNo": "JACARANDAS N° 503 Int. 3",
+        "coloniaDelegacion": "NUEVA JACARANDAS, MORELIA",
+        "CP": "C.P. 58099, MICHOACAN",
+        "Com_RFC": "R.F.C. FIG160830544 | Régimen fiscal 601 | Registro patronal C8989228100",
+        "Regimen": "Régimen fiscal 601",
+        "Direccion": "JACARANDAS N° 503 Int. 3 | NUEVA JACARANDAS, MORELIA | C.P. 58099, MICHOACAN",
+        "Ciudad": "",
+        "estado": "",
+        "pais": "",
+        "NoInterior": "",
+        "NoExterior": "",
+        "RegistroPatronal": "Registro patronal C8989228100",
+        "CurpCombinar": "",
+        "EmpImagen": "",
+        "Colaborador": {
+            "NumEmpleado": "N° 5132",
+            "EmpaNombreCompleto": "EDUARDO VEGA GUZMAN",
+            "EmpaCURP": "VEGE650819HMNGZD01",
+            "VarDatEmplTit": "",
+            "SalarioBase": "292.95",
+            "PlazaCatalogo": "MAXIMA EXPRESS",
+            "EmpaRFC": "VEGE650819618",
+            "NominaTipo": "",
+            "PlazaNomiDsc": "250 | O",
+            "PuestoDsc": "CHOFER",
+            "Departamento": "",
+            "DscRegimenEmpleado": "Sueldos",
+            "PeriodicidadPago": "04 Quincenal",
+            "NivelPuestoDsc": "OPERATIVOS                                                                                          ",
+            "NumDiasPagados": 15.000,
+            "Periodo": 0,
+            "lblFecIngreso": "Fecha de ingreso",
+            "EmpFechaIngreso": "16 de Julio de 2023",
+            "CPFecPag": "2025-01-15",
+            "RegFiscalReceptor": 605,
+            "CPReceptor": "58210",
+            "LblNSS": "NSS",
+            "NumSeguridadSocial": "21846536940",
+            "VarDatEmplTitSDI": "SDI",
+            "SDI": "292.95",
+            "LblAntiguedad": "Antigüedad",
+            "AntSemanas": "158 Semanas 4 Dias ",
+            "CFIDescripcionGen": "",
+            "SueldoBaseBrutoD": "278.81000",
+            "EmpFechaAntiguedadC": "01 de Enero de 2022",
+            "datoDinTitulo1": "Fecha de antigüedad",
+            "datosDinTitulo2": "",
+            "datoDin1": "01 de Enero de 2022",
+            "datoDin2": "",
+            "NetoaPagar": "4,013.58",
+            "ImporteTotalLetra": "CUATRO MIL TRECE PESOS 58/100 M.N.",
+            "Cantidad": "1.00",
+            "ClavedeUnidad": "ACT",
+            "Descripcion": "Pago de nómina",
+            "ClaveProducto": "84111505",
+            "PUnitario": "4,182.15",
+            "importe": "4,182.15",
+            "TotalPercepciones": {
+                "importeTotal": ""
+            },
+            "TotalSubsidio": {
+                "importeTotSubLetra": "234.35"
+            },
+            "Subtotales": {
+                "importeTotal": "",
+                "DescuentoLetra": "104.37",
+                "importetotalO": "0.00",
+                "RetenidoLetra": "64.20",
+                "SubtotalLetra": "4,013.58",
+                "TotalPagarLetra": ""
+            },
+            "TotalOtrosPagos": {
+                "importetotalO": "0.00"
+            },
+            "TotalDeducciones": {
+                "importeTotalDed": "104.37"
+            },
+            "ComprobanteFiscal": {
+                "UUIDTimbre": "d28aeb4e-3b31-47c1-90b3-ab830fb0de0c",
+                "Serie": "",
+                "Folio": "",
+                "SerieFolioFiscalOrig": " ",
+                "FechaTimbre": "2025-01-16T23:59:19",
+                "NoCertificado": "00001000000711330597",
+                "NoCertificadoSATTimbre": "00001000000506403528",
+                "titFechaHr": "Fecha y hora de emisión",
+                "Fecha": "2025-01-16",
+                "MetodoPago": "PUE Pago en una sola exhibición",
+                "LugExpedicion": "58099"
+            },
+            "Firma": {
+                "ImagenQR": "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",
+                "SelloCFDTimbre": "ekgFk4d+wuWMLBzLwcNRtLuacxrqcdxIMc6dBn84MZlPdRPz5vicj3VO6JUb3pnNq1sgdDAgsbpNLoAJqfzXT1GFtPZHzEhX8sQLgb+X0QlHntAcjCa4PhzWa/oIklMhrvshIkZWyXTuYAJENGiN/h0SOlATUSKIESY7WSIzSTghj1Mot+j+8tVq4ekxAWR+ALwA8mxmNOpGpnm4l3cHZS1posRueKoxNVpYVaUtS4wTtnKyCiiAIJoHAksDKajzNWfoKJtJgAnrV7miOSTI4Uu6et3+jaCGc3EQiCNU2G76+Uvd7qBthZ2K4XEactXFrdVYVTHDTy8u44tN5xq8KQ==",
+                "SelloSATTimbre": "OW+aSSYGmEKq59SgtFLXEYgwCTxn44VhbOhGTC9ZNlqeQtLMM481nF0qrmoLjdSnhy6Jk0K6JqNOSIcD75TNmV6QeEcf6G2aTdqq4BL/pl5STEyWjeogNTwjTAf7JLZCLIJGNltjbWnvylvMlKDFRdM5wrUpXAFmAuW9I/GauVluq0aoMZLwixOGQ4WTVwA/2xJ/w3Qal3xM5xtWKQmMzB/e392AF+/XnI+jB6LuGT+4NFEcAg1zfP4yHHY5b5nsOTLgqm/UVWmQgUjJbj7WTK7jZEX3AtmaGZu6QKYppHRGyIPq4ySJpTHPs5WdXG4WM6/fMHdsMAzQRp8hyKfwng==",
+                "Cadena1": "||1.1|d28aeb4e-3b31-47c1-90b3-ab830fb0de0c|2025-01-16T23:59:19|CCC1007293K0|ekgFk4d+wuWMLBzLwcNRtLuacxrqcdxIMc6dBn84MZlPdRPz5vicj3VO6JUb3pnNq1sgdDAgsbpNLoAJqfzXT1GFtPZHzE",
+                "Cadena2": "hX8sQLgb+X0QlHntAcjCa4PhzWa/oIklMhrvshIkZWyXTuYAJENGiN/h0SOlATUSKIESY7WSIzSTghj1Mot+j+8tVq4ekxAWR+ALwA8mxmNOpGpnm4l3cHZS1posRueKoxNVpYVaUtS4wTtnKyCiiAIJoHAksDKajzNWfoKJtJ",
+                "Cadena3": "gAnrV7miOSTI4Uu6et3+jaCGc3EQiCNU2G76+Uvd7qBthZ2K4XEactXFrdVYVTHDTy8u44tN5xq8KQ==|00001000000506403528||",
+                "Cadena4": "",
+                "UUIDTimbreCanc": ""
+            }
+        },
+        "Subsidio": [
+            {
+                "tipoSubsidio": "002",
+                "Subhpl_glosa": "Subsidio Causado",
+                "importeSubLetra": "234.35"
+            }
+        ],
+        "Deducciones": [
+            {
+                "DscDeduccion": "002",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D001 ISR",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.37"
+            },
+            {
+                "DscDeduccion": "001",
+                "cantUnidadDeduccion": "     15.00",
+                "ClaveDeduccion": "D003 CUOTA IMSS",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.37"
+            },
+            {
+                "DscDeduccion": "004",
+                "cantUnidadDeduccion": "",
+                "ClaveDeduccion": "D052 OTRAS DEDUCCIONES",
+                "UnidadMedidaDeduccion": "",
+                "ImporteDLetra": "104.37"
+            }
+        ]
+    },
+    {
+        "tamanio": 1,
+        "duplica": 1,
+        "DescTipoNomina": "",
+        "Com_Dsc": "FIGRAL SA DE CV",
+        "calleNo": "JACARANDAS N° 503 Int. 3",
+        "coloniaDelegacion": "NUEVA JACARANDAS, MORELIA",
+        "CP": "C.P. 58099, MICHOACAN",
+        "Com_RFC": "R.F.C. FIG160830544 | Régimen fiscal 601 | Registro patronal C8989228100",
+        "Regimen": "Régimen fiscal 601",
+        "Direccion": "JACARANDAS N° 503 Int. 3 | NUEVA JACARANDAS, MORELIA | C.P. 58099, MICHOACAN",
+        "Ciudad": "",
+        "estado": "",
+        "pais": "",
+        "NoInterior": "",
+        "NoExterior": "",
+        "RegistroPatronal": "Registro patronal C8989228100",
+        "CurpCombinar": "",
+        "EmpImagen": "",
+        "Colaborador": {
+            "NumEmpleado": "N° 5329",
+            "EmpaNombreCompleto": "ABRAHAM CARDENAS REYES",
+            "EmpaCURP": "CARA960906HMNRYB08",
+            "VarDatEmplTit": "",
+            "SalarioBase": "292.95",
+            "PlazaCatalogo": "MAXIMA EXPRESS",
+            "EmpaRFC": "CARA9609064H9",
+            "NominaTipo": "",
+            "PlazaNomiDsc": "250 | O",
+            "PuestoDsc": "CHOFER",
+            "Departamento": "",
+            "DscRegimenEmpleado": "Sueldos",
+            "PeriodicidadPago": "04 Quincenal",
+            "NivelPuestoDsc": "OPERATIVOS                                                                                          ",
+            "NumDiasPagados": 15.000,
+            "Periodo": 0,
+            "lblFecIngreso": "Fecha de ingreso",
+            "EmpFechaIngreso": "16 de Julio de 2023",
+            "CPFecPag": "2025-01-15",
+            "RegFiscalReceptor": 605,
+            "CPReceptor": "60698",
+            "LblNSS": "NSS",
+            "NumSeguridadSocial": "35159690391",
+            "VarDatEmplTitSDI": "SDI",
+            "SDI": "292.95",
+            "LblAntiguedad": "Antigüedad",
+            "AntSemanas": "154 Semanas 1 Dias ",
+            "CFIDescripcionGen": "",
+            "SueldoBaseBrutoD": "278.81000",
+            "EmpFechaAntiguedadC": "01 de Febrero de 2022",
+            "datoDinTitulo1": "Fecha de antigüedad",
+            "datosDinTitulo2": "",
+            "datoDin1": "01 de Febrero de 2022",
+            "datoDin2": "",
+            "NetoaPagar": "3,920.00",
+            "ImporteTotalLetra": "TRES MIL NOVECIENTOS VEINTE PESOS 00/100 M.N.",
+            "Cantidad": "1.00",
+            "ClavedeUnidad": "ACT",
+            "Descripcion": "Pago de nómina",
+            "ClaveProducto": "84111505",
+            "PUnitario": "4,182.15",
+            "importe": "4,182.15",
+            "TotalPercepciones": {
+                "importeTotal": ""
+            },
+            "TotalSubsidio": {
+                "importeTotSubLetra": "234.35"
+            },
+            "Subtotales": {
+                "importeTotal": "",
+                "DescuentoLetra": "197.95",
+                "importetotalO": "0.00",
+                "RetenidoLetra": "64.20",
+                "SubtotalLetra": "3,920.00",
+                "TotalPagarLetra": ""
+            },
+            "TotalOtrosPagos": {
+                "importetotalO": "0.00"
+            },
+            "TotalDeducciones": {
+                "importeTotalDed": "93.58"
+            },
+            "ComprobanteFiscal": {
+                "UUIDTimbre": "d10a3c71-3902-4c4a-b909-e7dfc95a8ee8",
+                "Serie": "",
+                "Folio": "",
+                "SerieFolioFiscalOrig": " ",
+                "FechaTimbre": "2025-01-16T23:59:20",
+                "NoCertificado": "00001000000711330597",
+                "NoCertificadoSATTimbre": "00001000000506403528",
+                "titFechaHr": "Fecha y hora de emisión",
+                "Fecha": "2025-01-16",
+                "MetodoPago": "PUE Pago en una sola exhibición",
+                "LugExpedicion": "58099"
+            },
+            "Firma": {
+                "ImagenQR": "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",
+                "SelloCFDTimbre": "hWDf/f57X8wHAqEX8rzRf61QNuzAxDh6UQ0/jfF19x1Rw6uqYilzctKDHx88b65xUpGrhCQaihDiK4l4ZVrMwTwuvtJgNpKmJN2uq4Blg9INtaHfJOih1CBqrG8da2GTnPA4QGvTtBvQD/mGpFlhahkgUPVS6fY4DnhU2ABf7C4MLWd++XLTr2T520NRKvdRhtIM7DlMKx5BJTgtE2tCUuympWrXeJTC5eEYqqRWyboTAsJ7OAIvjEJYtZrC9fxypXIRR5OA9QWJD94pf6sQNoMFFeYymTkoMA61VLdjn+HPdG9toq6JVGFtkYQw2gUuiOHwErfy9XW65GWDwkeWXw==",
+                "SelloSATTimbre": "idwSuSXAsiYLqKV39SM00Avt5aKhi7CY2zHa+a97TY5Bxr4roobIhAt8NW6FdqPy4qIalkYhX35mhhWRny6tQ3LjsAMAr+QrG8fmNvQktWaruhqRkDe3cDwYE6r0cyNHoTCNNPaehuJfXMdJxfdB+2DNpYIxs8s9zIhAivCK1Z9e2jQrSGDg7U3tbtQB7Rj69+I+7ycVN1nvuIn5ojRsaNdiUpXC59MP8Jujyj+OdiNbJkVY0rtadQP74QUMt0DqeQDQH1dit5pdEOau5HEvrACg6H/s+jzYwrY6p/gF5SkmMsG7n6xf2Fkk7yKWtSFhQSzftvZlbwhJduqNqrXYNA==",
+                "Cadena1": "||1.1|d10a3c71-3902-4c4a-b909-e7dfc95a8ee8|2025-01-16T23:59:20|CCC1007293K0|hWDf/f57X8wHAqEX8rzRf61QNuzAxDh6UQ0/jfF19x1Rw6uqYilzctKDHx88b65xUpGrhCQaihDiK4l4ZVrMwTwuvtJgNp",
+                "Cadena2": "KmJN2uq4Blg9INtaHfJOih1CBqrG8da2GTnPA4QGvTtBvQD/mGpFlhahkgUPVS6fY4DnhU2ABf7C4MLWd++XLTr2T520NRKvdRhtIM7DlMKx5BJTgtE2tCUuympWrXeJTC5eEYqqRWyboTAsJ7OAIvjEJYtZrC9fxypXIRR5OA",
+                "Cadena3": "9QWJD94pf6sQNoMFFeYymTkoMA61VLdjn+HPdG9toq6JVGFtkYQw2gUuiOHwErfy9XW65GWDwkeWXw==|00001000000506403528||",
+                "Cadena4": "",
+                "UUIDTimbreCanc": ""
+            }
+        }
+    }
+]

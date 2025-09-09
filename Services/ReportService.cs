@@ -17,405 +17,616 @@ namespace StimulsoftReport.Services
 {
     public class ReportService
     {
-    private readonly string _templatesFolder;
-    private readonly string _configsFolder;
-    private readonly Dictionary<string, ReportConfig> _reportConfigs;
+        private readonly string _templatesFolder;
+        private readonly string _configsFolder;
+        private readonly Dictionary<string, ReportConfig> _reportConfigs;
 
-    public ReportService(IOptions<ReportSettings> options, IHostEnvironment env)
-    {
-        // Asigna las rutas tal cual vienen, asumiendo que SIEMPRE son absolutas
-        _templatesFolder = options.Value.TemplatesFolder?.Trim() ?? "";
-        _configsFolder = options.Value.ConfigsFolder?.Trim() ?? "";
+        public ReportService(IOptions<ReportSettings> options, IHostEnvironment env)
+        {
+            _templatesFolder = options.Value.TemplatesFolder?.Trim() ?? "";
+            _configsFolder = options.Value.ConfigsFolder?.Trim() ?? "";
 
-        Console.WriteLine($"[ReportService] TemplatesFolder = {_templatesFolder}");
-        Console.WriteLine($"[ReportService] ConfigsFolder   = {_configsFolder}");
+            Console.WriteLine($"[ReportService] TemplatesFolder = {_templatesFolder}");
+            Console.WriteLine($"[ReportService] ConfigsFolder   = {_configsFolder}");
 
-        _reportConfigs = LoadReportConfigs(_configsFolder);
-    }
+            _reportConfigs = LoadReportConfigs(_configsFolder);
+        }
 
-    // Carga todos los archivos .json de la carpeta de configuraciones
-    private Dictionary<string, ReportConfig> LoadReportConfigs(string folder)
-    {
-    var configs = new Dictionary<string, ReportConfig>(StringComparer.OrdinalIgnoreCase);
-    if (!Directory.Exists(folder))
-    return configs;
+        private Dictionary<string, ReportConfig> LoadReportConfigs(string folder)
+        {
+            var configs = new Dictionary<string, ReportConfig>(StringComparer.OrdinalIgnoreCase);
+            if (!Directory.Exists(folder))
+                return configs;
 
-    foreach (var file in Directory.GetFiles(folder, "*.json"))
-    {
-    try
-    {
-    var json = File.ReadAllText(file);
-    var config = JsonSerializer.Deserialize<ReportConfig>(json);
-    if (config != null)
-    {
-    var reportName = Path.GetFileNameWithoutExtension(file);
-    configs[reportName] = config;
-    }
-    }
-    catch
-    {
-    // Si hay error en un archivo, lo ignora (puedes loguear si quieres)
-    }
-    }
+            foreach (var file in Directory.GetFiles(folder, "*.json"))
+            {
+                try
+                {
+                    var json = File.ReadAllText(file);
+                    var config = JsonSerializer.Deserialize<ReportConfig>(json);
+                    if (config != null)
+                    {
+                        var reportName = Path.GetFileNameWithoutExtension(file);
+                        configs[reportName] = config;
+                    }
+                }
+                catch
+                {
+                }
+            }
 
-    // LOG temporal para depuración
-    Console.WriteLine("Reportes encontrados:");
-    foreach (var key in configs.Keys)
-    Console.WriteLine($" - {key}");
+            Console.WriteLine("Reportes encontrados:");
+            foreach (var key in configs.Keys)
+                Console.WriteLine($" - {key}");
 
-    return configs;
-    }
+            return configs;
+        }
 
-    public async Task<(bool Success, string Message, string? PdfPath)> GenerateReportAsync(string reportName, string? jsonFilePath, Dictionary<string, object>? sqlParams = null)
-    {
-    if (!_reportConfigs.TryGetValue(reportName, out var config))
-    return (false, $"No existe configuración para el reporte '{reportName}'", null);
+        public async Task<(bool Success, string Message, string? PdfPath)> GenerateReportAsync(string reportName, string? jsonFilePath, Dictionary<string, object>? sqlParams = null)
+        {
+            if (!_reportConfigs.TryGetValue(reportName, out var config))
+                return (false, $"No existe configuración para el reporte '{reportName}'", null);
 
-    var templatePath = Path.Combine(_templatesFolder, config.TemplateFile);
+            var templatePath = Path.Combine(_templatesFolder, config.TemplateFile);
 
-    if (!File.Exists(templatePath))
-    return (false, $"Plantilla no encontrada en {templatePath}", null);
+            if (!File.Exists(templatePath))
+                return (false, $"Plantilla no encontrada en {templatePath}", null);
 
-    JsonObject? jsonObject = null;
+            JsonNode? jsonNode = null;
 
-    if (!string.IsNullOrEmpty(jsonFilePath))
-    {
-    if (!File.Exists(jsonFilePath))
-    return (false, $"Archivo JSON no encontrado en {jsonFilePath}", null);
+            if (!string.IsNullOrEmpty(jsonFilePath))
+            {
+                if (!File.Exists(jsonFilePath))
+                    return (false, $"Archivo JSON no encontrado en {jsonFilePath}", null);
 
-    var jsonString = await File.ReadAllTextAsync(jsonFilePath);
-    var jsonNode = JsonNode.Parse(jsonString);
+                var jsonString = await File.ReadAllTextAsync(jsonFilePath);
+                jsonNode = JsonNode.Parse(jsonString);
+                if (jsonNode == null)
+                    return (false, "JSON inválido o vacío.", null);
+            }
+            else if (sqlParams != null)
+            {
+                return (false, "La obtención de datos desde SQL aún no está implementada.", null);
+            }
+            else
+            {
+                return (false, "No se proporcionó ni JSON ni parámetros SQL.", null);
+            }
 
-    // Manejar el nuevo formato: si es arreglo, tomar el primer elemento
-    if (jsonNode is JsonArray jsonArray)
-    {
-    if (jsonArray.Count == 0)
-    return (false, "El JSON es un arreglo vacío.", null);
+            try
+            {
+                var report = new StiReport();
+                report.Load(templatePath);
 
-    jsonObject = jsonArray[0] as JsonObject;
-    if (jsonObject == null)
-    return (false, "El primer elemento del arreglo JSON no es un objeto válido.", null);
-    }
-    else
-    {
-    jsonObject = jsonNode as JsonObject;
-    if (jsonObject == null)
-    return (false, "El JSON no es un objeto válido.", null);
-    }
-    }
-    else if (sqlParams != null)
-    {
-    // Aquí puedes implementar la lógica para obtener datos desde SQL
-    // jsonObject = await GetDataFromSqlAsync(reportName, sqlParams);
-    return (false, "La obtención de datos desde SQL aún no está implementada.", null);
-    }
-    else
-    {
-    return (false, "No se proporcionó ni JSON ni parámetros SQL.", null);
-    }
+                RegisterData(report, jsonNode, config);
 
-    try
-    {
-    var report = new StiReport();
-    report.Load(templatePath);
+                report.Dictionary.Databases.Clear();
+                report.Dictionary.Synchronize();
 
-    RegisterData(report, jsonObject, config);
+                report.Compile();
+                report.Render(false);
 
-    // Limpia conexiones de BD (si la plantilla tenía) y sincroniza el diccionario con los DataTables registrados
-    report.Dictionary.Databases.Clear();
-    report.Dictionary.Synchronize();
+                var directory = Path.GetDirectoryName(jsonFilePath ?? "tmp") ?? "tmp";
+                var pdfFileName = $"{reportName}_{DateTime.Now:yyyyMMddHHmmss}.pdf";
+                var pdfFullPath = Path.Combine(directory, pdfFileName);
 
-    report.Compile();
-    report.Render(false);
+                report.ExportDocument(StiExportFormat.Pdf, pdfFullPath);
 
-    var directory = Path.GetDirectoryName(jsonFilePath ?? "tmp") ?? "tmp";
-    var pdfFileName = $"{reportName}_{DateTime.Now:yyyyMMddHHmmss}.pdf";
-    var pdfFullPath = Path.Combine(directory, pdfFileName);
+                return (true, "Reporte generado correctamente", pdfFullPath);
+            }
+            catch (Exception ex)
+            {
+                return (false, $"Error generando reporte: {ex.Message}", null);
+            }
+        }
 
-    report.ExportDocument(StiExportFormat.Pdf, pdfFullPath);
+        private void RegisterData(StiReport report, JsonNode jsonNode, ReportConfig config)
+        {
+            Console.WriteLine($"Registrando DataSources requeridos: {string.Join(", ", config.RequiredDataSources ?? new string[0])}");
 
-    return (true, "Reporte generado correctamente", pdfFullPath);
-    }
-    catch (Exception ex)
-    {
-    return (false, $"Error generando reporte: {ex.Message}", null);
-    }
-    }
+            if (jsonNode == null)
+            {
+                Console.WriteLine("JSON nulo, no se puede registrar data.");
+                return;
+            }
 
-    private void RegisterData(StiReport report, JsonObject jsonObject, ReportConfig config)
-    {
-    Console.WriteLine($"Registrando DataSources requeridos: {string.Join(", ", config.RequiredDataSources ?? new string[0])}");
+            JsonArray? rootArray = null;
+            JsonObject? rootObject = null;
 
-    foreach (var dataSourceName in config.RequiredDataSources ?? new string[0])
-    {
-    if (string.Equals(dataSourceName, "Data", StringComparison.OrdinalIgnoreCase))
-    {
-    // Crea DataTable "Data" con los campos simples (no arreglos ni objetos) del JSON raíz
-    var table = CreateSingleRowTableFromFlatObject("Data", jsonObject);
-    Console.WriteLine($"DataSource 'Data' registrado con {table.Rows.Count} fila(s) y {table.Columns.Count} columna(s)");
-    report.RegData("Data", table);
-    continue;
-    }
+            if (jsonNode is JsonArray arr)
+                rootArray = arr;
+            else if (jsonNode is JsonObject obj)
+                rootObject = obj;
+            else
+            {
+                Console.WriteLine("El JSON raíz no es ni objeto ni arreglo.");
+                return;
+            }
 
-    // Obtiene el path desde el mapping (o usa el mismo nombre)
-    var jsonPath = config.DataSourceMappings != null && config.DataSourceMappings.TryGetValue(dataSourceName, out var mappedPath)
-    ? mappedPath
-    : dataSourceName;
+            string mainDataSourceName = null!;
+            string mainJsonPath = null!;
 
-    Console.WriteLine($"Buscando DataSource '{dataSourceName}' en path '{jsonPath}'");
+            if (config.DataSourceMappings != null)
+            {
+                var mainMapping = config.DataSourceMappings.FirstOrDefault(kvp => string.IsNullOrEmpty(kvp.Value));
+                if (!string.IsNullOrEmpty(mainMapping.Key))
+                {
+                    mainDataSourceName = mainMapping.Key;
+                    mainJsonPath = mainMapping.Value;
+                }
+            }
 
-    var node = GetJsonNodeByPath(jsonObject, jsonPath);
+            if (string.IsNullOrEmpty(mainDataSourceName))
+            {
+                mainDataSourceName = config.RequiredDataSources?.FirstOrDefault() ?? "";
+                mainJsonPath = config.DataSourceMappings != null && config.DataSourceMappings.TryGetValue(mainDataSourceName, out var mappedPath)
+                    ? mappedPath
+                    : mainDataSourceName;
+            }
 
-    // Si no se encuentra, registra tabla vacía predecible
-    if (node is null)
-    {
-    Console.WriteLine($"Path '{jsonPath}' no encontrado. Registrando tabla vacía para '{dataSourceName}'.");
-    report.RegData(dataSourceName, CreateEmptyTable(dataSourceName));
-    continue;
-    }
+            Console.WriteLine($"DataSource principal detectado: '{mainDataSourceName}' con path '{mainJsonPath}'");
 
-    // Arreglo de objetos
-    if (node is JsonArray arr)
-    {
-    if (arr.Count == 0)
-    {
-    Console.WriteLine($"Arreglo vacío en '{jsonPath}'. Registrando tabla vacía para '{dataSourceName}'.");
-    report.RegData(dataSourceName, CreateEmptyTable(dataSourceName));
-    continue;
-    }
+            JsonNode? mainNode = null;
+            if (string.IsNullOrEmpty(mainJsonPath))
+            {
+                mainNode = jsonNode;
+            }
+            else if (rootObject != null)
+            {
+                mainNode = GetJsonNodeByPath(rootObject, mainJsonPath);
+            }
+            else if (rootArray != null)
+            {
+                mainNode = null;
+            }
 
-    // Arreglo de objetos
-    if (arr[0] is JsonObject)
-    {
-    var table = CreateTableFromArrayOfObjects(dataSourceName, arr);
-    Console.WriteLine($"DataSource '{dataSourceName}' (array de objetos) registrado con {table.Rows.Count} fila(s) y {table.Columns.Count} columna(s)");
-    report.RegData(dataSourceName, table);
-    continue;
-    }
+            if (mainNode == null)
+            {
+                Console.WriteLine($"No se encontró el nodo principal para '{mainDataSourceName}' en el path '{mainJsonPath}'. Registrando tabla vacía.");
+                report.RegData(mainDataSourceName, CreateEmptyTable(mainDataSourceName));
+                return;
+            }
 
-    // Arreglo de primitivos (string, number, bool)
-    var primitiveTable = CreateTableFromPrimitiveArray(dataSourceName, arr);
-    Console.WriteLine($"DataSource '{dataSourceName}' (array de primitivos) registrado con {primitiveTable.Rows.Count} fila(s) y {primitiveTable.Columns.Count} columna(s)");
-    report.RegData(dataSourceName, primitiveTable);
-    continue;
-    }
+            JsonArray mainArray;
+            if (mainNode is JsonArray mainArr)
+                mainArray = mainArr;
+            else if (mainNode is JsonObject mainObj)
+                mainArray = new JsonArray(mainObj);
+            else
+            {
+                Console.WriteLine($"El nodo principal '{mainDataSourceName}' no es ni objeto ni arreglo. Registrando tabla vacía.");
+                report.RegData(mainDataSourceName, CreateEmptyTable(mainDataSourceName));
+                return;
+            }
 
-    // Objeto: una sola fila
-    if (node is JsonObject objNode)
-    {
-    var table = CreateSingleRowTableFromObject(dataSourceName, objNode);
-    Console.WriteLine($"DataSource '{dataSourceName}' (objeto) registrado con {table.Rows.Count} fila(s) y {table.Columns.Count} columna(s)");
-    report.RegData(dataSourceName, table);
-    continue;
-    }
+            // Crear la tabla principal
+            var mainTable = CreateTableFromArrayOfObjects(mainDataSourceName, mainArray);
+            var pkColumnName = $"{mainDataSourceName}Id";
 
-    // Primitivo: lo convertimos en una tabla de una sola fila y columna "Value"
-    var singleValueTable = CreateSingleValueTable(dataSourceName, node);
-    Console.WriteLine($"DataSource '{dataSourceName}' (primitivo) registrado con {singleValueTable.Rows.Count} fila(s) y {singleValueTable.Columns.Count} columna(s)");
-    report.RegData(dataSourceName, singleValueTable);
-    }
-    }
+            // Si existe columna "Id" renombrarla a pkColumnName; si no existe pkColumnName crearla.
+            if (mainTable.Columns.Contains("Id") && !mainTable.Columns.Contains(pkColumnName))
+            {
+                try
+                {
+                    mainTable.Columns["Id"].ColumnName = pkColumnName;
+                }
+                catch
+                {
+                    if (!mainTable.Columns.Contains(pkColumnName))
+                        mainTable.Columns.Add(pkColumnName, typeof(int));
+                    for (int r = 0; r < mainTable.Rows.Count; r++)
+                        mainTable.Rows[r][pkColumnName] = DBNull.Value;
+                }
+            }
+            else
+            {
+                if (!mainTable.Columns.Contains(pkColumnName))
+                    mainTable.Columns.Add(pkColumnName, typeof(int));
+            }
 
-    // Navega por paths tipo "A.B[0].C" con índices de arreglo opcionales
-    private JsonNode? GetJsonNodeByPath(JsonObject root, string path)
-    {
-    if (string.IsNullOrWhiteSpace(path)) return root;
+            // Poblamos PK con 1..N
+            for (int i = 0; i < mainTable.Rows.Count; i++)
+            {
+                mainTable.Rows[i][pkColumnName] = i + 1;
+            }
 
-    var parts = path.Split('.', StringSplitOptions.RemoveEmptyEntries);
-    JsonNode? current = root;
+            Console.WriteLine($"Tabla principal '{mainDataSourceName}' creada con {mainTable.Rows.Count} filas y {mainTable.Columns.Count} columnas.");
 
-    foreach (var part in parts)
-    {
-    if (current is null) return null;
+            // LOG por cada registro raíz con su ID
+            Console.WriteLine($"Detalle de registros en '{mainDataSourceName}' (después de asignar {pkColumnName}):");
+            for (int i = 0; i < mainTable.Rows.Count; i++)
+            {
+                var row = mainTable.Rows[i];
+                var parts = new List<string>();
+                parts.Add($"{pkColumnName}={row[pkColumnName]}");
+                foreach (DataColumn col in mainTable.Columns)
+                {
+                    if (string.Equals(col.ColumnName, pkColumnName, StringComparison.OrdinalIgnoreCase)) continue;
+                    var val = row[col.ColumnName];
+                    parts.Add($"{col.ColumnName}={(val == null || val == DBNull.Value ? "" : val.ToString())}");
+                }
+                Console.WriteLine($" - Registro #{i + 1}: {string.Join("; ", parts)}");
+            }
 
-    // Soporta índices tipo "Items[0]" o "Items[10]"
-    var (propName, indexOpt) = ParsePartWithIndex(part);
+            // Registrar principal
+            report.RegData(mainDataSourceName, mainTable);
 
-    if (current is JsonObject obj)
-    {
-    if (!obj.TryGetPropertyValue(propName, out var next))
-    return null;
+            // Diccionario de tablas hijas / descendientes
+            var createdTables = new Dictionary<string, DataTable>(StringComparer.OrdinalIgnoreCase);
 
-    if (indexOpt.HasValue)
-    {
-    if (next is JsonArray arr)
-    {
-    var idx = indexOpt.Value;
-    if (idx < 0 || idx >= arr.Count) return null;
-    current = arr[idx];
-    }
-    else
-    {
-    return null;
-    }
-    }
-    else
-    {
-    current = next;
-    }
-    }
-    else if (current is JsonArray arrFromCurrent)
-    {
-    // Cuando la parte es solo un índice, ej: "[0]"
-    if (propName.Length == 0 && indexOpt.HasValue)
-    {
-    var idx = indexOpt.Value;
-    if (idx < 0 || idx >= arrFromCurrent.Count) return null;
-    current = arrFromCurrent[idx];
-    }
-    else
-    {
-    // No se puede navegar un nombre de propiedad sobre un array sin índice
-    return null;
-    }
-    }
-    else
-    {
-    // Primitivo, no se puede navegar más
-    return null;
-    }
-    }
+            // Procesar recursivamente cada elemento raíz para crear/llenar tablas hijas/nietas...
+            for (int i = 0; i < mainArray.Count; i++)
+            {
+                var item = mainArray[i];
+                if (item is not JsonObject itemObj)
+                    continue;
 
-    return current;
-    }
+                // Para cada propiedad del objeto raíz, procesar su nodo (array/obj/primitive)
+                foreach (var prop in itemObj)
+                {
+                    ProcessNodeRecursive(prop.Value, prop.Key, i + 1, pkColumnName, createdTables);
+                }
+            }
 
-    private (string propName, int? index) ParsePartWithIndex(string part)
-    {
-    // Casos válidos:
-    //  - "Items" -> ("Items", null)
-    //  - "Items[0]" -> ("Items", 0)
-    //  - "[0]" -> ("", 0)
-    var name = part;
-    int? index = null;
+            // Registrar tablas hijas en el reporte
+            foreach (var kvp in createdTables)
+            {
+                Console.WriteLine($"Registrando tabla hija/desc '{kvp.Key}' con {kvp.Value.Rows.Count} filas y {kvp.Value.Columns.Count} columnas.");
+                report.RegData(kvp.Key, kvp.Value);
+            }
+        }
 
-    var openIdx = part.IndexOf('[');
-    var closeIdx = part.IndexOf(']');
+        // Procesa un nodo (JsonNode) recursivamente, creando/llenando tablas en createdTables.
+        // parentId es el valor del PK del registro raíz (main PK).
+        private void ProcessNodeRecursive(JsonNode? node, string nodeName, int parentId, string pkColumnName, Dictionary<string, DataTable> createdTables)
+        {
+            if (node == null) return;
 
-    if (openIdx >= 0 && closeIdx > openIdx)
-    {
-    var idxStr = part.Substring(openIdx + 1, closeIdx - openIdx - 1);
-    if (int.TryParse(idxStr, out var parsed))
-    index = parsed;
+            // Si es arreglo
+            if (node is JsonArray arr)
+            {
+                // Asegurar tabla para este nodeName
+                if (!createdTables.TryGetValue(nodeName, out var table))
+                {
+                    table = BuildTableSchemaFromArray(nodeName, arr);
+                    // asegurar columna FK
+                    if (!table.Columns.Contains(pkColumnName))
+                        table.Columns.Add(pkColumnName, typeof(int));
+                    createdTables[nodeName] = table;
+                }
+                else
+                {
+                    // Si aparecen nuevas keys en este array, agregarlas a la tabla existente
+                    var allKeys = CollectKeysFromArray(arr);
+                    foreach (var k in allKeys)
+                        if (!table.Columns.Contains(k))
+                            table.Columns.Add(k, typeof(string));
+                }
 
-    name = openIdx == 0 ? "" : part.Substring(0, openIdx);
-    }
+                // Agregar filas para cada elemento del array
+                foreach (var element in arr)
+                {
+                    if (element is JsonObject childObj)
+                    {
+                        var row = table.NewRow();
+                        foreach (DataColumn col in table.Columns)
+                        {
+                            if (col.ColumnName == pkColumnName) continue;
 
-    return (name, index);
-    }
+                            if (childObj.TryGetPropertyValue(col.ColumnName, out var val))
+                                row[col.ColumnName] = val?.ToString() ?? "";
+                            else
+                                row[col.ColumnName] = "";
+                        }
+                        row[pkColumnName] = parentId;
+                        table.Rows.Add(row);
 
-    private DataTable CreateEmptyTable(string tableName)
-    {
-    var dt = new DataTable(tableName);
-    dt.Columns.Add("Empty", typeof(string));
-    return dt;
-    }
+                        // Procesar propiedades dentro de este objeto (nietos)
+                        foreach (var p in childObj)
+                        {
+                            // Si la propiedad es la que alimentó la tabla (nodeName) la ignoramos aquí
+                            // porque ya procesamos sus elementos; sin embargo los subnodos dentro del elemento se procesan ahora.
+                            if (p.Value is JsonArray || p.Value is JsonObject)
+                                ProcessNodeRecursive(p.Value, p.Key, parentId, pkColumnName, createdTables);
+                        }
+                    }
+                    else
+                    {
+                        // Array de primitivos
+                        if (!table.Columns.Contains("Value"))
+                            table.Columns.Add("Value", typeof(string));
+                        var row = table.NewRow();
+                        if (table.Columns.Contains("Value"))
+                            row["Value"] = element?.ToString() ?? "";
+                        row[pkColumnName] = parentId;
+                        table.Rows.Add(row);
+                    }
+                }
+            }
+            else if (node is JsonObject obj)
+            {
+                // Nodo único: crear/usar tabla nodeName con 1 fila por padre
+                if (!createdTables.TryGetValue(nodeName, out var table))
+                {
+                    table = BuildTableSchemaFromObject(nodeName, obj);
+                    if (!table.Columns.Contains(pkColumnName))
+                        table.Columns.Add(pkColumnName, typeof(int));
+                    createdTables[nodeName] = table;
+                }
+                else
+                {
+                    // Asegurar columnas nuevas
+                    foreach (var p in obj)
+                        if (!table.Columns.Contains(p.Key))
+                            table.Columns.Add(p.Key, typeof(string));
+                }
 
-    private DataTable CreateSingleValueTable(string tableName, JsonNode valueNode)
-    {
-    var dt = new DataTable(tableName);
-    dt.Columns.Add("Value", typeof(string));
-    var row = dt.NewRow();
-    row["Value"] = valueNode?.ToString() ?? "";
-    dt.Rows.Add(row);
-    return dt;
-    }
+                var row = table.NewRow();
+                foreach (DataColumn col in table.Columns)
+                {
+                    if (col.ColumnName == pkColumnName) continue;
+                    if (obj.TryGetPropertyValue(col.ColumnName, out var val))
+                        row[col.ColumnName] = val?.ToString() ?? "";
+                    else
+                        row[col.ColumnName] = "";
+                }
+                row[pkColumnName] = parentId;
+                table.Rows.Add(row);
 
-    private DataTable CreateSingleRowTableFromFlatObject(string tableName, JsonObject jsonObject)
-    {
-    var dt = new DataTable(tableName);
+                // Procesar propiedades internas (nietos)
+                foreach (var p in obj)
+                {
+                    if (p.Value is JsonArray || p.Value is JsonObject)
+                        ProcessNodeRecursive(p.Value, p.Key, parentId, pkColumnName, createdTables);
+                }
+            }
+            else
+            {
+                // Primitivo -> opcional: crear tabla nodeName con columna Value
+                if (!createdTables.TryGetValue(nodeName, out var table))
+                {
+                    table = new DataTable(nodeName);
+                    table.Columns.Add("Value", typeof(string));
+                    table.Columns.Add(pkColumnName, typeof(int));
+                    createdTables[nodeName] = table;
+                }
 
-    // Solo propiedades primitivas del raíz (ignora arrays y objetos anidados)
-    foreach (var prop in jsonObject)
-    {
-    if (prop.Value is not JsonArray && prop.Value is not JsonObject)
-    {
-    if (!dt.Columns.Contains(prop.Key))
-    dt.Columns.Add(prop.Key, typeof(string));
-    }
-    }
+                var row = table.NewRow();
+                row["Value"] = node.ToString() ?? "";
+                row[pkColumnName] = parentId;
+                table.Rows.Add(row);
+            }
+        }
 
-    var row = dt.NewRow();
-    foreach (var prop in jsonObject)
-    {
-    if (prop.Value is not JsonArray && prop.Value is not JsonObject)
-    row[prop.Key] = prop.Value?.ToString() ?? "";
-    }
-    dt.Rows.Add(row);
-    return dt;
-    }
+        // Construye esquema inicial para una tabla basada en un array de objetos (unión de keys)
+        private DataTable BuildTableSchemaFromArray(string tableName, JsonArray arr)
+        {
+            var dt = new DataTable(tableName);
+            var keys = CollectKeysFromArray(arr);
+            foreach (var k in keys)
+                dt.Columns.Add(k, typeof(string));
+            return dt;
+        }
 
-    private DataTable CreateSingleRowTableFromObject(string tableName, JsonObject obj)
-    {
-    var dt = new DataTable(tableName);
+        // Construye esquema para un objeto único
+        private DataTable BuildTableSchemaFromObject(string tableName, JsonObject obj)
+        {
+            var dt = new DataTable(tableName);
+            foreach (var p in obj)
+            {
+                if (p.Value is not JsonArray && p.Value is not JsonObject)
+                    dt.Columns.Add(p.Key, typeof(string));
+                else
+                    dt.Columns.Add(p.Key, typeof(string)); // si es object/array también agregamos la columna por si hay valores primitivos relevantes
+            }
+            return dt;
+        }
 
-    foreach (var prop in obj)
-    {
-    if (!dt.Columns.Contains(prop.Key))
-    dt.Columns.Add(prop.Key, typeof(string));
-    }
+        // Recolecta keys de todos los objetos dentro de un array
+        private HashSet<string> CollectKeysFromArray(JsonArray arr)
+        {
+            var keys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (var item in arr)
+            {
+                if (item is JsonObject jo)
+                {
+                    foreach (var p in jo)
+                        keys.Add(p.Key);
+                }
+            }
+            return keys;
+        }
 
-    var row = dt.NewRow();
-    foreach (var prop in obj)
-    {
-    row[prop.Key] = prop.Value?.ToString() ?? "";
-    }
-    dt.Rows.Add(row);
+        // Navega por paths tipo "A.B[0].C" con índices de arreglo opcionales
+        private JsonNode? GetJsonNodeByPath(JsonObject root, string path)
+        {
+            if (string.IsNullOrWhiteSpace(path)) return root;
 
-    return dt;
-    }
+            var parts = path.Split('.', StringSplitOptions.RemoveEmptyEntries);
+            JsonNode? current = root;
 
-    private DataTable CreateTableFromArrayOfObjects(string tableName, JsonArray jsonArray)
-    {
-    var dt = new DataTable(tableName);
-    if (jsonArray.Count == 0) return dt;
+            foreach (var part in parts)
+            {
+                if (current is null) return null;
 
-    // Armar columnas con la unión de todas las keys para ser tolerantes a esquemas flexibles
-    var allKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-    foreach (var item in jsonArray)
-    {
-    if (item is JsonObject obj)
-    {
-    foreach (var prop in obj)
-    allKeys.Add(prop.Key);
-    }
-    }
+                var (propName, indexOpt) = ParsePartWithIndex(part);
 
-    foreach (var key in allKeys)
-    dt.Columns.Add(key, typeof(string));
+                if (current is JsonObject obj)
+                {
+                    if (!obj.TryGetPropertyValue(propName, out var next))
+                        return null;
 
-    foreach (var item in jsonArray)
-    {
-    if (item is JsonObject obj)
-    {
-    var row = dt.NewRow();
-    foreach (var key in allKeys)
-    {
-    obj.TryGetPropertyValue(key, out var value);
-    row[key] = value?.ToString() ?? "";
-    }
-    dt.Rows.Add(row);
-    }
-    }
+                    if (indexOpt.HasValue)
+                    {
+                        if (next is JsonArray arr)
+                        {
+                            var idx = indexOpt.Value;
+                            if (idx < 0 || idx >= arr.Count) return null;
+                            current = arr[idx];
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                    else
+                    {
+                        current = next;
+                    }
+                }
+                else if (current is JsonArray arrFromCurrent)
+                {
+                    if (propName.Length == 0 && indexOpt.HasValue)
+                    {
+                        var idx = indexOpt.Value;
+                        if (idx < 0 || idx >= arrFromCurrent.Count) return null;
+                        current = arrFromCurrent[idx];
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
 
-    return dt;
-    }
+            return current;
+        }
 
-    private DataTable CreateTableFromPrimitiveArray(string tableName, JsonArray jsonArray)
-    {
-    var dt = new DataTable(tableName);
-    dt.Columns.Add("Value", typeof(string));
+        private (string propName, int? index) ParsePartWithIndex(string part)
+        {
+            var name = part;
+            int? index = null;
 
-    foreach (var item in jsonArray)
-    {
-    if (item is not JsonObject && item is not JsonArray)
-    {
-    var row = dt.NewRow();
-    row["Value"] = item?.ToString() ?? "";
-    dt.Rows.Add(row);
-    }
-    }
+            var openIdx = part.IndexOf('[');
+            var closeIdx = part.IndexOf(']');
 
-    return dt;
-    }
+            if (openIdx >= 0 && closeIdx > openIdx)
+            {
+                var idxStr = part.Substring(openIdx + 1, closeIdx - openIdx - 1);
+                if (int.TryParse(idxStr, out var parsed))
+                    index = parsed;
+
+                name = openIdx == 0 ? "" : part.Substring(0, openIdx);
+            }
+
+            return (name, index);
+        }
+
+        private DataTable CreateEmptyTable(string tableName)
+        {
+            var dt = new DataTable(tableName);
+            dt.Columns.Add("Empty", typeof(string));
+            return dt;
+        }
+
+        private DataTable CreateSingleValueTable(string tableName, JsonNode valueNode)
+        {
+            var dt = new DataTable(tableName);
+            dt.Columns.Add("Value", typeof(string));
+            var row = dt.NewRow();
+            row["Value"] = valueNode?.ToString() ?? "";
+            dt.Rows.Add(row);
+            return dt;
+        }
+
+        private DataTable CreateSingleRowTableFromFlatObject(string tableName, JsonObject jsonObject)
+        {
+            var dt = new DataTable(tableName);
+
+            foreach (var prop in jsonObject)
+            {
+                if (prop.Value is not JsonArray && prop.Value is not JsonObject)
+                {
+                    if (!dt.Columns.Contains(prop.Key))
+                        dt.Columns.Add(prop.Key, typeof(string));
+                }
+            }
+
+            var row = dt.NewRow();
+            foreach (var prop in jsonObject)
+            {
+                if (prop.Value is not JsonArray && prop.Value is not JsonObject)
+                    row[prop.Key] = prop.Value?.ToString() ?? "";
+            }
+            dt.Rows.Add(row);
+            return dt;
+        }
+
+        private DataTable CreateSingleRowTableFromObject(string tableName, JsonObject obj)
+        {
+            var dt = new DataTable(tableName);
+
+            foreach (var prop in obj)
+            {
+                if (!dt.Columns.Contains(prop.Key))
+                    dt.Columns.Add(prop.Key, typeof(string));
+            }
+
+            var row = dt.NewRow();
+            foreach (var prop in obj)
+            {
+                row[prop.Key] = prop.Value?.ToString() ?? "";
+            }
+            dt.Rows.Add(row);
+
+            return dt;
+        }
+
+        private DataTable CreateTableFromArrayOfObjects(string tableName, JsonArray jsonArray)
+        {
+            var dt = new DataTable(tableName);
+            if (jsonArray.Count == 0) return dt;
+
+            var allKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (var item in jsonArray)
+            {
+                if (item is JsonObject obj)
+                {
+                    foreach (var prop in obj)
+                        allKeys.Add(prop.Key);
+                }
+            }
+
+            foreach (var key in allKeys)
+                dt.Columns.Add(key, typeof(string));
+
+            foreach (var item in jsonArray)
+            {
+                if (item is JsonObject obj)
+                {
+                    var row = dt.NewRow();
+                    foreach (var key in allKeys)
+                    {
+                        obj.TryGetPropertyValue(key, out var value);
+                        row[key] = value?.ToString() ?? "";
+                    }
+                    dt.Rows.Add(row);
+                }
+            }
+
+            return dt;
+        }
+
+        private DataTable CreateTableFromPrimitiveArray(string tableName, JsonArray jsonArray)
+        {
+            var dt = new DataTable(tableName);
+            dt.Columns.Add("Value", typeof(string));
+
+            foreach (var item in jsonArray)
+            {
+                if (item is not JsonObject && item is not JsonArray)
+                {
+                    var row = dt.NewRow();
+                    row["Value"] = item?.ToString() ?? "";
+                    dt.Rows.Add(row);
+                }
+            }
+
+            return dt;
+        }
     }
 }
