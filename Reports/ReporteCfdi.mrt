@@ -26,42 +26,42 @@
         <Alias>Colaborador</Alias>
         <Columns isList="true" count="37">
           <value>ORIGINAL,NumEmpleado,NumEmpleado,NumEmpleado,System.String,_x0035_207f767d9304dab86f22579f94010e4</value>
-          <value>EmpaNombreCompleto,System.String</value>
-          <value>EmpaCURP,System.String</value>
-          <value>EmpaRFC,System.String</value>
-          <value>LblNSS,System.String</value>
-          <value>RegFiscalReceptor,System.String</value>
+          <value>ORIGINAL,EmpaNombreCompleto,EmpaNombreCompleto,EmpaNombreCompleto,System.String,_x0037_227337c81d44e068e1fc7cce7315755</value>
+          <value>ORIGINAL,EmpaCURP,EmpaCURP,EmpaCURP,System.String,_x0038_ad2605c9e504a568b86abf5319d7cf9</value>
+          <value>ORIGINAL,EmpaRFC,EmpaRFC,EmpaRFC,System.String,f17749360dcd424485628d8f2e6db42a</value>
+          <value>ORIGINAL,LblNSS,LblNSS,LblNSS,System.String,a7c094cd5f8e4719ad54878c2d47e497</value>
+          <value>ORIGINAL,RegFiscalReceptor,RegFiscalReceptor,RegFiscalReceptor,System.String,bebf8f55122d487680ca7187532e15bc</value>
           <value>ORIGINAL,SalarioBase,SalarioBase,SalarioBase,System.String,_x0036_44fa11969ed4b36aca951a8e5542c80</value>
-          <value>PeriodicidadPago,System.String</value>
-          <value>EmpFechaIngreso,System.String</value>
-          <value>SDI,System.String</value>
-          <value>PlazaNomiDsc,System.String</value>
-          <value>PuestoDsc,System.String</value>
-          <value>Periodo,System.String</value>
-          <value>CPFecPag,System.String</value>
-          <value>NumDiasPagados,System.String</value>
-          <value>LblAntiguedad,System.String</value>
-          <value>CPReceptor,System.String</value>
-          <value>EmpleadoId,System.String</value>
-          <value>NivelPuestoDsc,System.String</value>
-          <value>Cantidad,System.String</value>
-          <value>ClavedeUnidad,System.String</value>
-          <value>Descripcion,System.String</value>
-          <value>ClaveProdServ,System.String</value>
-          <value>ValorUnitario,System.String</value>
-          <value>Importe,System.String</value>
-          <value>EmpFechaAntiguedadC,System.String</value>
-          <value>PlazaCatalogo,System.String</value>
-          <value>PUnitario,System.String</value>
-          <value>ClaveProducto,System.String</value>
-          <value>NumSeguridadSocial,System.String</value>
-          <value>DscRegimenEmpleado,System.String</value>
-          <value>datoDinTitulo1,System.String</value>
-          <value>datoDin1,System.String</value>
-          <value>datosDinTitulo2,System.String</value>
-          <value>datoDin2,System.String</value>
-          <value>AntSemanas,System.String</value>
-          <value>ImporteTotalLetra,System.String</value>
+          <value>ORIGINAL,PeriodicidadPago,PeriodicidadPago,PeriodicidadPago,System.String,_x0033_a70e767a12148cdab39ec234499efc0</value>
+          <value>ORIGINAL,EmpFechaIngreso,EmpFechaIngreso,EmpFechaIngreso,System.String,_x0037_7cd6ee0cf7f44a4a8e730e87d6ed6e7</value>
+          <value>ORIGINAL,SDI,SDI,SDI,System.String,_x0031_47f5ee655274cf28c81d8d2c27d6869</value>
+          <value>ORIGINAL,PlazaNomiDsc,PlazaNomiDsc,PlazaNomiDsc,System.String,_x0030_44bc874bbda419894cecfafb0eb6ea4</value>
+          <value>ORIGINAL,PuestoDsc,PuestoDsc,PuestoDsc,System.String,_x0033_60f6213a4484540bc3128f3e989e7f4</value>
+          <value>ORIGINAL,Periodo,Periodo,Periodo,System.String,_x0034_54a7b7ca9b0419d91843a6ecf601744</value>
+          <value>ORIGINAL,CPFecPag,CPFecPag,CPFecPag,System.String,e0a1e312e23f433da94eb460b8636507</value>
+          <value>ORIGINAL,NumDiasPagados,NumDiasPagados,NumDiasPagados,System.String,_x0031_c1d90982b7b4bf998d9b6f3a2e2aec4</value>
+          <value>ORIGINAL,LblAntiguedad,LblAntiguedad,LblAntiguedad,System.String,_x0037_90f5f1d28d041ea8610ff2e959f01d1</value>
+          <value>ORIGINAL,CPReceptor,CPReceptor,CPReceptor,System.String,_x0034_5bdecd31a814eceb0fe62c95f49c92a</value>
+          <value>ORIGINAL,EmpleadoId,EmpleadoId,EmpleadoId,System.String,_x0039_7bc52f5d0ae4e2ebe16b8497719a86a</value>
+          <value>ORIGINAL,NivelPuestoDsc,NivelPuestoDsc,NivelPuestoDsc,System.String,b519a6c8cb184f4b8a4ccf8a61d87750</value>
+          <value>ORIGINAL,Cantidad,Cantidad,Cantidad,System.String,fce538fb8d574351988ee9ec7b085e27</value>
+          <value>ORIGINAL,ClavedeUnidad,ClavedeUnidad,ClavedeUnidad,System.String,_x0032_3c19c07303b419e95514b961d63d52a</value>
+          <value>ORIGINAL,Descripcion,Descripcion,Descripcion,System.String,_x0031_c223fedd5ed41a9a16a98fcb1092b97</value>
+          <value>ORIGINAL,ClaveProducto,ClaveProducto,ClaveProducto,System.String,_x0032_8372b530e4645d4b571b272fb703b81</value>
+          <value>ORIGINAL,ValorUnitario,ValorUnitario,ValorUnitario,System.String,_x0030_76750601fca41d486280ac5d625f14b</value>
+          <value>ORIGINAL,Importe,Importe,Importe,System.String,b385f227542e440d8cf22f8adcb3f115</value>
+          <value>ORIGINAL,EmpFechaAntiguedadC,EmpFechaAntiguedadC,EmpFechaAntiguedadC,System.String,_x0035_986a213c2cc425c8b1709ce3bbefd79</value>
+          <value>ORIGINAL,PlazaCatalogo,PlazaCatalogo,PlazaCatalogo,System.String,_x0033_a54c33700c84493a426d5549f1bd68d</value>
+          <value>ORIGINAL,PUnitario,PUnitario,PUnitario,System.String,f5c426a1387b40b3b28b1506d0fd6ea4</value>
+          <value>ORIGINAL,ClaveProducto,ClaveProducto,ClaveProducto,System.String,_x0035_35480fc85d24e2583ae4cba21253c7a</value>
+          <value>ORIGINAL,NumSeguridadSocial,NumSeguridadSocial,NumSeguridadSocial,System.String,fe4d725917ec4fa88f2a7e2384552ff1</value>
+          <value>ORIGINAL,DscRegimenEmpleado,DscRegimenEmpleado,DscRegimenEmpleado,System.String,_x0036_46c1f6cc1a84fde88eb24ce05aa1352</value>
+          <value>ORIGINAL,datoDinTitulo1,datoDinTitulo1,datoDinTitulo1,System.String,f5d096d0f6094f6ea0243dc0da4e904c</value>
+          <value>ORIGINAL,datoDin1,datoDin1,datoDin1,System.String,f8173f4f0af441f0acb9f8d3b3f871f0</value>
+          <value>ORIGINAL,datosDinTitulo2,datosDinTitulo2,datosDinTitulo2,System.String,_x0038_15573f0475d4833935c7d3e89d4df3e</value>
+          <value>ORIGINAL,datoDin2,datoDin2,datoDin2,System.String,dc89fbb9935f4b029affee6cc3be1799</value>
+          <value>ORIGINAL,AntSemanas,AntSemanas,AntSemanas,System.String,eb32a1d42ecd4ab590a3bc27bf101c63</value>
+          <value>ORIGINAL,ImporteTotalLetra,ImporteTotalLetra,ImporteTotalLetra,System.String,_x0033_4ed5a1ca9b54fc3bf28d421a5831202</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>cd9473dd91e74f8fb5916b3a383a2229</Key>
@@ -74,7 +74,7 @@
           <value>ORIGINAL,ClavePercepcion,ClavePercepcion,ClavePercepcion,System.String,_x0032_d7c024e0715498a9d65c56a5aae57b8</value>
           <value>ORIGINAL,cantUnidadPercepcion,cantUnidadPercepcion,cantUnidadPercepcion,System.String,_x0034_ef7d6586d764ac0a937c2cd23187699</value>
           <value>ORIGINAL,DscPercepcion,DscPercepcion,DscPercepcion,System.String,de0181adf4d64725abb2c07df3ba32ce</value>
-          <value>ORIGINAL,ImportePLetra,ImportePLetra,ImportePLetra,System.String,_x0033_d1dfaf182ff4e9e951a24987b73eb50</value>
+          <value>ORIGINAL,ImportePLetra,ImportePLetra,ImportePLetra,System.Int32,_x0033_d1dfaf182ff4e9e951a24987b73eb50</value>
           <value>ORIGINAL,Importe,Importe,Importe,System.String,c232d3eadf6f410bb02d9e3098285574</value>
           <value>ORIGINAL,EmpleadoId,EmpleadoId,EmpleadoId,System.String,_x0030_381c0ab4ca5464f84f4bb256e2dd7c9</value>
         </Columns>
@@ -88,7 +88,7 @@
         <Columns isList="true" count="4">
           <value>TipoOtroPago,System.String</value>
           <value>ClaveOtroPago,System.String</value>
-          <value>importeOLetra,System.String</value>
+          <value>importeOLetra,System.Int32</value>
           <value>EmpleadoId,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
@@ -99,12 +99,12 @@
       <Deducciones Ref="6" type="DataTableSource" isKey="true">
         <Alias>Deducciones</Alias>
         <Columns isList="true" count="6">
-          <value>DscDeduccion,System.String</value>
-          <value>cantUnidadDeduccion,System.String</value>
-          <value>ClaveDeduccion,System.String</value>
-          <value>ImporteDLetra,System.String</value>
-          <value>Importe,System.String</value>
-          <value>EmpleadoId,System.String</value>
+          <value>ORIGINAL,DscDeduccion,DscDeduccion,DscDeduccion,System.String,f680071d76d64aeb91c253ac67455720</value>
+          <value>ORIGINAL,cantUnidadDeduccion,cantUnidadDeduccion,cantUnidadDeduccion,System.String,d871a0d7b78c46089743967d3ea42bb3</value>
+          <value>ORIGINAL,ClaveDeduccion,ClaveDeduccion,ClaveDeduccion,System.String,_x0035_cd6656f10f747608ebb7833c599ece1</value>
+          <value>ORIGINAL,ImporteDLetra,ImporteDLetra,ImporteDLetra,System.Int32,cee6edb0501045c5998cc1a66bb58ee0</value>
+          <value>ORIGINAL,Importe,Importe,Importe,System.String,_x0034_a9e326689a74faca8066f921d18f665</value>
+          <value>ORIGINAL,EmpleadoId,EmpleadoId,EmpleadoId,System.String,fc4ae8cb39a1426795056079ecea9c3f</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>bfb3ff734f7e404da31dab3cba614a2c</Key>
@@ -116,7 +116,7 @@
         <Columns isList="true" count="4">
           <value>tipoSubsidio,System.String</value>
           <value>Subhpl_glosa,System.String</value>
-          <value>importeSubLetra,System.String</value>
+          <value>importeSubLetra,System.Int32</value>
           <value>EmpleadoId,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
@@ -271,6 +271,7 @@
         </ChildColumns>
         <ChildSource isRef="6" />
         <Dictionary isRef="1" />
+        <Key>432410228c4645d78143400cb5fcee9d</Key>
         <Name>Rel_Deducciones</Name>
         <NameInSource>Rel_Deducciones</NameInSource>
         <ParentColumns isList="true" count="1">
@@ -1237,9 +1238,9 @@
                           <Name>Text160</Name>
                           <Page isRef="27" />
                           <Parent isRef="84" />
-                          <Text>{Colaborador.ClaveProdServ}</Text>
+                          <Text>{Colaborador.ClaveProducto}</Text>
                           <TextBrush>[0:0:0]</TextBrush>
-                          <Type>DataColumn</Type>
+                          <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
                         </Text160>
                         <Text161 Ref="94" type="Text" isKey="true">
@@ -1367,7 +1368,7 @@
                               <Parent isRef="98" />
                               <PrintIfEmpty>True</PrintIfEmpty>
                             </HeaderBand1>
-                            <DataBand3 Ref="103" type="DataBand" isKey="true">
+                            <BandPercepciones Ref="103" type="DataBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <BusinessObjectGuid isNull="true" />
                               <CanBreak>True</CanBreak>
@@ -1436,11 +1437,11 @@
                               <Expressions isList="true" count="0" />
                               <Filters isList="true" count="0" />
                               <MasterComponent isRef="28" />
-                              <Name>DataBand3</Name>
+                              <Name>BandPercepciones</Name>
                               <Page isRef="27" />
                               <Parent isRef="98" />
                               <Sort isList="true" count="0" />
-                            </DataBand3>
+                            </BandPercepciones>
                             <FooterBand1 Ref="108" type="FooterBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <CanBreak>True</CanBreak>
@@ -1464,21 +1465,21 @@
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text74>
-                                <Text75 Ref="110" type="Text" isKey="true">
+                                <Text7 Ref="110" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>8.4,0,1.4,0.6</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial,8</Font>
                                   <HorAlignment>Right</HorAlignment>
-                                  <Name>Text75</Name>
+                                  <Name>Text7</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="108" />
-                                  <Text>{Sum(DataBand3)}</Text>
+                                  <Text>{Sum(BandPercepciones,Percepciones.ImportePLetra)}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Totals</Type>
                                   <VertAlignment>Center</VertAlignment>
-                                </Text75>
+                                </Text7>
                               </Components>
                               <Conditions isList="true" count="0" />
                               <Expressions isList="true" count="0" />
@@ -1545,7 +1546,7 @@
                               <Parent isRef="98" />
                               <PrintIfEmpty>True</PrintIfEmpty>
                             </HeaderBand2>
-                            <DataBand4 Ref="115" type="DataBand" isKey="true">
+                            <BandOtrosPagos Ref="115" type="DataBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <BusinessObjectGuid isNull="true" />
                               <CanBreak>True</CanBreak>
@@ -1616,12 +1617,12 @@
                               <Expressions isList="true" count="0" />
                               <Filters isList="true" count="0" />
                               <MasterComponent isRef="28" />
-                              <Name>DataBand4</Name>
+                              <Name>BandOtrosPagos</Name>
                               <Page isRef="27" />
                               <Parent isRef="98" />
                               <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
                               <Sort isList="true" count="0" />
-                            </DataBand4>
+                            </BandOtrosPagos>
                             <FooterBand2 Ref="120" type="FooterBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <CanBreak>True</CanBreak>
@@ -1655,9 +1656,9 @@
                                   <Name>Text82</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="120" />
-                                  <Text>{TotalOtrosPagos.importetotalO}</Text>
+                                  <Text>{Sum(BandOtrosPagos,OtrosPagos.importeOLetra)}</Text>
                                   <TextBrush>Black</TextBrush>
-                                  <Type>DataColumn</Type>
+                                  <Type>Totals</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text82>
                               </Components>
@@ -1742,7 +1743,7 @@
                               <Page isRef="27" />
                               <Parent isRef="123" />
                             </HeaderBand3>
-                            <DataBand5 Ref="128" type="DataBand" isKey="true">
+                            <BandDeducciones Ref="128" type="DataBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <BusinessObjectGuid isNull="true" />
                               <CanBreak>True</CanBreak>
@@ -1814,11 +1815,11 @@
                               <Expressions isList="true" count="0" />
                               <Filters isList="true" count="0" />
                               <MasterComponent isRef="28" />
-                              <Name>DataBand5</Name>
+                              <Name>BandDeducciones</Name>
                               <Page isRef="27" />
                               <Parent isRef="123" />
                               <Sort isList="true" count="0" />
-                            </DataBand5>
+                            </BandDeducciones>
                             <FooterBand3 Ref="133" type="FooterBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <CanBreak>True</CanBreak>
@@ -1842,20 +1843,23 @@
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text129>
-                                <Text131 Ref="135" type="Text" isKey="true">
+                                <Text8 Ref="135" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
+                                  <CanGrow>True</CanGrow>
                                   <ClientRectangle>8.4,0,1.4,0.6</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial,8</Font>
                                   <HorAlignment>Right</HorAlignment>
-                                  <Name>Text131</Name>
+                                  <Name>Text8</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="133" />
+                                  <ShiftMode>None</ShiftMode>
+                                  <Text>{Sum(BandDeducciones,Deducciones.ImporteDLetra)}</Text>
                                   <TextBrush>Black</TextBrush>
-                                  <Type>Expression</Type>
+                                  <Type>Totals</Type>
                                   <VertAlignment>Center</VertAlignment>
-                                </Text131>
+                                </Text8>
                               </Components>
                               <Conditions isList="true" count="0" />
                               <Expressions isList="true" count="0" />
@@ -1921,7 +1925,7 @@
                               <Parent isRef="123" />
                               <PrintIfEmpty>True</PrintIfEmpty>
                             </HeaderBand4>
-                            <DataBand6 Ref="140" type="DataBand" isKey="true">
+                            <BandSubsidio Ref="140" type="DataBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <BusinessObjectGuid isNull="true" />
                               <CanBreak>True</CanBreak>
@@ -1992,12 +1996,12 @@
                               <Expressions isList="true" count="0" />
                               <Filters isList="true" count="0" />
                               <MasterComponent isRef="28" />
-                              <Name>DataBand6</Name>
+                              <Name>BandSubsidio</Name>
                               <Page isRef="27" />
                               <Parent isRef="123" />
                               <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
                               <Sort isList="true" count="0" />
-                            </DataBand6>
+                            </BandSubsidio>
                             <FooterBand4 Ref="145" type="FooterBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <CanBreak>True</CanBreak>
@@ -2031,9 +2035,9 @@
                                   <Name>Text128</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="145" />
-                                  <Text>{TotalSubsidio.importeTotSubLetra}</Text>
+                                  <Text>{Sum(BandSubsidio,Subsidio.importeSubLetra)}</Text>
                                   <TextBrush>Black</TextBrush>
-                                  <Type>DataColumn</Type>
+                                  <Type>Totals</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text128>
                               </Components>
@@ -2529,7 +2533,7 @@
                                       <Components isList="true" count="10">
                                         <Text127 Ref="186" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>5.8,0.2,2.2,0.4</ClientRectangle>
+                                          <ClientRectangle>5.6,0.4,2.2,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial,6</Font>
@@ -2542,7 +2546,7 @@
                                         </Text127>
                                         <Text48 Ref="187" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>5.8,1.8,2.2,0.4</ClientRectangle>
+                                          <ClientRectangle>5.6,1.6,2.2,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial,6</Font>
@@ -2555,7 +2559,7 @@
                                         </Text48>
                                         <Text49 Ref="188" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>5.8,3.2,6.8,0.4</ClientRectangle>
+                                          <ClientRectangle>5.6,2.6,6.8,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial,6</Font>
@@ -2568,7 +2572,7 @@
                                         </Text49>
                                         <Text130 Ref="189" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>5.8,0.6,10,0.8</ClientRectangle>
+                                          <ClientRectangle>5.6,0.8,10,0.8</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial,4</Font>
@@ -2582,7 +2586,7 @@
                                         </Text130>
                                         <Text50 Ref="190" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>5.8,2.4,10,0.6</ClientRectangle>
+                                          <ClientRectangle>5.6,2,10,0.6</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial,4</Font>
@@ -2625,8 +2629,9 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text51>
                                         <Image1 Ref="194" type="Image" isKey="true">
+                                          <AspectRatio>True</AspectRatio>
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>0.6,0.2,4,4</ClientRectangle>
+                                          <ClientRectangle>0.4,0.2,3.6,3.6</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <DataColumn>Firma.ImagenQR</DataColumn>
                                           <Expressions isList="true" count="0" />
@@ -2635,6 +2640,7 @@
                                           <Page isRef="27" />
                                           <Parent isRef="185" />
                                           <ShiftMode>OnlyInWidthOfComponent</ShiftMode>
+                                          <Stretch>True</Stretch>
                                         </Image1>
                                         <Text52 Ref="195" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
@@ -2651,7 +2657,7 @@
                                         </Text52>
                                         <Text132 Ref="196" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>5.8,3.8,10,0.6</ClientRectangle>
+                                          <ClientRectangle>5.6,3,10,0.6</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial,4</Font>
@@ -2804,10 +2810,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/10/2025 12:51:26 PM</ReportChanged>
+  <ReportChanged>9/10/2025 3:51:08 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdi.mrt</ReportFile>
-  <ReportGuid>1ae6542ec778439ebc725c0d280ff046</ReportGuid>
+  <ReportGuid>ebef05932dda42c89a6a37f236bdd837</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
