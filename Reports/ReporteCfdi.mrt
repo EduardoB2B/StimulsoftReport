@@ -1848,7 +1848,6 @@
                                   <Name>Text131</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="134" />
-                                  <Text>{First(Rel_TotDeduc, Rel_TotDeduc.EmpleadoId == Empleado.EmpleadoId).importeTotalDed}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
@@ -2055,6 +2054,7 @@
                           <Components isList="true" count="1">
                             <DataBand7 Ref="150" type="DataBand" isKey="true">
                               <Brush>Transparent</Brush>
+                              <BusinessObjectGuid isNull="true" />
                               <ClientRectangle>0,0.4,20,2</ClientRectangle>
                               <Components isList="true" count="13">
                                 <Text99 Ref="151" type="Text" isKey="true">
@@ -2229,6 +2229,7 @@
                                   <Components isList="true" count="2">
                                     <DataBand8 Ref="164" type="DataBand" isKey="true">
                                       <Brush>Transparent</Brush>
+                                      <BusinessObjectGuid isNull="true" />
                                       <ClientRectangle>0,0.4,20,2.4</ClientRectangle>
                                       <Components isList="true" count="20">
                                         <Text107 Ref="165" type="Text" isKey="true">
@@ -2506,6 +2507,7 @@
                                     </DataBand8>
                                     <DataBand9 Ref="185" type="DataBand" isKey="true">
                                       <Brush>Transparent</Brush>
+                                      <BusinessObjectGuid isNull="true" />
                                       <ClientRectangle>0,3.6,20,5.4</ClientRectangle>
                                       <Components isList="true" count="10">
                                         <Text127 Ref="186" type="Text" isKey="true">
@@ -2796,10 +2798,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/10/2025 6:56:35 AM</ReportChanged>
+  <ReportChanged>9/10/2025 9:22:42 AM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdi.mrt</ReportFile>
-  <ReportGuid>b95979325d8246ab9be173375ceac930</ReportGuid>
+  <ReportGuid>8fc8d34dfefc415991a4a4def4f60fbb</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
