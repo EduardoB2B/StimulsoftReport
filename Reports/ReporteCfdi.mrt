@@ -464,7 +464,7 @@
                   <Name>Text123</Name>
                   <Page isRef="27" />
                   <Parent isRef="29" />
-                  <Text>{Empleado.Direccion.Replace("|", "")}</Text>
+                  <Text>{Empleado.Direccion.Replace("| ", "\r\n")}</Text>
                   <TextBrush>Black</TextBrush>
                   <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
                   <Type>Expression</Type>
@@ -2759,10 +2759,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/10/2025 10:00:09 AM</ReportChanged>
+  <ReportChanged>9/10/2025 10:10:28 AM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdi.mrt</ReportFile>
-  <ReportGuid>809c8f33be8d4c67a129d8107b24ce7c</ReportGuid>
+  <ReportGuid>ab99e12841644923aa221f3063b9964d</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
