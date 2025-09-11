@@ -405,50 +405,21 @@
     <Page1 Ref="27" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="3">
-        <Text105 Ref="28" type="Text" isKey="true">
-          <Brush>Transparent</Brush>
-          <ClientRectangle>21.4,10.4,3.4,0.4</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Expressions isList="true" count="0" />
-          <Font>Arial Narrow,8</Font>
-          <Name>Text105</Name>
-          <Page isRef="27" />
-          <Parent isRef="27" />
-          <Text>IMPORTE TOTAL CON LETRA</Text>
-          <TextBrush>Black</TextBrush>
-          <Type>Expression</Type>
-          <VertAlignment>Center</VertAlignment>
-        </Text105>
-        <Text106 Ref="29" type="Text" isKey="true">
-          <Brush>Transparent</Brush>
-          <ClientRectangle>25,10.4,6,0.4</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Expressions isList="true" count="0" />
-          <Font>Arial Narrow,8</Font>
-          <Name>Text106</Name>
-          <Page isRef="27" />
-          <Parent isRef="27" />
-          <Text>{Colaborador.ImporteTotalLetra}</Text>
-          <TextBrush>Black</TextBrush>
-          <Type>DataColumn</Type>
-          <VertAlignment>Center</VertAlignment>
-        </Text106>
-        <ReciboCfdi Ref="30" type="DataBand" isKey="true">
+      <Components isList="true" count="1">
+        <ReciboCfdi Ref="28" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <CanGrow>False</CanGrow>
-          <CanShrink>True</CanShrink>
           <ClientRectangle>0,0.4,20.8,18.4</ClientRectangle>
           <Components isList="true" count="2">
-            <PanelEmpleador Ref="31" type="Panel" isKey="true">
+            <PanelEmpleador Ref="29" type="Panel" isKey="true">
               <Brush>Transparent</Brush>
               <CanBreak>True</CanBreak>
               <CanGrow>True</CanGrow>
               <CanShrink>True</CanShrink>
               <ClientRectangle>0,0,20.8,1.4</ClientRectangle>
               <Components isList="true" count="5">
-                <Text47 Ref="32" type="Text" isKey="true">
+                <Text47 Ref="30" type="Text" isKey="true">
                   <Brush>[89:89:89]</Brush>
                   <ClientRectangle>13.6,0,7.2,0.6</ClientRectangle>
                   <Conditions isList="true" count="0" />
@@ -457,13 +428,13 @@
                   <HorAlignment>Center</HorAlignment>
                   <Name>Text47</Name>
                   <Page isRef="27" />
-                  <Parent isRef="31" />
+                  <Parent isRef="29" />
                   <Text>CFDI RECIBO DE NÓMINA</Text>
                   <TextBrush>[255:255:255]</TextBrush>
                   <Type>Expression</Type>
                   <VertAlignment>Center</VertAlignment>
                 </Text47>
-                <Text91 Ref="33" type="Text" isKey="true">
+                <Text91 Ref="31" type="Text" isKey="true">
                   <Brush>[165:165:165]</Brush>
                   <ClientRectangle>0,0,12.8,0.2</ClientRectangle>
                   <Conditions isList="true" count="0" />
@@ -471,13 +442,13 @@
                   <Font>Arial,5,Bold</Font>
                   <Name>Text91</Name>
                   <Page isRef="27" />
-                  <Parent isRef="31" />
+                  <Parent isRef="29" />
                   <Text>    EMPLEADOR</Text>
                   <TextBrush>[255:255:255]</TextBrush>
                   <Type>Expression</Type>
                   <VertAlignment>Center</VertAlignment>
                 </Text91>
-                <Text119 Ref="34" type="Text" isKey="true">
+                <Text119 Ref="32" type="Text" isKey="true">
                   <Brush>Transparent</Brush>
                   <ClientRectangle>0.2,0.2,12.2,0.4</ClientRectangle>
                   <Conditions isList="true" count="0" />
@@ -486,13 +457,13 @@
                   <HorAlignment>Width</HorAlignment>
                   <Name>Text119</Name>
                   <Page isRef="27" />
-                  <Parent isRef="31" />
+                  <Parent isRef="29" />
                   <Text>{Empleado.Com_Dsc}</Text>
                   <TextBrush>Black</TextBrush>
                   <Type>Expression</Type>
                   <VertAlignment>Center</VertAlignment>
                 </Text119>
-                <Text123 Ref="35" type="Text" isKey="true">
+                <Text123 Ref="33" type="Text" isKey="true">
                   <Brush>Transparent</Brush>
                   <ClientRectangle>1.2,0.6,8.4,0.4</ClientRectangle>
                   <Conditions isList="true" count="0" />
@@ -500,14 +471,14 @@
                   <Font>Arial Narrow,6</Font>
                   <Name>Text123</Name>
                   <Page isRef="27" />
-                  <Parent isRef="31" />
+                  <Parent isRef="29" />
                   <Text>{Empleado.Direccion}</Text>
                   <TextBrush>Black</TextBrush>
                   <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
                   <Type>DataColumn</Type>
                   <VertAlignment>Center</VertAlignment>
                 </Text123>
-                <Text144 Ref="36" type="Text" isKey="true">
+                <Text144 Ref="34" type="Text" isKey="true">
                   <Brush>Transparent</Brush>
                   <ClientRectangle>1.2,1,8.4,0.4</ClientRectangle>
                   <Conditions isList="true" count="0" />
@@ -515,7 +486,7 @@
                   <Font>Arial Narrow,6</Font>
                   <Name>Text144</Name>
                   <Page isRef="27" />
-                  <Parent isRef="31" />
+                  <Parent isRef="29" />
                   <Text>{Empleado.Com_RFC} | {Empleado.Regimen} | {Empleado.RegistroPatronal}</Text>
                   <TextBrush>Black</TextBrush>
                   <Type>Expression</Type>
@@ -527,18 +498,18 @@
               <GrowToHeight>True</GrowToHeight>
               <Name>PanelEmpleador</Name>
               <Page isRef="27" />
-              <Parent isRef="30" />
+              <Parent isRef="28" />
             </PanelEmpleador>
-            <PanelColaborador Ref="37" type="Panel" isKey="true">
+            <PanelColaborador Ref="35" type="Panel" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0,1.4,20.8,3.8</ClientRectangle>
               <Components isList="true" count="1">
-                <DataBand2 Ref="38" type="DataBand" isKey="true">
+                <DataBand2 Ref="36" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
                   <BusinessObjectGuid isNull="true" />
                   <ClientRectangle>0,0.4,20.8,3.4</ClientRectangle>
                   <Components isList="true" count="43">
-                    <Text148 Ref="39" type="Text" isKey="true">
+                    <Text148 Ref="37" type="Text" isKey="true">
                       <Brush>[191:191:191]</Brush>
                       <ClientRectangle>0,0,20.8,0.2</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -546,13 +517,13 @@
                       <Font>Arial,5,Bold</Font>
                       <Name>Text148</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>    COLABORADOR</Text>
                       <TextBrush>[255:255:255]</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text148>
-                    <Text151 Ref="40" type="Text" isKey="true">
+                    <Text151 Ref="38" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>0.2,0.2,3,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -561,12 +532,12 @@
                       <HorAlignment>Width</HorAlignment>
                       <Name>Text151</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.NumEmpleado}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                     </Text151>
-                    <Text164 Ref="41" type="Text" isKey="true">
+                    <Text164 Ref="39" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>0.2,2.2,1.4,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -574,13 +545,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text164</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>NSS</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text164>
-                    <Text165 Ref="42" type="Text" isKey="true">
+                    <Text165 Ref="40" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>0.2,1.4,1.4,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -588,13 +559,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text165</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Reg empleado</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text165>
-                    <Text166 Ref="43" type="Text" isKey="true">
+                    <Text166 Ref="41" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>4.8,0.6,2.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -602,13 +573,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text166</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Salario base de cotización</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text166>
-                    <Text167 Ref="44" type="Text" isKey="true">
+                    <Text167 Ref="42" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>4.8,1.4,2.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -616,13 +587,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text167</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Periodicidad de pago</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text167>
-                    <Text168 Ref="45" type="Text" isKey="true">
+                    <Text168 Ref="43" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>4.8,1.8,2.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -630,13 +601,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text168</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>SDI</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text168>
-                    <Text170 Ref="46" type="Text" isKey="true">
+                    <Text170 Ref="44" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>0.2,0.6,1.4,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -644,13 +615,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text170</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>CURP</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text170>
-                    <Text171 Ref="47" type="Text" isKey="true">
+                    <Text171 Ref="45" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>4.8,2.2,2.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -658,13 +629,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text171</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Fecha de ingreso</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text171>
-                    <Text149 Ref="48" type="Text" isKey="true">
+                    <Text149 Ref="46" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>3.6,0.2,9,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -672,13 +643,13 @@
                       <Font>Arial Narrow,8</Font>
                       <Name>Text149</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.EmpaNombreCompleto}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text149>
-                    <Text172 Ref="49" type="Text" isKey="true">
+                    <Text172 Ref="47" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>1.6,1.4,3.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -686,13 +657,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text172</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.DscRegimenEmpleado}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text172>
-                    <Text173 Ref="50" type="Text" isKey="true">
+                    <Text173 Ref="48" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>7,0.6,2.6,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -700,13 +671,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text173</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.SalarioBase}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text173>
-                    <Text174 Ref="51" type="Text" isKey="true">
+                    <Text174 Ref="49" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>7,1.4,2.6,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -714,13 +685,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text174</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.PeriodicidadPago}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text174>
-                    <Text175 Ref="52" type="Text" isKey="true">
+                    <Text175 Ref="50" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>7,2.2,2.6,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -728,13 +699,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text175</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.EmpFechaIngreso}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text175>
-                    <Text176 Ref="53" type="Text" isKey="true">
+                    <Text176 Ref="51" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>7,1.8,2.6,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -742,13 +713,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text176</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.SDI}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text176>
-                    <Text177 Ref="54" type="Text" isKey="true">
+                    <Text177 Ref="52" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>1.6,2.2,3.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -756,13 +727,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text177</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.NumSeguridadSocial}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text177>
-                    <Text178 Ref="55" type="Text" isKey="true">
+                    <Text178 Ref="53" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>1.6,1,3.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -770,12 +741,12 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text178</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.EmpaRFC}</Text>
                       <TextBrush>Black</TextBrush>
                       <VertAlignment>Center</VertAlignment>
                     </Text178>
-                    <Text179 Ref="56" type="Text" isKey="true">
+                    <Text179 Ref="54" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>1.6,0.6,3.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -783,13 +754,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text179</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.EmpaCURP}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text179>
-                    <Text180 Ref="57" type="Text" isKey="true">
+                    <Text180 Ref="55" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>0.2,1.8,1.4,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -797,13 +768,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text180</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Periodo</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text180>
-                    <Text181 Ref="58" type="Text" isKey="true">
+                    <Text181 Ref="56" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>10,1.4,1.8,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -811,13 +782,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text181</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Fecha de pago</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text181>
-                    <Text182 Ref="59" type="Text" isKey="true">
+                    <Text182 Ref="57" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>16.8,1.4,2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -825,13 +796,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text182</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Núm. de días pagados</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text182>
-                    <Text183 Ref="60" type="Text" isKey="true">
+                    <Text183 Ref="58" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>10,2.2,1.8,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -839,13 +810,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text183</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Antigüedad</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text183>
-                    <Text184 Ref="61" type="Text" isKey="true">
+                    <Text184 Ref="59" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>16.8,1.8,1.4,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -853,13 +824,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text184</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Tipo de nómina</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text184>
-                    <Text185 Ref="62" type="Text" isKey="true">
+                    <Text185 Ref="60" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>4.8,1,2.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -867,13 +838,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text185</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Nómina | Tipo</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text185>
-                    <Text186 Ref="63" type="Text" isKey="true">
+                    <Text186 Ref="61" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>10,1,1.8,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -881,13 +852,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text186</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Puesto</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text186>
-                    <Text187 Ref="64" type="Text" isKey="true">
+                    <Text187 Ref="62" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>10,0.6,1.8,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -895,13 +866,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text187</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Departamento</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text187>
-                    <Text188 Ref="65" type="Text" isKey="true">
+                    <Text188 Ref="63" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>11.8,1,2.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -909,13 +880,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text188</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.PuestoDsc}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text188>
-                    <Text189 Ref="66" type="Text" isKey="true">
+                    <Text189 Ref="64" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>16.2,2.2,3.8,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -923,13 +894,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text189</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>O=Nómina Ordinaria E=Nómina Extraordinaria</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text189>
-                    <Text190 Ref="67" type="Text" isKey="true">
+                    <Text190 Ref="65" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>7,1,2.6,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -937,13 +908,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text190</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.PlazaNomiDsc}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text190>
-                    <Text191 Ref="68" type="Text" isKey="true">
+                    <Text191 Ref="66" type="Text" isKey="true">
                       <AutoWidth>True</AutoWidth>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>1.6,1.8,3.2,0.4</ClientRectangle>
@@ -952,13 +923,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text191</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.Periodo}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text191>
-                    <Text192 Ref="69" type="Text" isKey="true">
+                    <Text192 Ref="67" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>11.8,1.4,2.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -966,13 +937,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text192</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.CPFecPag}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text192>
-                    <Text193 Ref="70" type="Text" isKey="true">
+                    <Text193 Ref="68" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>18.8,1.4,1.8,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -980,13 +951,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text193</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.NumDiasPagados}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text193>
-                    <Text194 Ref="71" type="Text" isKey="true">
+                    <Text194 Ref="69" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>11.8,2.2,2.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -994,13 +965,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text194</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.AntSemanas}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text194>
-                    <Text195 Ref="72" type="Text" isKey="true">
+                    <Text195 Ref="70" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>11.8,0.6,2.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -1008,13 +979,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text195</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.PlazaCatalogo}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text195>
-                    <Text196 Ref="73" type="Text" isKey="true">
+                    <Text196 Ref="71" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>11.8,1.8,2.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -1022,13 +993,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text196</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.RegFiscalReceptor}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text196>
-                    <Text197 Ref="74" type="Text" isKey="true">
+                    <Text197 Ref="72" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>10,1.8,1.8,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -1036,13 +1007,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text197</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Régimen Fiscal</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text197>
-                    <Text198 Ref="75" type="Text" isKey="true">
+                    <Text198 Ref="73" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>15.6,1.8,1.2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -1050,13 +1021,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text198</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.CPReceptor}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text198>
-                    <Text199 Ref="76" type="Text" isKey="true">
+                    <Text199 Ref="74" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>14.2,1.8,1.4,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -1064,19 +1035,19 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text199</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Código postal</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text199>
-                    <Panel9 Ref="77" type="Panel" isKey="true">
+                    <Panel9 Ref="75" type="Panel" isKey="true">
                       <Brush>Transparent</Brush>
                       <CanBreak>True</CanBreak>
                       <CanGrow>True</CanGrow>
                       <ClientRectangle>0,3,20.8,0.4</ClientRectangle>
                       <Components isList="true" count="12">
-                        <Text152 Ref="78" type="Text" isKey="true">
+                        <Text152 Ref="76" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
                           <ClientRectangle>0.2,0,1,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
@@ -1084,13 +1055,13 @@
                           <Font>Arial Narrow,6</Font>
                           <Name>Text152</Name>
                           <Page isRef="27" />
-                          <Parent isRef="77" />
+                          <Parent isRef="75" />
                           <Text>Cantidad:</Text>
                           <TextBrush>Black</TextBrush>
                           <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
                         </Text152>
-                        <Text153 Ref="79" type="Text" isKey="true">
+                        <Text153 Ref="77" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
                           <ClientRectangle>2.2,0,1.8,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
@@ -1098,13 +1069,13 @@
                           <Font>Arial Narrow,6</Font>
                           <Name>Text153</Name>
                           <Page isRef="27" />
-                          <Parent isRef="77" />
+                          <Parent isRef="75" />
                           <Text>| Clave de unidad:</Text>
                           <TextBrush>Black</TextBrush>
                           <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
                         </Text153>
-                        <Text154 Ref="80" type="Text" isKey="true">
+                        <Text154 Ref="78" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
                           <ClientRectangle>5.8,0,1.4,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
@@ -1112,13 +1083,13 @@
                           <Font>Arial Narrow,6</Font>
                           <Name>Text154</Name>
                           <Page isRef="27" />
-                          <Parent isRef="77" />
+                          <Parent isRef="75" />
                           <Text>| Descripción:</Text>
                           <TextBrush>Black</TextBrush>
                           <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
                         </Text154>
-                        <Text155 Ref="81" type="Text" isKey="true">
+                        <Text155 Ref="79" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
                           <ClientRectangle>1.4,0,0.8,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
@@ -1126,13 +1097,13 @@
                           <Font>Arial Narrow,6</Font>
                           <Name>Text155</Name>
                           <Page isRef="27" />
-                          <Parent isRef="77" />
+                          <Parent isRef="75" />
                           <Text>{Colaborador.Cantidad}</Text>
                           <TextBrush>Black</TextBrush>
                           <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
                         </Text155>
-                        <Text156 Ref="82" type="Text" isKey="true">
+                        <Text156 Ref="80" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
                           <ClientRectangle>4,0,1.6,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
@@ -1140,13 +1111,13 @@
                           <Font>Arial Narrow,6</Font>
                           <Name>Text156</Name>
                           <Page isRef="27" />
-                          <Parent isRef="77" />
+                          <Parent isRef="75" />
                           <Text>{Colaborador.ClavedeUnidad}</Text>
                           <TextBrush>Black</TextBrush>
                           <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
                         </Text156>
-                        <Text157 Ref="83" type="Text" isKey="true">
+                        <Text157 Ref="81" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
                           <ClientRectangle>7.2,0,2.8,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
@@ -1154,13 +1125,13 @@
                           <Font>Arial Narrow,6</Font>
                           <Name>Text157</Name>
                           <Page isRef="27" />
-                          <Parent isRef="77" />
+                          <Parent isRef="75" />
                           <Text>{Colaborador.Descripcion}</Text>
                           <TextBrush>Black</TextBrush>
                           <Type>DataColumn</Type>
                           <VertAlignment>Center</VertAlignment>
                         </Text157>
-                        <Text158 Ref="84" type="Text" isKey="true">
+                        <Text158 Ref="82" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
                           <ClientRectangle>14.4,0,1,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
@@ -1168,13 +1139,13 @@
                           <Font>Arial Narrow,6</Font>
                           <Name>Text158</Name>
                           <Page isRef="27" />
-                          <Parent isRef="77" />
+                          <Parent isRef="75" />
                           <Text>| P/unitario:</Text>
                           <TextBrush>Black</TextBrush>
                           <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
                         </Text158>
-                        <Text159 Ref="85" type="Text" isKey="true">
+                        <Text159 Ref="83" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
                           <ClientRectangle>16.6,0,1,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
@@ -1182,13 +1153,13 @@
                           <Font>Arial Narrow,6</Font>
                           <Name>Text159</Name>
                           <Page isRef="27" />
-                          <Parent isRef="77" />
+                          <Parent isRef="75" />
                           <Text>| Importe:</Text>
                           <TextBrush>Black</TextBrush>
                           <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
                         </Text159>
-                        <Text160 Ref="86" type="Text" isKey="true">
+                        <Text160 Ref="84" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
                           <ClientRectangle>13.2,0,1.2,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
@@ -1196,13 +1167,13 @@
                           <Font>Arial Narrow,6</Font>
                           <Name>Text160</Name>
                           <Page isRef="27" />
-                          <Parent isRef="77" />
+                          <Parent isRef="75" />
                           <Text>{Colaborador.ClaveProducto}</Text>
                           <TextBrush>Black</TextBrush>
                           <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
                         </Text160>
-                        <Text161 Ref="87" type="Text" isKey="true">
+                        <Text161 Ref="85" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
                           <ClientRectangle>15.6,0,1,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
@@ -1210,13 +1181,13 @@
                           <Font>Arial Narrow,6</Font>
                           <Name>Text161</Name>
                           <Page isRef="27" />
-                          <Parent isRef="77" />
+                          <Parent isRef="75" />
                           <Text>{Colaborador.PUnitario}</Text>
                           <TextBrush>Black</TextBrush>
                           <Type>DataColumn</Type>
                           <VertAlignment>Center</VertAlignment>
                         </Text161>
-                        <Text162 Ref="88" type="Text" isKey="true">
+                        <Text162 Ref="86" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
                           <ClientRectangle>17.8,0,1.6,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
@@ -1224,13 +1195,13 @@
                           <Font>Arial Narrow,6</Font>
                           <Name>Text162</Name>
                           <Page isRef="27" />
-                          <Parent isRef="77" />
+                          <Parent isRef="75" />
                           <Text>{Colaborador.Importe}</Text>
                           <TextBrush>Black</TextBrush>
                           <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
                         </Text162>
-                        <Text163 Ref="89" type="Text" isKey="true">
+                        <Text163 Ref="87" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
                           <ClientRectangle>10.2,0,2.8,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
@@ -1238,7 +1209,7 @@
                           <Font>Arial Narrow,6</Font>
                           <Name>Text163</Name>
                           <Page isRef="27" />
-                          <Parent isRef="77" />
+                          <Parent isRef="75" />
                           <Text>| Clave de producto y servicio:</Text>
                           <TextBrush>Black</TextBrush>
                           <Type>Expression</Type>
@@ -1249,9 +1220,9 @@
                       <Expressions isList="true" count="0" />
                       <Name>Panel9</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                     </Panel9>
-                    <Text2 Ref="90" type="Text" isKey="true">
+                    <Text2 Ref="88" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>0.2,2.6,1.8,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -1259,13 +1230,13 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text2</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>Fecha de antigüedad</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text2>
-                    <Text3 Ref="91" type="Text" isKey="true">
+                    <Text3 Ref="89" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>2,2.6,2.8,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -1273,13 +1244,13 @@
                       <Font>Arial Narrow,6</Font>
                       <Name>Text3</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>{Colaborador.EmpFechaAntiguedadC}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text3>
-                    <Text169 Ref="92" type="Text" isKey="true">
+                    <Text169 Ref="90" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>0.2,1,1.4,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -1287,28 +1258,28 @@
                       <Font>Arial Narrow,6,Bold</Font>
                       <Name>Text169</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                       <Text>RFC</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text169>
-                    <Panel1 Ref="93" type="Panel" isKey="true">
+                    <Panel1 Ref="91" type="Panel" isKey="true">
                       <Brush>Transparent</Brush>
                       <CanGrow>True</CanGrow>
                       <ClientRectangle>0,3.4,20.8,13</ClientRectangle>
                       <Components isList="true" count="3">
-                        <PanelPercOtros Ref="94" type="Panel" isKey="true">
+                        <PanelPercOtros Ref="92" type="Panel" isKey="true">
                           <Brush>Transparent</Brush>
                           <CanGrow>True</CanGrow>
                           <ClientRectangle>0,0,6.8,6</ClientRectangle>
                           <Components isList="true" count="6">
-                            <HeaderBand1 Ref="95" type="HeaderBand" isKey="true">
+                            <HeaderBand1 Ref="93" type="HeaderBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <CanBreak>True</CanBreak>
                               <ClientRectangle>0,0.4,6.8,0.6</ClientRectangle>
                               <Components isList="true" count="3">
-                                <Text66 Ref="96" type="Text" isKey="true">
+                                <Text66 Ref="94" type="Text" isKey="true">
                                   <Brush>[191:191:191]</Brush>
                                   <ClientRectangle>0,0,6.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1317,14 +1288,14 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text66</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="95" />
+                                  <Parent isRef="93" />
                                   <Text>PERCEPCIONES
 </Text>
                                   <TextBrush>[255:255:255]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text66>
-                                <Text67 Ref="97" type="Text" isKey="true">
+                                <Text67 Ref="95" type="Text" isKey="true">
                                   <Brush>[191:191:191]</Brush>
                                   <ClientRectangle>1,0.4,5.8,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1332,14 +1303,14 @@
                                   <Font>Arial,5</Font>
                                   <Name>Text67</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="95" />
+                                  <Parent isRef="93" />
                                   <Text>   UNIDADES
 </Text>
                                   <TextBrush>[255:255:255]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text67>
-                                <Text53 Ref="98" type="Text" isKey="true">
+                                <Text53 Ref="96" type="Text" isKey="true">
                                   <Brush>[191:191:191]</Brush>
                                   <ClientRectangle>0,0.4,1,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1348,7 +1319,7 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text53</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="95" />
+                                  <Parent isRef="93" />
                                   <Text>SAT</Text>
                                   <TextBrush>[255:255:255]</TextBrush>
                                   <Type>Expression</Type>
@@ -1359,16 +1330,16 @@
                               <Expressions isList="true" count="0" />
                               <Name>HeaderBand1</Name>
                               <Page isRef="27" />
-                              <Parent isRef="94" />
+                              <Parent isRef="92" />
                               <PrintIfEmpty>True</PrintIfEmpty>
                             </HeaderBand1>
-                            <BandPercepciones Ref="99" type="DataBand" isKey="true">
+                            <BandPercepciones Ref="97" type="DataBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <BusinessObjectGuid isNull="true" />
                               <CanBreak>True</CanBreak>
                               <ClientRectangle>0,1.8,6.8,0.2</ClientRectangle>
                               <Components isList="true" count="4">
-                                <Text68 Ref="100" type="Text" isKey="true">
+                                <Text68 Ref="98" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>0,0,1,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1377,12 +1348,12 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text68</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="99" />
+                                  <Parent isRef="97" />
                                   <Text>{Percepciones.DscPercepcion}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text68>
-                                <Text69 Ref="101" type="Text" isKey="true">
+                                <Text69 Ref="99" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>1,0,1.2,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1391,12 +1362,12 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text69</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="99" />
+                                  <Parent isRef="97" />
                                   <Text>{Percepciones.cantUnidadPercepcion}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text69>
-                                <Text70 Ref="102" type="Text" isKey="true">
+                                <Text70 Ref="100" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>2.2,0,3,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1404,13 +1375,13 @@
                                   <Font>Arial,5</Font>
                                   <Name>Text70</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="99" />
+                                  <Parent isRef="97" />
                                   <Text>{Percepciones.ClavePercepcion}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text70>
-                                <Text71 Ref="103" type="Text" isKey="true">
+                                <Text71 Ref="101" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>5.2,0,1.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1419,7 +1390,7 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text71</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="99" />
+                                  <Parent isRef="97" />
                                   <Text>{Percepciones.ImportePLetra}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <VertAlignment>Center</VertAlignment>
@@ -1430,18 +1401,18 @@
                               <DataSourceName>Percepciones</DataSourceName>
                               <Expressions isList="true" count="0" />
                               <Filters isList="true" count="0" />
-                              <MasterComponent isRef="30" />
+                              <MasterComponent isRef="28" />
                               <Name>BandPercepciones</Name>
                               <Page isRef="27" />
-                              <Parent isRef="94" />
+                              <Parent isRef="92" />
                               <Sort isList="true" count="0" />
                             </BandPercepciones>
-                            <FooterBand1 Ref="104" type="FooterBand" isKey="true">
+                            <FooterBand1 Ref="102" type="FooterBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <CanBreak>True</CanBreak>
                               <ClientRectangle>0,2.8,6.8,0.2</ClientRectangle>
                               <Components isList="true" count="2">
-                                <Text74 Ref="105" type="Text" isKey="true">
+                                <Text74 Ref="103" type="Text" isKey="true">
                                   <Border>All;[255:255:255];1;Solid;False;4;Black</Border>
                                   <Brush>[242:242:242]</Brush>
                                   <CanGrow>True</CanGrow>
@@ -1452,14 +1423,14 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text74</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="104" />
+                                  <Parent isRef="102" />
                                   <ShiftMode>None</ShiftMode>
                                   <Text>TOTAL DE PERCEPCIONES</Text>
                                   <TextBrush>[0:0:0]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text74>
-                                <Text7 Ref="106" type="Text" isKey="true">
+                                <Text7 Ref="104" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>5.2,0,1.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1468,7 +1439,7 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text7</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="104" />
+                                  <Parent isRef="102" />
                                   <Text>{Sum(BandPercepciones,Percepciones.ImportePLetra)}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Totals</Type>
@@ -1479,15 +1450,15 @@
                               <Expressions isList="true" count="0" />
                               <Name>FooterBand1</Name>
                               <Page isRef="27" />
-                              <Parent isRef="94" />
+                              <Parent isRef="92" />
                               <PrintIfEmpty>True</PrintIfEmpty>
                             </FooterBand1>
-                            <HeaderBand4 Ref="107" type="HeaderBand" isKey="true">
+                            <HeaderBand4 Ref="105" type="HeaderBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <CanBreak>True</CanBreak>
                               <ClientRectangle>0,3.8,6.8,0.4</ClientRectangle>
                               <Components isList="true" count="3">
-                                <Text90 Ref="108" type="Text" isKey="true">
+                                <Text90 Ref="106" type="Text" isKey="true">
                                   <Brush>[191:191:191]</Brush>
                                   <ClientRectangle>0,0.4,1,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1496,13 +1467,13 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text90</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="107" />
+                                  <Parent isRef="105" />
                                   <Text>SAT</Text>
                                   <TextBrush>[255:255:255]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text90>
-                                <Text92 Ref="109" type="Text" isKey="true">
+                                <Text92 Ref="107" type="Text" isKey="true">
                                   <Border>None;Black;1;Solid;False;4;Transparent</Border>
                                   <Brush>[191:191:191]</Brush>
                                   <ClientRectangle>1,0.4,5.8,0.2</ClientRectangle>
@@ -1511,12 +1482,12 @@
                                   <Font>Arial,8</Font>
                                   <Name>Text92</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="107" />
+                                  <Parent isRef="105" />
                                   <TextBrush>[255:255:255]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text92>
-                                <Text86 Ref="110" type="Text" isKey="true">
+                                <Text86 Ref="108" type="Text" isKey="true">
                                   <Brush>[191:191:191]</Brush>
                                   <ClientRectangle>0,0,6.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1525,7 +1496,7 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text86</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="107" />
+                                  <Parent isRef="105" />
                                   <Text>SUBSIDIO AL EMPLEO</Text>
                                   <TextBrush>[255:255:255]</TextBrush>
                                   <Type>Expression</Type>
@@ -1536,15 +1507,16 @@
                               <Expressions isList="true" count="0" />
                               <Name>HeaderBand4</Name>
                               <Page isRef="27" />
-                              <Parent isRef="94" />
+                              <Parent isRef="92" />
                               <PrintIfEmpty>True</PrintIfEmpty>
                             </HeaderBand4>
-                            <BandSubsidio Ref="111" type="DataBand" isKey="true">
+                            <BandSubsidio Ref="109" type="DataBand" isKey="true">
                               <Brush>Transparent</Brush>
+                              <BusinessObjectGuid isNull="true" />
                               <CanBreak>True</CanBreak>
                               <ClientRectangle>0,5,6.8,0.2</ClientRectangle>
                               <Components isList="true" count="4">
-                                <Text87 Ref="112" type="Text" isKey="true">
+                                <Text87 Ref="110" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>0,0,1,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1553,13 +1525,13 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text87</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="111" />
+                                  <Parent isRef="109" />
                                   <Text>{Subsidio.tipoSubsidio}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text87>
-                                <Text88 Ref="113" type="Text" isKey="true">
+                                <Text88 Ref="111" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>1,0,1.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1568,12 +1540,12 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text88</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="111" />
+                                  <Parent isRef="109" />
                                   <TextBrush>Black</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text88>
-                                <Text89 Ref="114" type="Text" isKey="true">
+                                <Text89 Ref="112" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>2.6,0,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1581,13 +1553,13 @@
                                   <Font>Arial,5</Font>
                                   <Name>Text89</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="111" />
+                                  <Parent isRef="109" />
                                   <Text>{Subsidio.Subhpl_glosa}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text89>
-                                <Text93 Ref="115" type="Text" isKey="true">
+                                <Text93 Ref="113" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>5,0,1.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1596,7 +1568,7 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text93</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="111" />
+                                  <Parent isRef="109" />
                                   <Text>{Subsidio.importeSubLetra}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
@@ -1608,19 +1580,19 @@
                               <DataSourceName>Subsidio</DataSourceName>
                               <Expressions isList="true" count="0" />
                               <Filters isList="true" count="0" />
-                              <MasterComponent isRef="30" />
+                              <MasterComponent isRef="28" />
                               <Name>BandSubsidio</Name>
                               <Page isRef="27" />
-                              <Parent isRef="94" />
+                              <Parent isRef="92" />
                               <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
                               <Sort isList="true" count="0" />
                             </BandSubsidio>
-                            <FooterBand4 Ref="116" type="FooterBand" isKey="true">
+                            <FooterBand4 Ref="114" type="FooterBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <CanBreak>True</CanBreak>
                               <ClientRectangle>0,6,6.8,0.4</ClientRectangle>
                               <Components isList="true" count="3">
-                                <Text94 Ref="117" type="Text" isKey="true">
+                                <Text94 Ref="115" type="Text" isKey="true">
                                   <Border>All;[255:255:255];1;Solid;False;4;Black</Border>
                                   <Brush>[242:242:242]</Brush>
                                   <CanGrow>True</CanGrow>
@@ -1631,14 +1603,14 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text94</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="116" />
+                                  <Parent isRef="114" />
                                   <ShiftMode>None</ShiftMode>
                                   <Text>TOTAL SUBSIDIO AL EMPLEO</Text>
                                   <TextBrush>[0:0:0]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text94>
-                                <Text128 Ref="118" type="Text" isKey="true">
+                                <Text128 Ref="116" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>5,0,1.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1647,23 +1619,23 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text128</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="116" />
+                                  <Parent isRef="114" />
                                   <Text>{Sum(BandSubsidio,Subsidio.importeSubLetra)}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Totals</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text128>
-                                <Panel5 Ref="119" type="Panel" isKey="true">
+                                <Panel5 Ref="117" type="Panel" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <CanBreak>True</CanBreak>
                                   <ClientRectangle>0,0.4,20.8,6.8</ClientRectangle>
                                   <Components isList="true" count="2">
-                                    <DataBand8 Ref="120" type="DataBand" isKey="true">
+                                    <DataBand8 Ref="118" type="DataBand" isKey="true">
                                       <Brush>Transparent</Brush>
                                       <BusinessObjectGuid isNull="true" />
-                                      <ClientRectangle>0,0.4,20.8,1.6</ClientRectangle>
-                                      <Components isList="true" count="23">
-                                        <Text107 Ref="121" type="Text" isKey="true">
+                                      <ClientRectangle>0,0.4,20.8,1.8</ClientRectangle>
+                                      <Components isList="true" count="27">
+                                        <Text107 Ref="119" type="Text" isKey="true">
                                           <Brush>[191:191:191]</Brush>
                                           <ClientRectangle>0,0.2,10,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -1671,293 +1643,265 @@
                                           <Font>Arial,5,Bold</Font>
                                           <Name>Text107</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>    COMPROBANTE FISCAL DIGITAL POR INTERNET</Text>
                                           <TextBrush>[255:255:255]</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text107>
-                                        <Text109 Ref="122" type="Text" isKey="true">
+                                        <Text109 Ref="120" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>0.2,0.6,4.2,0.2</ClientRectangle>
+                                          <ClientRectangle>0.2,0.6,2,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text109</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>Fecha y hora de certificación</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text109>
-                                        <Text110 Ref="123" type="Text" isKey="true">
+                                        <Text110 Ref="121" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>0.2,0.8,4.2,0.2</ClientRectangle>
+                                          <ClientRectangle>0.2,0.8,2,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text110</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>Núm. de serie del CSD del SAT</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text110>
-                                        <Text111 Ref="124" type="Text" isKey="true">
+                                        <Text108 Ref="122" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>0.2,1,4.2,0.2</ClientRectangle>
-                                          <Conditions isList="true" count="0" />
-                                          <Expressions isList="true" count="0" />
-                                          <Font>Arial Narrow,5</Font>
-                                          <Name>Text111</Name>
-                                          <Page isRef="27" />
-                                          <Parent isRef="120" />
-                                          <Text>Tipo de nómina</Text>
-                                          <TextBrush>Black</TextBrush>
-                                          <Type>Expression</Type>
-                                          <VertAlignment>Center</VertAlignment>
-                                        </Text111>
-                                        <Text108 Ref="125" type="Text" isKey="true">
-                                          <Brush>Transparent</Brush>
-                                          <ClientRectangle>0.2,0.4,4.2,0.2</ClientRectangle>
+                                          <ClientRectangle>0.2,0.4,2,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text108</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>Folio fiscal</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text108>
-                                        <Text112 Ref="126" type="Text" isKey="true">
+                                        <Text112 Ref="123" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>4.8,0.4,4.8,0.2</ClientRectangle>
+                                          <ClientRectangle>3.4,0.4,3,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text112</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>{ComprobanteFiscal.UUIDTimbre}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>DataColumn</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text112>
-                                        <Text113 Ref="127" type="Text" isKey="true">
+                                        <Text113 Ref="124" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>4.8,0.6,4.8,0.2</ClientRectangle>
+                                          <ClientRectangle>3.4,0.6,3,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text113</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>{ComprobanteFiscal.FechaTimbre}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text113>
-                                        <Text114 Ref="128" type="Text" isKey="true">
+                                        <Text114 Ref="125" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>4.8,0.8,4.8,0.2</ClientRectangle>
+                                          <ClientRectangle>3.4,0.8,3,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text114</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>{ComprobanteFiscal.NoCertificadoSATTimbre}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text114>
-                                        <Text115 Ref="129" type="Text" isKey="true">
+                                        <Text116 Ref="126" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>4.8,1,4.8,0.2</ClientRectangle>
-                                          <Conditions isList="true" count="0" />
-                                          <Expressions isList="true" count="0" />
-                                          <Font>Arial Narrow,5</Font>
-                                          <Name>Text115</Name>
-                                          <Page isRef="27" />
-                                          <Parent isRef="120" />
-                                          <Text>O=Nómina Ordinaria E=Nómina Extraordinaria</Text>
-                                          <TextBrush>Black</TextBrush>
-                                          <Type>Expression</Type>
-                                          <VertAlignment>Center</VertAlignment>
-                                        </Text115>
-                                        <Text116 Ref="130" type="Text" isKey="true">
-                                          <Brush>Transparent</Brush>
-                                          <ClientRectangle>10.4,0.4,4.2,0.2</ClientRectangle>
+                                          <ClientRectangle>7,0.4,2,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text116</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>Serie | Folio</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text116>
-                                        <Text117 Ref="131" type="Text" isKey="true">
+                                        <Text117 Ref="127" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>10.4,0.6,4.2,0.2</ClientRectangle>
+                                          <ClientRectangle>7,0.6,2,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text117</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>Núm. Certificado</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text117>
-                                        <Text118 Ref="132" type="Text" isKey="true">
+                                        <Text118 Ref="128" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>10.4,0.8,4.2,0.2</ClientRectangle>
+                                          <ClientRectangle>14,0.4,2,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text118</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>Método de pago</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text118>
-                                        <Text120 Ref="133" type="Text" isKey="true">
+                                        <Text120 Ref="129" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>10.4,1,4.2,0.2</ClientRectangle>
+                                          <ClientRectangle>14,0.6,2,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text120</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>Lugar de expedición</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text120>
-                                        <Text121 Ref="134" type="Text" isKey="true">
+                                        <Text121 Ref="130" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>15,0.6,4.8,0.2</ClientRectangle>
+                                          <ClientRectangle>9.8,0.6,2.6,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text121</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>{ComprobanteFiscal.NoCertificado}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>DataColumn</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text121>
-                                        <Text122 Ref="135" type="Text" isKey="true">
+                                        <Text122 Ref="131" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>15,0.8,4.8,0.2</ClientRectangle>
+                                          <ClientRectangle>16.8,0.4,2.6,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text122</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>{ComprobanteFiscal.MetodoPago}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text122>
-                                        <Text124 Ref="136" type="Text" isKey="true">
+                                        <Text124 Ref="132" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>15,1,4.8,0.2</ClientRectangle>
+                                          <ClientRectangle>16.8,0.6,2.6,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text124</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>{ComprobanteFiscal.LugExpedicion}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text124>
-                                        <Text139 Ref="137" type="Text" isKey="true">
+                                        <Text139 Ref="133" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>15,0.4,4.8,0.2</ClientRectangle>
+                                          <ClientRectangle>9.8,0.4,2.6,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text139</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>{ComprobanteFiscal.SerieFolioFiscalOrig}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>DataColumn</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text139>
-                                        <Text4 Ref="138" type="Text" isKey="true">
+                                        <Text4 Ref="134" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>0.2,1.2,4.2,0.2</ClientRectangle>
+                                          <ClientRectangle>0.2,1.2,2,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text4</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>{Colaborador.datoDinTitulo1}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>DataColumn</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text4>
-                                        <Text5 Ref="139" type="Text" isKey="true">
+                                        <Text5 Ref="135" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>4.8,1.2,4.8,0.2</ClientRectangle>
+                                          <ClientRectangle>3.4,1.2,3,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text5</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>{Colaborador.datoDin1}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>DataColumn</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text5>
-                                        <Text1 Ref="140" type="Text" isKey="true">
+                                        <Text1 Ref="136" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>10.4,1.2,4.2,0.2</ClientRectangle>
+                                          <ClientRectangle>7,1.2,2,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text1</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>{Colaborador.datosDinTitulo2}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>DataColumn</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text1>
-                                        <Text6 Ref="141" type="Text" isKey="true">
+                                        <Text6 Ref="137" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
-                                          <ClientRectangle>15,1.2,4.8,0.2</ClientRectangle>
+                                          <ClientRectangle>9.8,1.2,2.6,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text6</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>{Colaborador.datosDinTitulo2}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>DataColumn</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text6>
-                                        <Text9 Ref="142" type="Text" isKey="true">
+                                        <Text9 Ref="138" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
                                           <ClientRectangle>15,0.2,4.8,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -1965,13 +1909,13 @@
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text9</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>{Colaborador.ImporteTotalLetra}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>DataColumn</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text9>
-                                        <Text10 Ref="143" type="Text" isKey="true">
+                                        <Text10 Ref="139" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
                                           <ClientRectangle>10.4,0.2,4.2,0.2</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -1979,98 +1923,182 @@
                                           <Font>Arial Narrow,5</Font>
                                           <Name>Text10</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="120" />
+                                          <Parent isRef="118" />
                                           <Text>IMPORTE TOTAL CON LETRA</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text10>
+                                        <Text11 Ref="140" type="Text" isKey="true">
+                                          <Brush>Transparent</Brush>
+                                          <ClientRectangle>7,0.8,2,0.2</ClientRectangle>
+                                          <Conditions isList="true" count="0" />
+                                          <Expressions isList="true" count="0" />
+                                          <Font>Arial Narrow,5</Font>
+                                          <Name>Text11</Name>
+                                          <Page isRef="27" />
+                                          <Parent isRef="118" />
+                                          <Text>Fecha y hora de emisión</Text>
+                                          <TextBrush>Black</TextBrush>
+                                          <Type>Expression</Type>
+                                          <VertAlignment>Center</VertAlignment>
+                                        </Text11>
+                                        <Text12 Ref="141" type="Text" isKey="true">
+                                          <Brush>Transparent</Brush>
+                                          <ClientRectangle>9.8,0.8,2.6,0.2</ClientRectangle>
+                                          <Conditions isList="true" count="0" />
+                                          <Expressions isList="true" count="0" />
+                                          <Font>Arial Narrow,5</Font>
+                                          <Name>Text12</Name>
+                                          <Page isRef="27" />
+                                          <Parent isRef="118" />
+                                          <Text>{ComprobanteFiscal.FechaTimbre}</Text>
+                                          <TextBrush>Black</TextBrush>
+                                          <Type>DataColumn</Type>
+                                          <VertAlignment>Center</VertAlignment>
+                                        </Text12>
+                                        <Text13 Ref="142" type="Text" isKey="true">
+                                          <Brush>Transparent</Brush>
+                                          <ClientRectangle>14,1,2,0.2</ClientRectangle>
+                                          <Conditions isList="true" count="0" />
+                                          <Expressions isList="true" count="0" />
+                                          <Font>Arial Narrow,5</Font>
+                                          <Name>Text13</Name>
+                                          <Page isRef="27" />
+                                          <Parent isRef="118" />
+                                          <Text>Días laborados</Text>
+                                          <TextBrush>Black</TextBrush>
+                                          <Type>Expression</Type>
+                                          <VertAlignment>Center</VertAlignment>
+                                        </Text13>
+                                        <Text14 Ref="143" type="Text" isKey="true">
+                                          <Brush>Transparent</Brush>
+                                          <ClientRectangle>16.8,1,2.6,0.2</ClientRectangle>
+                                          <Conditions isList="true" count="0" />
+                                          <Expressions isList="true" count="0" />
+                                          <Font>Arial Narrow,5</Font>
+                                          <Name>Text14</Name>
+                                          <Page isRef="27" />
+                                          <Parent isRef="118" />
+                                          <Text>{Colaborador.NumDiasPagados}</Text>
+                                          <TextBrush>Black</TextBrush>
+                                          <Type>DataColumn</Type>
+                                          <VertAlignment>Center</VertAlignment>
+                                        </Text14>
+                                        <Text15 Ref="144" type="Text" isKey="true">
+                                          <Brush>Transparent</Brush>
+                                          <ClientRectangle>0.2,1.4,2,0.2</ClientRectangle>
+                                          <Conditions isList="true" count="0" />
+                                          <Expressions isList="true" count="0" />
+                                          <Font>Arial Narrow,5</Font>
+                                          <Name>Text15</Name>
+                                          <Page isRef="27" />
+                                          <Parent isRef="118" />
+                                          <Text>SUELDO DIARIO</Text>
+                                          <TextBrush>Black</TextBrush>
+                                          <Type>Expression</Type>
+                                          <VertAlignment>Center</VertAlignment>
+                                        </Text15>
+                                        <Text16 Ref="145" type="Text" isKey="true">
+                                          <Brush>Transparent</Brush>
+                                          <ClientRectangle>3.4,1.4,3,0.2</ClientRectangle>
+                                          <Conditions isList="true" count="0" />
+                                          <Expressions isList="true" count="0" />
+                                          <Font>Arial Narrow,5</Font>
+                                          <Name>Text16</Name>
+                                          <Page isRef="27" />
+                                          <Parent isRef="118" />
+                                          <Text>{Colaborador.SDI}</Text>
+                                          <TextBrush>Black</TextBrush>
+                                          <Type>DataColumn</Type>
+                                          <VertAlignment>Center</VertAlignment>
+                                        </Text16>
                                       </Components>
                                       <Conditions isList="true" count="0" />
                                       <DataRelationName>Rel_Comprobante</DataRelationName>
                                       <DataSourceName>ComprobanteFiscal</DataSourceName>
                                       <Expressions isList="true" count="0" />
                                       <Filters isList="true" count="0" />
-                                      <MasterComponent isRef="30" />
+                                      <MasterComponent isRef="28" />
                                       <Name>DataBand8</Name>
                                       <Page isRef="27" />
-                                      <Parent isRef="119" />
+                                      <Parent isRef="117" />
                                       <Sort isList="true" count="0" />
                                     </DataBand8>
-                                    <DataBand9 Ref="144" type="DataBand" isKey="true">
+                                    <DataBand9 Ref="146" type="DataBand" isKey="true">
                                       <Brush>Transparent</Brush>
                                       <BusinessObjectGuid isNull="true" />
-                                      <ClientRectangle>0,2.8,20.8,4</ClientRectangle>
+                                      <ClientRectangle>0,3,20.8,4</ClientRectangle>
                                       <Components isList="true" count="10">
-                                        <Text127 Ref="145" type="Text" isKey="true">
+                                        <Text127 Ref="147" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
                                           <ClientRectangle>5.6,0.4,2.2,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
-                                          <Font>Arial,6</Font>
+                                          <Font>Arial Narrow,5</Font>
                                           <Name>Text127</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="144" />
+                                          <Parent isRef="146" />
                                           <Text>SELLO DIGITAL CFDI</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                         </Text127>
-                                        <Text48 Ref="146" type="Text" isKey="true">
+                                        <Text48 Ref="148" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
                                           <ClientRectangle>5.6,1.6,2.2,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
-                                          <Font>Arial,6</Font>
+                                          <Font>Arial Narrow,5</Font>
                                           <Name>Text48</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="144" />
+                                          <Parent isRef="146" />
                                           <Text>SELLO DIGITAL SAT</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                         </Text48>
-                                        <Text49 Ref="147" type="Text" isKey="true">
+                                        <Text49 Ref="149" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
                                           <ClientRectangle>5.6,2.6,6.8,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
-                                          <Font>Arial,6</Font>
+                                          <Font>Arial Narrow,5</Font>
                                           <Name>Text49</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="144" />
+                                          <Parent isRef="146" />
                                           <Text>CADENA ORIGINAL COMPLEMENTO CERTIFICACIÓN DIGITAL SAT</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                         </Text49>
-                                        <Text130 Ref="148" type="Text" isKey="true">
+                                        <Text130 Ref="150" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
                                           <ClientRectangle>5.6,0.8,10,0.8</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
-                                          <Font>Arial,4</Font>
+                                          <Font>Arial,3</Font>
                                           <Name>Text130</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="144" />
+                                          <Parent isRef="146" />
                                           <Text>{Firma.SelloCFDTimbre}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
                                           <Type>DataColumn</Type>
                                         </Text130>
-                                        <Text50 Ref="149" type="Text" isKey="true">
+                                        <Text50 Ref="151" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
                                           <ClientRectangle>5.6,2,10,0.6</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
-                                          <Font>Arial,4</Font>
+                                          <Font>Arial,3</Font>
                                           <Name>Text50</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="144" />
+                                          <Parent isRef="146" />
                                           <Text>{Firma.SelloSATTimbre}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
                                           <Type>DataColumn</Type>
                                         </Text50>
-                                        <Shape1 Ref="150" type="Shape" isKey="true">
-                                          <BorderColor>191, 191, 191</BorderColor>
+                                        <Shape1 Ref="152" type="Shape" isKey="true">
+                                          <BorderColor>242, 242, 242</BorderColor>
                                           <Brush>Transparent</Brush>
                                           <ClientRectangle>16.2,0,3.6,1.6</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -2079,11 +2107,11 @@
                                           <HorAlignment>Left</HorAlignment>
                                           <Name>Shape1</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="144" />
-                                          <ShapeType Ref="151" type="Stimulsoft.Report.Components.ShapeTypes.StiHorizontalLineShapeType" isKey="true" />
+                                          <Parent isRef="146" />
+                                          <ShapeType Ref="153" type="Stimulsoft.Report.Components.ShapeTypes.StiHorizontalLineShapeType" isKey="true" />
                                           <VertAlignment>Top</VertAlignment>
                                         </Shape1>
-                                        <Text51 Ref="152" type="Text" isKey="true">
+                                        <Text51 Ref="154" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
                                           <ClientRectangle>16.2,1.6,3.6,1</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -2092,14 +2120,14 @@
                                           <HorAlignment>Center</HorAlignment>
                                           <Name>Text51</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="144" />
+                                          <Parent isRef="146" />
                                           <Text>Este documento es una representación impresa de un CFDI</Text>
                                           <TextBrush>[191:191:191]</TextBrush>
                                           <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
                                           <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text51>
-                                        <Image1 Ref="153" type="Image" isKey="true">
+                                        <Image1 Ref="155" type="Image" isKey="true">
                                           <AspectRatio>True</AspectRatio>
                                           <Brush>Transparent</Brush>
                                           <ClientRectangle>0.4,0.2,3.6,3.6</ClientRectangle>
@@ -2109,11 +2137,11 @@
                                           <IconColor>68, 114, 196</IconColor>
                                           <Name>Image1</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="144" />
+                                          <Parent isRef="146" />
                                           <ShiftMode>OnlyInWidthOfComponent</ShiftMode>
                                           <Stretch>True</Stretch>
                                         </Image1>
-                                        <Text52 Ref="154" type="Text" isKey="true">
+                                        <Text52 Ref="156" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
                                           <ClientRectangle>16.6,1,2.8,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -2121,20 +2149,20 @@
                                           <Font>Arial Narrow,8,Bold</Font>
                                           <Name>Text52</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="144" />
+                                          <Parent isRef="146" />
                                           <Text>FIRMA DEL EMPLEADO</Text>
                                           <TextBrush>Black</TextBrush>
                                           <Type>Expression</Type>
                                         </Text52>
-                                        <Text132 Ref="155" type="Text" isKey="true">
+                                        <Text132 Ref="157" type="Text" isKey="true">
                                           <Brush>Transparent</Brush>
                                           <ClientRectangle>5.6,3,10,0.6</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
-                                          <Font>Arial,4</Font>
+                                          <Font>Arial,3</Font>
                                           <Name>Text132</Name>
                                           <Page isRef="27" />
-                                          <Parent isRef="144" />
+                                          <Parent isRef="146" />
                                           <Text>{Firma.Cadena1}</Text>
                                           <TextBrush>Black</TextBrush>
                                           <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
@@ -2146,10 +2174,10 @@
                                       <DataSourceName>Firma</DataSourceName>
                                       <Expressions isList="true" count="0" />
                                       <Filters isList="true" count="0" />
-                                      <MasterComponent isRef="30" />
+                                      <MasterComponent isRef="28" />
                                       <Name>DataBand9</Name>
                                       <Page isRef="27" />
-                                      <Parent isRef="119" />
+                                      <Parent isRef="117" />
                                       <Sort isList="true" count="0" />
                                     </DataBand9>
                                   </Components>
@@ -2157,7 +2185,7 @@
                                   <Expressions isList="true" count="0" />
                                   <Name>Panel5</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="116" />
+                                  <Parent isRef="114" />
                                   <ShiftMode>IncreasingSize, DecreasingSize</ShiftMode>
                                 </Panel5>
                               </Components>
@@ -2165,7 +2193,7 @@
                               <Expressions isList="true" count="0" />
                               <Name>FooterBand4</Name>
                               <Page isRef="27" />
-                              <Parent isRef="94" />
+                              <Parent isRef="92" />
                               <PrintIfEmpty>True</PrintIfEmpty>
                             </FooterBand4>
                           </Components>
@@ -2174,20 +2202,20 @@
                           <GrowToHeight>True</GrowToHeight>
                           <Name>PanelPercOtros</Name>
                           <Page isRef="27" />
-                          <Parent isRef="93" />
+                          <Parent isRef="91" />
                         </PanelPercOtros>
-                        <PanelDeducSubs Ref="156" type="Panel" isKey="true">
+                        <PanelDeducSubs Ref="158" type="Panel" isKey="true">
                           <Brush>Transparent</Brush>
                           <CanBreak>True</CanBreak>
                           <CanGrow>True</CanGrow>
                           <ClientRectangle>7,0,6.8,2.8</ClientRectangle>
                           <Components isList="true" count="3">
-                            <HeaderBand3 Ref="157" type="HeaderBand" isKey="true">
+                            <HeaderBand3 Ref="159" type="HeaderBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <CanBreak>True</CanBreak>
                               <ClientRectangle>0,0.4,6.8,0.6</ClientRectangle>
                               <Components isList="true" count="3">
-                                <Text84 Ref="158" type="Text" isKey="true">
+                                <Text84 Ref="160" type="Text" isKey="true">
                                   <Brush>[191:191:191]</Brush>
                                   <ClientRectangle>0,0,6.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2196,14 +2224,14 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text84</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="157" />
+                                  <Parent isRef="159" />
                                   <Text>DEDUCCIONES
 </Text>
                                   <TextBrush>[255:255:255]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text84>
-                                <Text83 Ref="159" type="Text" isKey="true">
+                                <Text83 Ref="161" type="Text" isKey="true">
                                   <Brush>[191:191:191]</Brush>
                                   <ClientRectangle>0,0.4,1,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2212,13 +2240,13 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text83</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="157" />
+                                  <Parent isRef="159" />
                                   <Text>SAT</Text>
                                   <TextBrush>[255:255:255]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text83>
-                                <Text85 Ref="160" type="Text" isKey="true">
+                                <Text85 Ref="162" type="Text" isKey="true">
                                   <Brush>[191:191:191]</Brush>
                                   <ClientRectangle>1,0.4,5.8,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2226,7 +2254,7 @@
                                   <Font>Arial,5</Font>
                                   <Name>Text85</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="157" />
+                                  <Parent isRef="159" />
                                   <Text>   UNIDADES
 </Text>
                                   <TextBrush>[255:255:255]</TextBrush>
@@ -2238,15 +2266,16 @@
                               <Expressions isList="true" count="0" />
                               <Name>HeaderBand3</Name>
                               <Page isRef="27" />
-                              <Parent isRef="156" />
+                              <Parent isRef="158" />
+                              <PrintIfEmpty>True</PrintIfEmpty>
                             </HeaderBand3>
-                            <BandDeducciones Ref="161" type="DataBand" isKey="true">
+                            <BandDeducciones Ref="163" type="DataBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <BusinessObjectGuid isNull="true" />
                               <CanBreak>True</CanBreak>
                               <ClientRectangle>0,1.8,6.8,0.2</ClientRectangle>
                               <Components isList="true" count="4">
-                                <Text133 Ref="162" type="Text" isKey="true">
+                                <Text133 Ref="164" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>0,0,1,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2255,13 +2284,13 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text133</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="161" />
+                                  <Parent isRef="163" />
                                   <Text>{Deducciones.DscDeduccion}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text133>
-                                <Text134 Ref="163" type="Text" isKey="true">
+                                <Text134 Ref="165" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>1,0,1.2,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2270,13 +2299,13 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text134</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="161" />
+                                  <Parent isRef="163" />
                                   <Text>{Deducciones.cantUnidadDeduccion}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text134>
-                                <Text143 Ref="164" type="Text" isKey="true">
+                                <Text143 Ref="166" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>2.2,0,3,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2284,13 +2313,13 @@
                                   <Font>Arial,5</Font>
                                   <Name>Text143</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="161" />
+                                  <Parent isRef="163" />
                                   <Text>{Deducciones.ClaveDeduccion}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text143>
-                                <Text146 Ref="165" type="Text" isKey="true">
+                                <Text146 Ref="167" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>5,0,1.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2299,7 +2328,7 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text146</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="161" />
+                                  <Parent isRef="163" />
                                   <Text>{Deducciones.ImporteDLetra}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
@@ -2311,18 +2340,19 @@
                               <DataSourceName>Deducciones</DataSourceName>
                               <Expressions isList="true" count="0" />
                               <Filters isList="true" count="0" />
-                              <MasterComponent isRef="30" />
+                              <MasterComponent isRef="28" />
                               <Name>BandDeducciones</Name>
                               <Page isRef="27" />
-                              <Parent isRef="156" />
+                              <Parent isRef="158" />
+                              <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
                               <Sort isList="true" count="0" />
                             </BandDeducciones>
-                            <FooterBand3 Ref="166" type="FooterBand" isKey="true">
+                            <FooterBand3 Ref="168" type="FooterBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <CanBreak>True</CanBreak>
                               <ClientRectangle>0,2.8,6.8,0.2</ClientRectangle>
                               <Components isList="true" count="2">
-                                <Text129 Ref="167" type="Text" isKey="true">
+                                <Text129 Ref="169" type="Text" isKey="true">
                                   <Border>All;[255:255:255];1;Solid;False;4;Black</Border>
                                   <Brush>[242:242:242]</Brush>
                                   <CanGrow>True</CanGrow>
@@ -2333,14 +2363,14 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text129</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="166" />
+                                  <Parent isRef="168" />
                                   <ShiftMode>None</ShiftMode>
                                   <Text>TOTAL DE DEDUCCIONES</Text>
                                   <TextBrush>[0:0:0]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text129>
-                                <Text8 Ref="168" type="Text" isKey="true">
+                                <Text8 Ref="170" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <CanGrow>True</CanGrow>
                                   <ClientRectangle>5,0,1.8,0.4</ClientRectangle>
@@ -2350,7 +2380,7 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text8</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="166" />
+                                  <Parent isRef="168" />
                                   <ShiftMode>None</ShiftMode>
                                   <Text>{Sum(BandDeducciones,Deducciones.ImporteDLetra)}</Text>
                                   <TextBrush>Black</TextBrush>
@@ -2362,7 +2392,8 @@
                               <Expressions isList="true" count="0" />
                               <Name>FooterBand3</Name>
                               <Page isRef="27" />
-                              <Parent isRef="156" />
+                              <Parent isRef="158" />
+                              <PrintIfEmpty>True</PrintIfEmpty>
                             </FooterBand3>
                           </Components>
                           <Conditions isList="true" count="0" />
@@ -2370,19 +2401,19 @@
                           <GrowToHeight>True</GrowToHeight>
                           <Name>PanelDeducSubs</Name>
                           <Page isRef="27" />
-                          <Parent isRef="93" />
+                          <Parent isRef="91" />
                         </PanelDeducSubs>
-                        <Panel3 Ref="169" type="Panel" isKey="true">
+                        <Panel3 Ref="171" type="Panel" isKey="true">
                           <Brush>Transparent</Brush>
                           <CanGrow>True</CanGrow>
                           <ClientRectangle>14,0,6.8,6</ClientRectangle>
                           <Components isList="true" count="4">
-                            <HeaderBand6 Ref="170" type="HeaderBand" isKey="true">
+                            <HeaderBand6 Ref="172" type="HeaderBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <CanBreak>True</CanBreak>
                               <ClientRectangle>0,0.4,6.8,0.6</ClientRectangle>
                               <Components isList="true" count="3">
-                                <Text20 Ref="171" type="Text" isKey="true">
+                                <Text20 Ref="173" type="Text" isKey="true">
                                   <Brush>[191:191:191]</Brush>
                                   <ClientRectangle>0,0,6.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2391,13 +2422,13 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text20</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="170" />
+                                  <Parent isRef="172" />
                                   <Text>OTROS PAGOS</Text>
                                   <TextBrush>[255:255:255]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text20>
-                                <Text18 Ref="172" type="Text" isKey="true">
+                                <Text18 Ref="174" type="Text" isKey="true">
                                   <Brush>[191:191:191]</Brush>
                                   <ClientRectangle>0,0.4,1.6,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2406,13 +2437,13 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text18</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="170" />
+                                  <Parent isRef="172" />
                                   <Text>SAT</Text>
                                   <TextBrush>[255:255:255]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text18>
-                                <Text19 Ref="173" type="Text" isKey="true">
+                                <Text19 Ref="175" type="Text" isKey="true">
                                   <Border>None;Black;1;Solid;False;4;Transparent</Border>
                                   <Brush>[191:191:191]</Brush>
                                   <ClientRectangle>1.6,0.4,5.2,0.2</ClientRectangle>
@@ -2421,7 +2452,7 @@
                                   <Font>Arial,8</Font>
                                   <Name>Text19</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="170" />
+                                  <Parent isRef="172" />
                                   <TextBrush>[255:255:255]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
@@ -2431,15 +2462,16 @@
                               <Expressions isList="true" count="0" />
                               <Name>HeaderBand6</Name>
                               <Page isRef="27" />
-                              <Parent isRef="169" />
+                              <Parent isRef="171" />
                               <PrintIfEmpty>True</PrintIfEmpty>
                             </HeaderBand6>
-                            <BandOtrosPagos Ref="174" type="DataBand" isKey="true">
+                            <BandOtrosPagos Ref="176" type="DataBand" isKey="true">
                               <Brush>Transparent</Brush>
+                              <BusinessObjectGuid isNull="true" />
                               <CanBreak>True</CanBreak>
                               <ClientRectangle>0,1.8,6.8,0.2</ClientRectangle>
                               <Components isList="true" count="3">
-                                <Text21 Ref="175" type="Text" isKey="true">
+                                <Text21 Ref="177" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2448,13 +2480,13 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text21</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="174" />
+                                  <Parent isRef="176" />
                                   <Text>{OtrosPagos.ClaveOtroPago}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text21>
-                                <Text23 Ref="176" type="Text" isKey="true">
+                                <Text23 Ref="178" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>1.6,0,3.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2462,13 +2494,13 @@
                                   <Font>Arial,5</Font>
                                   <Name>Text23</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="174" />
+                                  <Parent isRef="176" />
                                   <Text>{OtrosPagos.TipoOtroPago}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text23>
-                                <Text24 Ref="177" type="Text" isKey="true">
+                                <Text24 Ref="179" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>5.2,0,1.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2477,7 +2509,7 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text24</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="174" />
+                                  <Parent isRef="176" />
                                   <Text>{OtrosPagos.importeOLetra}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
@@ -2489,19 +2521,19 @@
                               <DataSourceName>OtrosPagos</DataSourceName>
                               <Expressions isList="true" count="0" />
                               <Filters isList="true" count="0" />
-                              <MasterComponent isRef="30" />
+                              <MasterComponent isRef="28" />
                               <Name>BandOtrosPagos</Name>
                               <Page isRef="27" />
-                              <Parent isRef="169" />
+                              <Parent isRef="171" />
                               <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
                               <Sort isList="true" count="0" />
                             </BandOtrosPagos>
-                            <FooterBand6 Ref="178" type="FooterBand" isKey="true">
+                            <FooterBand6 Ref="180" type="FooterBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <CanBreak>True</CanBreak>
                               <ClientRectangle>0,2.8,6.8,0.4</ClientRectangle>
                               <Components isList="true" count="2">
-                                <Text25 Ref="179" type="Text" isKey="true">
+                                <Text25 Ref="181" type="Text" isKey="true">
                                   <Border>All;[255:255:255];1;Solid;False;4;Black</Border>
                                   <Brush>[242:242:242]</Brush>
                                   <CanGrow>True</CanGrow>
@@ -2512,14 +2544,14 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text25</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="178" />
+                                  <Parent isRef="180" />
                                   <ShiftMode>None</ShiftMode>
                                   <Text>TOTAL OTROS PAGOS</Text>
                                   <TextBrush>[0:0:0]</TextBrush>
                                   <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text25>
-                                <Text26 Ref="180" type="Text" isKey="true">
+                                <Text26 Ref="182" type="Text" isKey="true">
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>5.2,0,1.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2528,7 +2560,7 @@
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text26</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="178" />
+                                  <Parent isRef="180" />
                                   <Text>{Sum(BandOtrosPagos,OtrosPagos.importeOLetra)}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Totals</Type>
@@ -2539,15 +2571,15 @@
                               <Expressions isList="true" count="0" />
                               <Name>FooterBand6</Name>
                               <Page isRef="27" />
-                              <Parent isRef="169" />
+                              <Parent isRef="171" />
                               <PrintIfEmpty>True</PrintIfEmpty>
                             </FooterBand6>
-                            <DataBand7 Ref="181" type="DataBand" isKey="true">
+                            <DataBand7 Ref="183" type="DataBand" isKey="true">
                               <Brush>Transparent</Brush>
                               <BusinessObjectGuid isNull="true" />
                               <ClientRectangle>0,4,6.8,2</ClientRectangle>
                               <Components isList="true" count="10">
-                                <Text99 Ref="182" type="Text" isKey="true">
+                                <Text99 Ref="184" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <ClientRectangle>1.2,1,2.6,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2555,12 +2587,12 @@
                                   <Font>Arial Narrow,5,Bold</Font>
                                   <Name>Text99</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="181" />
+                                  <Parent isRef="183" />
                                   <Text>NETO A PAGAR</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Expression</Type>
                                 </Text99>
-                                <Text104 Ref="183" type="Text" isKey="true">
+                                <Text104 Ref="185" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <ClientRectangle>4,1,2.8,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2568,12 +2600,12 @@
                                   <Font>Arial Narrow,5,Bold</Font>
                                   <Name>Text104</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="181" />
+                                  <Parent isRef="183" />
                                   <Text>{Subtotales.SubtotalLetra}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Expression</Type>
                                 </Text104>
-                                <Text98 Ref="184" type="Text" isKey="true">
+                                <Text98 Ref="186" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <ClientRectangle>1.2,0.6,2.6,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2581,12 +2613,12 @@
                                   <Font>Arial Narrow,5,Bold</Font>
                                   <Name>Text98</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="181" />
+                                  <Parent isRef="183" />
                                   <Text>Retenciones</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Expression</Type>
                                 </Text98>
-                                <Text103 Ref="185" type="Text" isKey="true">
+                                <Text103 Ref="187" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <ClientRectangle>4,0.6,2.8,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2594,12 +2626,12 @@
                                   <Font>Arial Narrow,5,Bold</Font>
                                   <Name>Text103</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="181" />
+                                  <Parent isRef="183" />
                                   <Text>{Subtotales.RetenidoLetra}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
                                 </Text103>
-                                <Text97 Ref="186" type="Text" isKey="true">
+                                <Text97 Ref="188" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <ClientRectangle>1.2,0.4,2.6,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2607,12 +2639,12 @@
                                   <Font>Arial Narrow,5,Bold</Font>
                                   <Name>Text97</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="181" />
+                                  <Parent isRef="183" />
                                   <Text>Total otros pagos</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Expression</Type>
                                 </Text97>
-                                <Text102 Ref="187" type="Text" isKey="true">
+                                <Text102 Ref="189" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <ClientRectangle>4,0.4,2.8,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2620,12 +2652,12 @@
                                   <Font>Arial Narrow,5,Bold</Font>
                                   <Name>Text102</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="181" />
+                                  <Parent isRef="183" />
                                   <Text>{Subtotales.importetotalO}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Expression</Type>
                                 </Text102>
-                                <Text96 Ref="188" type="Text" isKey="true">
+                                <Text96 Ref="190" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <ClientRectangle>1.2,0.2,2.6,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2633,12 +2665,12 @@
                                   <Font>Arial Narrow,5,Bold</Font>
                                   <Name>Text96</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="181" />
+                                  <Parent isRef="183" />
                                   <Text>Descuento</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Expression</Type>
                                 </Text96>
-                                <Text101 Ref="189" type="Text" isKey="true">
+                                <Text101 Ref="191" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <ClientRectangle>4,0.2,2.8,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2646,12 +2678,12 @@
                                   <Font>Arial Narrow,5,Bold</Font>
                                   <Name>Text101</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="181" />
+                                  <Parent isRef="183" />
                                   <Text>{Subtotales.DescuentoLetra}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
                                 </Text101>
-                                <Text95 Ref="190" type="Text" isKey="true">
+                                <Text95 Ref="192" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <ClientRectangle>1.2,0,2.6,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2659,12 +2691,12 @@
                                   <Font>Arial Narrow,5,Bold</Font>
                                   <Name>Text95</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="181" />
+                                  <Parent isRef="183" />
                                   <Text>Subtotal</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Expression</Type>
                                 </Text95>
-                                <Text100 Ref="191" type="Text" isKey="true">
+                                <Text100 Ref="193" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <ClientRectangle>4,0,2.8,0.2</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -2672,7 +2704,7 @@
                                   <Font>Arial Narrow,5,Bold</Font>
                                   <Name>Text100</Name>
                                   <Page isRef="27" />
-                                  <Parent isRef="181" />
+                                  <Parent isRef="183" />
                                   <Text>{Subtotales.importeTotal}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
@@ -2683,10 +2715,10 @@
                               <DataSourceName>Subtotales</DataSourceName>
                               <Expressions isList="true" count="0" />
                               <Filters isList="true" count="0" />
-                              <MasterComponent isRef="30" />
+                              <MasterComponent isRef="28" />
                               <Name>DataBand7</Name>
                               <Page isRef="27" />
-                              <Parent isRef="169" />
+                              <Parent isRef="171" />
                               <Sort isList="true" count="0" />
                             </DataBand7>
                           </Components>
@@ -2695,7 +2727,7 @@
                           <GrowToHeight>True</GrowToHeight>
                           <Name>Panel3</Name>
                           <Page isRef="27" />
-                          <Parent isRef="93" />
+                          <Parent isRef="91" />
                         </Panel3>
                       </Components>
                       <Conditions isList="true" count="0" />
@@ -2703,7 +2735,7 @@
                       <GrowToHeight>True</GrowToHeight>
                       <Name>Panel1</Name>
                       <Page isRef="27" />
-                      <Parent isRef="38" />
+                      <Parent isRef="36" />
                     </Panel1>
                   </Components>
                   <Conditions isList="true" count="0" />
@@ -2711,10 +2743,10 @@
                   <DataSourceName>Colaborador</DataSourceName>
                   <Expressions isList="true" count="0" />
                   <Filters isList="true" count="0" />
-                  <MasterComponent isRef="30" />
+                  <MasterComponent isRef="28" />
                   <Name>DataBand2</Name>
                   <Page isRef="27" />
-                  <Parent isRef="37" />
+                  <Parent isRef="35" />
                   <Sort isList="true" count="0" />
                 </DataBand2>
               </Components>
@@ -2722,7 +2754,7 @@
               <Expressions isList="true" count="0" />
               <Name>PanelColaborador</Name>
               <Page isRef="27" />
-              <Parent isRef="30" />
+              <Parent isRef="28" />
             </PanelColaborador>
           </Components>
           <Conditions isList="true" count="0" />
@@ -2759,10 +2791,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/11/2025 2:26:58 PM</ReportChanged>
+  <ReportChanged>9/11/2025 3:40:43 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdiMc.mrt</ReportFile>
-  <ReportGuid>1dd48191a80846769bda7e979663d5d1</ReportGuid>
+  <ReportGuid>f73565750bc64892b0c3e1ecdaf729ec</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
