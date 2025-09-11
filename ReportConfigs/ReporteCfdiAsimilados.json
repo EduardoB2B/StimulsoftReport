@@ -1,0 +1,10 @@
+{
+    "TemplateFile": "ReporteCfdiAsimilados.mrt",
+    "RequiredDataSources": [
+        "Empleado"
+    ],
+    "DataSourceMappings": {
+        "Empleado": "",
+        "Colaborador": "Empleado.Colaborador"
+    }
+}
