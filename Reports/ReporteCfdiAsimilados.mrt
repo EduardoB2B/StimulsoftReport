@@ -1322,7 +1322,7 @@
                                   <Name>Text72</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="94" />
-                                  <Text>{OtrosPagos.ClaveOtroPago}</Text>
+                                  <Text>{OtrosPagos.TipoOtroPago}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
                                   <VertAlignment>Center</VertAlignment>
@@ -1350,7 +1350,7 @@
                                   <Name>Text76</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="94" />
-                                  <Text>{OtrosPagos.TipoOtroPago}</Text>
+                                  <Text>{OtrosPagos.ClaveOtroPago}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>DataColumn</Type>
                                   <VertAlignment>Center</VertAlignment>
@@ -2297,10 +2297,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/11/2025 10:36:10 AM</ReportChanged>
+  <ReportChanged>9/11/2025 5:53:15 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdiAsimilados.mrt</ReportFile>
-  <ReportGuid>0c8b417958b6426db0c35d30c0392bc1</ReportGuid>
+  <ReportGuid>93dcaa8ac4284da4b5a80315cf01d0d2</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
