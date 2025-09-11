@@ -1,0 +1,10 @@
+{
+    "TemplateFile": "ReporteCfdiMc.mrt",
+    "RequiredDataSources": [
+        "Empleado"
+    ],
+    "DataSourceMappings": {
+        "Empleado": "",
+        "Colaborador": "Empleado.Colaborador"
+    }
+}
