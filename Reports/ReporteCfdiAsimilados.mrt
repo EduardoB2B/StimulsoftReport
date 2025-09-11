@@ -791,7 +791,7 @@
                       <Name>Text192</Name>
                       <Page isRef="27" />
                       <Parent isRef="39" />
-                      <Text>{Colaborador.CPFecPag}</Text>
+                      <Text>{DateTime.Parse(Colaborador.CPFecPag).ToString("dd/MM/yyyy")}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
@@ -1811,6 +1811,7 @@
                           <Components isList="true" count="2">
                             <DataBand8 Ref="128" type="DataBand" isKey="true">
                               <Brush>Transparent</Brush>
+                              <BusinessObjectGuid isNull="true" />
                               <ClientRectangle>0,0.4,20.6,2.4</ClientRectangle>
                               <Components isList="true" count="21">
                                 <Text107 Ref="129" type="Text" isKey="true">
@@ -2101,6 +2102,7 @@
                             </DataBand8>
                             <DataBand9 Ref="150" type="DataBand" isKey="true">
                               <Brush>Transparent</Brush>
+                              <BusinessObjectGuid isNull="true" />
                               <ClientRectangle>0,3.6,20.6,4</ClientRectangle>
                               <Components isList="true" count="7">
                                 <Text127 Ref="151" type="Text" isKey="true">
@@ -2295,10 +2297,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/10/2025 10:23:57 PM</ReportChanged>
+  <ReportChanged>9/11/2025 10:36:10 AM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdiAsimilados.mrt</ReportFile>
-  <ReportGuid>68096d1cfd4d46f18c32116973a0c4e9</ReportGuid>
+  <ReportGuid>0c8b417958b6426db0c35d30c0392bc1</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>

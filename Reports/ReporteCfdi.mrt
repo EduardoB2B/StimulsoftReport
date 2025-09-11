@@ -965,7 +965,7 @@
                       <Name>Text192</Name>
                       <Page isRef="27" />
                       <Parent isRef="38" />
-                      <Text>{Colaborador.CPFecPag}</Text>
+                      <Text>{DateTime.Parse(Colaborador.CPFecPag).ToString("dd/MM/yyyy")}</Text>
                       <TextBrush>Black</TextBrush>
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
@@ -2760,10 +2760,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/10/2025 9:16:44 PM</ReportChanged>
+  <ReportChanged>9/11/2025 10:32:41 AM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdi.mrt</ReportFile>
-  <ReportGuid>b14d83dba19b49dfa5fe9c7c0ea715ee</ReportGuid>
+  <ReportGuid>c910a4a15db94669bce7290953700151</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
