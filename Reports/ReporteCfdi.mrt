@@ -100,7 +100,7 @@
         <Alias>Deducciones</Alias>
         <Columns isList="true" count="6">
           <value>ORIGINAL,DscDeduccion,DscDeduccion,DscDeduccion,System.String,f680071d76d64aeb91c253ac67455720</value>
-          <value>ORIGINAL,cantUnidadDeduccion,cantUnidadDeduccion,cantUnidadDeduccion,System.String,d871a0d7b78c46089743967d3ea42bb3</value>
+          <value>ORIGINAL,cantUnidadDeduccion,cantUnidadDeduccion,cantUnidadDeduccion,System.Int32,d871a0d7b78c46089743967d3ea42bb3</value>
           <value>ORIGINAL,ClaveDeduccion,ClaveDeduccion,ClaveDeduccion,System.String,_x0035_cd6656f10f747608ebb7833c599ece1</value>
           <value>ORIGINAL,ImporteDLetra,ImporteDLetra,ImporteDLetra,System.Int32,cee6edb0501045c5998cc1a66bb58ee0</value>
           <value>ORIGINAL,Importe,Importe,Importe,System.String,_x0034_a9e326689a74faca8066f921d18f665</value>
@@ -2759,10 +2759,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/11/2025 5:52:37 PM</ReportChanged>
+  <ReportChanged>9/11/2025 8:25:13 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdi.mrt</ReportFile>
-  <ReportGuid>b7989176927149959c73782b503928cc</ReportGuid>
+  <ReportGuid>aaceab963b6941309a1a99a897625d36</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>

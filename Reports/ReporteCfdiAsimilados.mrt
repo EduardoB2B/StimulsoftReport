@@ -581,7 +581,7 @@
                     </Text151>
                     <Text149 Ref="42" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
-                      <ClientRectangle>3.6,0.2,9,0.4</ClientRectangle>
+                      <ClientRectangle>3.4,0.2,9,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
                       <Expressions isList="true" count="0" />
                       <Font>Arial Narrow,8</Font>
@@ -596,7 +596,7 @@
                     <Panel2 Ref="43" type="Panel" isKey="true">
                       <Border>Top, Right, Bottom;[242:242:242];1;Solid;False;4;Black</Border>
                       <Brush>Transparent</Brush>
-                      <ClientRectangle>0,0.6,3.4,2</ClientRectangle>
+                      <ClientRectangle>0,0.6,3.2,2</ClientRectangle>
                       <Components isList="true" count="5">
                         <Text165 Ref="44" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
@@ -763,6 +763,7 @@
                                   <VertAlignment>Center</VertAlignment>
                                 </Text133>
                                 <Text134 Ref="57" type="Text" isKey="true">
+                                  <Border>Left, Right;[255:255:255];1;Solid;False;4;Black</Border>
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>1.6,0,1.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -772,9 +773,9 @@
                                   <Name>Text134</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="55" />
-                                  <Text>{Deducciones.cantUnidadDeduccion}</Text>
+                                  <Text>{ Deducciones.cantUnidadDeduccion != "0" &amp;&amp; Deducciones.cantUnidadDeduccion != "" ? Deducciones.cantUnidadDeduccion : "" }</Text>
                                   <TextBrush>Black</TextBrush>
-                                  <Type>DataColumn</Type>
+                                  <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text134>
                                 <Text143 Ref="58" type="Text" isKey="true">
@@ -853,9 +854,9 @@
                                   <Page isRef="27" />
                                   <Parent isRef="60" />
                                   <ShiftMode>None</ShiftMode>
-                                  <Text>{Sum(BandDeducciones,Deducciones.ImporteDLetra)}</Text>
+                                  <Text>{ Sum(BandDeducciones, Deducciones.ImporteDLetra) &gt; 0 ? Sum(BandDeducciones, Deducciones.ImporteDLetra) : "" }</Text>
                                   <TextBrush>Black</TextBrush>
-                                  <Type>Totals</Type>
+                                  <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text8>
                               </Components>
@@ -872,7 +873,7 @@
                               <Components isList="true" count="10">
                                 <Text99 Ref="64" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>2.2,1.6,2.6,0.4</ClientRectangle>
+                                  <ClientRectangle>1.8,1.6,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,8,Bold</Font>
@@ -900,7 +901,7 @@
                                 </Text104>
                                 <Text98 Ref="66" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>2.2,1.2,2.6,0.4</ClientRectangle>
+                                  <ClientRectangle>1.8,1.2,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,8,Bold</Font>
@@ -928,7 +929,7 @@
                                 </Text103>
                                 <Text97 Ref="68" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>2.2,0.8,2.6,0.4</ClientRectangle>
+                                  <ClientRectangle>1.8,0.8,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,8,Bold</Font>
@@ -955,7 +956,7 @@
                                 </Text102>
                                 <Text96 Ref="70" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>2.2,0.4,2.6,0.4</ClientRectangle>
+                                  <ClientRectangle>1.8,0.4,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,8,Bold</Font>
@@ -982,7 +983,7 @@
                                 </Text101>
                                 <Text95 Ref="72" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>2.2,0,2.6,0.4</ClientRectangle>
+                                  <ClientRectangle>1.8,0,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,8,Bold</Font>
@@ -1068,7 +1069,7 @@
                                 </Text107>
                                 <Text109 Ref="78" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>0.2,0.8,4.2,0.4</ClientRectangle>
+                                  <ClientRectangle>0.2,0.8,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1081,7 +1082,7 @@
                                 </Text109>
                                 <Text110 Ref="79" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>0.2,1.2,4.2,0.4</ClientRectangle>
+                                  <ClientRectangle>0.2,1.2,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1094,7 +1095,7 @@
                                 </Text110>
                                 <Text111 Ref="80" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>0.2,1.6,4.2,0.4</ClientRectangle>
+                                  <ClientRectangle>0.2,1.6,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1107,7 +1108,7 @@
                                 </Text111>
                                 <Text108 Ref="81" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>0.2,0.4,4.2,0.4</ClientRectangle>
+                                  <ClientRectangle>0.2,0.4,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1120,7 +1121,7 @@
                                 </Text108>
                                 <Text112 Ref="82" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>4.8,0.4,4.8,0.4</ClientRectangle>
+                                  <ClientRectangle>3.2,0.4,4.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1133,7 +1134,7 @@
                                 </Text112>
                                 <Text113 Ref="83" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>4.8,0.8,4.8,0.4</ClientRectangle>
+                                  <ClientRectangle>3.2,0.8,4.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1146,7 +1147,7 @@
                                 </Text113>
                                 <Text114 Ref="84" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>4.8,1.2,4.8,0.4</ClientRectangle>
+                                  <ClientRectangle>3.2,1.2,4.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1159,7 +1160,7 @@
                                 </Text114>
                                 <Text115 Ref="85" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>4.8,1.6,4.8,0.4</ClientRectangle>
+                                  <ClientRectangle>3.2,1.6,4.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1172,7 +1173,7 @@
                                 </Text115>
                                 <Text116 Ref="86" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>10.4,0.4,4.2,0.4</ClientRectangle>
+                                  <ClientRectangle>10.4,0.4,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1185,7 +1186,7 @@
                                 </Text116>
                                 <Text117 Ref="87" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>10.4,0.8,4.2,0.4</ClientRectangle>
+                                  <ClientRectangle>10.4,0.8,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1198,7 +1199,7 @@
                                 </Text117>
                                 <Text118 Ref="88" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>10.4,1.2,4.2,0.4</ClientRectangle>
+                                  <ClientRectangle>10.4,1.2,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1211,7 +1212,7 @@
                                 </Text118>
                                 <Text120 Ref="89" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>10.4,2,4.2,0.4</ClientRectangle>
+                                  <ClientRectangle>10.4,2,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1224,7 +1225,7 @@
                                 </Text120>
                                 <Text121 Ref="90" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>15,0.8,4.8,0.4</ClientRectangle>
+                                  <ClientRectangle>13.8,0.8,4.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1237,7 +1238,7 @@
                                 </Text121>
                                 <Text122 Ref="91" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>15,1.2,4.8,0.4</ClientRectangle>
+                                  <ClientRectangle>13.8,1.2,4.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1250,7 +1251,7 @@
                                 </Text122>
                                 <Text124 Ref="92" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>15,2,4.8,0.4</ClientRectangle>
+                                  <ClientRectangle>13.8,2,4.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1263,7 +1264,7 @@
                                 </Text124>
                                 <Text139 Ref="93" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>15,0.4,4.8,0.4</ClientRectangle>
+                                  <ClientRectangle>13.8,0.4,4.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1276,7 +1277,7 @@
                                 </Text139>
                                 <Text4 Ref="94" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>0.2,2,4.2,0.4</ClientRectangle>
+                                  <ClientRectangle>0.2,2,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1289,7 +1290,7 @@
                                 </Text4>
                                 <Text5 Ref="95" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>4.8,2,4.8,0.4</ClientRectangle>
+                                  <ClientRectangle>3.2,2,4.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1302,7 +1303,7 @@
                                 </Text5>
                                 <Text1 Ref="96" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>10.4,1.6,4.2,0.4</ClientRectangle>
+                                  <ClientRectangle>10.4,1.6,2.6,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1315,7 +1316,7 @@
                                 </Text1>
                                 <Text2 Ref="97" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>15,1.6,4.8,0.4</ClientRectangle>
+                                  <ClientRectangle>13.8,1.6,4.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial Narrow,6</Font>
@@ -1548,6 +1549,7 @@
                                   <VertAlignment>Center</VertAlignment>
                                 </Text68>
                                 <Text69 Ref="113" type="Text" isKey="true">
+                                  <Border>Left, Right;[255:255:255];1;Solid;False;4;Black</Border>
                                   <Brush>[242:242:242]</Brush>
                                   <ClientRectangle>1.6,0,1.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
@@ -1634,9 +1636,9 @@
                                   <Name>Text7</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="116" />
-                                  <Text>{Sum(BandPercepciones,Percepciones.ImportePLetra)}</Text>
+                                  <Text>{ Sum(BandPercepciones, Percepciones.ImportePLetra) &gt; 0 ? Sum(BandPercepciones, Percepciones.ImportePLetra) : "" }</Text>
                                   <TextBrush>Black</TextBrush>
-                                  <Type>Totals</Type>
+                                  <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text7>
                               </Components>
@@ -1815,9 +1817,9 @@
                                   <Name>Text82</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="128" />
-                                  <Text>{Sum(BandOtrosPagos,OtrosPagos.importeOLetra)}</Text>
+                                  <Text>{ Sum(BandOtrosPagos, OtrosPagos.importeOLetra) &gt; 0 ? Sum(BandOtrosPagos, OtrosPagos.importeOLetra) : "" }</Text>
                                   <TextBrush>Black</TextBrush>
-                                  <Type>Totals</Type>
+                                  <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text82>
                               </Components>
@@ -1852,7 +1854,7 @@
                       <Components isList="true" count="12">
                         <Text154 Ref="132" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>5.8,0,1.4,0.4</ClientRectangle>
+                          <ClientRectangle>5.2,0,1.4,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,6</Font>
@@ -1866,7 +1868,7 @@
                         </Text154>
                         <Text156 Ref="133" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>4,0,1.6,0.4</ClientRectangle>
+                          <ClientRectangle>3.6,0,1.6,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,6</Font>
@@ -1880,7 +1882,7 @@
                         </Text156>
                         <Text157 Ref="134" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>7.2,0,2.8,0.4</ClientRectangle>
+                          <ClientRectangle>6.6,0,2.8,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,6</Font>
@@ -1894,7 +1896,7 @@
                         </Text157>
                         <Text158 Ref="135" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>14.4,0,1,0.4</ClientRectangle>
+                          <ClientRectangle>15.2,0,1,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,6</Font>
@@ -1908,7 +1910,7 @@
                         </Text158>
                         <Text159 Ref="136" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>16.6,0,1,0.4</ClientRectangle>
+                          <ClientRectangle>17.8,0,1,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,6</Font>
@@ -1922,7 +1924,7 @@
                         </Text159>
                         <Text160 Ref="137" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>13.2,0,1.2,0.4</ClientRectangle>
+                          <ClientRectangle>12.6,0,1.2,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,6</Font>
@@ -1936,7 +1938,7 @@
                         </Text160>
                         <Text161 Ref="138" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>15.6,0,1,0.4</ClientRectangle>
+                          <ClientRectangle>16.6,0,1,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,6</Font>
@@ -1950,7 +1952,7 @@
                         </Text161>
                         <Text162 Ref="139" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>17.8,0,1.6,0.4</ClientRectangle>
+                          <ClientRectangle>18.8,0,1.6,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,6</Font>
@@ -1964,7 +1966,7 @@
                         </Text162>
                         <Text163 Ref="140" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>10.2,0,2.8,0.4</ClientRectangle>
+                          <ClientRectangle>9.6,0,2.8,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,6</Font>
@@ -1978,7 +1980,7 @@
                         </Text163>
                         <Text152 Ref="141" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>0.2,0,1,0.4</ClientRectangle>
+                          <ClientRectangle>0,0,1,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,6</Font>
@@ -1992,7 +1994,7 @@
                         </Text152>
                         <Text153 Ref="142" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>2.2,0,1.8,0.4</ClientRectangle>
+                          <ClientRectangle>1.8,0,1.8,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,6</Font>
@@ -2006,7 +2008,7 @@
                         </Text153>
                         <Text155 Ref="143" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>1.4,0,0.8,0.4</ClientRectangle>
+                          <ClientRectangle>1,0,0.8,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,6</Font>
@@ -2028,7 +2030,7 @@
                     <Panel3 Ref="144" type="Panel" isKey="true">
                       <Border>Top, Right, Bottom;[242:242:242];1;Solid;False;4;Black</Border>
                       <Brush>Transparent</Brush>
-                      <ClientRectangle>3.4,0.6,9,2</ClientRectangle>
+                      <ClientRectangle>3.2,0.6,9.6,2</ClientRectangle>
                       <Components isList="true" count="10">
                         <Text172 Ref="145" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
@@ -2087,7 +2089,7 @@
                         </Text179>
                         <Text180 Ref="149" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>5.6,1.2,3.4,0.4</ClientRectangle>
+                          <ClientRectangle>6.6,1.2,2.6,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,8,Bold</Font>
@@ -2100,7 +2102,7 @@
                         </Text180>
                         <Text181 Ref="150" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>5.6,1.6,3.4,0.4</ClientRectangle>
+                          <ClientRectangle>6.6,1.6,2.6,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,8,Bold</Font>
@@ -2113,7 +2115,7 @@
                         </Text181>
                         <Text182 Ref="151" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>5.6,0,3.4,0.4</ClientRectangle>
+                          <ClientRectangle>6.6,0,2.6,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,8,Bold</Font>
@@ -2126,7 +2128,7 @@
                         </Text182>
                         <Text185 Ref="152" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>5.6,0.4,3.2,0.4</ClientRectangle>
+                          <ClientRectangle>6.6,0.4,2.6,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,8,Bold</Font>
@@ -2153,7 +2155,7 @@
                         </Text196>
                         <Text199 Ref="154" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>5.6,0.8,1.8,0.4</ClientRectangle>
+                          <ClientRectangle>6.6,0.8,2.6,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial Narrow,8,Bold</Font>
@@ -2174,7 +2176,7 @@
                     <Panel4 Ref="155" type="Panel" isKey="true">
                       <Border>Top, Bottom;[242:242:242];1;Solid;False;4;Black</Border>
                       <Brush>Transparent</Brush>
-                      <ClientRectangle>12.4,0.6,8.2,2</ClientRectangle>
+                      <ClientRectangle>12.8,0.6,7.8,2</ClientRectangle>
                       <Components isList="true" count="5">
                         <Text190 Ref="156" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
@@ -2308,10 +2310,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/12/2025 11:10:13 AM</ReportChanged>
+  <ReportChanged>9/12/2025 11:45:45 AM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdiAsimilados.mrt</ReportFile>
-  <ReportGuid>f02fb495715b4d76ad5a8038a2dc02b6</ReportGuid>
+  <ReportGuid>8773d6df60194e4f9b7dd4a25a2e75b4</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
