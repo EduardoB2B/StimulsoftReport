@@ -1210,7 +1210,7 @@
                                   <Name>Text117</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="77" />
-                                  <Text>N°. Certificado</Text>
+                                  <Text>N° Certificado</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Expression</Type>
                                 </Text117>
@@ -1236,7 +1236,7 @@
                                   <Name>Text120</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="77" />
-                                  <Text>Lugar de expedición</Text>
+                                  <Text>Lugar de Expedición</Text>
                                   <TextBrush>Black</TextBrush>
                                   <Type>Expression</Type>
                                 </Text120>
@@ -1379,7 +1379,7 @@
                                 </Text49>
                                 <Text130 Ref="101" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>4.6,0.8,10,0.4</ClientRectangle>
+                                  <ClientRectangle>4.6,0.8,10.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial,3</Font>
@@ -1393,7 +1393,7 @@
                                 </Text130>
                                 <Text50 Ref="102" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>4.6,1.6,10,0.4</ClientRectangle>
+                                  <ClientRectangle>4.6,1.6,10.8,0.4</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial,3</Font>
@@ -1421,17 +1421,17 @@
                                 </Image1>
                                 <Text132 Ref="104" type="Text" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <ClientRectangle>4.6,2.4,10,0.4</ClientRectangle>
+                                  <ClientRectangle>4.6,2.4,10.8,0.6</ClientRectangle>
                                   <Conditions isList="true" count="0" />
                                   <Expressions isList="true" count="0" />
                                   <Font>Arial,3</Font>
                                   <Name>Text132</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="97" />
-                                  <Text>{Firma.Cadena1}</Text>
+                                  <Text>{Firma.Cadena1}{Firma.Cadena2}{Firma.Cadena3}{Firma.Cadena4}</Text>
                                   <TextBrush>Black</TextBrush>
                                   <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-                                  <Type>DataColumn</Type>
+                                  <Type>Expression</Type>
                                 </Text132>
                               </Components>
                               <Conditions isList="true" count="0" />
@@ -1908,7 +1908,7 @@
                           <Name>Text158</Name>
                           <Page isRef="27" />
                           <Parent isRef="132" />
-                          <Text>| P/unitario:</Text>
+                          <Text>| P/Unitario:</Text>
                           <TextBrush>[0:0:0]</TextBrush>
                           <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
@@ -1978,7 +1978,7 @@
                           <Name>Text163</Name>
                           <Page isRef="27" />
                           <Parent isRef="132" />
-                          <Text>| Clave de producto y servicio:</Text>
+                          <Text>| Clave de Producto y Servicio:</Text>
                           <TextBrush>[0:0:0]</TextBrush>
                           <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
@@ -2006,7 +2006,7 @@
                           <Name>Text153</Name>
                           <Page isRef="27" />
                           <Parent isRef="132" />
-                          <Text>| Clave de unidad:</Text>
+                          <Text>| Clave de Unidad:</Text>
                           <TextBrush>[0:0:0]</TextBrush>
                           <Type>Expression</Type>
                           <VertAlignment>Center</VertAlignment>
@@ -2315,10 +2315,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/14/2025 11:01:26 AM</ReportChanged>
+  <ReportChanged>9/15/2025 11:09:43 AM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdiAsimilados.mrt</ReportFile>
-  <ReportGuid>2b2c7f15fdd84196b0a34dd6a238a4c4</ReportGuid>
+  <ReportGuid>90ab3d1c4327496e90239ef33ff52922</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
