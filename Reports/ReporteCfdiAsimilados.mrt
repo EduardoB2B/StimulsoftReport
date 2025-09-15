@@ -1461,16 +1461,16 @@
                                   <Conditions isList="true" count="0" />
                                   <Enabled>False</Enabled>
                                   <Expressions isList="true" count="1">
-                                    <value>Enabled,_x007B_Firma.firma1_x0020__x0021__x003D__x0020_null_x0020__x0026__x0026__x0020_Firma.firma1_x0020__x0021__x003D__x0020__x0022__x0022__x007D_</value>
+                                    <value>Enabled,_x007B_Firma.Firma1_x0020__x0021__x003D__x0020_null_x0020__x0026__x0026__x0020_Firma.Firma1_x0020__x0021__x003D__x0020__x0022__x0022__x007D_</value>
                                   </Expressions>
                                   <Font>Arial Narrow,6</Font>
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text213</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="97" />
-                                  <Text>{Firma.firma1}</Text>
+                                  <Text>{Firma.Firma1}</Text>
                                   <TextBrush>Black</TextBrush>
-                                  <Type>DataColumn</Type>
+                                  <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text213>
                                 <Text214 Ref="106" type="Text" isKey="true">
@@ -1480,7 +1480,7 @@
                                   <Conditions isList="true" count="0" />
                                   <Enabled>False</Enabled>
                                   <Expressions isList="true" count="1">
-                                    <value>Enabled,_x007B_Firma.firma1_x0020__x0021__x003D__x0020_null_x0020__x0026__x0026__x0020_Firma.firma1_x0020__x0021__x003D__x0020__x0022__x0022__x007D_</value>
+                                    <value>Enabled,_x007B_Firma.Firma1_x0020__x0021__x003D__x0020_null_x0020__x0026__x0026__x0020_Firma.Firma1_x0020__x0021__x003D__x0020__x0022__x0022__x007D_</value>
                                   </Expressions>
                                   <Font>Arial Narrow,6</Font>
                                   <HorAlignment>Center</HorAlignment>
@@ -1498,16 +1498,16 @@
                                   <Conditions isList="true" count="0" />
                                   <Enabled>False</Enabled>
                                   <Expressions isList="true" count="1">
-                                    <value>Enabled,_x007B_Firma.firma1_x0020__x0021__x003D__x0020_null_x0020__x0026__x0026__x0020_Firma.firma1_x0020__x0021__x003D__x0020__x0022__x0022__x007D_</value>
+                                    <value>Enabled,_x007B_Firma.Firma1_x0020__x0021__x003D__x0020_null_x0020__x0026__x0026__x0020_Firma.Firma1_x0020__x0021__x003D__x0020__x0022__x0022__x007D_</value>
                                   </Expressions>
                                   <Font>Arial Narrow,6</Font>
                                   <HorAlignment>Center</HorAlignment>
                                   <Name>Text215</Name>
                                   <Page isRef="27" />
                                   <Parent isRef="97" />
-                                  <Text>{Firma.firma3}</Text>
+                                  <Text>{Firma.Firma3}</Text>
                                   <TextBrush>Black</TextBrush>
-                                  <Type>DataColumn</Type>
+                                  <Type>Expression</Type>
                                   <VertAlignment>Center</VertAlignment>
                                 </Text215>
                               </Components>
@@ -4312,10 +4312,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/15/2025 5:23:35 PM</ReportChanged>
+  <ReportChanged>9/15/2025 5:25:45 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdiAsimilados.mrt</ReportFile>
-  <ReportGuid>42c2fdf2de89425eaf454588430ac2fc</ReportGuid>
+  <ReportGuid>0a27c611acb24c048596662235fa0212</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
