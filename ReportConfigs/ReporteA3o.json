@@ -1,0 +1,24 @@
+{
+    "TemplateFile": "ReportA3o.mrt",
+    "DataSourceMappings": {
+        "Data": "",
+        "DatComprobante": "DatComprobante",
+        "ComprobanteConcepto": "ComprobanteConcepto",
+        "Percepciones": "Percepciones",
+        "Deducciones": "Deducciones",
+        "OtrosPagos": "OtrosPagos",
+        "Sellos": "Sellos",
+        "Leyenda": "Leyenda"
+
+    },
+    "RequiredDataSources": [
+        "Data",
+        "DatComprobante",
+        "ComprobanteConcepto",
+        "Percepciones",
+        "Deducciones",
+        "OtrosPagos",
+        "Sellos",
+        "Leyenda"
+    ]
+}
