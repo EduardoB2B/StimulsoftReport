@@ -107,7 +107,8 @@ namespace StimulsoftReport.Services
                 report.Render(false);
 
                 var directory = Path.GetDirectoryName(jsonFilePath ?? "tmp") ?? "tmp";
-                var pdfFileName = $"{reportName}_{DateTime.Now:yyyyMMddHHmmss}.pdf";
+                var jsonBaseName = Path.GetFileNameWithoutExtension(jsonFilePath ?? reportName);
+                var pdfFileName = $"{jsonBaseName}.pdf";
                 var pdfFullPath = Path.Combine(directory, pdfFileName);
 
                 report.ExportDocument(StiExportFormat.Pdf, pdfFullPath);
