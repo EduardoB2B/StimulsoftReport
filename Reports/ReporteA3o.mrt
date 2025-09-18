@@ -1852,6 +1852,7 @@
                         </HeaderBand4>
                         <DataBand4 Ref="127" type="DataBand" isKey="true">
                           <Brush>Transparent</Brush>
+                          <BusinessObjectGuid isNull="true" />
                           <CanShrink>True</CanShrink>
                           <ClientRectangle>0,1.6,6.4,0.4</ClientRectangle>
                           <Components isList="true" count="3">
@@ -1950,6 +1951,7 @@
                       <Components isList="true" count="1">
                         <DataBand6 Ref="134" type="DataBand" isKey="true">
                           <Brush>Transparent</Brush>
+                          <BusinessObjectGuid isNull="true" />
                           <ClientRectangle>0,0.4,18.6,5.4</ClientRectangle>
                           <Components isList="true" count="11">
                             <Text96 Ref="135" type="Text" isKey="true">
@@ -2137,6 +2139,7 @@
                       <Components isList="true" count="1">
                         <DataBand5 Ref="147" type="DataBand" isKey="true">
                           <Brush>Transparent</Brush>
+                          <BusinessObjectGuid isNull="true" />
                           <ClientRectangle>0,0.4,7,3.2</ClientRectangle>
                           <Components isList="true" count="14">
                             <Text110 Ref="148" type="Text" isKey="true">
@@ -2419,7 +2422,7 @@
   <ReportAuthor>Francisco Ramirez</ReportAuthor>
   <ReportChanged>9/15/2025 5:42:25 PM</ReportChanged>
   <ReportCreated>9/12/2025 7:24:54 PM</ReportCreated>
-  <ReportFile>C:\Users\FranciscoRamírezRamí\Downloads\StimulsoftReport-main\StimulsoftReport-main\Reports\ReportA3o.mrt</ReportFile>
+  <ReportFile>C:\Users\FranciscoRamírezRamí\Downloads\nuevo\StimulsoftReport\Reports\ReporteA3o.mrt</ReportFile>
   <ReportGuid>bc64a01f929e444e8b9230c7ab1e8bcd</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
