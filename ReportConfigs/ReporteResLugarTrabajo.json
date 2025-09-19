@@ -1,0 +1,16 @@
+{
+    "TemplateFile": "ReporteResLugarTrabajo.mrt",
+    "DataSourceMappings": {
+        "Data": "",
+        "Catalogo": "Catalogo",
+        "Deducciones": "Deducciones",
+        "Percepciones": "Percepciones"
+
+    },
+    "RequiredDataSources": [
+        "Data",
+        "Catalogo",
+        "Deducciones",
+        "Percepciones"
+    ]
+}
