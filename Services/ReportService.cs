@@ -123,6 +123,7 @@ namespace StimulsoftReport.Services
 
     private void RegisterData(StiReport report, JsonNode? jsonNode, ReportConfig config, string reportName)
     {
+    if (report == null) { Console.WriteLine("Reporte nulo, abortando RegisterData."); return; }
     Console.WriteLine($"Registrando DataSources requeridos: {string.Join(", ", config.RequiredDataSources ?? Array.Empty<string>())}");
 
     if (jsonNode == null)
@@ -272,7 +273,27 @@ namespace StimulsoftReport.Services
     // Aplicar reglas especiales si es ReporteCfdiAsimilados
     if (string.Equals(reportName, "ReporteCfdiAsimilados", StringComparison.OrdinalIgnoreCase))
     {
-        ApplyAsimiladosRules(createdTables, pkColumnName, mainTable);
+    try
+    {
+    ApplyAsimiladosRules(createdTables, pkColumnName, mainTable);
+    }
+    catch (Exception ex)
+    {
+    Console.WriteLine($"Error aplicando reglas para ReporteCfdiAsimilados: {ex.Message}");
+    }
+    }
+
+    // Aplicar reglas especiales si es ReporteCfdi
+    if (string.Equals(reportName, "ReporteCfdi", StringComparison.OrdinalIgnoreCase))
+    {
+    try
+    {
+    ApplyReporteCfdiRules(createdTables, pkColumnName, mainTable);
+    }
+    catch (Exception ex)
+    {
+    Console.WriteLine($"Error aplicando reglas para ReporteCfdi: {ex.Message}");
+    }
     }
 
     // Registrar tablas hijas en el reporte
@@ -635,93 +656,193 @@ namespace StimulsoftReport.Services
 
     return dt;
     }
-// Aplica las reglas especiales para ReporteCfdiAsimilados (balance por cada registro principal)
+
+    // Aplica las reglas especiales para ReporteCfdiAsimilados (balance por cada registro principal)
     private void ApplyAsimiladosRules(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
     {
-        Console.WriteLine("Aplicando reglas especiales para ReporteCfdiAsimilados (por registro)");
+    Console.WriteLine("Aplicando reglas especiales para ReporteCfdiAsimilados (por registro)");
 
-        createdTables.TryGetValue("Percepciones", out var percepcionesTable);
-        createdTables.TryGetValue("Deducciones", out var deduccionesTable);
-        createdTables.TryGetValue("OtrosPagos", out var otrosPagosTable);
+    try
+    {
+    createdTables.TryGetValue("Percepciones", out var percepcionesTable);
+    createdTables.TryGetValue("Deducciones", out var deduccionesTable);
+    createdTables.TryGetValue("OtrosPagos", out var otrosPagosTable);
 
-        // Asegurar estructura base de OtrosPagos si no existe (se completará/ajustará por registro)
-        if (otrosPagosTable == null)
-        {
-            var newOtros = new DataTable("OtrosPagos");
-            if (percepcionesTable != null)
-            {
-                foreach (DataColumn c in percepcionesTable.Columns)
-                    newOtros.Columns.Add(c.ColumnName, c.DataType);
-            }
-            else
-            {
-                newOtros.Columns.Add("TipoOtroPago", typeof(string));
-                newOtros.Columns.Add("Clave", typeof(string));
-                newOtros.Columns.Add("Importe", typeof(string));
-            }
-            if (!newOtros.Columns.Contains(pkColumnName)) newOtros.Columns.Add(pkColumnName, typeof(int));
-            otrosPagosTable = newOtros;
-            createdTables["OtrosPagos"] = otrosPagosTable;
-            Console.WriteLine("Creada estructura inicial de OtrosPagos");
-        }
-        else
-        {
-            if (!otrosPagosTable.Columns.Contains(pkColumnName))
-                otrosPagosTable.Columns.Add(pkColumnName, typeof(int));
-        }
+    if (percepcionesTable == null || deduccionesTable == null)
+    {
+    Console.WriteLine("Tablas Percepciones o Deducciones no encontradas, se omiten reglas de balanceo.");
+    return;
+    }
 
-        // Asegurar PK column en percepciones/deducciones
-        if (percepcionesTable != null && !percepcionesTable.Columns.Contains(pkColumnName))
-            percepcionesTable.Columns.Add(pkColumnName, typeof(int));
-        if (deduccionesTable != null && !deduccionesTable.Columns.Contains(pkColumnName))
-            deduccionesTable.Columns.Add(pkColumnName, typeof(int));
+    if (otrosPagosTable == null)
+    {
+    otrosPagosTable = new DataTable("OtrosPagos");
+    foreach (DataColumn c in percepcionesTable.Columns)
+    otrosPagosTable.Columns.Add(c.ColumnName, c.DataType);
+    if (!otrosPagosTable.Columns.Contains(pkColumnName)) otrosPagosTable.Columns.Add(pkColumnName, typeof(int));
+    createdTables["OtrosPagos"] = otrosPagosTable;
+    Console.WriteLine("Creada estructura inicial de OtrosPagos");
+    }
+    else if (!otrosPagosTable.Columns.Contains(pkColumnName))
+    {
+    otrosPagosTable.Columns.Add(pkColumnName, typeof(int));
+    }
 
-        // Para cada registro principal (mainTable) balancear por su PK
-        foreach (DataRow mainRow in mainTable.Rows)
-        {
-            var mainIdObj = mainRow[pkColumnName];
-            if (mainIdObj == null || mainIdObj == DBNull.Value) continue;
-            int mainId = Convert.ToInt32(mainIdObj);
+    if (!percepcionesTable.Columns.Contains(pkColumnName))
+    percepcionesTable.Columns.Add(pkColumnName, typeof(int));
+    if (!deduccionesTable.Columns.Contains(pkColumnName))
+    deduccionesTable.Columns.Add(pkColumnName, typeof(int));
 
-            int pCount = percepcionesTable?.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId) ?? 0;
-            int dCount = deduccionesTable?.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId) ?? 0;
+    foreach (DataRow mainRow in mainTable.Rows)
+    {
+    var mainIdObj = mainRow[pkColumnName];
+    if (mainIdObj == null || mainIdObj == DBNull.Value) continue;
+    int mainId = Convert.ToInt32(mainIdObj);
 
-            if (percepcionesTable != null && dCount > pCount)
-                AddEmptyRowsWithPk(percepcionesTable, dCount - pCount, pkColumnName, mainId);
-            else if (deduccionesTable != null && pCount > dCount)
-                AddEmptyRowsWithPk(deduccionesTable, pCount - dCount, pkColumnName, mainId);
+    int pCount = percepcionesTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
+    int dCount = deduccionesTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
 
-            // OtrosPagos: al menos 2 filas por mainId
-            int oCount = otrosPagosTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
-            if (oCount < 2)
-                AddEmptyRowsWithPk(otrosPagosTable, 2 - oCount, pkColumnName, mainId);
-        }
+    if (dCount > pCount)
+    AddEmptyRowsWithPk(percepcionesTable, dCount - pCount, pkColumnName, mainId);
+    else if (pCount > dCount)
+    AddEmptyRowsWithPk(deduccionesTable, pCount - dCount, pkColumnName, mainId);
 
-        Console.WriteLine("Reglas especiales aplicadas por registro.");
+    int oCount = otrosPagosTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
+    if (oCount < 2)
+    AddEmptyRowsWithPk(otrosPagosTable, 2 - oCount, pkColumnName, mainId);
+    }
+
+    Console.WriteLine("Reglas especiales aplicadas para ReporteCfdiAsimilados.");
+    }
+    catch (Exception ex)
+    {
+    Console.WriteLine($"Error en ApplyAsimiladosRules: {ex.Message}");
+    }
+    }
+
+    // Nueva función para reglas específicas de ReporteCfdi
+    private void ApplyReporteCfdiRules(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
+    {
+    Console.WriteLine("Aplicando reglas especiales para ReporteCfdi (balance de filas)");
+
+    try
+    {
+    createdTables.TryGetValue("Percepciones", out var percepcionesTable);
+    createdTables.TryGetValue("Deducciones", out var deduccionesTable);
+    createdTables.TryGetValue("OtrosPagos", out var otrosPagosTable);
+    createdTables.TryGetValue("Subsidio", out var subsidioTable);
+
+    if (percepcionesTable == null || deduccionesTable == null)
+    {
+    Console.WriteLine("Tablas Percepciones o Deducciones no encontradas, se omiten reglas de balanceo.");
+    return;
+    }
+    if (otrosPagosTable == null || subsidioTable == null)
+    {
+    Console.WriteLine("Tablas OtrosPagos o Subsidio no encontradas, se omiten reglas de balanceo.");
+    return;
+    }
+
+    if (!percepcionesTable.Columns.Contains(pkColumnName))
+    percepcionesTable.Columns.Add(pkColumnName, typeof(int));
+    if (!deduccionesTable.Columns.Contains(pkColumnName))
+    deduccionesTable.Columns.Add(pkColumnName, typeof(int));
+    if (!otrosPagosTable.Columns.Contains(pkColumnName))
+    otrosPagosTable.Columns.Add(pkColumnName, typeof(int));
+    if (!subsidioTable.Columns.Contains(pkColumnName))
+    subsidioTable.Columns.Add(pkColumnName, typeof(int));
+
+    foreach (DataRow mainRow in mainTable.Rows)
+    {
+    var mainIdObj = mainRow[pkColumnName];
+    if (mainIdObj == null || mainIdObj == DBNull.Value) continue;
+    int mainId = Convert.ToInt32(mainIdObj);
+
+    int pCount = percepcionesTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
+    int dCount = deduccionesTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
+
+    if (dCount > pCount)
+    AddEmptyRowsWithPk(percepcionesTable, dCount - pCount, pkColumnName, mainId);
+    else if (pCount > dCount)
+    AddEmptyRowsWithPk(deduccionesTable, pCount - dCount, pkColumnName, mainId);
+
+    int oCount = otrosPagosTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
+    int sCount = subsidioTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
+
+    if (sCount > oCount)
+    AddEmptyRowsWithPk(otrosPagosTable, sCount - oCount, pkColumnName, mainId);
+    else if (oCount > sCount)
+    AddEmptyRowsWithPk(subsidioTable, oCount - sCount, pkColumnName, mainId);
+    }
+
+    Console.WriteLine("Reglas especiales para ReporteCfdi aplicadas.");
+    }
+    catch (Exception ex)
+    {
+    Console.WriteLine($"Error en ApplyReporteCfdiRules: {ex.Message}");
+    }
+    }
+
+    // Nueva regla para ReporteA3o
+    private void ApplyReporteA3oRules(Dictionary<string, DataTable> createdTables)
+    {
+    Console.WriteLine("Aplicando reglas especiales para ReporteA3o (balance filas Percepciones, OtrosPagos y Deducciones)");
+
+    try
+    {
+    createdTables.TryGetValue("Percepciones", out var percepcionesTable);
+    createdTables.TryGetValue("OtrosPagos", out var otrosPagosTable);
+    createdTables.TryGetValue("Deducciones", out var deduccionesTable);
+
+    if (percepcionesTable == null || otrosPagosTable == null || deduccionesTable == null)
+    {
+    Console.WriteLine("Alguna de las tablas Percepciones, OtrosPagos o Deducciones no existe. Se omiten reglas.");
+    return;
+    }
+
+    int pCount = percepcionesTable.Rows.Count;
+    int oCount = otrosPagosTable.Rows.Count;
+    int dCount = deduccionesTable.Rows.Count;
+
+    int maxCount = Math.Max(pCount, Math.Max(oCount, dCount));
+
+    if (pCount < maxCount)
+    AddEmptyRowsWithPk(percepcionesTable, maxCount - pCount, "PercepcionesId", 0);
+    if (oCount < maxCount)
+    AddEmptyRowsWithPk(otrosPagosTable, maxCount - oCount, "OtrosPagosId", 0);
+    if (dCount < maxCount)
+    AddEmptyRowsWithPk(deduccionesTable, maxCount - dCount, "DeduccionesId", 0);
+
+    Console.WriteLine("Reglas especiales para ReporteA3o aplicadas.");
+    }
+    catch (Exception ex)
+    {
+    Console.WriteLine($"Error en ApplyReporteA3oRules: {ex.Message}");
+    }
     }
 
     // Helper que agrega filas vacías con pk = parentId
     private void AddEmptyRowsWithPk(DataTable table, int count, string pkColumnName, int parentId)
     {
-        if (count <= 0) return;
+    if (count <= 0) return;
 
-        // Asegurar que la tabla tenga alguna columna para rellenar; si sólo tiene pk, crear columna "Empty"
-        if (table.Columns.Count == 0)
-            table.Columns.Add("Empty", typeof(string));
-        if (!table.Columns.Contains(pkColumnName))
-            table.Columns.Add(pkColumnName, typeof(int));
+    // Asegurar que la tabla tenga alguna columna para rellenar; si sólo tiene pk, crear columna "Empty"
+    if (table.Columns.Count == 0)
+    table.Columns.Add("Empty", typeof(string));
+    if (!table.Columns.Contains(pkColumnName))
+    table.Columns.Add(pkColumnName, typeof(int));
 
-        for (int i = 0; i < count; i++)
-        {
-            var row = table.NewRow();
-            foreach (DataColumn col in table.Columns)
-            {
-                if (col.ColumnName == pkColumnName) continue;
-                row[col.ColumnName] = ""; // vacío para todo
-            }
-            row[pkColumnName] = parentId;
-            table.Rows.Add(row);
-        }
+    for (int i = 0; i < count; i++)
+    {
+    var row = table.NewRow();
+    foreach (DataColumn col in table.Columns)
+    {
+    if (col.ColumnName == pkColumnName) continue;
+    row[col.ColumnName] = ""; // vacío para todo
+    }
+    row[pkColumnName] = parentId;
+    table.Rows.Add(row);
+    }
     }
     }
 }
