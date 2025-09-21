@@ -927,7 +927,6 @@
                   <ClientRectangle>9,0,9.8,1.2</ClientRectangle>
                   <Components isList="true" count="1">
                     <DataBand3 Ref="72" type="DataBand" isKey="true">
-                      <Border>None;Black;1;Solid;False;4;Black</Border>
                       <Brush>Transparent</Brush>
                       <BusinessObjectGuid isNull="true" />
                       <ClientRectangle>0,0.4,9.8,0.6</ClientRectangle>
@@ -2771,7 +2770,7 @@
   <ReportChanged>9/18/2025 5:17:47 PM</ReportChanged>
   <ReportCreated>7/15/2025 1:48:53 PM</ReportCreated>
   <ReportFile>C:\Users\FranciscoRamírezRamí\Downloads\nuevo\StimulsoftReport\Reports\ReporteResLugarTrabajo.mrt</ReportFile>
-  <ReportGuid>72fe0086660e44efb7a8ec305e8ad513</ReportGuid>
+  <ReportGuid>1aebd919710f4c3c89850d1f95bf925e</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.2.5.0</ReportVersion>
