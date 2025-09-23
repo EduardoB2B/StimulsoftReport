@@ -1129,7 +1129,7 @@
                       <Brush>Transparent</Brush>
                       <CanGrow>True</CanGrow>
                       <CanShrink>True</CanShrink>
-                      <ClientRectangle>0,3.9,20.6,1.9</ClientRectangle>
+                      <ClientRectangle>0,3.85,20.6,1.9</ClientRectangle>
                       <Components isList="true" count="2">
                         <DataBand24 Ref="83" type="DataBand" isKey="true">
                           <Brush>Transparent</Brush>
@@ -1450,7 +1450,7 @@
                                       <ClientRectangle>0,1.6,10.2,0.2</ClientRectangle>
                                       <Components isList="true" count="4">
                                         <Text68 Ref="106" type="Text" isKey="true">
-                                          <Border>Right, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Right, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -1465,7 +1465,7 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text68>
                                         <Text69 Ref="107" type="Text" isKey="true">
-                                          <Border>Left, Right, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Left, Right, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>1.6,0,1.8,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -1475,12 +1475,13 @@
                                           <Name>Text69</Name>
                                           <Page isRef="27" />
                                           <Parent isRef="105" />
-                                          <Text>{Percepciones.cantUnidadPercepcion}</Text>
+                                          <Text>{Trim(Percepciones.cantUnidadPercepcion) != "0" &amp;&amp; Trim(Percepciones.cantUnidadPercepcion) != "0.0" &amp;&amp; Trim(Percepciones.cantUnidadPercepcion) != "0.00" ? Trim(Percepciones.cantUnidadPercepcion) : ""}</Text>
                                           <TextBrush>Black</TextBrush>
+                                          <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text69>
                                         <Text70 Ref="108" type="Text" isKey="true">
-                                          <Border>Left, Right, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Left, Right, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>3.4,0,5.2,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -1495,7 +1496,7 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text70>
                                         <Text71 Ref="109" type="Text" isKey="true">
-                                          <Border>Left, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Left, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>8.6,0,1.6,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -1527,7 +1528,7 @@
                                       <ClientRectangle>0,2.6,10.2,0.4</ClientRectangle>
                                       <Components isList="true" count="2">
                                         <Text7 Ref="111" type="Text" isKey="true">
-                                          <Border>Bottom;[255:255:255];3;Solid;False;4;Black</Border>
+                                          <Border>Top;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <CanGrow>True</CanGrow>
                                           <ClientRectangle>0,0,10.2,0.4</ClientRectangle>
@@ -1545,6 +1546,7 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text7>
                                         <Text74 Ref="112" type="Text" isKey="true">
+                                          <Border>Top;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>8.6,0,1.6,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -1636,7 +1638,7 @@
                                       <ClientRectangle>0,5,10.2,0.2</ClientRectangle>
                                       <Components isList="true" count="4">
                                         <Text72 Ref="118" type="Text" isKey="true">
-                                          <Border>Right, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Right, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -1667,7 +1669,7 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text73>
                                         <Text76 Ref="120" type="Text" isKey="true">
-                                          <Border>Left, Right, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Left, Right, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>3.4,0,5.2,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -1682,7 +1684,7 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text76>
                                         <Text77 Ref="121" type="Text" isKey="true">
-                                          <Border>Left, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Left, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>8.6,0,1.6,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -1716,7 +1718,7 @@
                                       <ClientRectangle>0,6,10.2,0.4</ClientRectangle>
                                       <Components isList="true" count="3">
                                         <Text24 Ref="123" type="Text" isKey="true">
-                                          <Border>Bottom;[255:255:255];3;Solid;False;4;Black</Border>
+                                          <Border>Top;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <CanGrow>True</CanGrow>
                                           <ClientRectangle>0,0,10.2,0.4</ClientRectangle>
@@ -1734,6 +1736,7 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text24>
                                         <Text25 Ref="124" type="Text" isKey="true">
+                                          <Border>Top;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>8.6,0,1.6,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -1758,8 +1761,9 @@
                                               <ClientRectangle>0,0.4,20.6,2</ClientRectangle>
                                               <Components isList="true" count="13">
                                                 <Text99 Ref="127" type="Text" isKey="true">
+                                                  <Border>Top;[242:242:242];1;Solid;False;4;Black</Border>
                                                   <Brush>Transparent</Brush>
-                                                  <ClientRectangle>1.2,1.6,2.6,0.4</ClientRectangle>
+                                                  <ClientRectangle>1.2,1.6,3.4,0.4</ClientRectangle>
                                                   <Conditions isList="true" count="0" />
                                                   <Expressions isList="true" count="0" />
                                                   <Font>Arial Narrow,8,Bold</Font>
@@ -1772,10 +1776,10 @@
                                                 </Text99>
                                                 <Text104 Ref="128" type="Text" isKey="true">
                                                   <Brush>Transparent</Brush>
-                                                  <ClientRectangle>4.2,1.6,2.8,0.4</ClientRectangle>
+                                                  <ClientRectangle>4.6,1.6,2.8,0.4</ClientRectangle>
                                                   <Conditions isList="true" count="0" />
                                                   <Expressions isList="true" count="0" />
-                                                  <Font>Arial Narrow,6</Font>
+                                                  <Font>Arial Narrow,7</Font>
                                                   <HorAlignment>Right</HorAlignment>
                                                   <Name>Text104</Name>
                                                   <Page isRef="27" />
@@ -1801,10 +1805,10 @@
                                                 <Text103 Ref="130" type="Text" isKey="true">
                                                   <Border>AdvBlack;1;None;[242:242:242];1;Solid;Black;1;None;Black;1;None;False;4;Black</Border>
                                                   <Brush>Transparent</Brush>
-                                                  <ClientRectangle>4.2,1.2,2.8,0.4</ClientRectangle>
+                                                  <ClientRectangle>4.6,1.2,2.8,0.4</ClientRectangle>
                                                   <Conditions isList="true" count="0" />
                                                   <Expressions isList="true" count="0" />
-                                                  <Font>Arial Narrow,6</Font>
+                                                  <Font>Arial Narrow,7</Font>
                                                   <HorAlignment>Right</HorAlignment>
                                                   <Name>Text103</Name>
                                                   <Page isRef="27" />
@@ -1828,10 +1832,10 @@
                                                 </Text97>
                                                 <Text102 Ref="132" type="Text" isKey="true">
                                                   <Brush>Transparent</Brush>
-                                                  <ClientRectangle>4.2,0.8,2.8,0.4</ClientRectangle>
+                                                  <ClientRectangle>4.6,0.8,2.8,0.4</ClientRectangle>
                                                   <Conditions isList="true" count="0" />
                                                   <Expressions isList="true" count="0" />
-                                                  <Font>Arial Narrow,6</Font>
+                                                  <Font>Arial Narrow,7</Font>
                                                   <HorAlignment>Right</HorAlignment>
                                                   <Name>Text102</Name>
                                                   <Page isRef="27" />
@@ -1842,10 +1846,10 @@
                                                 </Text102>
                                                 <Text105 Ref="133" type="Text" isKey="true">
                                                   <Brush>Transparent</Brush>
-                                                  <ClientRectangle>7.4,0.8,3.4,0.4</ClientRectangle>
+                                                  <ClientRectangle>8.4,0.8,3.4,0.4</ClientRectangle>
                                                   <Conditions isList="true" count="0" />
                                                   <Expressions isList="true" count="0" />
-                                                  <Font>Arial Narrow,8</Font>
+                                                  <Font>Arial Narrow,7</Font>
                                                   <Name>Text105</Name>
                                                   <Page isRef="27" />
                                                   <Parent isRef="126" />
@@ -1869,10 +1873,10 @@
                                                 </Text96>
                                                 <Text101 Ref="135" type="Text" isKey="true">
                                                   <Brush>Transparent</Brush>
-                                                  <ClientRectangle>4.2,0.4,2.8,0.4</ClientRectangle>
+                                                  <ClientRectangle>4.6,0.4,2.8,0.4</ClientRectangle>
                                                   <Conditions isList="true" count="0" />
                                                   <Expressions isList="true" count="0" />
-                                                  <Font>Arial Narrow,6</Font>
+                                                  <Font>Arial Narrow,7</Font>
                                                   <HorAlignment>Right</HorAlignment>
                                                   <Name>Text101</Name>
                                                   <Page isRef="27" />
@@ -1896,10 +1900,10 @@
                                                 </Text95>
                                                 <Text100 Ref="137" type="Text" isKey="true">
                                                   <Brush>Transparent</Brush>
-                                                  <ClientRectangle>4.2,0,2.8,0.4</ClientRectangle>
+                                                  <ClientRectangle>4.6,0,2.8,0.4</ClientRectangle>
                                                   <Conditions isList="true" count="0" />
                                                   <Expressions isList="true" count="0" />
-                                                  <Font>Arial Narrow,6</Font>
+                                                  <Font>Arial Narrow,7</Font>
                                                   <HorAlignment>Right</HorAlignment>
                                                   <Name>Text100</Name>
                                                   <Page isRef="27" />
@@ -1910,10 +1914,10 @@
                                                 </Text100>
                                                 <Text106 Ref="138" type="Text" isKey="true">
                                                   <Brush>Transparent</Brush>
-                                                  <ClientRectangle>11.4,0.8,6,0.4</ClientRectangle>
+                                                  <ClientRectangle>12,0.8,6,0.4</ClientRectangle>
                                                   <Conditions isList="true" count="0" />
                                                   <Expressions isList="true" count="0" />
-                                                  <Font>Arial Narrow,8</Font>
+                                                  <Font>Arial Narrow,7</Font>
                                                   <Name>Text106</Name>
                                                   <Page isRef="27" />
                                                   <Parent isRef="126" />
@@ -1925,12 +1929,12 @@
                                                 <Panel5 Ref="139" type="Panel" isKey="true">
                                                   <Brush>Transparent</Brush>
                                                   <CanBreak>True</CanBreak>
-                                                  <ClientRectangle>0,2,20.6,7.6</ClientRectangle>
+                                                  <ClientRectangle>0,2,20.6,8.4</ClientRectangle>
                                                   <Components isList="true" count="2">
                                                     <DataBand8 Ref="140" type="DataBand" isKey="true">
                                                       <Brush>Transparent</Brush>
                                                       <BusinessObjectGuid isNull="true" />
-                                                      <ClientRectangle>0,0.4,20.6,2.6</ClientRectangle>
+                                                      <ClientRectangle>0,0.4,20.6,3.4</ClientRectangle>
                                                       <Components isList="true" count="23">
                                                         <Text107 Ref="141" type="Text" isKey="true">
                                                           <Brush>[165:165:165]</Brush>
@@ -2269,14 +2273,14 @@
                                                     <DataBand9 Ref="164" type="DataBand" isKey="true">
                                                       <Brush>Transparent</Brush>
                                                       <BusinessObjectGuid isNull="true" />
-                                                      <ClientRectangle>0,3.8,20.6,4</ClientRectangle>
+                                                      <ClientRectangle>0,4.6,20.6,4</ClientRectangle>
                                                       <Components isList="true" count="10">
                                                         <Text127 Ref="165" type="Text" isKey="true">
                                                           <Brush>Transparent</Brush>
-                                                          <ClientRectangle>5.6,0.4,2.2,0.4</ClientRectangle>
+                                                          <ClientRectangle>4.6,0.4,2.2,0.2</ClientRectangle>
                                                           <Conditions isList="true" count="0" />
                                                           <Expressions isList="true" count="0" />
-                                                          <Font>Arial Narrow,6</Font>
+                                                          <Font>Arial Narrow,5</Font>
                                                           <Name>Text127</Name>
                                                           <Page isRef="27" />
                                                           <Parent isRef="164" />
@@ -2286,10 +2290,10 @@
                                                         </Text127>
                                                         <Text48 Ref="166" type="Text" isKey="true">
                                                           <Brush>Transparent</Brush>
-                                                          <ClientRectangle>5.6,1.6,2.2,0.4</ClientRectangle>
+                                                          <ClientRectangle>4.6,1.2,2.2,0.2</ClientRectangle>
                                                           <Conditions isList="true" count="0" />
                                                           <Expressions isList="true" count="0" />
-                                                          <Font>Arial Narrow,6</Font>
+                                                          <Font>Arial Narrow,5</Font>
                                                           <Name>Text48</Name>
                                                           <Page isRef="27" />
                                                           <Parent isRef="164" />
@@ -2299,10 +2303,10 @@
                                                         </Text48>
                                                         <Text49 Ref="167" type="Text" isKey="true">
                                                           <Brush>Transparent</Brush>
-                                                          <ClientRectangle>5.6,2.6,6.8,0.4</ClientRectangle>
+                                                          <ClientRectangle>4.6,2,6.8,0.2</ClientRectangle>
                                                           <Conditions isList="true" count="0" />
                                                           <Expressions isList="true" count="0" />
-                                                          <Font>Arial Narrow,6</Font>
+                                                          <Font>Arial Narrow,5</Font>
                                                           <Name>Text49</Name>
                                                           <Page isRef="27" />
                                                           <Parent isRef="164" />
@@ -2312,7 +2316,7 @@
                                                         </Text49>
                                                         <Text130 Ref="168" type="Text" isKey="true">
                                                           <Brush>Transparent</Brush>
-                                                          <ClientRectangle>5.6,0.8,10,0.8</ClientRectangle>
+                                                          <ClientRectangle>4.6,0.6,12,0.6</ClientRectangle>
                                                           <Conditions isList="true" count="0" />
                                                           <Expressions isList="true" count="0" />
                                                           <Font>Arial Narrow,4</Font>
@@ -2326,7 +2330,7 @@
                                                         </Text130>
                                                         <Text50 Ref="169" type="Text" isKey="true">
                                                           <Brush>Transparent</Brush>
-                                                          <ClientRectangle>5.6,2,10,0.6</ClientRectangle>
+                                                          <ClientRectangle>4.6,1.4,12,0.6</ClientRectangle>
                                                           <Conditions isList="true" count="0" />
                                                           <Expressions isList="true" count="0" />
                                                           <Font>Arial Narrow,4</Font>
@@ -2341,7 +2345,7 @@
                                                         <Shape1 Ref="170" type="Shape" isKey="true">
                                                           <BorderColor>242, 242, 242</BorderColor>
                                                           <Brush>Transparent</Brush>
-                                                          <ClientRectangle>16.2,0.6,3.6,1</ClientRectangle>
+                                                          <ClientRectangle>16.6,0.6,3.6,1</ClientRectangle>
                                                           <Conditions isList="true" count="0" />
                                                           <Expressions isList="true" count="0" />
                                                           <Font>Arial,6,Bold</Font>
@@ -2354,7 +2358,7 @@
                                                         </Shape1>
                                                         <Text51 Ref="172" type="Text" isKey="true">
                                                           <Brush>Transparent</Brush>
-                                                          <ClientRectangle>16.2,1.6,3.6,1</ClientRectangle>
+                                                          <ClientRectangle>16.6,1.6,3.6,1</ClientRectangle>
                                                           <Conditions isList="true" count="0" />
                                                           <Expressions isList="true" count="0" />
                                                           <Font>Arial Narrow,6,Bold</Font>
@@ -2384,7 +2388,7 @@
                                                         </Image1>
                                                         <Text52 Ref="174" type="Text" isKey="true">
                                                           <Brush>Transparent</Brush>
-                                                          <ClientRectangle>16.6,1.2,2.8,0.4</ClientRectangle>
+                                                          <ClientRectangle>17,1.2,2.8,0.4</ClientRectangle>
                                                           <Conditions isList="true" count="0" />
                                                           <Expressions isList="true" count="0" />
                                                           <Font>Arial Narrow,8,Bold</Font>
@@ -2397,17 +2401,17 @@
                                                         </Text52>
                                                         <Text132 Ref="175" type="Text" isKey="true">
                                                           <Brush>Transparent</Brush>
-                                                          <ClientRectangle>5.6,3,10,0.6</ClientRectangle>
+                                                          <ClientRectangle>4.6,2.2,12,0.6</ClientRectangle>
                                                           <Conditions isList="true" count="0" />
                                                           <Expressions isList="true" count="0" />
                                                           <Font>Arial Narrow,4</Font>
                                                           <Name>Text132</Name>
                                                           <Page isRef="27" />
                                                           <Parent isRef="164" />
-                                                          <Text>{Firma.Cadena1}</Text>
+                                                          <Text>{Firma.Cadena1} {Firma.Cadena2} {Firma.Cadena3} {Firma.Cadena4}</Text>
                                                           <TextBrush>Black</TextBrush>
                                                           <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-                                                          <Type>DataColumn</Type>
+                                                          <Type>Expression</Type>
                                                         </Text132>
                                                       </Components>
                                                       <Conditions isList="true" count="0" />
@@ -2540,7 +2544,7 @@
                                       <ClientRectangle>0,1.6,10.2,0.2</ClientRectangle>
                                       <Components isList="true" count="4">
                                         <Text11 Ref="182" type="Text" isKey="true">
-                                          <Border>Right, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Right, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -2556,7 +2560,7 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text11>
                                         <Text12 Ref="183" type="Text" isKey="true">
-                                          <Border>Left, Right, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Left, Right, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>1.6,0,1.8,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -2566,13 +2570,13 @@
                                           <Name>Text12</Name>
                                           <Page isRef="27" />
                                           <Parent isRef="181" />
-                                          <Text>{Deducciones.cantUnidadDeduccion}</Text>
+                                          <Text>{Trim(Deducciones.cantUnidadDeduccion) != "0" &amp;&amp; Trim(Deducciones.cantUnidadDeduccion) != "0.0" &amp;&amp; Trim(Deducciones.cantUnidadDeduccion) != "0.00" ? Trim(Deducciones.cantUnidadDeduccion) : ""}</Text>
                                           <TextBrush>Black</TextBrush>
-                                          <Type>DataColumn</Type>
+                                          <Type>Expression</Type>
                                           <VertAlignment>Center</VertAlignment>
                                         </Text12>
                                         <Text13 Ref="184" type="Text" isKey="true">
-                                          <Border>Left, Right, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Left, Right, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>3.4,0,5.2,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -2587,7 +2591,7 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text13>
                                         <Text14 Ref="185" type="Text" isKey="true">
-                                          <Border>Left, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Left, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>8.6,0,1.6,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -2620,7 +2624,7 @@
                                       <ClientRectangle>0,2.6,10.2,0.4</ClientRectangle>
                                       <Components isList="true" count="2">
                                         <Text15 Ref="187" type="Text" isKey="true">
-                                          <Border>Bottom;[255:255:255];3;Solid;False;4;Black</Border>
+                                          <Border>Top;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <CanGrow>True</CanGrow>
                                           <ClientRectangle>0,0,10,0.4</ClientRectangle>
@@ -2638,11 +2642,12 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text15>
                                         <Text16 Ref="188" type="Text" isKey="true">
+                                          <Border>Top;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>8.6,0,1.6,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
                                           <Expressions isList="true" count="0" />
-                                          <Font>Arial Narrow,7</Font>
+                                          <Font>Arial Narrow,8</Font>
                                           <HorAlignment>Right</HorAlignment>
                                           <Name>Text16</Name>
                                           <Page isRef="27" />
@@ -2729,7 +2734,7 @@
                                       <ClientRectangle>0,5,10.2,0.2</ClientRectangle>
                                       <Components isList="true" count="4">
                                         <Text20 Ref="194" type="Text" isKey="true">
-                                          <Border>Right, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Right, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -2760,7 +2765,7 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text21>
                                         <Text22 Ref="196" type="Text" isKey="true">
-                                          <Border>Left, Right, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Left, Right, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>3.4,0,5.2,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -2775,7 +2780,7 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text22>
                                         <Text23 Ref="197" type="Text" isKey="true">
-                                          <Border>Left, Bottom;[255:255:255];1;Solid;False;4;Black</Border>
+                                          <Border>Left, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>8.6,0,1.6,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -2809,7 +2814,7 @@
                                       <ClientRectangle>0,6,10.2,0.4</ClientRectangle>
                                       <Components isList="true" count="2">
                                         <Text81 Ref="199" type="Text" isKey="true">
-                                          <Border>Bottom;[255:255:255];3;Solid;False;4;Black</Border>
+                                          <Border>Top;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <CanGrow>True</CanGrow>
                                           <ClientRectangle>0,0,10,0.4</ClientRectangle>
@@ -2827,6 +2832,7 @@
                                           <VertAlignment>Center</VertAlignment>
                                         </Text81>
                                         <Text82 Ref="200" type="Text" isKey="true">
+                                          <Border>Top;[255:255:255];0.5;Solid;False;4;Black</Border>
                                           <Brush>[242:242:242]</Brush>
                                           <ClientRectangle>8.6,0,1.6,0.4</ClientRectangle>
                                           <Conditions isList="true" count="0" />
@@ -2942,10 +2948,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/22/2025 10:08:50 PM</ReportChanged>
+  <ReportChanged>9/23/2025 2:11:59 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdi.mrt</ReportFile>
-  <ReportGuid>ae0466e799c24d788277fb3cb5fea666</ReportGuid>
+  <ReportGuid>b291e7b9d9ce4fe7880369e37e0c399c</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
