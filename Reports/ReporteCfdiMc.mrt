@@ -941,21 +941,20 @@
                                   <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
                                   <Sort isList="true" count="0" />
                                 </BandPercepciones>
-                                <FBPercepciones Ref="69" type="FooterBand" isKey="true">
+                                <DataBand16 Ref="69" type="DataBand" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <CanBreak>True</CanBreak>
                                   <ClientRectangle>0,2.8,7,0.2</ClientRectangle>
                                   <Components isList="true" count="2">
-                                    <Text74 Ref="70" type="Text" isKey="true">
+                                    <Text7 Ref="70" type="Text" isKey="true">
                                       <Border>None;[255:255:255];1;Solid;False;4;Black</Border>
                                       <Brush>[242:242:242]</Brush>
                                       <CanGrow>True</CanGrow>
-                                      <ClientRectangle>0,0,6.8,0.4</ClientRectangle>
+                                      <ClientRectangle>0,0,7,0.4</ClientRectangle>
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5,Bold</Font>
                                       <HorAlignment>Center</HorAlignment>
-                                      <Name>Text74</Name>
+                                      <Name>Text7</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="69" />
                                       <ShiftMode>None</ShiftMode>
@@ -963,30 +962,36 @@
                                       <TextBrush>[0:0:0]</TextBrush>
                                       <Type>Expression</Type>
                                       <VertAlignment>Center</VertAlignment>
-                                    </Text74>
-                                    <Text7 Ref="71" type="Text" isKey="true">
+                                    </Text7>
+                                    <Text74 Ref="71" type="Text" isKey="true">
                                       <Brush>[242:242:242]</Brush>
+                                      <CanGrow>True</CanGrow>
                                       <ClientRectangle>5.4,0,1.6,0.4</ClientRectangle>
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
                                       <HorAlignment>Center</HorAlignment>
-                                      <Name>Text7</Name>
+                                      <Name>Text74</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="69" />
-                                      <Text>{Sum(BandPercepciones,Percepciones.ImportePLetra)}</Text>
+                                      <ShiftMode>None</ShiftMode>
+                                      <Text>{TotalPercepciones.importeTotal}</Text>
                                       <TextBrush>Black</TextBrush>
-                                      <Type>Totals</Type>
+                                      <Type>DataColumn</Type>
                                       <VertAlignment>Center</VertAlignment>
-                                    </Text7>
+                                    </Text74>
                                   </Components>
                                   <Conditions isList="true" count="0" />
+                                  <DataRelationName>Rel_TotPerce</DataRelationName>
+                                  <DataSourceName>TotalPercepciones</DataSourceName>
                                   <Expressions isList="true" count="0" />
-                                  <Name>FBPercepciones</Name>
+                                  <Filters isList="true" count="0" />
+                                  <MasterComponent isRef="32" />
+                                  <Name>DataBand16</Name>
                                   <Page isRef="29" />
                                   <Parent isRef="59" />
-                                  <PrintIfEmpty>True</PrintIfEmpty>
-                                </FBPercepciones>
+                                  <Sort isList="true" count="0" />
+                                </DataBand16>
                                 <HBSubsidio Ref="72" type="HeaderBand" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <ClientRectangle>0,3.8,7,0.6</ClientRectangle>
@@ -1041,6 +1046,7 @@
                                   <Name>HBSubsidio</Name>
                                   <Page isRef="29" />
                                   <Parent isRef="59" />
+                                  <PrintIfEmpty>True</PrintIfEmpty>
                                 </HBSubsidio>
                                 <BandSubsidio Ref="76" type="DataBand" isKey="true">
                                   <Brush>Transparent</Brush>
@@ -1123,7 +1129,7 @@
                                   <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
                                   <Sort isList="true" count="0" />
                                 </BandSubsidio>
-                                <FBSubsidio Ref="81" type="FooterBand" isKey="true">
+                                <DataBand17 Ref="81" type="DataBand" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <ClientRectangle>0,6.2,7,0.2</ClientRectangle>
                                   <Components isList="true" count="2">
@@ -1131,7 +1137,7 @@
                                       <Border>None;[255:255:255];1;Solid;False;4;Black</Border>
                                       <Brush>[242:242:242]</Brush>
                                       <CanGrow>True</CanGrow>
-                                      <ClientRectangle>0,0,6.8,0.4</ClientRectangle>
+                                      <ClientRectangle>0,0,7,0.4</ClientRectangle>
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5,Bold</Font>
@@ -1155,18 +1161,23 @@
                                       <Name>Text128</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="81" />
-                                      <Text>{Sum(BandSubsidio,Subsidio.importeSubLetra)}</Text>
+                                      <Text>{TotalSubsidio.importeTotSubLetra}</Text>
                                       <TextBrush>Black</TextBrush>
-                                      <Type>Totals</Type>
+                                      <Type>DataColumn</Type>
                                       <VertAlignment>Center</VertAlignment>
                                     </Text128>
                                   </Components>
                                   <Conditions isList="true" count="0" />
+                                  <DataRelationName>Rel_TotSubs</DataRelationName>
+                                  <DataSourceName>TotalSubsidio</DataSourceName>
                                   <Expressions isList="true" count="0" />
-                                  <Name>FBSubsidio</Name>
+                                  <Filters isList="true" count="0" />
+                                  <MasterComponent isRef="32" />
+                                  <Name>DataBand17</Name>
                                   <Page isRef="29" />
                                   <Parent isRef="59" />
-                                </FBSubsidio>
+                                  <Sort isList="true" count="0" />
+                                </DataBand17>
                               </Components>
                               <Conditions isList="true" count="0" />
                               <Expressions isList="true" count="0" />
@@ -1320,16 +1331,15 @@
                                   <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
                                   <Sort isList="true" count="0" />
                                 </BandDeducciones>
-                                <FBDed Ref="94" type="FooterBand" isKey="true">
+                                <DataBand18 Ref="94" type="DataBand" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <CanBreak>True</CanBreak>
                                   <ClientRectangle>0,2.8,7.2,0.2</ClientRectangle>
                                   <Components isList="true" count="2">
                                     <Text129 Ref="95" type="Text" isKey="true">
                                       <Border>None;[255:255:255];1;Solid;False;4;Black</Border>
                                       <Brush>[242:242:242]</Brush>
                                       <CanGrow>True</CanGrow>
-                                      <ClientRectangle>0,0,6.8,0.4</ClientRectangle>
+                                      <ClientRectangle>0,0,7.2,0.4</ClientRectangle>
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5,Bold</Font>
@@ -1355,19 +1365,23 @@
                                       <Page isRef="29" />
                                       <Parent isRef="94" />
                                       <ShiftMode>None</ShiftMode>
-                                      <Text>{Sum(BandDeducciones,Deducciones.ImporteDLetra)}</Text>
+                                      <Text>{TotalDeducciones.importeTotalDed}</Text>
                                       <TextBrush>Black</TextBrush>
-                                      <Type>Totals</Type>
+                                      <Type>DataColumn</Type>
                                       <VertAlignment>Center</VertAlignment>
                                     </Text8>
                                   </Components>
                                   <Conditions isList="true" count="0" />
+                                  <DataRelationName>Rel_TotDeduc</DataRelationName>
+                                  <DataSourceName>TotalDeducciones</DataSourceName>
                                   <Expressions isList="true" count="0" />
-                                  <Name>FBDed</Name>
+                                  <Filters isList="true" count="0" />
+                                  <MasterComponent isRef="32" />
+                                  <Name>DataBand18</Name>
                                   <Page isRef="29" />
                                   <Parent isRef="84" />
-                                  <PrintIfEmpty>True</PrintIfEmpty>
-                                </FBDed>
+                                  <Sort isList="true" count="0" />
+                                </DataBand18>
                               </Components>
                               <Conditions isList="true" count="0" />
                               <Expressions isList="true" count="0" />
@@ -1519,9 +1533,8 @@
                                   <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
                                   <Sort isList="true" count="0" />
                                 </BandOtrosPagos>
-                                <FBOtros Ref="107" type="FooterBand" isKey="true">
+                                <DataBand19 Ref="107" type="DataBand" isKey="true">
                                   <Brush>Transparent</Brush>
-                                  <CanBreak>True</CanBreak>
                                   <ClientRectangle>0,2.8,6.8,0.2</ClientRectangle>
                                   <Components isList="true" count="2">
                                     <Text25 Ref="108" type="Text" isKey="true">
@@ -1552,19 +1565,23 @@
                                       <Name>Text26</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="107" />
-                                      <Text>{Sum(BandOtrosPagos,OtrosPagos.importeOLetra)}</Text>
+                                      <Text>{TotalOtrosPagos.importetotalO}</Text>
                                       <TextBrush>Black</TextBrush>
-                                      <Type>Totals</Type>
+                                      <Type>DataColumn</Type>
                                       <VertAlignment>Center</VertAlignment>
                                     </Text26>
                                   </Components>
                                   <Conditions isList="true" count="0" />
+                                  <DataRelationName>Rel_TotOtrosP</DataRelationName>
+                                  <DataSourceName>TotalOtrosPagos</DataSourceName>
                                   <Expressions isList="true" count="0" />
-                                  <Name>FBOtros</Name>
+                                  <Filters isList="true" count="0" />
+                                  <MasterComponent isRef="32" />
+                                  <Name>DataBand19</Name>
                                   <Page isRef="29" />
                                   <Parent isRef="97" />
-                                  <PrintIfEmpty>True</PrintIfEmpty>
-                                </FBOtros>
+                                  <Sort isList="true" count="0" />
+                                </DataBand19>
                                 <DataBand7 Ref="110" type="DataBand" isKey="true">
                                   <Brush>Transparent</Brush>
                                   <BusinessObjectGuid isNull="true" />
@@ -1705,7 +1722,7 @@
                                     <Shape2 Ref="121" type="Shape" isKey="true">
                                       <BorderColor>242, 242, 242</BorderColor>
                                       <Brush>Transparent</Brush>
-                                      <ClientRectangle>3,1,3.8,0.4</ClientRectangle>
+                                      <ClientRectangle>2.8,1,4,0.4</ClientRectangle>
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial,8</Font>
@@ -2939,10 +2956,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/27/2025 3:34:16 PM</ReportChanged>
+  <ReportChanged>9/28/2025 6:19:54 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdiMc.mrt</ReportFile>
-  <ReportGuid>9921e236da7e49eeb959dc26733883fa</ReportGuid>
+  <ReportGuid>3cb6a295ad43447ba67d3952bc661632</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
