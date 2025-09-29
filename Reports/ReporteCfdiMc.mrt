@@ -2563,7 +2563,7 @@
                             </Text191>
                             <Text3 Ref="181" type="Text" isKey="true">
                               <Brush>Transparent</Brush>
-                              <ClientRectangle>0.4,2,2.8,0.4</ClientRectangle>
+                              <ClientRectangle>0.8,2,2.8,0.4</ClientRectangle>
                               <Conditions isList="true" count="0" />
                               <Expressions isList="true" count="0" />
                               <Font>Arial Narrow,6</Font>
@@ -2961,10 +2961,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/28/2025 6:50:28 PM</ReportChanged>
+  <ReportChanged>9/28/2025 7:52:43 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdiMc.mrt</ReportFile>
-  <ReportGuid>2e9eb565003a49f49605d6c6ea4e274e</ReportGuid>
+  <ReportGuid>1db33271e948480f81ae511baf619e59</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
