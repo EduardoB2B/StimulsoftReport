@@ -920,7 +920,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
-                                      <HorAlignment>Center</HorAlignment>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text71</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="64" />
@@ -972,7 +972,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
-                                      <HorAlignment>Center</HorAlignment>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text74</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="69" />
@@ -1109,7 +1109,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
-                                      <HorAlignment>Center</HorAlignment>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text93</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="76" />
@@ -1160,7 +1160,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
-                                      <HorAlignment>Center</HorAlignment>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text128</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="81" />
@@ -1286,9 +1286,9 @@
                                       <Name>Text134</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="89" />
-                                      <Text>{Deducciones.cantUnidadDeduccion}</Text>
+                                      <Text>{Trim(Deducciones.cantUnidadDeduccion) != "0" &amp;&amp; Trim(Deducciones.cantUnidadDeduccion) != "0.0" &amp;&amp; Trim(Deducciones.cantUnidadDeduccion) != "0.00" ? Trim(Deducciones.cantUnidadDeduccion) : ""}</Text>
                                       <TextBrush>Black</TextBrush>
-                                      <Type>DataColumn</Type>
+                                      <Type>Expression</Type>
                                       <VertAlignment>Center</VertAlignment>
                                     </Text134>
                                     <Text143 Ref="92" type="Text" isKey="true">
@@ -1312,7 +1312,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
-                                      <HorAlignment>Center</HorAlignment>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text146</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="89" />
@@ -1364,7 +1364,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
-                                      <HorAlignment>Center</HorAlignment>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text8</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="94" />
@@ -1499,7 +1499,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
-                                      <HorAlignment>Center</HorAlignment>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text24</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="102" />
@@ -1519,9 +1519,8 @@
                                       <Name>Text17</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="102" />
-                                      <Text>{Deducciones.cantUnidadDeduccion}</Text>
                                       <TextBrush>Black</TextBrush>
-                                      <Type>DataColumn</Type>
+                                      <Type>Expression</Type>
                                       <VertAlignment>Center</VertAlignment>
                                     </Text17>
                                   </Components>
@@ -1566,7 +1565,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
-                                      <HorAlignment>Center</HorAlignment>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text26</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="107" />
@@ -1613,6 +1612,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,6</Font>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text104</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="110" />
@@ -1639,6 +1639,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text103</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="110" />
@@ -1665,6 +1666,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text102</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="110" />
@@ -1691,6 +1693,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text101</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="110" />
@@ -1717,6 +1720,7 @@
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial Narrow,5</Font>
+                                      <HorAlignment>Right</HorAlignment>
                                       <Name>Text100</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="110" />
@@ -1730,7 +1734,7 @@
                                       <ClientRectangle>2.8,1,4,0.4</ClientRectangle>
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
-                                      <Font>Arial,8</Font>
+                                      <Font>Arial Narrow,8</Font>
                                       <Name>Shape2</Name>
                                       <Page isRef="29" />
                                       <Parent isRef="110" />
@@ -2194,7 +2198,7 @@
                                     </Text49>
                                     <Text130 Ref="155" type="Text" isKey="true">
                                       <Brush>Transparent</Brush>
-                                      <ClientRectangle>4.4,0.6,12.6,0.8</ClientRectangle>
+                                      <ClientRectangle>4.4,0.6,13.2,0.8</ClientRectangle>
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial,4</Font>
@@ -2208,7 +2212,7 @@
                                     </Text130>
                                     <Text50 Ref="156" type="Text" isKey="true">
                                       <Brush>Transparent</Brush>
-                                      <ClientRectangle>4.4,1.6,12.6,0.6</ClientRectangle>
+                                      <ClientRectangle>4.4,1.6,13.2,0.6</ClientRectangle>
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial,4</Font>
@@ -2252,7 +2256,7 @@
                                     </Image1>
                                     <Text132 Ref="159" type="Text" isKey="true">
                                       <Brush>Transparent</Brush>
-                                      <ClientRectangle>4.4,2.4,12.6,0.8</ClientRectangle>
+                                      <ClientRectangle>4.4,2.4,13.2,0.8</ClientRectangle>
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial,4</Font>
@@ -2804,7 +2808,7 @@
                               <Name>Text192</Name>
                               <Page isRef="29" />
                               <Parent isRef="193" />
-                              <Text>{Colaborador.CPFecPag}</Text>
+                              <Text>{DateTime.Parse(Colaborador.CPFecPag).ToString("dd/MM/yyyy")}</Text>
                               <TextBrush>Black</TextBrush>
                               <Type>Expression</Type>
                               <VertAlignment>Center</VertAlignment>
@@ -2961,10 +2965,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/28/2025 7:52:43 PM</ReportChanged>
+  <ReportChanged>9/29/2025 9:30:52 AM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdiMc.mrt</ReportFile>
-  <ReportGuid>1db33271e948480f81ae511baf619e59</ReportGuid>
+  <ReportGuid>cb54b4b1eee340169c68fa2b901bec00</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
