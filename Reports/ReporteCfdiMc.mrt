@@ -943,6 +943,7 @@
                                 </BandPercepciones>
                                 <DataBand16 Ref="69" type="DataBand" isKey="true">
                                   <Brush>Transparent</Brush>
+                                  <BusinessObjectGuid isNull="true" />
                                   <ClientRectangle>0,2.8,7,0.2</ClientRectangle>
                                   <Components isList="true" count="2">
                                     <Text7 Ref="70" type="Text" isKey="true">
@@ -1131,6 +1132,7 @@
                                 </BandSubsidio>
                                 <DataBand17 Ref="81" type="DataBand" isKey="true">
                                   <Brush>Transparent</Brush>
+                                  <BusinessObjectGuid isNull="true" />
                                   <ClientRectangle>0,6.2,7,0.2</ClientRectangle>
                                   <Components isList="true" count="2">
                                     <Text94 Ref="82" type="Text" isKey="true">
@@ -1333,6 +1335,7 @@
                                 </BandDeducciones>
                                 <DataBand18 Ref="94" type="DataBand" isKey="true">
                                   <Brush>Transparent</Brush>
+                                  <BusinessObjectGuid isNull="true" />
                                   <ClientRectangle>0,2.8,7.2,0.2</ClientRectangle>
                                   <Components isList="true" count="2">
                                     <Text129 Ref="95" type="Text" isKey="true">
@@ -1535,6 +1538,7 @@
                                 </BandOtrosPagos>
                                 <DataBand19 Ref="107" type="DataBand" isKey="true">
                                   <Brush>Transparent</Brush>
+                                  <BusinessObjectGuid isNull="true" />
                                   <ClientRectangle>0,2.8,6.8,0.2</ClientRectangle>
                                   <Components isList="true" count="2">
                                     <Text25 Ref="108" type="Text" isKey="true">
@@ -2247,7 +2251,7 @@
                                     </Image1>
                                     <Text132 Ref="159" type="Text" isKey="true">
                                       <Brush>Transparent</Brush>
-                                      <ClientRectangle>4.4,2.4,12.6,0.6</ClientRectangle>
+                                      <ClientRectangle>4.4,2.4,12.6,0.8</ClientRectangle>
                                       <Conditions isList="true" count="0" />
                                       <Expressions isList="true" count="0" />
                                       <Font>Arial,4</Font>
@@ -2956,10 +2960,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/28/2025 6:19:54 PM</ReportChanged>
+  <ReportChanged>9/28/2025 6:26:48 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdiMc.mrt</ReportFile>
-  <ReportGuid>3cb6a295ad43447ba67d3952bc661632</ReportGuid>
+  <ReportGuid>6ea10e2a2d12433fbd5d3c71e216a5dc</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
