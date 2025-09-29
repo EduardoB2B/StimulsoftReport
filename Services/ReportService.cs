@@ -96,40 +96,6 @@ namespace StimulsoftReport.Services
                 report.Dictionary.Databases.Clear();
                 report.Dictionary.Synchronize();
 
-                int numberOfCopies = 1; // siempre por defecto 1
-
-                try
-                {
-                    JsonNode? duplicaNode = null;
-
-                    if (jsonNode is JsonObject objRoot)
-                    {
-                        // Caso: raíz es objeto
-                        objRoot.TryGetPropertyValue("duplica", out duplicaNode);
-                    }
-                    else if (jsonNode is JsonArray arrRoot && arrRoot.FirstOrDefault() is JsonObject firstObj)
-                    {
-                        // Caso: raíz es array -> tomamos el primer objeto
-                        firstObj.TryGetPropertyValue("duplica", out duplicaNode);
-                    }
-
-                    if (duplicaNode != null && int.TryParse(duplicaNode.ToString(), out int duplicaFlag))
-                    {
-                        // Si duplica=1 => imprimir 2 copias, si duplica=0 => solo 1
-                        numberOfCopies = duplicaFlag == 1 ? 2 : 1;
-                    }
-
-                    if (report.Pages.Count > 0)
-                    {
-                        report.Pages[0].NumberOfCopies = numberOfCopies;
-                        Console.WriteLine($"[ReportService] NumberOfCopies configurado en {numberOfCopies}");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error seteando NumberOfCopies dinámico: {ex.Message}");
-                }
-
                 report.Compile();
                 report.Render(false);
 
