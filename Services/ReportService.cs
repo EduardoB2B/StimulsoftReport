@@ -261,12 +261,39 @@ namespace StimulsoftReport.Services
                 }
             }
 
+            // REPORTE LUGAR DE TRABAJO
+            if (string.Equals(reportName, "ReporteResLugarTrabajo", StringComparison.OrdinalIgnoreCase))
+            {
+                try
+                {
+                    ApplyReporteCfdiRules(createdTables, pkColumnName, mainTable);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error aplicando reglas para ReporteCfdi: {ex.Message}");
+                }
+            }
+
             foreach (var kvp in createdTables)
             {
                 if (string.Equals(reportName, "ReporteA3o", StringComparison.OrdinalIgnoreCase) &&
                     (string.Equals(kvp.Key, "Percepciones", StringComparison.OrdinalIgnoreCase) ||
                      string.Equals(kvp.Key, "OtrosPagos", StringComparison.OrdinalIgnoreCase) ||
                      string.Equals(kvp.Key, "Deducciones", StringComparison.OrdinalIgnoreCase)))
+                {
+                    Console.WriteLine($"[ReporteA3o] Tabla '{kvp.Key}' filas: {kvp.Value.Rows.Count}, columnas: {kvp.Value.Columns.Count}");
+                }
+                report.RegData(kvp.Key, kvp.Value);
+            }
+
+            // REPORTE LUGAR DE TRABAJO
+            foreach (var kvp in createdTables)
+            {
+                if (string.Equals(reportName, "ReporteResLugarTrabajo", StringComparison.OrdinalIgnoreCase) &&
+                    (string.Equals(kvp.Key, "Percepciones", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(kvp.Key, "Deducciones", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(kvp.Key, "DeduccionesSumario", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(kvp.Key, "PercepcionesSumario", StringComparison.OrdinalIgnoreCase)))
                 {
                     Console.WriteLine($"[ReporteA3o] Tabla '{kvp.Key}' filas: {kvp.Value.Rows.Count}, columnas: {kvp.Value.Columns.Count}");
                 }
