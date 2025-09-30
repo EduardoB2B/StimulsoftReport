@@ -261,19 +261,6 @@ namespace StimulsoftReport.Services
                 }
             }
 
-            // REPORTE LUGAR DE TRABAJO
-            if (string.Equals(reportName, "ReporteResLugarTrabajo", StringComparison.OrdinalIgnoreCase))
-            {
-                try
-                {
-                    ApplyReporteCfdiRules(createdTables, pkColumnName, mainTable);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error aplicando reglas para ReporteCfdi: {ex.Message}");
-                }
-            }
-
             foreach (var kvp in createdTables)
             {
                 if (string.Equals(reportName, "ReporteA3o", StringComparison.OrdinalIgnoreCase) &&
