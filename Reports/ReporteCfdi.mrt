@@ -416,7 +416,7 @@
             <Text28 Ref="29" type="Text" isKey="true">
               <Border>Top, Left, Bottom;[255:255:255];0.5;Solid;False;4;Black</Border>
               <Brush>[255:255:255]</Brush>
-              <ClientRectangle>16,0,4.6,0.6</ClientRectangle>
+              <ClientRectangle>17.4,0,2.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Arial Narrow,7</Font>
@@ -424,8 +424,9 @@
               <Name>Text28</Name>
               <Page isRef="27" />
               <Parent isRef="28" />
-              <Text>{PageNofM}</Text>
+              <Text>{PageNumber} de {TotalPageCount}</Text>
               <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text28>
           </Components>
@@ -2974,10 +2975,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/25/2025 10:28:03 AM</ReportChanged>
+  <ReportChanged>9/29/2025 6:27:14 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdi.mrt</ReportFile>
-  <ReportGuid>8a2b6fb6168d45d5ac95b2d14e9253e9</ReportGuid>
+  <ReportGuid>805fd00199ab4c8ba5a06c3e32861ad3</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.3.2.0</ReportVersion>
