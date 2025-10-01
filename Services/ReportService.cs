@@ -260,7 +260,17 @@ namespace StimulsoftReport.Services
                     Console.WriteLine($"Error aplicando reglas para ReporteA3o: {ex.Message}");
                 }
             }
-
+            if (string.Equals(reportName, "ReporteCFDIMc", StringComparison.OrdinalIgnoreCase))
+            {
+                try
+                {
+                    ApplyReporteCfdiRules(createdTables, pkColumnName, mainTable);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error aplicando reglas para ReporteCFDIMc: {ex.Message}");
+                }
+            }
             // REPORTE LUGAR DE TRABAJO
             if (string.Equals(reportName, "ReporteResLugarTrabajo", StringComparison.OrdinalIgnoreCase))
             {
@@ -278,8 +288,8 @@ namespace StimulsoftReport.Services
             {
                 if (string.Equals(reportName, "ReporteA3o", StringComparison.OrdinalIgnoreCase) &&
                     (string.Equals(kvp.Key, "Percepciones", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(kvp.Key, "OtrosPagos", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(kvp.Key, "Deducciones", StringComparison.OrdinalIgnoreCase)))
+                    string.Equals(kvp.Key, "OtrosPagos", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(kvp.Key, "Deducciones", StringComparison.OrdinalIgnoreCase)))
                 {
                     Console.WriteLine($"[ReporteA3o] Tabla '{kvp.Key}' filas: {kvp.Value.Rows.Count}, columnas: {kvp.Value.Columns.Count}");
                 }
@@ -293,7 +303,7 @@ namespace StimulsoftReport.Services
                     (string.Equals(kvp.Key, "Percepciones", StringComparison.OrdinalIgnoreCase) ||
                     string.Equals(kvp.Key, "Deducciones", StringComparison.OrdinalIgnoreCase) ||
                     string.Equals(kvp.Key, "DeduccionesSumario", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(kvp.Key, "PercepcionesSumario", StringComparison.OrdinalIgnoreCase)))
+                    string.Equals(kvp.Key, "PercepcionesSumario", StringComparison.OrdinalIgnoreCase)))
                 {
                     Console.WriteLine($"[ReporteA3o] Tabla '{kvp.Key}' filas: {kvp.Value.Rows.Count}, columnas: {kvp.Value.Columns.Count}");
                 }
