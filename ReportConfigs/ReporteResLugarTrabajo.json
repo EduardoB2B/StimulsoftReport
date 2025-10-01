@@ -4,13 +4,37 @@
         "Data": "",
         "Catalogo": "Catalogo",
         "Deducciones": "Deducciones",
-        "Percepciones": "Percepciones"
+        "Percepciones": "Percepciones",
+        "Subtotal": "Subtotal",
+        "Total": "Total",
+        "EmpleadosEmpre": "EmpleadosEmpre",
+        "RegPatronal": "RegPatronal",
+        "Provisiones": "Provisiones",
+        "CostoCC": "CostoCC",
+        "Estadistico": "Estadistico",
+        "ModPago": "ModPago",
+        "TotalGeneral": "TotalGeneral",
+        "DeduccionesSumario": "DeduccionesSumario",
+        "PercepcionesSumario": "PercepcionesSumario",
+        "TotalSumario": "TotalSumario"
 
     },
     "RequiredDataSources": [
         "Data",
         "Catalogo",
         "Deducciones",
-        "Percepciones"
+        "Percepciones",
+        "Subtotal",
+        "Total",
+        "EmpleadosEmpre",
+        "RegPatronal",
+        "Provisiones",
+        "CostoCC",
+        "Estadistico",
+        "ModPago",
+        "TotalGeneral",
+        "DeduccionesSumario",
+        "PercepcionesSumario",
+        "TotalSumario"
     ]
 }

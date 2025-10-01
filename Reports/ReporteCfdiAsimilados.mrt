@@ -511,10 +511,10 @@
                 </Text91>
                 <Text119 Ref="36" type="Text" isKey="true">
                   <Brush>Transparent</Brush>
-                  <ClientRectangle>0.8,0.4,10.6,0.4</ClientRectangle>
+                  <ClientRectangle>0.8,0.2,11.4,0.6</ClientRectangle>
                   <Conditions isList="true" count="0" />
                   <Expressions isList="true" count="0" />
-                  <Font>Arial,10</Font>
+                  <Font>Arial Narrow,10</Font>
                   <HorAlignment>Width</HorAlignment>
                   <Name>Text119</Name>
                   <Page isRef="27" />
@@ -4417,13 +4417,13 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/17/2025 5:22:37 PM</ReportChanged>
+  <ReportChanged>9/30/2025 7:33:12 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
-  <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdiAsimilados.mrt</ReportFile>
-  <ReportGuid>6c1b779e503b41de89305fb666a127f2</ReportGuid>
+  <ReportFile>C:\Users\FranciscoRamírezRamí\Downloads\nuevo\StimulsoftReport\Reports\ReporteCfdiAsimilados.mrt</ReportFile>
+  <ReportGuid>fbda34510dd8440d879bc8c5a377dd09</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
-  <ReportVersion>2025.3.2.0</ReportVersion>
+  <ReportVersion>2025.2.5.0</ReportVersion>
   <Script>using System;
 using System.Drawing;
 using System.Windows.Forms;
