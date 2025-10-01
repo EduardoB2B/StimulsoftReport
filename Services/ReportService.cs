@@ -261,6 +261,19 @@ namespace StimulsoftReport.Services
                 }
             }
 
+            // REPORTE LUGAR DE TRABAJO
+            if (string.Equals(reportName, "ReporteResLugarTrabajo", StringComparison.OrdinalIgnoreCase))
+            {
+                try
+                {
+                    ApplyReporteLugarTrabajo(createdTables, pkColumnName, mainTable);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error aplicando reglas para ReporteResLugarTrabajo: {ex.Message}");
+                }
+            }
+
             foreach (var kvp in createdTables)
             {
                 if (string.Equals(reportName, "ReporteA3o", StringComparison.OrdinalIgnoreCase) &&
@@ -354,6 +367,58 @@ namespace StimulsoftReport.Services
                     AddEmptyRowsWithPk(percepcionesTable, maxCount - pCount, pkColumnName, mainId);
                 if (dCount < maxCount)
                     AddEmptyRowsWithPk(deduccionesTable, maxCount - dCount, pkColumnName, mainId);
+            }
+        }
+
+        private void ApplyReporteLugarTrabajo(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
+        {
+            // Aquí va la lógica específica para ReporteResLugarTrabajo
+            // Por ejemplo, balancear Percepciones y Deducciones por registro
+            Console.WriteLine("Aplicando reglas para ReporteResLugarTrabajo");
+
+            if (!createdTables.TryGetValue("Percepciones", out var percepcionesTable) ||
+                !createdTables.TryGetValue("Deducciones", out var deduccionesTable) ||
+                !createdTables.TryGetValue("DeduccionesSumario", out var deduccionesSumarioTable) ||
+                !createdTables.TryGetValue("PercepcionesSumario", out var percepcionesSumarioTable))
+            {
+                Console.WriteLine("Tablas necesarias no encontradas para ReporteResLugarTrabajo");
+                return;
+            }
+
+            // Agregar columna PK si no existe en cada tabla
+            if (!percepcionesTable.Columns.Contains(pkColumnName))
+                percepcionesTable.Columns.Add(pkColumnName, typeof(int));
+            if (!deduccionesTable.Columns.Contains(pkColumnName))
+                deduccionesTable.Columns.Add(pkColumnName, typeof(int));
+            if (!deduccionesSumarioTable.Columns.Contains(pkColumnName))
+                deduccionesSumarioTable.Columns.Add(pkColumnName, typeof(int));
+            if (!percepcionesSumarioTable.Columns.Contains(pkColumnName))
+                percepcionesSumarioTable.Columns.Add(pkColumnName, typeof(int));
+
+            foreach (DataRow mainRow in mainTable.Rows)
+            {
+                var mainIdObj = mainRow[pkColumnName];
+                if (mainIdObj == null || mainIdObj == DBNull.Value) continue;
+                int mainId = Convert.ToInt32(mainIdObj);
+
+                // CORRECCIÓN: Usar nombres de variables diferentes para cada tabla
+                int pCount = percepcionesTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
+                int dCount = deduccionesTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
+                int dsCount = deduccionesSumarioTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
+                int psCount = percepcionesSumarioTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
+
+                // Encontrar el máximo número de filas entre todas las tablas para este ID
+                int maxCount = Math.Max(Math.Max(pCount, dCount), Math.Max(dsCount, psCount));
+
+                // Agregar filas vacías donde sea necesario
+                if (pCount < maxCount)
+                    AddEmptyRowsWithPk(percepcionesTable, maxCount - pCount, pkColumnName, mainId);
+                if (dCount < maxCount)
+                    AddEmptyRowsWithPk(deduccionesTable, maxCount - dCount, pkColumnName, mainId);
+                if (dsCount < maxCount)
+                    AddEmptyRowsWithPk(deduccionesSumarioTable, maxCount - dsCount, pkColumnName, mainId);
+                if (psCount < maxCount)
+                    AddEmptyRowsWithPk(percepcionesSumarioTable, maxCount - psCount, pkColumnName, mainId);
             }
         }
 
