@@ -261,6 +261,8 @@ namespace StimulsoftReport.Services
                 }
             }
 
+
+
             if (string.Equals(reportName, "ReporteCFDIMc", StringComparison.OrdinalIgnoreCase))
             {
                 try
