@@ -356,8 +356,8 @@ namespace StimulsoftReport.Services
             {
                 if (string.Equals(reportName, "ReporteA3o", StringComparison.OrdinalIgnoreCase) &&
                     (string.Equals(kvp.Key, "Percepciones", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(kvp.Key, "OtrosPagos", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(kvp.Key, "Deducciones", StringComparison.OrdinalIgnoreCase)))
+                    string.Equals(kvp.Key, "OtrosPagos", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(kvp.Key, "Deducciones", StringComparison.OrdinalIgnoreCase)))
                 {
                     Console.WriteLine($"[ReporteA3o] Tabla '{kvp.Key}' filas: {kvp.Value.Rows.Count}, columnas: {kvp.Value.Columns.Count}");
                 }
