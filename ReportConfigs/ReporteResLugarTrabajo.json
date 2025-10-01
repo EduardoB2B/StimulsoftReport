@@ -8,14 +8,15 @@
         "Subtotal": "Subtotal",
         "Total": "Total",
         "EmpleadosEmpre": "EmpleadosEmpre",
-        "DeduccionesSumario": "DeduccionesSumario",
-        "PercepcionesSumario": "PercepcionesSumario",
-        "TotalSumario": "TotalSumario",
         "RegPatronal": "RegPatronal",
         "Provisiones": "Provisiones",
         "CostoCC": "CostoCC",
         "Estadistico": "Estadistico",
-        "TotalGeneral": "TotalGeneral"
+        "ModPago": "ModPago",
+        "TotalGeneral": "TotalGeneral",
+        "DeduccionesSumario": "DeduccionesSumario",
+        "PercepcionesSumario": "PercepcionesSumario",
+        "TotalSumario": "TotalSumario"
 
     },
     "RequiredDataSources": [
@@ -26,13 +27,14 @@
         "Subtotal",
         "Total",
         "EmpleadosEmpre",
-        "DeduccionesSumario",
-        "PercepcionesSumario",
-        "TotalSumario",
         "RegPatronal",
         "Provisiones",
         "CostoCC",
         "Estadistico",
-        "TotalGeneral"
+        "ModPago",
+        "TotalGeneral",
+        "DeduccionesSumario",
+        "PercepcionesSumario",
+        "TotalSumario"
     ]
 }

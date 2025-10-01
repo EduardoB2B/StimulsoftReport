@@ -155,7 +155,7 @@
       </RegPatronal>
       <Provisiones Ref="13" type="DataTableSource" isKey="true">
         <Alias>Provisiones</Alias>
-        <Columns isList="true" count="24">
+        <Columns isList="true" count="25">
           <value>CuotaFija,System.String</value>
           <value>CesantiaVejezPro,System.String</value>
           <value>CesantiaVejezObliga,System.String</value>
@@ -180,6 +180,7 @@
           <value>FondoAhorro,System.String</value>
           <value>ValesDespensa,System.String</value>
           <value>DataId,System.String</value>
+          <value>ImpuestoEstatal,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>dfc99c32d080497bb4681f3b63905b4b</Key>
@@ -846,6 +847,7 @@
                   <Components isList="true" count="1">
                     <DataBand3 Ref="64" type="DataBand" isKey="true">
                       <Brush>Transparent</Brush>
+                      <BusinessObjectGuid isNull="true" />
                       <CanShrink>True</CanShrink>
                       <ClientRectangle>0,0.4,8.6,0.6</ClientRectangle>
                       <Components isList="true" count="3">
@@ -1418,6 +1420,7 @@
                 <DataBand7 Ref="107" type="DataBand" isKey="true">
                   <Border>Right;Black;1;Solid;False;4;Black</Border>
                   <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
                   <CanShrink>True</CanShrink>
                   <ClientRectangle>0,0.4,9.8,0.6</ClientRectangle>
                   <Components isList="true" count="3">
@@ -1493,6 +1496,7 @@
               <Components isList="true" count="1">
                 <DataBand8 Ref="113" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
                   <CanShrink>True</CanShrink>
                   <ClientRectangle>0,0.4,8.6,0.6</ClientRectangle>
                   <Components isList="true" count="3">
@@ -1566,6 +1570,7 @@
               <Components isList="true" count="8">
                 <DataBand9 Ref="119" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
                   <ClientRectangle>0,0.4,18.6,1.2</ClientRectangle>
                   <Components isList="true" count="6">
                     <Text68 Ref="120" type="Text" isKey="true">
@@ -1684,6 +1689,7 @@
                 </DataBand9>
                 <DataBand10 Ref="129" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
                   <ClientRectangle>0,2.4,18.6,5</ClientRectangle>
                   <Components isList="true" count="5">
                     <Text100 Ref="130" type="Text" isKey="true">
@@ -2147,7 +2153,7 @@
                               <Name>Text133</Name>
                               <Page isRef="31" />
                               <Parent isRef="162" />
-                              <Text>41.85</Text>
+                              <Text>{Provisiones.ImpuestoEstatal}</Text>
                               <TextBrush>Black</TextBrush>
                               <Type>Expression</Type>
                               <VertAlignment>Bottom</VertAlignment>
@@ -2648,6 +2654,7 @@
                 </HeaderBand1>
                 <DataBand11 Ref="197" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
                   <ClientRectangle>0,10,18.6,0.6</ClientRectangle>
                   <Components isList="true" count="7">
                     <Text156 Ref="198" type="Text" isKey="true">
@@ -2768,6 +2775,7 @@
                 </DataBand11>
                 <DataBand13 Ref="205" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
                   <ClientRectangle>0,11.4,18.6,3.6</ClientRectangle>
                   <Components isList="true" count="8">
                     <Text79 Ref="206" type="Text" isKey="true">
@@ -3078,6 +3086,7 @@
                 </HeaderBand2>
                 <DataBand12 Ref="227" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
                   <CanShrink>True</CanShrink>
                   <ClientRectangle>0,17,18.6,1</ClientRectangle>
                   <Components isList="true" count="3">
@@ -3141,6 +3150,7 @@
                 </DataBand12>
                 <DataBand14 Ref="232" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
                   <CanShrink>True</CanShrink>
                   <ClientRectangle>0,18.8,18.6,1</ClientRectangle>
                   <Components isList="true" count="2">
@@ -3349,10 +3359,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>Eduardo Hernández</ReportAuthor>
-  <ReportChanged>9/30/2025 12:11:38 PM</ReportChanged>
+  <ReportChanged>9/30/2025 6:24:55 PM</ReportChanged>
   <ReportCreated>7/15/2025 1:48:53 PM</ReportCreated>
   <ReportFile>C:\Users\FranciscoRamírezRamí\Downloads\nuevo\StimulsoftReport\Reports\ReporteResLugarTrabajo.mrt</ReportFile>
-  <ReportGuid>7c1324341aca44debfb09ec965934ee4</ReportGuid>
+  <ReportGuid>8e3afbc43cb54883951f90e4869454fa</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.2.5.0</ReportVersion>
