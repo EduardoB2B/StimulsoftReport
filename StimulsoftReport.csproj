@@ -1,13 +1,52 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
+    <!-- 
+      Framework de destino: en este caso .NET 6 
+      (requiere Windows porque usas Stimulsoft con funcionalidades Windows específicas)
+    -->
     <TargetFramework>net6.0-windows</TargetFramework>
+
+    <!-- 
+      Habilita advertencias/sugerencias relacionadas con referencias nulas.
+      Esto ayuda a detectar posibles NullReferenceException en tiempo de compilación.
+    -->
     <Nullable>enable</Nullable>
+
+    <!-- 
+      🔹 Versionado de la aplicación
+      Estas propiedades se utilizan para identificar la versión en los ensamblados 
+      y se exponen en el endpoint /health/detailed.
+      
+      - <Version>: define la versión del ensamblado (Major.Minor.Patch). 
+                  Ej: 1.3.0
+      - <AssemblyInformationalVersion>: aquí defines la cadena legible, que 
+                  se devolverá en /health/detailed como "version".
+                  Ej: 1.3.0-Release
+                  
+      📌 INSTRUCCIONES:
+      - Debes actualizar estos valores en cada despliegue nuevo.
+      - Evita dejar el valor por defecto, así sabes exactamente qué versión está en PROD.
+    -->
+    <Version>1.3.0</Version>
+    <AssemblyInformationalVersion>1.3.0-Release</AssemblyInformationalVersion>
+
+    <!-- 
+      (Opcional) Deterministic=false:
+      Evita que MSBuild concatene automáticamente hashes de commit en la versión.
+      Si quieres que aparezca el commit en "commit", lo dejamos en true (valor por defecto).
+    -->
+    <!-- <Deterministic>false</Deterministic> -->
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Paquete oficial de SQL Client para acceso a bases SQL Server -->
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.5" />
+
+    <!-- Paquete de Stimulsoft para trabajar con reportes en ASP.NET Core -->
     <PackageReference Include="Stimulsoft.Reports.Web.NetCore" Version="2023.4.1" />
+
+    <!-- Paquete Newtonsoft.Json para manejo y serialización JSON -->
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
