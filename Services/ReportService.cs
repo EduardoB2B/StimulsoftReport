@@ -85,69 +85,87 @@ namespace StimulsoftReport.Services
         /// <returns>Tupla con éxito, mensaje y ruta del PDF generado (si aplica).</returns>
         public async Task<(bool Success, string Message, string? PdfPath)> GenerateReportAsync(string reportName, string? jsonFilePath, Dictionary<string, object>? sqlParams = null)
         {
-            // Verifica que exista configuración para el reporte solicitado
+            Console.WriteLine($"[Inicio] Solicitud para generar reporte: '{reportName}'");
+
             if (!_reportConfigs.TryGetValue(reportName, out var config))
+            {
+                Console.WriteLine($"[Error] No existe configuración para el reporte '{reportName}'");
                 return (false, $"No existe configuración para el reporte '{reportName}'", null);
+            }
 
             var templatePath = Path.Combine(_templatesFolder, config.TemplateFile);
+            Console.WriteLine($"[Info] Ruta plantilla: {templatePath}");
 
-            // Verifica existencia de plantilla .mrt
             if (!File.Exists(templatePath))
+            {
+                Console.WriteLine($"[Error] Plantilla no encontrada en {templatePath}");
                 return (false, $"Plantilla no encontrada en {templatePath}", null);
+            }
 
             JsonNode? jsonNode = null;
 
-            // Selecciona origen de datos: JSON (actual) o SQL (futuro)
             if (!string.IsNullOrEmpty(jsonFilePath))
             {
+                Console.WriteLine($"[Info] Procesando archivo JSON: {jsonFilePath}");
+
                 if (!File.Exists(jsonFilePath))
+                {
+                    Console.WriteLine($"[Error] Archivo JSON no encontrado en {jsonFilePath}");
                     return (false, $"Archivo JSON no encontrado en {jsonFilePath}", null);
+                }
 
                 var jsonString = await File.ReadAllTextAsync(jsonFilePath);
                 jsonNode = JsonNode.Parse(jsonString);
                 if (jsonNode == null)
+                {
+                    Console.WriteLine("[Error] JSON inválido o vacío.");
                     return (false, "JSON inválido o vacío.", null);
+                }
             }
             else if (sqlParams != null)
             {
-                // Punto de extensión para implementación SQL
+                Console.WriteLine("[Info] Obtención de datos desde SQL no implementada.");
                 return (false, "La obtención de datos desde SQL aún no está implementada.", null);
             }
             else
             {
+                Console.WriteLine("[Error] No se proporcionó ni JSON ni parámetros SQL.");
                 return (false, "No se proporcionó ni JSON ni parámetros SQL.", null);
             }
 
             try
             {
-                // Carga la plantilla y registra los datos
+                Console.WriteLine("[Info] Cargando plantilla y registrando datos...");
                 var report = new StiReport();
                 report.Load(templatePath);
 
                 RegisterData(report, jsonNode, config, reportName);
+                Console.WriteLine("[Info] Datos registrados en el reporte.");
 
-                // Limpia bases y sincroniza diccionario (estructura de datos vs diseño)
                 report.Dictionary.Databases.Clear();
                 report.Dictionary.Synchronize();
+                Console.WriteLine("[Info] Diccionario sincronizado.");
 
-                // Compila script del reporte y renderiza
                 report.Compile();
-                report.Render(false);
+                Console.WriteLine("[Info] Reporte compilado.");
 
-                // Define ruta de salida del PDF junto a la fuente JSON por conveniencia
+                report.Render(false);
+                Console.WriteLine("[Info] Reporte renderizado.");
+
                 var directory = Path.GetDirectoryName(jsonFilePath ?? "tmp") ?? "tmp";
                 var jsonBaseName = Path.GetFileNameWithoutExtension(jsonFilePath ?? reportName);
                 var pdfFileName = $"{jsonBaseName}.pdf";
                 var pdfFullPath = Path.Combine(directory, pdfFileName);
 
-                // Exporta a PDF
                 report.ExportDocument(StiExportFormat.Pdf, pdfFullPath);
+                Console.WriteLine($"[Info] Archivo PDF exportado a: {pdfFullPath}");
 
+                Console.WriteLine("[Fin] Reporte generado correctamente.");
                 return (true, "Reporte generado correctamente", pdfFullPath);
             }
             catch (Exception ex)
             {
-                // Devuelve error capturado para diagnóstico
+                Console.WriteLine($"[Error] Excepción generando reporte: {ex.Message}");
                 return (false, $"Error generando reporte: {ex.Message}", null);
             }
         }
@@ -162,6 +180,8 @@ namespace StimulsoftReport.Services
         /// <param name="reportName">Nombre lógico del reporte para reglas específicas.</param>
         private void RegisterData(StiReport report, JsonNode? jsonNode, ReportConfig config, string reportName)
         {
+            Console.WriteLine($"[Info] Registrando datos para reporte '{reportName}'...");
+
             if (report == null) return;
             if (jsonNode == null) return;
 
@@ -220,6 +240,7 @@ namespace StimulsoftReport.Services
             // Si no se encuentra nodo principal, registra tabla vacía para no romper el reporte
             if (mainNode == null)
             {
+                Console.WriteLine($"[Warning] Nodo principal '{mainDataSourceName}' no encontrado en JSON. Se registra tabla vacía.");
                 report.RegData(mainDataSourceName, CreateEmptyTable(mainDataSourceName));
                 return;
             }
@@ -291,11 +312,12 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
+                    Console.WriteLine("[Info] Aplicando reglas para ReporteCfdiAsimilados");
                     ApplyAsimiladosRules(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error aplicando reglas para ReporteCfdiAsimilados: {ex.Message}");
+                    Console.WriteLine($"[Error] Aplicando reglas para ReporteCfdiAsimilados: {ex.Message}");
                 }
             }
 
@@ -303,11 +325,12 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
+                    Console.WriteLine("[Info] Aplicando reglas para ReporteCfdi");
                     ApplyReporteCfdiRules(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error aplicando reglas para ReporteCfdi: {ex.Message}");
+                    Console.WriteLine($"[Error] Aplicando reglas para ReporteCfdi: {ex.Message}");
                 }
             }
 
@@ -315,11 +338,12 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
+                    Console.WriteLine("[Info] Aplicando reglas para ReporteA3o");
                     ApplyReporteA3oRules(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error aplicando reglas para ReporteA3o: {ex.Message}");
+                    Console.WriteLine($"[Error] Aplicando reglas para ReporteA3o: {ex.Message}");
                 }
             }
 
@@ -329,25 +353,25 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
-                    // Reutiliza las mismas reglas de ReporteCfdi
+                    Console.WriteLine("[Info] Aplicando reglas para ReporteCFDIMc");
                     ApplyReporteCfdiRules(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error aplicando reglas para ReporteCFDIMc: {ex.Message}");
+                    Console.WriteLine($"[Error] Aplicando reglas para ReporteCFDIMc: {ex.Message}");
                 }
             }
 
-            // Reglas para Reporte de Lugar de Trabajo
             if (string.Equals(reportName, "ReporteResLugarTrabajo", StringComparison.OrdinalIgnoreCase))
             {
                 try
                 {
+                    Console.WriteLine("[Info] Aplicando reglas para ReporteResLugarTrabajo");
                     ApplyReporteLugarTrabajo(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error aplicando reglas para ReporteResLugarTrabajo: {ex.Message}");
+                    Console.WriteLine($"[Error] Aplicando reglas para ReporteResLugarTrabajo: {ex.Message}");
                 }
             }
 
@@ -359,12 +383,11 @@ namespace StimulsoftReport.Services
                     string.Equals(kvp.Key, "OtrosPagos", StringComparison.OrdinalIgnoreCase) ||
                     string.Equals(kvp.Key, "Deducciones", StringComparison.OrdinalIgnoreCase)))
                 {
-                    Console.WriteLine($"[ReporteA3o] Tabla '{kvp.Key}' filas: {kvp.Value.Rows.Count}, columnas: {kvp.Value.Columns.Count}");
+                    Console.WriteLine($"[Info] [ReporteA3o] Tabla '{kvp.Key}' filas: {kvp.Value.Rows.Count}, columnas: {kvp.Value.Columns.Count}");
                 }
                 report.RegData(kvp.Key, kvp.Value);
             }
 
-            // Nota: este bloque repite registro para ReporteResLugarTrabajo (idempotente)
             foreach (var kvp in createdTables)
             {
                 if (string.Equals(reportName, "ReporteResLugarTrabajo", StringComparison.OrdinalIgnoreCase) &&
@@ -373,10 +396,12 @@ namespace StimulsoftReport.Services
                      string.Equals(kvp.Key, "DeduccionesSumario", StringComparison.OrdinalIgnoreCase) ||
                      string.Equals(kvp.Key, "PercepcionesSumario", StringComparison.OrdinalIgnoreCase)))
                 {
-                    Console.WriteLine($"[ReporteA3o] Tabla '{kvp.Key}' filas: {kvp.Value.Rows.Count}, columnas: {kvp.Value.Columns.Count}");
+                    Console.WriteLine($"[Info] [ReporteResLugarTrabajo] Tabla '{kvp.Key}' filas: {kvp.Value.Rows.Count}, columnas: {kvp.Value.Columns.Count}");
                 }
                 report.RegData(kvp.Key, kvp.Value);
             }
+
+            Console.WriteLine($"[Info] Datos registrados para reporte '{reportName}'.");
         }
 
         /// <summary>
