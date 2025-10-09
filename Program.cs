@@ -10,64 +10,72 @@ using Stimulsoft.Base;
 using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Cargar licencia de Stimulsoft usando ContentRootPath
+// ------------------------------------------------------------------
+// 1. Cargar licencia de Stimulsoft usando directorio raíz de la app
+// ------------------------------------------------------------------
 var licensePath = Path.Combine(builder.Environment.ContentRootPath, "license.key");
 StiLicense.LoadFromFile(licensePath);
 
-// Registrar configuración de reportes
+// ------------------------------------------------------------------
+// 2. Registrar configuración y servicios
+// ------------------------------------------------------------------
 builder.Services.Configure<ReportSettings>(builder.Configuration.GetSection("ReportSettings"));
-
-// Registrar servicios
 builder.Services.AddSingleton<ReportService>();
 builder.Services.AddControllers();
 
-// *** NUEVO: Agregar HealthChecks con validaciones personalizadas ***
+// ------------------------------------------------------------------
+// 3. Configurar HealthChecks personalizados
+// ------------------------------------------------------------------
 builder.Services.AddHealthChecks()
+    // Validación: carpeta de plantillas
     .AddCheck("templates-folder", () =>
     {
         var templatesPath = builder.Configuration["ReportSettings:TemplatesFolder"];
-        
+
         if (string.IsNullOrEmpty(templatesPath))
             return HealthCheckResult.Unhealthy("La configuración TemplatesFolder no está definida");
-            
+
         if (!Directory.Exists(templatesPath))
             return HealthCheckResult.Unhealthy($"No se encontró la carpeta de plantillas: {templatesPath}");
-            
+
         var templateFiles = Directory.GetFiles(templatesPath, "*.mrt");
         if (templateFiles.Length == 0)
-            return HealthCheckResult.Degraded($"La carpeta de plantillas existe pero no contiene archivos .mrt: {templatesPath}");
-            
+            return HealthCheckResult.Degraded("La carpeta de plantillas existe pero no contiene archivos .mrt");
+
         return HealthCheckResult.Healthy($"Carpeta de plantillas OK - Se encontraron {templateFiles.Length} archivos .mrt");
     })
+    // Validación: carpeta de configuraciones
     .AddCheck("configs-folder", () =>
     {
         var configsPath = builder.Configuration["ReportSettings:ConfigsFolder"];
-        
+
         if (string.IsNullOrEmpty(configsPath))
             return HealthCheckResult.Unhealthy("La configuración ConfigsFolder no está definida");
-            
+
         if (!Directory.Exists(configsPath))
             return HealthCheckResult.Unhealthy($"No se encontró la carpeta de configuraciones: {configsPath}");
-            
+
         var jsonFiles = Directory.GetFiles(configsPath, "*.json");
         if (jsonFiles.Length == 0)
-            return HealthCheckResult.Degraded($"La carpeta de configuraciones existe pero no contiene archivos .json: {configsPath}");
-            
+            return HealthCheckResult.Degraded("La carpeta de configuraciones existe pero no contiene archivos .json");
+
         return HealthCheckResult.Healthy($"Carpeta de configuraciones OK - Se encontraron {jsonFiles.Length} archivos .json");
     })
+    // Validación: licencia de Stimulsoft
     .AddCheck("stimulsoft-license", () =>
     {
         try
         {
             var licenseFullPath = Path.Combine(builder.Environment.ContentRootPath, "license.key");
-            
+
             if (!File.Exists(licenseFullPath))
                 return HealthCheckResult.Degraded("Archivo de licencia no encontrado, usando modo de prueba");
-                
-            return HealthCheckResult.Healthy($"Archivo de licencia de Stimulsoft encontrado");
+
+            return HealthCheckResult.Healthy("Archivo de licencia de Stimulsoft encontrado");
         }
         catch (Exception ex)
         {
@@ -77,23 +85,68 @@ builder.Services.AddHealthChecks()
 
 var app = builder.Build();
 
-// Mapear controladores
+// ------------------------------------------------------------------
+// 4. Mapear controladores
+// ------------------------------------------------------------------
 app.MapControllers();
 
-// *** NUEVO: Mapear endpoints de HealthChecks ***
-// Health check básico (respuesta simple)
+// ------------------------------------------------------------------
+// 5. Endpoints de HealthChecks
+// ------------------------------------------------------------------
+
+// Endpoint básico (estado simple: 200 OK o 503)
 app.MapHealthChecks("/health");
 
-// Health check detallado con respuesta JSON personalizada
+// Endpoint detallado (con JSON extendido)
 app.MapHealthChecks("/health/detailed", new HealthCheckOptions
 {
     ResponseWriter = async (context, report) =>
     {
         context.Response.ContentType = "application/json";
+
+        // ----------------------------------------------------------
+        // Obtener versión y commit hash desde Assembly
+        // ----------------------------------------------------------
+        var versionRaw = Assembly.GetExecutingAssembly()
+            .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?
+            .InformationalVersion ?? "unknown";
+
+        string version = versionRaw;
+        string? commit = null;
+
+        if (versionRaw.Contains('+'))
+        {
+            var parts = versionRaw.Split('+');
+            version = parts[0];   // Ej: "1.3.0-Release"
+            commit = parts[1];    // Ej: "1a9c90430fe5242..."
+        }
+
+        // ----------------------------------------------------------
+        // Obtener lista de reportes .mrt con su última modificación
+        // ----------------------------------------------------------
+        var templatesPath = builder.Configuration["ReportSettings:TemplatesFolder"];
+        var reportes = Array.Empty<object>();
+
+        if (!string.IsNullOrEmpty(templatesPath) && Directory.Exists(templatesPath))
+        {
+            reportes = Directory.GetFiles(templatesPath, "*.mrt")
+                .Select(file => new
+                {
+                    reporte = Path.GetFileName(file),
+                    ultima_modificacion = File.GetLastWriteTime(file).ToString("dd-MM-yyyy HH:mm")
+                })
+                .ToArray();
+        }
+
+        // ----------------------------------------------------------
+        // Construcción de respuesta JSON
+        // ----------------------------------------------------------
         var response = new
         {
             estado = report.Status.ToString(),
-            marca_tiempo = DateTime.UtcNow,
+            marca_tiempo = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), // Local, legible
+            version = version,
+            commit = commit, // Opcional (null si no hay hash)
             duracion_ms = report.TotalDuration.TotalMilliseconds,
             verificaciones = report.Entries.Select(x => new
             {
@@ -102,12 +155,14 @@ app.MapHealthChecks("/health/detailed", new HealthCheckOptions
                 duracion_ms = x.Value.Duration.TotalMilliseconds,
                 descripcion = x.Value.Description,
                 excepcion = x.Value.Exception?.Message
-            })
+            }),
+            reportes = reportes
         };
-        await context.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(response, new System.Text.Json.JsonSerializerOptions 
-        { 
-            WriteIndented = true 
-        }));
+
+        await context.Response.WriteAsync(
+            System.Text.Json.JsonSerializer.Serialize(response,
+                new System.Text.Json.JsonSerializerOptions { WriteIndented = true })
+        );
     }
 });
 

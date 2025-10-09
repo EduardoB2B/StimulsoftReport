@@ -1,7 +1,9 @@
 # App de Reportes con Stimulsoft
 
 Bienvenido/a al repositorio de la **App de Reportes con Stimulsoft**.  
-Este proyecto es una aplicación para la generación y visualización de reportes usando Stimulsoft Reports.
+Este proyecto es una aplicación para la generación y visualización de reportes usando **Stimulsoft Reports**.
+
+---
 
 ## 🚀 Empezando
 
@@ -26,7 +28,7 @@ Sigue estos pasos para tener el proyecto funcionando en tu máquina local.
     dotnet restore
     ```
 
-3. **Configura la base de datos:**
+3. **Configura la base de datos (si aplica):**
     - Asegúrate de tener SQL Server corriendo.
     - Crea una base de datos llamada `ReportesDB` (o la que uses).
     - Actualiza la cadena de conexión en `appsettings.json`:
