@@ -3,8 +3,8 @@
     "DataSourceMappings": {
         "Data": "",
         "Catalogo": "Catalogo",
-        "Deducciones": "Deducciones",
-        "Percepciones": "Percepciones",
+        "Deduccion": "Deduccion",
+        "Percepcion": "Percepcion",
         "Subtotal": "Subtotal",
         "Total": "Total",
         "EmpleadosEmpre": "EmpleadosEmpre",
@@ -22,8 +22,8 @@
     "RequiredDataSources": [
         "Data",
         "Catalogo",
-        "Deducciones",
-        "Percepciones",
+        "Deduccion",
+        "Percepcion",
         "Subtotal",
         "Total",
         "EmpleadosEmpre",
