@@ -28,8 +28,8 @@
       - Debes actualizar estos valores en cada despliegue nuevo.
       - Evita dejar el valor por defecto, así sabes exactamente qué versión está en PROD.
     -->
-    <Version>1.5.0</Version>
-    <AssemblyInformationalVersion>1.5.0-Release</AssemblyInformationalVersion>
+    <Version>1.6.0</Version>
+    <AssemblyInformationalVersion>1.6.0-Release</AssemblyInformationalVersion>
 
     <!-- 
       (Opcional) Deterministic=false:
