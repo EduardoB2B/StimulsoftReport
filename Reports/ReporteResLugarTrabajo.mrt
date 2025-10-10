@@ -1900,6 +1900,7 @@
           <Components isList="true" count="1">
             <DataBand7 Ref="141" type="DataBand" isKey="true">
               <Brush>Transparent</Brush>
+              <BusinessObjectGuid isNull="true" />
               <ClientRectangle>0,0.4,19,21.8</ClientRectangle>
               <Components isList="true" count="3">
                 <Panel12 Ref="142" type="Panel" isKey="true">
@@ -1911,6 +1912,7 @@
                     <DataBand10 Ref="143" type="DataBand" isKey="true">
                       <Border>Right;Black;1;Solid;False;4;Black</Border>
                       <Brush>Transparent</Brush>
+                      <BusinessObjectGuid isNull="true" />
                       <CanShrink>True</CanShrink>
                       <ClientRectangle>0,0.4,9.8,0.4</ClientRectangle>
                       <Components isList="true" count="3">
@@ -1986,6 +1988,7 @@
                   <Components isList="true" count="1">
                     <DataBand11 Ref="149" type="DataBand" isKey="true">
                       <Brush>Transparent</Brush>
+                      <BusinessObjectGuid isNull="true" />
                       <CanShrink>True</CanShrink>
                       <ClientRectangle>0,0.4,8.6,0.4</ClientRectangle>
                       <Components isList="true" count="3">
@@ -2059,6 +2062,7 @@
                   <Components isList="true" count="8">
                     <DataBand9 Ref="155" type="DataBand" isKey="true">
                       <Brush>Transparent</Brush>
+                      <BusinessObjectGuid isNull="true" />
                       <ClientRectangle>0,0.4,18.6,1</ClientRectangle>
                       <Components isList="true" count="6">
                         <Text68 Ref="156" type="Text" isKey="true">
@@ -2177,6 +2181,7 @@
                     </DataBand9>
                     <DataBand8 Ref="165" type="DataBand" isKey="true">
                       <Brush>Transparent</Brush>
+                      <BusinessObjectGuid isNull="true" />
                       <ClientRectangle>0,2.2,18.6,4.8</ClientRectangle>
                       <Components isList="true" count="5">
                         <Text100 Ref="166" type="Text" isKey="true">
@@ -3141,11 +3146,12 @@
                     </HeaderBand1>
                     <DataBand12 Ref="233" type="DataBand" isKey="true">
                       <Brush>Transparent</Brush>
-                      <ClientRectangle>0,9.6,18.6,0.6</ClientRectangle>
+                      <BusinessObjectGuid isNull="true" />
+                      <ClientRectangle>0,9.6,18.6,0.4</ClientRectangle>
                       <Components isList="true" count="7">
                         <Text156 Ref="234" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>0,0,3.8,0.4</ClientRectangle>
+                          <ClientRectangle>0,-0.2,4.2,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial,8</Font>
@@ -3159,7 +3165,7 @@
                         </Text156>
                         <Text157 Ref="235" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>5.2,0,1.2,0.4</ClientRectangle>
+                          <ClientRectangle>5.2,-0.2,1.2,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial,8</Font>
@@ -3174,7 +3180,7 @@
                         </Text157>
                         <Text158 Ref="236" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>7.8,0,1,0.4</ClientRectangle>
+                          <ClientRectangle>7.8,-0.2,1,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial,8</Font>
@@ -3189,7 +3195,7 @@
                         </Text158>
                         <Text177 Ref="237" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>10.4,0,1,0.4</ClientRectangle>
+                          <ClientRectangle>10.4,-0.2,1,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial,8</Font>
@@ -3204,7 +3210,7 @@
                         </Text177>
                         <Text178 Ref="238" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>13,0,1.2,0.4</ClientRectangle>
+                          <ClientRectangle>13,-0.2,1.2,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial,8</Font>
@@ -3219,7 +3225,7 @@
                         </Text178>
                         <Text179 Ref="239" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>15.6,0,1.2,0.4</ClientRectangle>
+                          <ClientRectangle>15.6,-0.2,1.2,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial,8</Font>
@@ -3234,7 +3240,7 @@
                         </Text179>
                         <Text165 Ref="240" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>17.4,0,1,0.4</ClientRectangle>
+                          <ClientRectangle>17.4,-0.2,1,0.4</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial,8</Font>
@@ -3261,7 +3267,8 @@
                     </DataBand12>
                     <DataBand13 Ref="241" type="DataBand" isKey="true">
                       <Brush>Transparent</Brush>
-                      <ClientRectangle>0,11,18.6,3.4</ClientRectangle>
+                      <BusinessObjectGuid isNull="true" />
+                      <ClientRectangle>0,10.8,18.6,3.4</ClientRectangle>
                       <Components isList="true" count="8">
                         <Text66 Ref="242" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
@@ -3546,7 +3553,7 @@
                     </DataBand13>
                     <HeaderBand2 Ref="261" type="HeaderBand" isKey="true">
                       <Brush>Transparent</Brush>
-                      <ClientRectangle>0,15.2,18.6,0.4</ClientRectangle>
+                      <ClientRectangle>0,15,18.6,0.4</ClientRectangle>
                       <Components isList="true" count="1">
                         <Text86 Ref="262" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
@@ -3571,8 +3578,9 @@
                     </HeaderBand2>
                     <DataBand14 Ref="263" type="DataBand" isKey="true">
                       <Brush>Transparent</Brush>
+                      <BusinessObjectGuid isNull="true" />
                       <CanShrink>True</CanShrink>
-                      <ClientRectangle>0,16.4,18.6,1</ClientRectangle>
+                      <ClientRectangle>0,16.2,18.6,1</ClientRectangle>
                       <Components isList="true" count="3">
                         <Text87 Ref="264" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
@@ -3634,8 +3642,9 @@
                     </DataBand14>
                     <DataBand15 Ref="268" type="DataBand" isKey="true">
                       <Brush>Transparent</Brush>
+                      <BusinessObjectGuid isNull="true" />
                       <CanShrink>True</CanShrink>
-                      <ClientRectangle>0,18.2,18.6,1</ClientRectangle>
+                      <ClientRectangle>0,18,18.6,1</ClientRectangle>
                       <Components isList="true" count="2">
                         <Text90 Ref="269" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
@@ -3731,10 +3740,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>Eduardo Hernández</ReportAuthor>
-  <ReportChanged>10/10/2025 2:28:42 AM</ReportChanged>
+  <ReportChanged>10/10/2025 9:30:24 AM</ReportChanged>
   <ReportCreated>7/15/2025 1:48:53 PM</ReportCreated>
   <ReportFile>C:\Users\FranciscoRamírezRamí\Downloads\nuevo\StimulsoftReport\Reports\ReporteResLugarTrabajo.mrt</ReportFile>
-  <ReportGuid>684c5dd23736493193b65fcab179dbd6</ReportGuid>
+  <ReportGuid>fbc160af4ef949ffab1ae1a88e3cd4d0</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.2.5.0</ReportVersion>
