@@ -711,8 +711,6 @@ namespace StimulsoftReport.Services
 
                 table.Rows.Add(row);
 
-                Console.WriteLine($"[Info] Generado ID para nodo '{nodeName}': {ownIdCol}={newId} (main {mainPkColumnName}={mainId})");
-
                 // Prepara lista de ancestros para hijos (incluye este nodo)
                 var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
 
@@ -745,8 +743,6 @@ namespace StimulsoftReport.Services
                 row[ownIdColLocal] = newId;
 
                 table.Rows.Add(row);
-
-                Console.WriteLine($"[Info] Generado ID para nodo '{nodeName}': {ownIdColLocal}={newId} (main {mainPkColumnName}={mainId})");
             }
         }
     }
@@ -826,8 +822,6 @@ namespace StimulsoftReport.Services
 
         table.Rows.Add(row);
 
-        Console.WriteLine($"[Info] Generado ID para nodo '{nodeName}': {ownIdCol}={newId} (main {mainPkColumnName}={mainId})");
-
         // Procesa propiedades anidadas
         var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
         foreach (var p in obj)
@@ -867,8 +861,6 @@ namespace StimulsoftReport.Services
         int newId = table.Rows.Count + 1;
         row[ownIdCol2] = newId;
         table.Rows.Add(row);
-
-        Console.WriteLine($"[Info] Generado ID para nodo '{nodeName}': {ownIdCol2}={newId} (main {mainPkColumnName}={mainId})");
     }
 }
 
