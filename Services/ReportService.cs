@@ -303,7 +303,7 @@ namespace StimulsoftReport.Services
                 foreach (var prop in itemObj)
                 {
                     // Cada propiedad compleja (objeto/array) se convierte en tabla hija
-                    ProcessNodeRecursive(prop.Value, prop.Key, i + 1, pkColumnName, createdTables);
+                    ProcessNodeRecursive(prop.Value, prop.Key, i + 1, pkColumnName, null, null, new List<(string, int)>(), createdTables);
                 }
             }
 
@@ -347,8 +347,6 @@ namespace StimulsoftReport.Services
                 }
             }
 
-
-
             if (string.Equals(reportName, "ReporteCFDIMc", StringComparison.OrdinalIgnoreCase))
             {
                 try
@@ -378,26 +376,6 @@ namespace StimulsoftReport.Services
             // Registra todas las tablas creadas en el diccionario del reporte
             foreach (var kvp in createdTables)
             {
-                if (string.Equals(reportName, "ReporteA3o", StringComparison.OrdinalIgnoreCase) &&
-                    (string.Equals(kvp.Key, "Percepciones", StringComparison.OrdinalIgnoreCase) ||
-                    string.Equals(kvp.Key, "OtrosPagos", StringComparison.OrdinalIgnoreCase) ||
-                    string.Equals(kvp.Key, "Deducciones", StringComparison.OrdinalIgnoreCase)))
-                {
-                    Console.WriteLine($"[Info] [ReporteA3o] Tabla '{kvp.Key}' filas: {kvp.Value.Rows.Count}, columnas: {kvp.Value.Columns.Count}");
-                }
-                report.RegData(kvp.Key, kvp.Value);
-            }
-
-            foreach (var kvp in createdTables)
-            {
-                if (string.Equals(reportName, "ReporteResLugarTrabajo", StringComparison.OrdinalIgnoreCase) &&
-                    (string.Equals(kvp.Key, "Percepciones", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(kvp.Key, "Deducciones", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(kvp.Key, "DeduccionesSumario", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(kvp.Key, "PercepcionesSumario", StringComparison.OrdinalIgnoreCase)))
-                {
-                    Console.WriteLine($"[Info] [ReporteResLugarTrabajo] Tabla '{kvp.Key}' filas: {kvp.Value.Rows.Count}, columnas: {kvp.Value.Columns.Count}");
-                }
                 report.RegData(kvp.Key, kvp.Value);
             }
 
@@ -634,127 +612,257 @@ namespace StimulsoftReport.Services
         /// - Arrays: generan filas; Objetos: generan columnas.
         /// - Se agrega una PK sintética para relacionar con el principal.
         /// </summary>
-        private void ProcessNodeRecursive(JsonNode? node, string nodeName, int parentId, string pkColumnName, Dictionary<string, DataTable> createdTables)
+       private void ProcessNodeRecursive(JsonNode? node, string nodeName, int mainId, string mainPkColumnName, int? parentRowId, string? parentNodeName, List<(string name, int id)> ancestors, Dictionary<string, DataTable> createdTables)
+{
+    if (node == null) return;
+
+    // Ensure ancestors list is not null
+    ancestors ??= new List<(string name, int id)>();
+
+    if (node is JsonArray arr)
+    {
+        // Crea/ajusta esquema de tabla para el array actual
+        if (!createdTables.TryGetValue(nodeName, out var table))
         {
-            if (node == null) return;
+            table = BuildTableSchemaFromArray(nodeName, arr);
+            createdTables[nodeName] = table;
+        }
+        else
+        {
+            // Agrega columnas nuevas que aparezcan en otros elementos del array
+            var allKeys = CollectKeysFromArray(arr);
+            foreach (var k in allKeys)
+                if (!table.Columns.Contains(k))
+                    table.Columns.Add(k, typeof(string));
+        }
 
-            if (node is JsonArray arr)
+        // Asegura columnas de id principales y de ancestros
+        if (!table.Columns.Contains(mainPkColumnName))
+            table.Columns.Add(mainPkColumnName, typeof(int));
+        // Columna propia del nodo
+        var ownIdCol = $"{nodeName}Id";
+        if (!table.Columns.Contains(ownIdCol))
+            table.Columns.Add(ownIdCol, typeof(int));
+        // Columnas para ancestros
+        foreach (var anc in ancestors)
+        {
+            var ancCol = $"{anc.name}Id";
+            if (!table.Columns.Contains(ancCol))
+                table.Columns.Add(ancCol, typeof(int));
+        }
+
+        // Itera cada elemento del array
+        foreach (var element in arr)
+        {
+            if (element is JsonObject childObj)
             {
-                // Crea/ajusta esquema de tabla para el array actual
-                if (!createdTables.TryGetValue(nodeName, out var table))
-                {
-                    table = BuildTableSchemaFromArray(nodeName, arr);
-                    if (!table.Columns.Contains(pkColumnName))
-                        table.Columns.Add(pkColumnName, typeof(int));
-                    createdTables[nodeName] = table;
-                }
-                else
-                {
-                    // Agrega columnas nuevas que aparezcan en otros elementos del array
-                    var allKeys = CollectKeysFromArray(arr);
-                    foreach (var k in allKeys)
-                        if (!table.Columns.Contains(k))
-                            table.Columns.Add(k, typeof(string));
-                }
-
-                // Itera cada elemento del array
-                foreach (var element in arr)
-                {
-                    if (element is JsonObject childObj)
-                    {
-                        var row = table.NewRow();
-
-                        // Copia propiedades conocidas a columnas; rellena faltantes con ""
-                        foreach (DataColumn col in table.Columns)
-                        {
-                            if (col.ColumnName == pkColumnName) continue;
-
-                            if (childObj.TryGetPropertyValue(col.ColumnName, out var val))
-                                row[col.ColumnName] = val?.ToString() ?? "";
-                            else
-                                row[col.ColumnName] = "";
-                        }
-
-                        // Asigna relación con el registro principal
-                        row[pkColumnName] = parentId;
-                        table.Rows.Add(row);
-
-                        // Procesa propiedades anidadas (objetos/arrays)
-                        foreach (var p in childObj)
-                        {
-                            if (p.Value is JsonArray || p.Value is JsonObject)
-                                ProcessNodeRecursive(p.Value, p.Key, parentId, pkColumnName, createdTables);
-                        }
-                    }
-                    else
-                    {
-                        // Elemento "simple" dentro del array: crea columna "Value"
-                        if (!table.Columns.Contains("Value"))
-                            table.Columns.Add("Value", typeof(string));
-
-                        var row = table.NewRow();
-                        if (table.Columns.Contains("Value"))
-                            row["Value"] = element?.ToString() ?? "";
-                        row[pkColumnName] = parentId;
-                        table.Rows.Add(row);
-                    }
-                }
-            }
-            else if (node is JsonObject obj)
-            {
-                // Crea/ajusta esquema para objeto
-                if (!createdTables.TryGetValue(nodeName, out var table))
-                {
-                    table = BuildTableSchemaFromObject(nodeName, obj);
-                    if (!table.Columns.Contains(pkColumnName))
-                        table.Columns.Add(pkColumnName, typeof(int));
-                    createdTables[nodeName] = table;
-                }
-                else
-                {
-                    // Agrega columnas nuevas si aparecen propiedades no vistas
-                    foreach (var p in obj)
-                        if (!table.Columns.Contains(p.Key))
-                            table.Columns.Add(p.Key, typeof(string));
-                }
-
-                // Inserta fila con valores del objeto
                 var row = table.NewRow();
+
+                // Copia propiedades conocidas a columnas; rellena faltantes con ""
                 foreach (DataColumn col in table.Columns)
                 {
-                    if (col.ColumnName == pkColumnName) continue;
-                    if (obj.TryGetPropertyValue(col.ColumnName, out var val))
-                        row[col.ColumnName] = val?.ToString() ?? "";
+                    var colName = col.ColumnName;
+                    if (colName == mainPkColumnName || colName == ownIdCol) continue; // se asignan abajo
+                    // si es columna de ancestro la asignaremos abajo
+                    if (ancestors.Any(a => $"{a.name}Id" == colName)) continue;
+
+                    if (childObj.TryGetPropertyValue(colName, out var val))
+                        row[colName] = val?.ToString() ?? "";
                     else
-                        row[col.ColumnName] = "";
+                        row[colName] = "";
                 }
-                row[pkColumnName] = parentId;
+
+                // Asigna relación con el registro principal
+                row[mainPkColumnName] = mainId;
+
+                // Asigna columnas de ancestros
+                foreach (var anc in ancestors)
+                {
+                    var ancCol = $"{anc.name}Id";
+                    row[ancCol] = anc.id;
+                }
+
+                // Si existe parentRowId/parentNodeName y no está en ancestors, asignarlo también
+                if (parentRowId.HasValue && !string.IsNullOrEmpty(parentNodeName) && !ancestors.Any(a => a.name == parentNodeName))
+                {
+                    var parentCol = $"{parentNodeName}Id";
+                    if (!table.Columns.Contains(parentCol))
+                        table.Columns.Add(parentCol, typeof(int));
+                    row[parentCol] = parentRowId.Value;
+                }
+
+                // Calcula y asigna id propio incremental
+                int newId = 1;
+                if (table.Rows.Count > 0)
+                {
+                    try
+                    {
+                        var existing = table.Rows.Cast<DataRow>()
+                            .Where(r => r[ownIdCol] != DBNull.Value)
+                            .Select(r => Convert.ToInt32(r[ownIdCol]));
+                        newId = existing.Any() ? existing.Max() + 1 : table.Rows.Count + 1;
+                    }
+                    catch
+                    {
+                        newId = table.Rows.Count + 1;
+                    }
+                }
+                row[ownIdCol] = newId;
+
                 table.Rows.Add(row);
 
-                // Procesa propiedades anidadas
-                foreach (var p in obj)
+                // Prepara lista de ancestros para hijos (incluye este nodo)
+                var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
+
+                // Procesa propiedades anidadas (objetos/arrays)
+                foreach (var p in childObj)
                 {
                     if (p.Value is JsonArray || p.Value is JsonObject)
-                        ProcessNodeRecursive(p.Value, p.Key, parentId, pkColumnName, createdTables);
+                        ProcessNodeRecursive(p.Value, p.Key, mainId, mainPkColumnName, newId, nodeName, newAncestors, createdTables);
                 }
             }
             else
             {
-                // Nodo simple (string/num/bool): crea tabla con columna Value
-                if (!createdTables.TryGetValue(nodeName, out var table))
-                {
-                    table = new DataTable(nodeName);
+                // Elemento "simple" dentro del array: crea columna "Value"
+                if (!table.Columns.Contains("Value"))
                     table.Columns.Add("Value", typeof(string));
-                    table.Columns.Add(pkColumnName, typeof(int));
-                    createdTables[nodeName] = table;
-                }
 
                 var row = table.NewRow();
-                row["Value"] = node.ToString() ?? "";
-                row[pkColumnName] = parentId;
+                if (table.Columns.Contains("Value"))
+                    row["Value"] = element?.ToString() ?? "";
+
+                row[mainPkColumnName] = mainId;
+
+                // Asigna ancestros
+                foreach (var anc in ancestors)
+                    row[$"{anc.name}Id"] = anc.id;
+
+                // asigna id propio
+                var ownIdColLocal = $"{nodeName}Id";
+                int newId = table.Rows.Count + 1;
+                row[ownIdColLocal] = newId;
+
                 table.Rows.Add(row);
             }
         }
+    }
+    else if (node is JsonObject obj)
+    {
+        // Crea/ajusta esquema para objeto
+        if (!createdTables.TryGetValue(nodeName, out var table))
+        {
+            table = BuildTableSchemaFromObject(nodeName, obj);
+            createdTables[nodeName] = table;
+        }
+        else
+        {
+            // Agrega columnas nuevas si aparecen propiedades no vistas
+            foreach (var p in obj)
+                if (!table.Columns.Contains(p.Key))
+                    table.Columns.Add(p.Key, typeof(string));
+        }
+
+        // Asegura columnas de id principales y de ancestros
+        if (!table.Columns.Contains(mainPkColumnName))
+            table.Columns.Add(mainPkColumnName, typeof(int));
+        var ownIdCol = $"{nodeName}Id";
+        if (!table.Columns.Contains(ownIdCol))
+            table.Columns.Add(ownIdCol, typeof(int));
+        foreach (var anc in ancestors)
+        {
+            var ancCol = $"{anc.name}Id";
+            if (!table.Columns.Contains(ancCol))
+                table.Columns.Add(ancCol, typeof(int));
+        }
+
+        // Inserta fila con valores del objeto
+        var row = table.NewRow();
+        foreach (DataColumn col in table.Columns)
+        {
+            if (col.ColumnName == mainPkColumnName) continue;
+            if (col.ColumnName == ownIdCol) continue;
+            if (ancestors.Any(a => $"{a.name}Id" == col.ColumnName)) continue;
+
+            if (obj.TryGetPropertyValue(col.ColumnName, out var val))
+                row[col.ColumnName] = val?.ToString() ?? "";
+            else
+                row[col.ColumnName] = "";
+        }
+
+        // Asigna ids
+        row[mainPkColumnName] = mainId;
+        foreach (var anc in ancestors)
+            row[$"{anc.name}Id"] = anc.id;
+
+        if (parentRowId.HasValue && !string.IsNullOrEmpty(parentNodeName) && !ancestors.Any(a => a.name == parentNodeName))
+        {
+            var parentCol = $"{parentNodeName}Id";
+            if (!table.Columns.Contains(parentCol))
+                table.Columns.Add(parentCol, typeof(int));
+            row[parentCol] = parentRowId.Value;
+        }
+
+        // Calcula y asigna id propio
+        int newId = 1;
+        if (table.Rows.Count > 0)
+        {
+            try
+            {
+                var existing = table.Rows.Cast<DataRow>()
+                    .Where(r => r[ownIdCol] != DBNull.Value)
+                    .Select(r => Convert.ToInt32(r[ownIdCol]));
+                newId = existing.Any() ? existing.Max() + 1 : table.Rows.Count + 1;
+            }
+            catch
+            {
+                newId = table.Rows.Count + 1;
+            }
+        }
+        row[ownIdCol] = newId;
+
+        table.Rows.Add(row);
+
+        // Procesa propiedades anidadas
+        var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
+        foreach (var p in obj)
+        {
+            if (p.Value is JsonArray || p.Value is JsonObject)
+                ProcessNodeRecursive(p.Value, p.Key, mainId, mainPkColumnName, newId, nodeName, newAncestors, createdTables);
+        }
+    }
+    else
+    {
+        // Nodo simple (string/num/bool): crea tabla con columna Value
+        if (!createdTables.TryGetValue(nodeName, out var table))
+        {
+            table = new DataTable(nodeName);
+            table.Columns.Add("Value", typeof(string));
+            createdTables[nodeName] = table;
+        }
+
+        if (!table.Columns.Contains(mainPkColumnName))
+            table.Columns.Add(mainPkColumnName, typeof(int));
+        var ownIdCol2 = $"{nodeName}Id";
+        if (!table.Columns.Contains(ownIdCol2))
+            table.Columns.Add(ownIdCol2, typeof(int));
+        foreach (var anc in ancestors)
+        {
+            var ancCol = $"{anc.name}Id";
+            if (!table.Columns.Contains(ancCol))
+                table.Columns.Add(ancCol, typeof(int));
+        }
+
+        var row = table.NewRow();
+        row["Value"] = node.ToString() ?? "";
+        row[mainPkColumnName] = mainId;
+        foreach (var anc in ancestors)
+            row[$"{anc.name}Id"] = anc.id;
+
+        int newId = table.Rows.Count + 1;
+        row[ownIdCol2] = newId;
+        table.Rows.Add(row);
+    }
+}
 
         /// <summary>
         /// Construye esquema de tabla a partir de un array de objetos JSON (union de claves).

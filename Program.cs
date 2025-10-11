@@ -105,21 +105,11 @@ app.MapHealthChecks("/health/detailed", new HealthCheckOptions
         context.Response.ContentType = "application/json";
 
         // ----------------------------------------------------------
-        // Obtener versión y commit hash desde Assembly
+        // Obtener versión desde Assembly
         // ----------------------------------------------------------
-        var versionRaw = Assembly.GetExecutingAssembly()
+        var version = Assembly.GetExecutingAssembly()
             .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?
             .InformationalVersion ?? "unknown";
-
-        string version = versionRaw;
-        string? commit = null;
-
-        if (versionRaw.Contains('+'))
-        {
-            var parts = versionRaw.Split('+');
-            version = parts[0];   // Ej: "1.3.0-Release"
-            commit = parts[1];    // Ej: "1a9c90430fe5242..."
-        }
 
         // ----------------------------------------------------------
         // Obtener lista de reportes .mrt con su última modificación
@@ -146,7 +136,6 @@ app.MapHealthChecks("/health/detailed", new HealthCheckOptions
             estado = report.Status.ToString(),
             marca_tiempo = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), // Local, legible
             version = version,
-            commit = commit, // Opcional (null si no hay hash)
             duracion_ms = report.TotalDuration.TotalMilliseconds,
             verificaciones = report.Entries.Select(x => new
             {
