@@ -24,6 +24,8 @@ namespace StimulsoftReport.Services
         private readonly string _templatesFolder;
         private readonly string _configsFolder;
         private readonly Dictionary<string, ReportConfig> _reportConfigs;
+        private readonly Dictionary<string, int> _idCounters = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+        private readonly object _idLock = new object();
 
         /// <summary>
         /// Inicializa el servicio de reportes leyendo rutas y configuraciones.
@@ -118,8 +120,8 @@ namespace StimulsoftReport.Services
                 jsonNode = JsonNode.Parse(jsonString);
                 if (jsonNode == null)
                 {
-                    Console.WriteLine("[Error] JSON inválido o vacío.");
-                    return (false, "JSON inválido o vacío.", null);
+                Console.WriteLine("[Error] JSON inválido o vacío.");
+                return (false, "JSON inválido o vacío.", null);
                 }
             }
             else if (sqlParams != null)
@@ -651,6 +653,27 @@ namespace StimulsoftReport.Services
                 table.Columns.Add(ancCol, typeof(int));
         }
 
+        // Inicializa contador si hace falta
+        lock (_idLock)
+        {
+            if (!_idCounters.ContainsKey(nodeName))
+            {
+                try
+                {
+                    var existingMax = table.Rows.Cast<DataRow>()
+                        .Where(r => r[ownIdCol] != DBNull.Value)
+                        .Select(r => Convert.ToInt32(r[ownIdCol]))
+                        .DefaultIfEmpty(0)
+                        .Max();
+                    _idCounters[nodeName] = existingMax;
+                }
+                catch
+                {
+                    _idCounters[nodeName] = table.Rows.Count;
+                }
+            }
+        }
+
         // Itera cada elemento del array
         foreach (var element in arr)
         {
@@ -667,19 +690,30 @@ namespace StimulsoftReport.Services
                     if (ancestors.Any(a => $"{a.name}Id" == colName)) continue;
 
                     if (childObj.TryGetPropertyValue(colName, out var val))
-                        row[colName] = val?.ToString() ?? "";
+                    {
+                        // Respeta el tipo de la columna
+                        var converted = ConvertJsonNodeToColumnValue(val, col.DataType);
+                        row[colName] = converted ?? DBNull.Value;
+                        Console.WriteLine($"[LOG] Asignando valor a columna '{colName}' (tipo {col.DataType.Name}): {converted}");
+                    }
                     else
-                        row[colName] = "";
+                    {
+                        // Si no viene la propiedad en JSON, coloca DBNull o "" según tipo
+                        row[colName] = (col.DataType == typeof(string)) ? "" : DBNull.Value;
+                        Console.WriteLine($"[LOG] Asignando valor por defecto a columna '{colName}' (tipo {col.DataType.Name}): {(col.DataType == typeof(string) ? "\"\"" : "DBNull")}");
+                    }
                 }
 
                 // Asigna relación con el registro principal
                 row[mainPkColumnName] = mainId;
+                Console.WriteLine($"[LOG] Asignando {mainPkColumnName} = {mainId}");
 
                 // Asigna columnas de ancestros
                 foreach (var anc in ancestors)
                 {
                     var ancCol = $"{anc.name}Id";
                     row[ancCol] = anc.id;
+                    Console.WriteLine($"[LOG] Asignando {ancCol} = {anc.id}");
                 }
 
                 // Si existe parentRowId/parentNodeName y no está en ancestors, asignarlo también
@@ -689,25 +723,18 @@ namespace StimulsoftReport.Services
                     if (!table.Columns.Contains(parentCol))
                         table.Columns.Add(parentCol, typeof(int));
                     row[parentCol] = parentRowId.Value;
+                    Console.WriteLine($"[LOG] Asignando {parentCol} = {parentRowId.Value}");
                 }
 
                 // Calcula y asigna id propio incremental
-                int newId = 1;
-                if (table.Rows.Count > 0)
+                int newId;
+                lock (_idLock)
                 {
-                    try
-                    {
-                        var existing = table.Rows.Cast<DataRow>()
-                            .Where(r => r[ownIdCol] != DBNull.Value)
-                            .Select(r => Convert.ToInt32(r[ownIdCol]));
-                        newId = existing.Any() ? existing.Max() + 1 : table.Rows.Count + 1;
-                    }
-                    catch
-                    {
-                        newId = table.Rows.Count + 1;
-                    }
+                    _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
+                    newId = _idCounters[nodeName];
                 }
                 row[ownIdCol] = newId;
+                Console.WriteLine($"[LOG] Asignando {ownIdCol} = {newId}");
 
                 table.Rows.Add(row);
 
@@ -732,15 +759,26 @@ namespace StimulsoftReport.Services
                     row["Value"] = element?.ToString() ?? "";
 
                 row[mainPkColumnName] = mainId;
+                Console.WriteLine($"[LOG] Asignando {mainPkColumnName} = {mainId}");
 
                 // Asigna ancestros
                 foreach (var anc in ancestors)
-                    row[$"{anc.name}Id"] = anc.id;
+                {
+                    var ancCol = $"{anc.name}Id";
+                    row[ancCol] = anc.id;
+                    Console.WriteLine($"[LOG] Asignando {ancCol} = {anc.id}");
+                }
 
                 // asigna id propio
                 var ownIdColLocal = $"{nodeName}Id";
-                int newId = table.Rows.Count + 1;
+                int newId;
+                lock (_idLock)
+                {
+                    _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
+                    newId = _idCounters[nodeName];
+                }
                 row[ownIdColLocal] = newId;
+                Console.WriteLine($"[LOG] Asignando {ownIdColLocal} = {newId}");
 
                 table.Rows.Add(row);
             }
@@ -775,6 +813,27 @@ namespace StimulsoftReport.Services
                 table.Columns.Add(ancCol, typeof(int));
         }
 
+        // Inicializa contador si hace falta
+        lock (_idLock)
+        {
+            if (!_idCounters.ContainsKey(nodeName))
+            {
+                try
+                {
+                    var existingMax = table.Rows.Cast<DataRow>()
+                        .Where(r => r[ownIdCol] != DBNull.Value)
+                        .Select(r => Convert.ToInt32(r[ownIdCol]))
+                        .DefaultIfEmpty(0)
+                        .Max();
+                    _idCounters[nodeName] = existingMax;
+                }
+                catch
+                {
+                    _idCounters[nodeName] = table.Rows.Count;
+                }
+            }
+        }
+
         // Inserta fila con valores del objeto
         var row = table.NewRow();
         foreach (DataColumn col in table.Columns)
@@ -784,15 +843,29 @@ namespace StimulsoftReport.Services
             if (ancestors.Any(a => $"{a.name}Id" == col.ColumnName)) continue;
 
             if (obj.TryGetPropertyValue(col.ColumnName, out var val))
-                row[col.ColumnName] = val?.ToString() ?? "";
+            {
+                // Respeta el tipo de la columna
+                var converted = ConvertJsonNodeToColumnValue(val, col.DataType);
+                row[col.ColumnName] = converted ?? DBNull.Value;
+                Console.WriteLine($"[LOG] Asignando valor a columna '{col.ColumnName}' (tipo {col.DataType.Name}): {converted}");
+            }
             else
-                row[col.ColumnName] = "";
+            {
+                // Si no viene la propiedad en JSON, coloca DBNull o "" según tipo
+                row[col.ColumnName] = (col.DataType == typeof(string)) ? "" : DBNull.Value;
+                Console.WriteLine($"[LOG] Asignando valor por defecto a columna '{col.ColumnName}' (tipo {col.DataType.Name}): {(col.DataType == typeof(string) ? "\"\"" : "DBNull")}");
+            }
         }
 
         // Asigna ids
         row[mainPkColumnName] = mainId;
+        Console.WriteLine($"[LOG] Asignando {mainPkColumnName} = {mainId}");
         foreach (var anc in ancestors)
-            row[$"{anc.name}Id"] = anc.id;
+        {
+            var ancCol = $"{anc.name}Id";
+            row[ancCol] = anc.id;
+            Console.WriteLine($"[LOG] Asignando {ancCol} = {anc.id}");
+        }
 
         if (parentRowId.HasValue && !string.IsNullOrEmpty(parentNodeName) && !ancestors.Any(a => a.name == parentNodeName))
         {
@@ -800,25 +873,18 @@ namespace StimulsoftReport.Services
             if (!table.Columns.Contains(parentCol))
                 table.Columns.Add(parentCol, typeof(int));
             row[parentCol] = parentRowId.Value;
+            Console.WriteLine($"[LOG] Asignando {parentCol} = {parentRowId.Value}");
         }
 
         // Calcula y asigna id propio
-        int newId = 1;
-        if (table.Rows.Count > 0)
+        int newId;
+        lock (_idLock)
         {
-            try
-            {
-                var existing = table.Rows.Cast<DataRow>()
-                    .Where(r => r[ownIdCol] != DBNull.Value)
-                    .Select(r => Convert.ToInt32(r[ownIdCol]));
-                newId = existing.Any() ? existing.Max() + 1 : table.Rows.Count + 1;
-            }
-            catch
-            {
-                newId = table.Rows.Count + 1;
-            }
+            _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
+            newId = _idCounters[nodeName];
         }
         row[ownIdCol] = newId;
+        Console.WriteLine($"[LOG] Asignando {ownIdCol} = {newId}");
 
         table.Rows.Add(row);
 
@@ -855,11 +921,22 @@ namespace StimulsoftReport.Services
         var row = table.NewRow();
         row["Value"] = node.ToString() ?? "";
         row[mainPkColumnName] = mainId;
+        Console.WriteLine($"[LOG] Asignando {mainPkColumnName} = {mainId}");
         foreach (var anc in ancestors)
-            row[$"{anc.name}Id"] = anc.id;
+        {
+            var ancCol = $"{anc.name}Id";
+            row[ancCol] = anc.id;
+            Console.WriteLine($"[LOG] Asignando {ancCol} = {anc.id}");
+        }
 
-        int newId = table.Rows.Count + 1;
+        int newId;
+        lock (_idLock)
+        {
+            _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
+            newId = _idCounters[nodeName];
+        }
         row[ownIdCol2] = newId;
+        Console.WriteLine($"[LOG] Asignando {ownIdCol2} = {newId}");
         table.Rows.Add(row);
     }
 }
@@ -873,6 +950,19 @@ namespace StimulsoftReport.Services
             var keys = CollectKeysFromArray(arr);
             foreach (var k in keys)
                 dt.Columns.Add(k, typeof(string));
+            
+            // Asegurar existencia de ownId como Int32 desde el esquema
+            var ownIdCol = $"{tableName}Id";
+            if (!dt.Columns.Contains(ownIdCol))
+                dt.Columns.Add(ownIdCol, typeof(int));
+
+            // Inicializa contador para ids propios si no existe
+            lock (_idLock)
+            {
+                if (!_idCounters.ContainsKey(tableName))
+                    _idCounters[tableName] = 0;
+            }
+            
             return dt;
         }
 
@@ -886,6 +976,19 @@ namespace StimulsoftReport.Services
             {
                 dt.Columns.Add(p.Key, typeof(string));
             }
+            
+            // Asegurar existencia de ownId como Int32 desde el esquema
+            var ownIdCol = $"{tableName}Id";
+            if (!dt.Columns.Contains(ownIdCol))
+                dt.Columns.Add(ownIdCol, typeof(int));
+
+            // Inicializa contador para ids propios si no existe
+            lock (_idLock)
+            {
+                if (!_idCounters.ContainsKey(tableName))
+                    _idCounters[tableName] = 0;
+            }
+            
             return dt;
         }
 
@@ -1015,14 +1118,40 @@ namespace StimulsoftReport.Services
             if (!table.Columns.Contains(pkColumnName))
                 table.Columns.Add(pkColumnName, typeof(int));
 
+            var ownIdCol = $"{table.TableName}Id";
+            if (!table.Columns.Contains(ownIdCol))
+                table.Columns.Add(ownIdCol, typeof(int));
+
+            // Inicializa contador para esta tabla si hace falta
+            lock (_idLock)
+            {
+                if (!_idCounters.TryGetValue(table.TableName, out var counter))
+                {
+                    try
+                    {
+                        counter = table.Rows.Cast<DataRow>()
+                            .Where(r => r[ownIdCol] != DBNull.Value)
+                            .Select(r => Convert.ToInt32(r[ownIdCol]))
+                            .DefaultIfEmpty(0)
+                            .Max();
+                    }
+                    catch
+                    {
+                        counter = table.Rows.Count;
+                    }
+                    _idCounters[table.TableName] = counter;
+                }
+            }
+
             for (int i = 0; i < count; i++)
             {
                 var row = table.NewRow();
 
-                // Coloca valores por defecto por tipo
+                // Coloca valores por defecto por tipo (sin tocar PK ni ownId aún)
                 foreach (DataColumn col in table.Columns)
                 {
                     if (col.ColumnName == pkColumnName) continue;
+                    if (col.ColumnName == ownIdCol) continue;
 
                     if (col.DataType == typeof(string))
                         row[col.ColumnName] = "";
@@ -1033,6 +1162,16 @@ namespace StimulsoftReport.Services
                 }
 
                 row[pkColumnName] = parentId;
+
+                // asigna own id incremental de forma thread-safe
+                int newId;
+                lock (_idLock)
+                {
+                    _idCounters[table.TableName] = _idCounters.GetValueOrDefault(table.TableName) + 1;
+                    newId = _idCounters[table.TableName];
+                }
+                row[ownIdCol] = newId;
+
                 table.Rows.Add(row);
             }
         }
@@ -1077,6 +1216,70 @@ namespace StimulsoftReport.Services
             }
 
             return dt;
+        }
+        
+        /// <summary>
+        /// Convierte un JsonNode a un valor compatible con el tipo de una columna.
+        /// </summary>
+        private object ConvertJsonNodeToColumnValue(JsonNode? node, Type targetType)
+        {
+            if (node == null) return DBNull.Value;
+
+            // Obtiene la representación textual (si es JsonValue esto es el valor serializado)
+            var s = node.ToString() ?? "";
+
+            // Normal caso: cadena vacía => DBNull para tipos no string
+            if (string.IsNullOrEmpty(s))
+            {
+                if (targetType == typeof(string)) return "";
+                return DBNull.Value;
+            }
+
+            try
+            {
+                if (targetType == typeof(string)) return s;
+
+                if (targetType == typeof(int))
+                {
+                    if (int.TryParse(s, out var i)) return i;
+                    return DBNull.Value;
+                }
+                if (targetType == typeof(long))
+                {
+                    if (long.TryParse(s, out var l)) return l;
+                    return DBNull.Value;
+                }
+                if (targetType == typeof(decimal))
+                {
+                    if (decimal.TryParse(s, out var d)) return d;
+                    return DBNull.Value;
+                }
+                if (targetType == typeof(double))
+                {
+                    if (double.TryParse(s, out var d)) return d;
+                    return DBNull.Value;
+                }
+                if (targetType == typeof(bool))
+                {
+                    if (bool.TryParse(s, out var b)) return b;
+                    // a veces booleans vienen como "0"/"1"
+                    if (s == "0") return false;
+                    if (s == "1") return true;
+                    return DBNull.Value;
+                }
+                if (targetType == typeof(DateTime))
+                {
+                    if (DateTime.TryParse(s, out var dt)) return dt;
+                    return DBNull.Value;
+                }
+
+                // Fallback: intenta conversión general
+                return Convert.ChangeType(s, targetType);
+            }
+            catch
+            {
+                return DBNull.Value;
+            }
         }
     }
 }

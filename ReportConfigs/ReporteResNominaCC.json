@@ -1,0 +1,35 @@
+{
+  "TemplateFile": "ReporteResNominaCC.mrt",
+  "DataSourceMappings": {
+    "Data": "",
+    "CentrosCosto": "CentrosCosto",
+    "PercepcionesPorCC": "CentrosCosto.Percepciones",
+    "DeduccionesPorCC": "CentrosCosto.Deducciones",
+    "Empleados": "Empleados",
+    "Sumario": "Sumario",
+    "SumarioPercepciones": "Sumario.Percepciones",
+    "SumarioDeducciones": "Sumario.Deducciones",
+    "TotalesSumario": "Sumario.TotalesSumario",
+    "DetalleCostos": "DetalleCostos",
+    "Proviciones": "Proviciones",
+    "Estadisticos": "Estadisticos",
+    "Reg_Patronal": "Reg_Patronal",
+    "Prints": "Prints"
+  },
+  "RequiredDataSources": [
+    "Data",
+    "CentrosCosto",
+    "PercepcionesPorCC",
+    "DeduccionesPorCC",
+    "Empleados",
+    "Sumario",
+    "SumarioPercepciones",
+    "SumarioDeducciones",
+    "TotalesSumario",
+    "DetalleCostos",
+    "Proviciones",
+    "Estadisticos",
+    "Reg_Patronal",
+    "Prints"
+  ]
+}
