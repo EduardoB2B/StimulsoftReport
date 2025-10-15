@@ -694,26 +694,22 @@ namespace StimulsoftReport.Services
                         // Respeta el tipo de la columna
                         var converted = ConvertJsonNodeToColumnValue(val, col.DataType);
                         row[colName] = converted ?? DBNull.Value;
-                        Console.WriteLine($"[LOG] Asignando valor a columna '{colName}' (tipo {col.DataType.Name}): {converted}");
                     }
                     else
                     {
                         // Si no viene la propiedad en JSON, coloca DBNull o "" según tipo
                         row[colName] = (col.DataType == typeof(string)) ? "" : DBNull.Value;
-                        Console.WriteLine($"[LOG] Asignando valor por defecto a columna '{colName}' (tipo {col.DataType.Name}): {(col.DataType == typeof(string) ? "\"\"" : "DBNull")}");
                     }
                 }
 
                 // Asigna relación con el registro principal
                 row[mainPkColumnName] = mainId;
-                Console.WriteLine($"[LOG] Asignando {mainPkColumnName} = {mainId}");
 
                 // Asigna columnas de ancestros
                 foreach (var anc in ancestors)
                 {
                     var ancCol = $"{anc.name}Id";
                     row[ancCol] = anc.id;
-                    Console.WriteLine($"[LOG] Asignando {ancCol} = {anc.id}");
                 }
 
                 // Si existe parentRowId/parentNodeName y no está en ancestors, asignarlo también
@@ -723,7 +719,6 @@ namespace StimulsoftReport.Services
                     if (!table.Columns.Contains(parentCol))
                         table.Columns.Add(parentCol, typeof(int));
                     row[parentCol] = parentRowId.Value;
-                    Console.WriteLine($"[LOG] Asignando {parentCol} = {parentRowId.Value}");
                 }
 
                 // Calcula y asigna id propio incremental
@@ -734,7 +729,7 @@ namespace StimulsoftReport.Services
                     newId = _idCounters[nodeName];
                 }
                 row[ownIdCol] = newId;
-                Console.WriteLine($"[LOG] Asignando {ownIdCol} = {newId}");
+
 
                 table.Rows.Add(row);
 
@@ -759,14 +754,12 @@ namespace StimulsoftReport.Services
                     row["Value"] = element?.ToString() ?? "";
 
                 row[mainPkColumnName] = mainId;
-                Console.WriteLine($"[LOG] Asignando {mainPkColumnName} = {mainId}");
 
                 // Asigna ancestros
                 foreach (var anc in ancestors)
                 {
                     var ancCol = $"{anc.name}Id";
                     row[ancCol] = anc.id;
-                    Console.WriteLine($"[LOG] Asignando {ancCol} = {anc.id}");
                 }
 
                 // asigna id propio
@@ -778,7 +771,6 @@ namespace StimulsoftReport.Services
                     newId = _idCounters[nodeName];
                 }
                 row[ownIdColLocal] = newId;
-                Console.WriteLine($"[LOG] Asignando {ownIdColLocal} = {newId}");
 
                 table.Rows.Add(row);
             }
@@ -847,24 +839,20 @@ namespace StimulsoftReport.Services
                 // Respeta el tipo de la columna
                 var converted = ConvertJsonNodeToColumnValue(val, col.DataType);
                 row[col.ColumnName] = converted ?? DBNull.Value;
-                Console.WriteLine($"[LOG] Asignando valor a columna '{col.ColumnName}' (tipo {col.DataType.Name}): {converted}");
             }
             else
             {
                 // Si no viene la propiedad en JSON, coloca DBNull o "" según tipo
                 row[col.ColumnName] = (col.DataType == typeof(string)) ? "" : DBNull.Value;
-                Console.WriteLine($"[LOG] Asignando valor por defecto a columna '{col.ColumnName}' (tipo {col.DataType.Name}): {(col.DataType == typeof(string) ? "\"\"" : "DBNull")}");
             }
         }
 
         // Asigna ids
         row[mainPkColumnName] = mainId;
-        Console.WriteLine($"[LOG] Asignando {mainPkColumnName} = {mainId}");
         foreach (var anc in ancestors)
         {
             var ancCol = $"{anc.name}Id";
             row[ancCol] = anc.id;
-            Console.WriteLine($"[LOG] Asignando {ancCol} = {anc.id}");
         }
 
         if (parentRowId.HasValue && !string.IsNullOrEmpty(parentNodeName) && !ancestors.Any(a => a.name == parentNodeName))
@@ -873,7 +861,6 @@ namespace StimulsoftReport.Services
             if (!table.Columns.Contains(parentCol))
                 table.Columns.Add(parentCol, typeof(int));
             row[parentCol] = parentRowId.Value;
-            Console.WriteLine($"[LOG] Asignando {parentCol} = {parentRowId.Value}");
         }
 
         // Calcula y asigna id propio
@@ -884,7 +871,6 @@ namespace StimulsoftReport.Services
             newId = _idCounters[nodeName];
         }
         row[ownIdCol] = newId;
-        Console.WriteLine($"[LOG] Asignando {ownIdCol} = {newId}");
 
         table.Rows.Add(row);
 
@@ -921,12 +907,10 @@ namespace StimulsoftReport.Services
         var row = table.NewRow();
         row["Value"] = node.ToString() ?? "";
         row[mainPkColumnName] = mainId;
-        Console.WriteLine($"[LOG] Asignando {mainPkColumnName} = {mainId}");
         foreach (var anc in ancestors)
         {
             var ancCol = $"{anc.name}Id";
             row[ancCol] = anc.id;
-            Console.WriteLine($"[LOG] Asignando {ancCol} = {anc.id}");
         }
 
         int newId;
@@ -936,7 +920,6 @@ namespace StimulsoftReport.Services
             newId = _idCounters[nodeName];
         }
         row[ownIdCol2] = newId;
-        Console.WriteLine($"[LOG] Asignando {ownIdCol2} = {newId}");
         table.Rows.Add(row);
     }
 }
