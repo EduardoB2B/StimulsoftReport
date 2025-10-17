@@ -68,10 +68,11 @@ namespace StimulsoftReport.Services
                         configs[reportName] = config;
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
                     // Silencia errores de deserialización o lectura para no romper el arranque
-                    // (Opcional: loguear detalle)
+                    // Loguea detalle para diagnóstico
+                    Console.WriteLine($"[Warn] Error leyendo config '{file}': {ex.Message}");
                 }
             }
 
@@ -100,8 +101,9 @@ namespace StimulsoftReport.Services
 
             if (!File.Exists(templatePath))
             {
-                Console.WriteLine($"[Error] Plantilla no encontrada en {templatePath}");
-                return (false, $"Plantilla no encontrada en {templatePath}", null);
+                Console.WriteLine($"[Error] Plantilla no encontrada en: {templatePath}");
+                // No exponer ruta completa en el mensaje devuelto al cliente, solo en logs
+                return (false, "Plantilla no encontrada para el reporte.", null);
             }
 
             JsonNode? jsonNode = null;
@@ -110,18 +112,92 @@ namespace StimulsoftReport.Services
             {
                 Console.WriteLine($"[Info] Procesando archivo JSON: {jsonFilePath}");
 
-                if (!File.Exists(jsonFilePath))
+                // Verificamos existencia y accesibilidad del archivo de forma robusta
+                try
                 {
-                    Console.WriteLine($"[Error] Archivo JSON no encontrado en {jsonFilePath}");
-                    return (false, $"Archivo JSON no encontrado en {jsonFilePath}", null);
+                    if (!File.Exists(jsonFilePath))
+                    {
+                        Console.WriteLine($"[Error] Archivo JSON no encontrado en: {jsonFilePath}");
+                        return (false, "Archivo JSON no encontrado.", null);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // File.Exists puede lanzar en entornos restringidos; intentamos abrir para diagnosticar permisos
+                    Console.WriteLine($"[Warn] File.Exists lanzó excepción para '{jsonFilePath}': {ex.Message}");
+                    try
+                    {
+                        using (var fs = File.Open(jsonFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                        {
+                            // si se abre, todo bien
+                        }
+                    }
+                    catch (UnauthorizedAccessException)
+                    {
+                        Console.WriteLine($"[Error] Sin permisos para leer el archivo JSON: {jsonFilePath}");
+                        return (false, "Permisos insuficientes para leer el archivo JSON.", null);
+                    }
+                    catch (FileNotFoundException)
+                    {
+                        Console.WriteLine($"[Error] Archivo JSON no encontrado en: {jsonFilePath}");
+                        return (false, "Archivo JSON no encontrado.", null);
+                    }
+                    catch (DirectoryNotFoundException)
+                    {
+                        Console.WriteLine($"[Error] Directorio no encontrado para la ruta JSON: {jsonFilePath}");
+                        return (false, "Directorio del archivo JSON no encontrado.", null);
+                    }
+                    catch (IOException ioEx)
+                    {
+                        Console.WriteLine($"[Error] Error de E/S verificando archivo JSON '{jsonFilePath}': {ioEx.Message}");
+                        return (false, "Error de E/S accediendo al archivo JSON.", null);
+                    }
+                    catch (Exception ex2)
+                    {
+                        Console.WriteLine($"[Error] Excepción verificando archivo JSON '{jsonFilePath}': {ex2.Message}");
+                        return (false, "Error verificando el archivo JSON.", null);
+                    }
                 }
 
-                var jsonString = await File.ReadAllTextAsync(jsonFilePath);
-                jsonNode = JsonNode.Parse(jsonString);
-                if (jsonNode == null)
+                // Lectura y parseado con manejo explícito de JsonException
+                try
                 {
-                Console.WriteLine("[Error] JSON inválido o vacío.");
-                return (false, "JSON inválido o vacío.", null);
+                    var jsonString = await File.ReadAllTextAsync(jsonFilePath);
+                    try
+                    {
+                        jsonNode = JsonNode.Parse(jsonString);
+                        if (jsonNode == null)
+                        {
+                            Console.WriteLine("[Error] JSON inválido o vacío.");
+                            return (false, "JSON inválido o vacío.", null);
+                        }
+                    }
+                    catch (JsonException jex)
+                    {
+                        // Mensaje claro para JSON mal formado (incluye detalle de excepción)
+                        Console.WriteLine($"[Error] JSON mal formado en '{jsonFilePath}': {jex.Message}");
+                        return (false, $"JSON mal formado: {jex.Message}", null);
+                    }
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    Console.WriteLine($"[Error] Sin permisos para leer el archivo JSON: {jsonFilePath}");
+                    return (false, "Permisos insuficientes para leer el archivo JSON.", null);
+                }
+                catch (FileNotFoundException)
+                {
+                    Console.WriteLine($"[Error] Archivo JSON no encontrado en: {jsonFilePath}");
+                    return (false, "Archivo JSON no encontrado.", null);
+                }
+                catch (IOException ex)
+                {
+                    Console.WriteLine($"[Error] Error de E/S leyendo el JSON '{jsonFilePath}': {ex.Message}");
+                    return (false, "Error de E/S leyendo el archivo JSON.", null);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[Error] Excepción leyendo/parsing JSON '{jsonFilePath}': {ex.Message}");
+                    return (false, "Error leyendo o parseando JSON.", null);
                 }
             }
             else if (sqlParams != null)
@@ -139,34 +215,91 @@ namespace StimulsoftReport.Services
             {
                 Console.WriteLine("[Info] Cargando plantilla y registrando datos...");
                 var report = new StiReport();
-                report.Load(templatePath);
 
-                RegisterData(report, jsonNode, config, reportName);
-                Console.WriteLine("[Info] Datos registrados en el reporte.");
+                // Load plantilla con manejo explícito
+                try
+                {
+                    report.Load(templatePath);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[Error] No se pudo cargar la plantilla: {ex.Message}");
+                    return (false, "Error cargando la plantilla del reporte.", null);
+                }
 
-                report.Dictionary.Databases.Clear();
-                report.Dictionary.Synchronize();
-                Console.WriteLine("[Info] Diccionario sincronizado.");
+                // Registrar datos en el reporte — envolvemos para capturar errores de procesamiento
+                try
+                {
+                    RegisterData(report, jsonNode, config, reportName);
+                    Console.WriteLine("[Info] Datos registrados en el reporte.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[Error] Excepción registrando datos en el reporte: {ex.Message}");
+                    return (false, $"Error procesando datos del reporte: {ex.Message}", null);
+                }
 
-                report.Compile();
-                Console.WriteLine("[Info] Reporte compilado.");
+                // Limpia bases (por si hay algo) y sincroniza diccionario
+                try
+                {
+                    report.Dictionary.Databases.Clear();
+                    report.Dictionary.Synchronize();
+                    Console.WriteLine("[Info] Diccionario sincronizado.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[Error] Error sincronizando diccionario del reporte: {ex.Message}");
+                    return (false, "Error sincronizando diccionario del reporte.", null);
+                }
 
-                report.Render(false);
-                Console.WriteLine("[Info] Reporte renderizado.");
+                // Compilar
+                try
+                {
+                    report.Compile();
+                    Console.WriteLine("[Info] Reporte compilado.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[Error] Error compilando reporte: {ex.Message}");
+                    return (false, "Error compilando el reporte.", null);
+                }
 
+                // Renderizar
+                try
+                {
+                    report.Render(false);
+                    Console.WriteLine("[Info] Reporte renderizado.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[Error] Error renderizando reporte: {ex.Message}");
+                    return (false, "Error renderizando el reporte.", null);
+                }
+
+                // Preparar ruta de export
                 var directory = Path.GetDirectoryName(jsonFilePath ?? "tmp") ?? "tmp";
                 var jsonBaseName = Path.GetFileNameWithoutExtension(jsonFilePath ?? reportName);
                 var pdfFileName = $"{jsonBaseName}.pdf";
                 var pdfFullPath = Path.Combine(directory, pdfFileName);
 
-                report.ExportDocument(StiExportFormat.Pdf, pdfFullPath);
-                Console.WriteLine($"[Info] Archivo PDF exportado a: {pdfFullPath}");
+                // Exportar PDF
+                try
+                {
+                    report.ExportDocument(StiExportFormat.Pdf, pdfFullPath);
+                    Console.WriteLine($"[Info] Archivo PDF exportado a: {pdfFullPath}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[Error] Error exportando PDF: {ex.Message}");
+                    return (false, "Error exportando el PDF del reporte.", null);
+                }
 
                 Console.WriteLine("[Fin] Reporte generado correctamente.");
                 return (true, "Reporte generado correctamente", pdfFullPath);
             }
             catch (Exception ex)
             {
+                // Punto de captura por si algo se escapó
                 Console.WriteLine($"[Error] Excepción generando reporte: {ex.Message}");
                 return (false, $"Error generando reporte: {ex.Message}", null);
             }
