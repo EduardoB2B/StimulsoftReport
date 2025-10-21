@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -8,6 +9,8 @@ using StimulsoftReport.Configuration;
 using StimulsoftReport.Services;
 using Stimulsoft.Base;
 using Serilog;
+using Serilog.Core;
+using Serilog.Events;
 using System;
 using System.IO;
 using System.Linq;
@@ -15,20 +18,34 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Leer solo retainedFileCountLimit con valor por defecto 10
+int retainedFileCountLimit = builder.Configuration.GetValue<int?>("SerilogSettings:RetainedFileCountLimit") ?? 10;
+
+// Crear el switch para controlar el nivel de logging dinámicamente
+var levelSwitch = new LoggingLevelSwitch
+{
+    MinimumLevel = LogEventLevel.Information // Nivel inicial fijo, se controla dinámicamente luego
+};
+
 // ----------------------------
 // Configurar Serilog
 // ----------------------------
-Log.Logger = new LoggerConfiguration()
+var loggerConfig = new LoggerConfiguration()
+    .MinimumLevel.ControlledBy(levelSwitch)
     .WriteTo.Console()
     .WriteTo.File(
         path: Path.Combine(builder.Environment.ContentRootPath, "Logs", "log-.txt"),
         rollingInterval: RollingInterval.Day,
-        retainedFileCountLimit: 10,
+        retainedFileCountLimit: retainedFileCountLimit,
         shared: true,
-        flushToDiskInterval: TimeSpan.FromSeconds(1))
-    .CreateLogger();
+        flushToDiskInterval: TimeSpan.FromSeconds(1));
+
+Log.Logger = loggerConfig.CreateLogger();
 
 builder.Host.UseSerilog();
+
+// Registrar el switch en DI para usarlo en el controlador
+builder.Services.AddSingleton(levelSwitch);
 
 // ------------------------------------------------------------------
 // 1. Cargar licencia de Stimulsoft usando directorio raíz de la app

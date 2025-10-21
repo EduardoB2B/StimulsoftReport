@@ -61,7 +61,7 @@ namespace StimulsoftReport.Services
                 }
                 catch (Exception ex)
                 {
-                    Log.Warning("Error leyendo config '{File}': {Message}", file, ex.Message);
+                    Log.Warning(ex, "Error leyendo config '{File}'", file);
                 }
             }
 
@@ -70,7 +70,7 @@ namespace StimulsoftReport.Services
 
         public async Task<(bool Success, string Message, string? PdfPath)> GenerateReportAsync(string reportName, string? jsonFilePath, Dictionary<string, object>? sqlParams = null)
         {
-            Log.Information("[Inicio] Solicitud para generar reporte: '{ReportName}'", reportName);
+            Log.Information("Solicitud para generar reporte: '{ReportName}'", reportName);
 
             if (!_reportConfigs.TryGetValue(reportName, out var config))
             {
@@ -79,7 +79,7 @@ namespace StimulsoftReport.Services
             }
 
             var templatePath = Path.Combine(_templatesFolder, config.TemplateFile);
-            Log.Information("[Info] Ruta plantilla: {TemplatePath}", templatePath);
+            Log.Information("Ruta plantilla: {TemplatePath}", templatePath);
 
             if (!File.Exists(templatePath))
             {
@@ -91,7 +91,7 @@ namespace StimulsoftReport.Services
 
             if (!string.IsNullOrEmpty(jsonFilePath))
             {
-                Log.Information("[Info] Procesando archivo JSON: {JsonFilePath}", jsonFilePath);
+                Log.Information("Procesando archivo JSON: {JsonFilePath}", jsonFilePath);
 
                 try
                 {
@@ -103,36 +103,36 @@ namespace StimulsoftReport.Services
                 }
                 catch (Exception ex)
                 {
-                    Log.Warning("File.Exists lanzó excepción para '{JsonFilePath}': {Message}", jsonFilePath, ex.Message);
+                    Log.Warning(ex, "File.Exists lanzó excepción para '{JsonFilePath}'", jsonFilePath);
                     try
                     {
                         using (var fs = File.Open(jsonFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
                         }
                     }
-                    catch (UnauthorizedAccessException)
+                    catch (UnauthorizedAccessException uex)
                     {
-                        Log.Error("Sin permisos para leer el archivo JSON: {JsonFilePath}", jsonFilePath);
+                        Log.Error(uex, "Sin permisos para leer el archivo JSON: {JsonFilePath}", jsonFilePath);
                         return (false, "Permisos insuficientes para leer el archivo JSON.", null);
                     }
-                    catch (FileNotFoundException)
+                    catch (FileNotFoundException fnf)
                     {
-                        Log.Error("Archivo JSON no encontrado en: {JsonFilePath}", jsonFilePath);
+                        Log.Error(fnf, "Archivo JSON no encontrado en: {JsonFilePath}", jsonFilePath);
                         return (false, "Archivo JSON no encontrado.", null);
                     }
-                    catch (DirectoryNotFoundException)
+                    catch (DirectoryNotFoundException dnf)
                     {
-                        Log.Error("Directorio no encontrado para la ruta JSON: {JsonFilePath}", jsonFilePath);
+                        Log.Error(dnf, "Directorio no encontrado para la ruta JSON: {JsonFilePath}", jsonFilePath);
                         return (false, "Directorio del archivo JSON no encontrado.", null);
                     }
                     catch (IOException ioEx)
                     {
-                        Log.Error("Error de E/S verificando archivo JSON '{JsonFilePath}': {Message}", jsonFilePath, ioEx.Message);
+                        Log.Error(ioEx, "Error de E/S verificando archivo JSON '{JsonFilePath}'", jsonFilePath);
                         return (false, "Error de E/S accediendo al archivo JSON.", null);
                     }
                     catch (Exception ex2)
                     {
-                        Log.Error("Excepción verificando archivo JSON '{JsonFilePath}': {Message}", jsonFilePath, ex2.Message);
+                        Log.Error(ex2, "Excepción verificando archivo JSON '{JsonFilePath}'", jsonFilePath);
                         return (false, "Error verificando el archivo JSON.", null);
                     }
                 }
@@ -151,45 +151,45 @@ namespace StimulsoftReport.Services
                     }
                     catch (JsonException jex)
                     {
-                        Log.Error("JSON mal formado en '{JsonFilePath}': {Message}", jsonFilePath, jex.Message);
+                        Log.Error(jex, "JSON mal formado en '{JsonFilePath}'", jsonFilePath);
                         return (false, $"JSON mal formado: {jex.Message}", null);
                     }
                 }
-                catch (UnauthorizedAccessException)
+                catch (UnauthorizedAccessException uex)
                 {
-                    Log.Error("Sin permisos para leer el archivo JSON: {JsonFilePath}", jsonFilePath);
+                    Log.Error(uex, "Sin permisos para leer el archivo JSON: {JsonFilePath}", jsonFilePath);
                     return (false, "Permisos insuficientes para leer el archivo JSON.", null);
                 }
-                catch (FileNotFoundException)
+                catch (FileNotFoundException fnf)
                 {
-                    Log.Error("Archivo JSON no encontrado en: {JsonFilePath}", jsonFilePath);
+                    Log.Error(fnf, "Archivo JSON no encontrado en: {JsonFilePath}", jsonFilePath);
                     return (false, "Archivo JSON no encontrado.", null);
                 }
                 catch (IOException ex)
                 {
-                    Log.Error("Error de E/S leyendo el JSON '{JsonFilePath}': {Message}", jsonFilePath, ex.Message);
+                    Log.Error(ex, "Error de E/S leyendo el JSON '{JsonFilePath}'", jsonFilePath);
                     return (false, "Error de E/S leyendo el archivo JSON.", null);
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("Excepción leyendo/parsing JSON '{JsonFilePath}': {Message}", jsonFilePath, ex.Message);
+                    Log.Error(ex, "Excepción leyendo/parsing JSON '{JsonFilePath}'", jsonFilePath);
                     return (false, "Error leyendo o parseando JSON.", null);
                 }
             }
             else if (sqlParams != null)
             {
-                Log.Information("[Info] Obtención de datos desde SQL no implementada.");
+                Log.Information("Obtención de datos desde SQL no implementada.");
                 return (false, "La obtención de datos desde SQL aún no está implementada.", null);
             }
             else
             {
-                Log.Error("[Error] No se proporcionó ni JSON ni parámetros SQL.");
+                Log.Error("No se proporcionó ni JSON ni parámetros SQL.");
                 return (false, "No se proporcionó ni JSON ni parámetros SQL.", null);
             }
 
             try
             {
-                Log.Information("[Info] Cargando plantilla y registrando datos...");
+                Log.Information("Cargando plantilla y registrando datos...");
                 var report = new StiReport();
 
                 try
@@ -198,18 +198,18 @@ namespace StimulsoftReport.Services
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("No se pudo cargar la plantilla: {Message}", ex.Message);
+                    Log.Error(ex, "No se pudo cargar la plantilla desde {TemplatePath}", templatePath);
                     return (false, "Error cargando la plantilla del reporte.", null);
                 }
 
                 try
                 {
                     RegisterData(report, jsonNode, config, reportName);
-                    Log.Information("[Info] Datos registrados en el reporte.");
+                    Log.Information("Datos registrados en el reporte.");
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("Excepción registrando datos en el reporte: {Message}", ex.Message);
+                    Log.Error(ex, "Excepción registrando datos en el reporte '{ReportName}'", reportName);
                     return (false, $"Error procesando datos del reporte: {ex.Message}", null);
                 }
 
@@ -217,33 +217,33 @@ namespace StimulsoftReport.Services
                 {
                     report.Dictionary.Databases.Clear();
                     report.Dictionary.Synchronize();
-                    Log.Information("[Info] Diccionario sincronizado.");
+                    Log.Information("Diccionario sincronizado.");
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("Error sincronizando diccionario del reporte: {Message}", ex.Message);
+                    Log.Error(ex, "Error sincronizando diccionario del reporte");
                     return (false, "Error sincronizando diccionario del reporte.", null);
                 }
 
                 try
                 {
                     report.Compile();
-                    Log.Information("[Info] Reporte compilado.");
+                    Log.Information("Reporte compilado.");
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("Error compilando reporte: {Message}", ex.Message);
+                    Log.Error(ex, "Error compilando reporte");
                     return (false, "Error compilando el reporte.", null);
                 }
 
                 try
                 {
                     report.Render(false);
-                    Log.Information("[Info] Reporte renderizado.");
+                    Log.Information("Reporte renderizado.");
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("Error renderizando reporte: {Message}", ex.Message);
+                    Log.Error(ex, "Error renderizando reporte");
                     return (false, "Error renderizando el reporte.", null);
                 }
 
@@ -255,27 +255,27 @@ namespace StimulsoftReport.Services
                 try
                 {
                     report.ExportDocument(StiExportFormat.Pdf, pdfFullPath);
-                    Log.Information("[Info] Archivo PDF exportado a: {PdfFullPath}", pdfFullPath);
+                    Log.Information("Archivo PDF exportado a: {PdfFullPath}", pdfFullPath);
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("Error exportando PDF: {Message}", ex.Message);
+                    Log.Error(ex, "Error exportando PDF a {PdfFullPath}", pdfFullPath);
                     return (false, "Error exportando el PDF del reporte.", null);
                 }
 
-                Log.Information("[Fin] Reporte generado correctamente.");
+                Log.Information("Reporte generado correctamente.");
                 return (true, "Reporte generado correctamente", pdfFullPath);
             }
             catch (Exception ex)
             {
-                Log.Error("Excepción generando reporte: {Message}", ex.Message);
+                Log.Error(ex, "Excepción generando reporte");
                 return (false, $"Error generando reporte: {ex.Message}", null);
             }
         }
 
         private void RegisterData(StiReport report, JsonNode? jsonNode, ReportConfig config, string reportName)
         {
-            Log.Information("[Info] Registrando datos para reporte '{ReportName}'...", reportName);
+            Log.Information("Registrando datos para reporte '{ReportName}'...", reportName);
 
             if (report == null) return;
             if (jsonNode == null) return;
@@ -391,7 +391,7 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
-                    Log.Information("[Info] Aplicando reglas para ReporteCfdiAsimilados");
+                    Log.Information("Aplicando reglas para ReporteCfdiAsimilados");
                     ApplyAsimiladosRules(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
@@ -404,7 +404,7 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
-                    Log.Information("[Info] Aplicando reglas para ReporteCfdi");
+                    Log.Information("Aplicando reglas para ReporteCfdi");
                     ApplyReporteCfdiRules(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
@@ -417,7 +417,7 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
-                    Log.Information("[Info] Aplicando reglas para ReporteA3o");
+                    Log.Information("Aplicando reglas para ReporteA3o");
                     ApplyReporteA3oRules(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
@@ -430,7 +430,7 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
-                    Log.Information("[Info] Aplicando reglas para ReporteCFDIMc");
+                    Log.Information("Aplicando reglas para ReporteCFDIMc");
                     ApplyReporteCfdiRules(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
@@ -443,7 +443,7 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
-                    Log.Information("[Info] Aplicando reglas para ReporteResLugarTrabajo");
+                    Log.Information("Aplicando reglas para ReporteResLugarTrabajo");
                     ApplyReporteLugarTrabajo(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
@@ -457,7 +457,7 @@ namespace StimulsoftReport.Services
                 report.RegData(kvp.Key, kvp.Value);
             }
 
-            Log.Information("[Info] Datos registrados para reporte '{ReportName}'.", reportName);
+            Log.Information("Datos registrados para reporte '{ReportName}'.", reportName);
         }
 
         private void ApplyAsimiladosRules(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
@@ -542,19 +542,13 @@ namespace StimulsoftReport.Services
         {
             Log.Information("Aplicando reglas para ReporteResLugarTrabajo");
 
-            if (!createdTables.TryGetValue("Percepciones", out var percepcionesTable) ||
-                !createdTables.TryGetValue("Deducciones", out var deduccionesTable) ||
-                !createdTables.TryGetValue("DeduccionesSumario", out var deduccionesSumarioTable) ||
+            if (!createdTables.TryGetValue("DeduccionesSumario", out var deduccionesSumarioTable) ||
                 !createdTables.TryGetValue("PercepcionesSumario", out var percepcionesSumarioTable))
             {
                 Log.Warning("Tablas necesarias no encontradas para ReporteResLugarTrabajo");
                 return;
             }
 
-            if (!percepcionesTable.Columns.Contains(pkColumnName))
-                percepcionesTable.Columns.Add(pkColumnName, typeof(int));
-            if (!deduccionesTable.Columns.Contains(pkColumnName))
-                deduccionesTable.Columns.Add(pkColumnName, typeof(int));
             if (!deduccionesSumarioTable.Columns.Contains(pkColumnName))
                 deduccionesSumarioTable.Columns.Add(pkColumnName, typeof(int));
             if (!percepcionesSumarioTable.Columns.Contains(pkColumnName))
@@ -566,17 +560,11 @@ namespace StimulsoftReport.Services
                 if (mainIdObj == null || mainIdObj == DBNull.Value) continue;
                 int mainId = Convert.ToInt32(mainIdObj);
 
-                int pCount = percepcionesTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
-                int dCount = deduccionesTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
                 int dsCount = deduccionesSumarioTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
                 int psCount = percepcionesSumarioTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
 
-                int maxCount = Math.Max(Math.Max(pCount, dCount), Math.Max(dsCount, psCount));
+                int maxCount = Math.Max(dsCount, psCount);
 
-                if (pCount < maxCount)
-                    AddEmptyRowsWithPk(percepcionesTable, maxCount - pCount, pkColumnName, mainId);
-                if (dCount < maxCount)
-                    AddEmptyRowsWithPk(deduccionesTable, maxCount - dCount, pkColumnName, mainId);
                 if (dsCount < maxCount)
                     AddEmptyRowsWithPk(deduccionesSumarioTable, maxCount - dsCount, pkColumnName, mainId);
                 if (psCount < maxCount)
@@ -631,17 +619,17 @@ namespace StimulsoftReport.Services
 
                     if (pCount < maxCount)
                     {
-                        Log.Information("[mainId={MainId}] Agregando {Count} filas vacías a 'Percepciones'", mainId, maxCount - pCount);
+                        Log.Debug("[mainId={MainId}] Agregando {Count} filas vacías a 'Percepciones'", mainId, maxCount - pCount);
                         AddEmptyRowsWithPk(percepcionesTable, maxCount - pCount, pkColumnName, mainId);
                     }
                     if (oCount < maxCount)
                     {
-                        Log.Information("[mainId={MainId}] Agregando {Count} filas vacías a 'OtrosPagos'", mainId, maxCount - oCount);
+                        Log.Debug("[mainId={MainId}] Agregando {Count} filas vacías a 'OtrosPagos'", mainId, maxCount - oCount);
                         AddEmptyRowsWithPk(otrosPagosTable, maxCount - oCount, pkColumnName, mainId);
                     }
                     if (dCount < maxCount)
                     {
-                        Log.Information("[mainId={MainId}] Agregando {Count} filas vacías a 'Deducciones'", mainId, maxCount - dCount);
+                        Log.Debug("[mainId={MainId}] Agregando {Count} filas vacías a 'Deducciones'", mainId, maxCount - dCount);
                         AddEmptyRowsWithPk(deduccionesTable, maxCount - dCount, pkColumnName, mainId);
                     }
                 }
@@ -666,6 +654,7 @@ namespace StimulsoftReport.Services
                 {
                     table = BuildTableSchemaFromArray(nodeName, arr);
                     createdTables[nodeName] = table;
+                    Log.Debug("Creada tabla {TableName} con columnas iniciales.", nodeName);
                 }
                 else
                 {
@@ -800,6 +789,7 @@ namespace StimulsoftReport.Services
                 {
                     table = BuildTableSchemaFromObject(nodeName, obj);
                     createdTables[nodeName] = table;
+                    Log.Debug("Creada tabla {TableName} desde objeto.", nodeName);
                 }
                 else
                 {
