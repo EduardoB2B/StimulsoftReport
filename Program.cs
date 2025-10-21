@@ -23,7 +23,7 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.File(
         path: Path.Combine(builder.Environment.ContentRootPath, "Logs", "log-.txt"),
         rollingInterval: RollingInterval.Day,
-        retainedFileCountLimit: 30,
+        retainedFileCountLimit: 10,
         shared: true,
         flushToDiskInterval: TimeSpan.FromSeconds(1))
     .CreateLogger();
