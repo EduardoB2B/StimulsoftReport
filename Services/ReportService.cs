@@ -350,7 +350,15 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
-                    mainTable.Columns["Id"].ColumnName = pkColumnName;
+                    var idColumn = mainTable.Columns["Id"];
+                    if (idColumn != null)
+                    {
+                        idColumn.ColumnName = pkColumnName;
+                    }
+                    else
+                    {
+                        Log.Warning("La columna 'Id' no existe en mainTable.Columns aunque Contains devolvió true.");
+                    }
                 }
                 catch
                 {

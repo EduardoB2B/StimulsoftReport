@@ -37,6 +37,9 @@
       Si quieres que aparezca el commit en "commit", lo dejamos en true (valor por defecto).
     -->
     <!-- <Deterministic>false</Deterministic> -->
+
+    <!-- Suprime warnings de compatibilidad de paquetes con TargetFramework -->
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
   </PropertyGroup>
 
   <ItemGroup>
