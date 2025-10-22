@@ -394,7 +394,7 @@ namespace StimulsoftReport.Services
                 report.RegData(kvp.Key, kvp.Value);
             }
 
-            Log.Information("Datos registrados para reporte '{ReportName}'.", reportName);
+            Log.Information("Datos registrados para reporte '{ReportName}'. ", reportName);
         }
 
         private void ApplyAsimiladosRules(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
