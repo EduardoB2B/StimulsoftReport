@@ -25,6 +25,8 @@ namespace StimulsoftReport.Services
         private readonly string _templatesFolder;
         private readonly string _configsFolder;
         private readonly Dictionary<string, ReportConfig> _reportConfigs;
+        private readonly Dictionary<string, int> _idCounters = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+        private readonly object _idLock = new object();
 
         /// <summary>
         /// Inicializa el servicio de reportes leyendo rutas y configuraciones.
@@ -91,18 +93,87 @@ namespace StimulsoftReport.Services
             {
                 Log.Information("Procesando archivo JSON: {JsonFilePath}", jsonFilePath);
 
-                if (!File.Exists(jsonFilePath))
+                try
                 {
-                    Console.WriteLine($"[Error] Archivo JSON no encontrado en {jsonFilePath}");
-                    return (false, $"Archivo JSON no encontrado en {jsonFilePath}", null);
+                    if (!File.Exists(jsonFilePath))
+                    {
+                        Log.Error("Archivo JSON no encontrado en: {JsonFilePath}", jsonFilePath);
+                        return (false, "Archivo JSON no encontrado.", null);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.Warning(ex, "File.Exists lanzó excepción para '{JsonFilePath}'", jsonFilePath);
+                    try
+                    {
+                        using (var fs = File.Open(jsonFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                        {
+                        }
+                    }
+                    catch (UnauthorizedAccessException uex)
+                    {
+                        Log.Error(uex, "Sin permisos para leer el archivo JSON: {JsonFilePath}", jsonFilePath);
+                        return (false, "Permisos insuficientes para leer el archivo JSON.", null);
+                    }
+                    catch (FileNotFoundException fnf)
+                    {
+                        Log.Error(fnf, "Archivo JSON no encontrado en: {JsonFilePath}", jsonFilePath);
+                        return (false, "Archivo JSON no encontrado.", null);
+                    }
+                    catch (DirectoryNotFoundException dnf)
+                    {
+                        Log.Error(dnf, "Directorio no encontrado para la ruta JSON: {JsonFilePath}", jsonFilePath);
+                        return (false, "Directorio del archivo JSON no encontrado.", null);
+                    }
+                    catch (IOException ioEx)
+                    {
+                        Log.Error(ioEx, "Error de E/S verificando archivo JSON '{JsonFilePath}'", jsonFilePath);
+                        return (false, "Error de E/S accediendo al archivo JSON.", null);
+                    }
+                    catch (Exception ex2)
+                    {
+                        Log.Error(ex2, "Excepción verificando archivo JSON '{JsonFilePath}'", jsonFilePath);
+                        return (false, "Error verificando el archivo JSON.", null);
+                    }
                 }
 
-                var jsonString = await File.ReadAllTextAsync(jsonFilePath);
-                jsonNode = JsonNode.Parse(jsonString);
-                if (jsonNode == null)
+                try
                 {
-                    Console.WriteLine("[Error] JSON inválido o vacío.");
-                    return (false, "JSON inválido o vacío.", null);
+                    var jsonString = await File.ReadAllTextAsync(jsonFilePath);
+                    try
+                    {
+                        jsonNode = JsonNode.Parse(jsonString);
+                        if (jsonNode == null)
+                        {
+                            Log.Error("JSON inválido o vacío.");
+                            return (false, "JSON inválido o vacío.", null);
+                        }
+                    }
+                    catch (JsonException jex)
+                    {
+                        Log.Error(jex, "JSON mal formado en '{JsonFilePath}'", jsonFilePath);
+                        return (false, $"JSON mal formado: {jex.Message}", null);
+                    }
+                }
+                catch (UnauthorizedAccessException uex)
+                {
+                    Log.Error(uex, "Sin permisos para leer el archivo JSON: {JsonFilePath}", jsonFilePath);
+                    return (false, "Permisos insuficientes para leer el archivo JSON.", null);
+                }
+                catch (FileNotFoundException fnf)
+                {
+                    Log.Error(fnf, "Archivo JSON no encontrado en: {JsonFilePath}", jsonFilePath);
+                    return (false, "Archivo JSON no encontrado.", null);
+                }
+                catch (IOException ex)
+                {
+                    Log.Error(ex, "Error de E/S leyendo el JSON '{JsonFilePath}'", jsonFilePath);
+                    return (false, "Error de E/S leyendo el archivo JSON.", null);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Excepción leyendo/parsing JSON '{JsonFilePath}'", jsonFilePath);
+                    return (false, "Error leyendo o parseando JSON.", null);
                 }
             }
             else if (sqlParams != null)
@@ -601,20 +672,17 @@ namespace StimulsoftReport.Services
                             table.Columns.Add(k, typeof(string));
                 }
 
-        // Asegura columnas de id principales y de ancestros
-        if (!table.Columns.Contains(mainPkColumnName))
-            table.Columns.Add(mainPkColumnName, typeof(int));
-        // Columna propia del nodo
-        var ownIdCol = $"{nodeName}Id";
-        if (!table.Columns.Contains(ownIdCol))
-            table.Columns.Add(ownIdCol, typeof(int));
-        // Columnas para ancestros
-        foreach (var anc in ancestors)
-        {
-            var ancCol = $"{anc.name}Id";
-            if (!table.Columns.Contains(ancCol))
-                table.Columns.Add(ancCol, typeof(int));
-        }
+                if (!table.Columns.Contains(mainPkColumnName))
+                    table.Columns.Add(mainPkColumnName, typeof(int));
+                var ownIdCol = $"{nodeName}Id";
+                if (!table.Columns.Contains(ownIdCol))
+                    table.Columns.Add(ownIdCol, typeof(int));
+                foreach (var anc in ancestors)
+                {
+                    var ancCol = $"{anc.name}Id";
+                    if (!table.Columns.Contains(ancCol))
+                        table.Columns.Add(ancCol, typeof(int));
+                }
 
                 lock (_idLock)
                 {
@@ -648,55 +716,44 @@ namespace StimulsoftReport.Services
                             if (colName == mainPkColumnName || colName == ownIdCol) continue;
                             if (ancestors.Any(a => $"{a.name}Id" == colName)) continue;
 
-                    if (childObj.TryGetPropertyValue(colName, out var val))
-                        row[colName] = val?.ToString() ?? "";
-                    else
-                        row[colName] = "";
-                }
+                            if (childObj.TryGetPropertyValue(colName, out var val))
+                            {
+                                var converted = ConvertJsonNodeToColumnValue(val, col.DataType);
+                                row[colName] = converted ?? DBNull.Value;
+                            }
+                            else
+                            {
+                                row[colName] = (col.DataType == typeof(string)) ? "" : DBNull.Value;
+                            }
+                        }
 
-                // Asigna relación con el registro principal
-                row[mainPkColumnName] = mainId;
+                        row[mainPkColumnName] = mainId;
 
-                // Asigna columnas de ancestros
-                foreach (var anc in ancestors)
-                {
-                    var ancCol = $"{anc.name}Id";
-                    row[ancCol] = anc.id;
-                }
+                        foreach (var anc in ancestors)
+                        {
+                            var ancCol = $"{anc.name}Id";
+                            row[ancCol] = anc.id;
+                        }
 
-                // Si existe parentRowId/parentNodeName y no está en ancestors, asignarlo también
-                if (parentRowId.HasValue && !string.IsNullOrEmpty(parentNodeName) && !ancestors.Any(a => a.name == parentNodeName))
-                {
-                    var parentCol = $"{parentNodeName}Id";
-                    if (!table.Columns.Contains(parentCol))
-                        table.Columns.Add(parentCol, typeof(int));
-                    row[parentCol] = parentRowId.Value;
-                }
+                        if (parentRowId.HasValue && !string.IsNullOrEmpty(parentNodeName) && !ancestors.Any(a => a.name == parentNodeName))
+                        {
+                            var parentCol = $"{parentNodeName}Id";
+                            if (!table.Columns.Contains(parentCol))
+                                table.Columns.Add(parentCol, typeof(int));
+                            row[parentCol] = parentRowId.Value;
+                        }
 
-                // Calcula y asigna id propio incremental
-                int newId = 1;
-                if (table.Rows.Count > 0)
-                {
-                    try
-                    {
-                        var existing = table.Rows.Cast<DataRow>()
-                            .Where(r => r[ownIdCol] != DBNull.Value)
-                            .Select(r => Convert.ToInt32(r[ownIdCol]));
-                        newId = existing.Any() ? existing.Max() + 1 : table.Rows.Count + 1;
-                    }
-                    catch
-                    {
-                        newId = table.Rows.Count + 1;
-                    }
-                }
-                row[ownIdCol] = newId;
+                        int newId;
+                        lock (_idLock)
+                        {
+                            _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
+                            newId = _idCounters[nodeName];
+                        }
+                        row[ownIdCol] = newId;
 
-                table.Rows.Add(row);
+                        table.Rows.Add(row);
 
-                Console.WriteLine($"[Info] Generado ID para nodo '{nodeName}': {ownIdCol}={newId} (main {mainPkColumnName}={mainId})");
-
-                // Prepara lista de ancestros para hijos (incluye este nodo)
-                var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
+                        var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
 
                         foreach (var p in childObj)
                         {
@@ -713,51 +770,53 @@ namespace StimulsoftReport.Services
                         if (table.Columns.Contains("Value"))
                             row["Value"] = element?.ToString() ?? "";
 
-                row[mainPkColumnName] = mainId;
+                        row[mainPkColumnName] = mainId;
 
-                // Asigna ancestros
-                foreach (var anc in ancestors)
-                    row[$"{anc.name}Id"] = anc.id;
+                        foreach (var anc in ancestors)
+                        {
+                            var ancCol = $"{anc.name}Id";
+                            row[ancCol] = anc.id;
+                        }
 
-                // asigna id propio
-                var ownIdColLocal = $"{nodeName}Id";
-                int newId = table.Rows.Count + 1;
-                row[ownIdColLocal] = newId;
+                        var ownIdColLocal = $"{nodeName}Id";
+                        int newId;
+                        lock (_idLock)
+                        {
+                            _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
+                            newId = _idCounters[nodeName];
+                        }
+                        row[ownIdColLocal] = newId;
 
-                table.Rows.Add(row);
-
-                Console.WriteLine($"[Info] Generado ID para nodo '{nodeName}': {ownIdColLocal}={newId} (main {mainPkColumnName}={mainId})");
+                        table.Rows.Add(row);
+                    }
+                }
             }
-        }
-    }
-    else if (node is JsonObject obj)
-    {
-        // Crea/ajusta esquema para objeto
-        if (!createdTables.TryGetValue(nodeName, out var table))
-        {
-            table = BuildTableSchemaFromObject(nodeName, obj);
-            createdTables[nodeName] = table;
-        }
-        else
-        {
-            // Agrega columnas nuevas si aparecen propiedades no vistas
-            foreach (var p in obj)
-                if (!table.Columns.Contains(p.Key))
-                    table.Columns.Add(p.Key, typeof(string));
-        }
+            else if (node is JsonObject obj)
+            {
+                if (!createdTables.TryGetValue(nodeName, out var table))
+                {
+                    table = BuildTableSchemaFromObject(nodeName, obj);
+                    createdTables[nodeName] = table;
+                    Log.Debug("Creada tabla {TableName} desde objeto.", nodeName);
+                }
+                else
+                {
+                    foreach (var p in obj)
+                        if (!table.Columns.Contains(p.Key))
+                            table.Columns.Add(p.Key, typeof(string));
+                }
 
-        // Asegura columnas de id principales y de ancestros
-        if (!table.Columns.Contains(mainPkColumnName))
-            table.Columns.Add(mainPkColumnName, typeof(int));
-        var ownIdCol = $"{nodeName}Id";
-        if (!table.Columns.Contains(ownIdCol))
-            table.Columns.Add(ownIdCol, typeof(int));
-        foreach (var anc in ancestors)
-        {
-            var ancCol = $"{anc.name}Id";
-            if (!table.Columns.Contains(ancCol))
-                table.Columns.Add(ancCol, typeof(int));
-        }
+                if (!table.Columns.Contains(mainPkColumnName))
+                    table.Columns.Add(mainPkColumnName, typeof(int));
+                var ownIdCol = $"{nodeName}Id";
+                if (!table.Columns.Contains(ownIdCol))
+                    table.Columns.Add(ownIdCol, typeof(int));
+                foreach (var anc in ancestors)
+                {
+                    var ancCol = $"{anc.name}Id";
+                    if (!table.Columns.Contains(ancCol))
+                        table.Columns.Add(ancCol, typeof(int));
+                }
 
                 lock (_idLock)
                 {
@@ -786,64 +845,57 @@ namespace StimulsoftReport.Services
                     if (col.ColumnName == ownIdCol) continue;
                     if (ancestors.Any(a => $"{a.name}Id" == col.ColumnName)) continue;
 
-            if (obj.TryGetPropertyValue(col.ColumnName, out var val))
-                row[col.ColumnName] = val?.ToString() ?? "";
+                    if (obj.TryGetPropertyValue(col.ColumnName, out var val))
+                    {
+                        var converted = ConvertJsonNodeToColumnValue(val, col.DataType);
+                        row[col.ColumnName] = converted ?? DBNull.Value;
+                    }
+                    else
+                    {
+                        row[col.ColumnName] = (col.DataType == typeof(string)) ? "" : DBNull.Value;
+                    }
+                }
+
+                row[mainPkColumnName] = mainId;
+                foreach (var anc in ancestors)
+                {
+                    var ancCol = $"{anc.name}Id";
+                    row[ancCol] = anc.id;
+                }
+
+                if (parentRowId.HasValue && !string.IsNullOrEmpty(parentNodeName) && !ancestors.Any(a => a.name == parentNodeName))
+                {
+                    var parentCol = $"{parentNodeName}Id";
+                    if (!table.Columns.Contains(parentCol))
+                        table.Columns.Add(parentCol, typeof(int));
+                    row[parentCol] = parentRowId.Value;
+                }
+
+                int newId;
+                lock (_idLock)
+                {
+                    _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
+                    newId = _idCounters[nodeName];
+                }
+                row[ownIdCol] = newId;
+
+                table.Rows.Add(row);
+
+                var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
+                foreach (var p in obj)
+                {
+                    if (p.Value is JsonArray || p.Value is JsonObject)
+                        ProcessNodeRecursive(p.Value, p.Key, mainId, mainPkColumnName, newId, nodeName, newAncestors, createdTables);
+                }
+            }
             else
-                row[col.ColumnName] = "";
-        }
-
-        // Asigna ids
-        row[mainPkColumnName] = mainId;
-        foreach (var anc in ancestors)
-            row[$"{anc.name}Id"] = anc.id;
-
-        if (parentRowId.HasValue && !string.IsNullOrEmpty(parentNodeName) && !ancestors.Any(a => a.name == parentNodeName))
-        {
-            var parentCol = $"{parentNodeName}Id";
-            if (!table.Columns.Contains(parentCol))
-                table.Columns.Add(parentCol, typeof(int));
-            row[parentCol] = parentRowId.Value;
-        }
-
-        // Calcula y asigna id propio
-        int newId = 1;
-        if (table.Rows.Count > 0)
-        {
-            try
             {
-                var existing = table.Rows.Cast<DataRow>()
-                    .Where(r => r[ownIdCol] != DBNull.Value)
-                    .Select(r => Convert.ToInt32(r[ownIdCol]));
-                newId = existing.Any() ? existing.Max() + 1 : table.Rows.Count + 1;
-            }
-            catch
-            {
-                newId = table.Rows.Count + 1;
-            }
-        }
-        row[ownIdCol] = newId;
-
-        table.Rows.Add(row);
-
-        Console.WriteLine($"[Info] Generado ID para nodo '{nodeName}': {ownIdCol}={newId} (main {mainPkColumnName}={mainId})");
-
-        // Procesa propiedades anidadas
-        var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
-        foreach (var p in obj)
-        {
-            if (p.Value is JsonArray || p.Value is JsonObject)
-                ProcessNodeRecursive(p.Value, p.Key, mainId, mainPkColumnName, newId, nodeName, newAncestors, createdTables);
-        }
-    }
-    else
-    {
-        // Nodo simple (string/num/bool): crea tabla con columna Value
-        if (!createdTables.TryGetValue(nodeName, out var table))
-        {
-            table = new DataTable(nodeName);
-            table.Columns.Add("Value", typeof(string));
-            createdTables[nodeName] = table;
-        }
+                if (!createdTables.TryGetValue(nodeName, out var table))
+                {
+                    table = new DataTable(nodeName);
+                    table.Columns.Add("Value", typeof(string));
+                    createdTables[nodeName] = table;
+                }
 
                 if (!table.Columns.Contains(mainPkColumnName))
                     table.Columns.Add(mainPkColumnName, typeof(int));
@@ -857,19 +909,25 @@ namespace StimulsoftReport.Services
                         table.Columns.Add(ancCol, typeof(int));
                 }
 
-        var row = table.NewRow();
-        row["Value"] = node.ToString() ?? "";
-        row[mainPkColumnName] = mainId;
-        foreach (var anc in ancestors)
-            row[$"{anc.name}Id"] = anc.id;
+                var row = table.NewRow();
+                row["Value"] = node.ToString() ?? "";
+                row[mainPkColumnName] = mainId;
+                foreach (var anc in ancestors)
+                {
+                    var ancCol = $"{anc.name}Id";
+                    row[ancCol] = anc.id;
+                }
 
-        int newId = table.Rows.Count + 1;
-        row[ownIdCol2] = newId;
-        table.Rows.Add(row);
-
-        Console.WriteLine($"[Info] Generado ID para nodo '{nodeName}': {ownIdCol2}={newId} (main {mainPkColumnName}={mainId})");
-    }
-}
+                int newId;
+                lock (_idLock)
+                {
+                    _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
+                    newId = _idCounters[nodeName];
+                }
+                row[ownIdCol2] = newId;
+                table.Rows.Add(row);
+            }
+        }
 
         private DataTable BuildTableSchemaFromArray(string tableName, JsonArray arr)
         {
@@ -877,6 +935,17 @@ namespace StimulsoftReport.Services
             var keys = CollectKeysFromArray(arr);
             foreach (var k in keys)
                 dt.Columns.Add(k, typeof(string));
+
+            var ownIdCol = $"{tableName}Id";
+            if (!dt.Columns.Contains(ownIdCol))
+                dt.Columns.Add(ownIdCol, typeof(int));
+
+            lock (_idLock)
+            {
+                if (!_idCounters.ContainsKey(tableName))
+                    _idCounters[tableName] = 0;
+            }
+
             return dt;
         }
 
@@ -887,6 +956,17 @@ namespace StimulsoftReport.Services
             {
                 dt.Columns.Add(p.Key, typeof(string));
             }
+
+            var ownIdCol = $"{tableName}Id";
+            if (!dt.Columns.Contains(ownIdCol))
+                dt.Columns.Add(ownIdCol, typeof(int));
+
+            lock (_idLock)
+            {
+                if (!_idCounters.ContainsKey(tableName))
+                    _idCounters[tableName] = 0;
+            }
+
             return dt;
         }
 
@@ -998,11 +1078,34 @@ namespace StimulsoftReport.Services
             if (!table.Columns.Contains(pkColumnName))
                 table.Columns.Add(pkColumnName, typeof(int));
 
+            var ownIdCol = $"{table.TableName}Id";
+            if (!table.Columns.Contains(ownIdCol))
+                table.Columns.Add(ownIdCol, typeof(int));
+
+            lock (_idLock)
+            {
+                if (!_idCounters.TryGetValue(table.TableName, out var counter))
+                {
+                    try
+                    {
+                        counter = table.Rows.Cast<DataRow>()
+                            .Where(r => r[ownIdCol] != DBNull.Value)
+                            .Select(r => Convert.ToInt32(r[ownIdCol]))
+                            .DefaultIfEmpty(0)
+                            .Max();
+                    }
+                    catch
+                    {
+                        counter = table.Rows.Count;
+                    }
+                    _idCounters[table.TableName] = counter;
+                }
+            }
+
             for (int i = 0; i < count; i++)
             {
                 var row = table.NewRow();
 
-                // Coloca valores por defecto por tipo
                 foreach (DataColumn col in table.Columns)
                 {
                     if (col.ColumnName == pkColumnName) continue;
@@ -1017,6 +1120,15 @@ namespace StimulsoftReport.Services
                 }
 
                 row[pkColumnName] = parentId;
+
+                int newId;
+                lock (_idLock)
+                {
+                    _idCounters[table.TableName] = _idCounters.GetValueOrDefault(table.TableName) + 1;
+                    newId = _idCounters[table.TableName];
+                }
+                row[ownIdCol] = newId;
+
                 table.Rows.Add(row);
             }
         }
@@ -1054,6 +1166,63 @@ namespace StimulsoftReport.Services
             }
 
             return dt;
+        }
+
+        private object ConvertJsonNodeToColumnValue(JsonNode? node, Type targetType)
+        {
+            if (node == null) return DBNull.Value;
+
+            var s = node.ToString() ?? "";
+
+            if (string.IsNullOrEmpty(s))
+            {
+                if (targetType == typeof(string)) return "";
+                return DBNull.Value;
+            }
+
+            try
+            {
+                if (targetType == typeof(string)) return s;
+
+                if (targetType == typeof(int))
+                {
+                    if (int.TryParse(s, out var i)) return i;
+                    return DBNull.Value;
+                }
+                if (targetType == typeof(long))
+                {
+                    if (long.TryParse(s, out var l)) return l;
+                    return DBNull.Value;
+                }
+                if (targetType == typeof(decimal))
+                {
+                    if (decimal.TryParse(s, out var d)) return d;
+                    return DBNull.Value;
+                }
+                if (targetType == typeof(double))
+                {
+                    if (double.TryParse(s, out var d)) return d;
+                    return DBNull.Value;
+                }
+                if (targetType == typeof(bool))
+                {
+                    if (bool.TryParse(s, out var b)) return b;
+                    if (s == "0") return false;
+                    if (s == "1") return true;
+                    return DBNull.Value;
+                }
+                if (targetType == typeof(DateTime))
+                {
+                    if (DateTime.TryParse(s, out var dt)) return dt;
+                    return DBNull.Value;
+                }
+
+                return Convert.ChangeType(s, targetType);
+            }
+            catch
+            {
+                return DBNull.Value;
+            }
         }
     }
 }
