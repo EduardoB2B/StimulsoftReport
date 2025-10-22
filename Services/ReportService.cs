@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Stimulsoft.Report;
 using Stimulsoft.Report.Export;
 using StimulsoftReport.Configuration;
+using Serilog;
 
 namespace StimulsoftReport.Services
 {
@@ -34,20 +35,12 @@ namespace StimulsoftReport.Services
         /// <param name="env">Entorno de hosting (no usado actualmente, reservado).</param>
         public ReportService(IOptions<ReportSettings> options, IHostEnvironment env)
         {
-            // Normaliza y guarda rutas de carpetas
             _templatesFolder = options.Value.TemplatesFolder?.Trim() ?? "";
             _configsFolder = options.Value.ConfigsFolder?.Trim() ?? "";
 
-            // Carga configuraciones de reportes (por nombre de archivo .json)
             _reportConfigs = LoadReportConfigs(_configsFolder);
         }
 
-        /// <summary>
-        /// Carga todas las configuraciones de reportes desde la carpeta indicada.
-        /// Cada archivo .json representa la configuración de un reporte.
-        /// </summary>
-        /// <param name="folder">Carpeta que contiene archivos .json de configuración.</param>
-        /// <returns>Diccionario de nombreReporte -> ReportConfig.</returns>
         private Dictionary<string, ReportConfig> LoadReportConfigs(string folder)
         {
             var configs = new Dictionary<string, ReportConfig>(StringComparer.OrdinalIgnoreCase);
@@ -58,51 +51,39 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
-                    // Lee y deserializa configuración
                     var json = File.ReadAllText(file);
                     var config = JsonSerializer.Deserialize<ReportConfig>(json);
                     if (config != null)
                     {
-                        // Usa el nombre de archivo (sin extensión) como clave del reporte
                         var reportName = Path.GetFileNameWithoutExtension(file);
                         configs[reportName] = config;
                     }
                 }
                 catch (Exception ex)
                 {
-                    // Silencia errores de deserialización o lectura para no romper el arranque
-                    // Loguea detalle para diagnóstico
-                    Console.WriteLine($"[Warn] Error leyendo config '{file}': {ex.Message}");
+                    Log.Warning(ex, "Error leyendo config '{File}'", file);
                 }
             }
 
             return configs;
         }
 
-        /// <summary>
-        /// Genera un reporte PDF desde una plantilla Stimulsoft y datos en JSON.
-        /// </summary>
-        /// <param name="reportName">Nombre del reporte (clave para buscar su configuración).</param>
-        /// <param name="jsonFilePath">Ruta del archivo JSON de datos (opcional si se usará SQL).</param>
-        /// <param name="sqlParams">Parámetros para obtención por SQL (no implementado).</param>
-        /// <returns>Tupla con éxito, mensaje y ruta del PDF generado (si aplica).</returns>
         public async Task<(bool Success, string Message, string? PdfPath)> GenerateReportAsync(string reportName, string? jsonFilePath, Dictionary<string, object>? sqlParams = null)
         {
-            Console.WriteLine($"[Inicio] Solicitud para generar reporte: '{reportName}'");
+            Log.Information("Solicitud para generar reporte: '{ReportName}'", reportName);
 
             if (!_reportConfigs.TryGetValue(reportName, out var config))
             {
-                Console.WriteLine($"[Error] No existe configuración para el reporte '{reportName}'");
+                Log.Error("No existe configuración para el reporte '{ReportName}'", reportName);
                 return (false, $"No existe configuración para el reporte '{reportName}'", null);
             }
 
             var templatePath = Path.Combine(_templatesFolder, config.TemplateFile);
-            Console.WriteLine($"[Info] Ruta plantilla: {templatePath}");
+            Log.Information("Ruta plantilla: {TemplatePath}", templatePath);
 
             if (!File.Exists(templatePath))
             {
-                Console.WriteLine($"[Error] Plantilla no encontrada en: {templatePath}");
-                // No exponer ruta completa en el mensaje devuelto al cliente, solo en logs
+                Log.Error("Plantilla no encontrada en: {TemplatePath}", templatePath);
                 return (false, "Plantilla no encontrada para el reporte.", null);
             }
 
@@ -110,56 +91,52 @@ namespace StimulsoftReport.Services
 
             if (!string.IsNullOrEmpty(jsonFilePath))
             {
-                Console.WriteLine($"[Info] Procesando archivo JSON: {jsonFilePath}");
+                Log.Information("Procesando archivo JSON: {JsonFilePath}", jsonFilePath);
 
-                // Verificamos existencia y accesibilidad del archivo de forma robusta
                 try
                 {
                     if (!File.Exists(jsonFilePath))
                     {
-                        Console.WriteLine($"[Error] Archivo JSON no encontrado en: {jsonFilePath}");
+                        Log.Error("Archivo JSON no encontrado en: {JsonFilePath}", jsonFilePath);
                         return (false, "Archivo JSON no encontrado.", null);
                     }
                 }
                 catch (Exception ex)
                 {
-                    // File.Exists puede lanzar en entornos restringidos; intentamos abrir para diagnosticar permisos
-                    Console.WriteLine($"[Warn] File.Exists lanzó excepción para '{jsonFilePath}': {ex.Message}");
+                    Log.Warning(ex, "File.Exists lanzó excepción para '{JsonFilePath}'", jsonFilePath);
                     try
                     {
                         using (var fs = File.Open(jsonFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
                         {
-                            // si se abre, todo bien
                         }
                     }
-                    catch (UnauthorizedAccessException)
+                    catch (UnauthorizedAccessException uex)
                     {
-                        Console.WriteLine($"[Error] Sin permisos para leer el archivo JSON: {jsonFilePath}");
+                        Log.Error(uex, "Sin permisos para leer el archivo JSON: {JsonFilePath}", jsonFilePath);
                         return (false, "Permisos insuficientes para leer el archivo JSON.", null);
                     }
-                    catch (FileNotFoundException)
+                    catch (FileNotFoundException fnf)
                     {
-                        Console.WriteLine($"[Error] Archivo JSON no encontrado en: {jsonFilePath}");
+                        Log.Error(fnf, "Archivo JSON no encontrado en: {JsonFilePath}", jsonFilePath);
                         return (false, "Archivo JSON no encontrado.", null);
                     }
-                    catch (DirectoryNotFoundException)
+                    catch (DirectoryNotFoundException dnf)
                     {
-                        Console.WriteLine($"[Error] Directorio no encontrado para la ruta JSON: {jsonFilePath}");
+                        Log.Error(dnf, "Directorio no encontrado para la ruta JSON: {JsonFilePath}", jsonFilePath);
                         return (false, "Directorio del archivo JSON no encontrado.", null);
                     }
                     catch (IOException ioEx)
                     {
-                        Console.WriteLine($"[Error] Error de E/S verificando archivo JSON '{jsonFilePath}': {ioEx.Message}");
+                        Log.Error(ioEx, "Error de E/S verificando archivo JSON '{JsonFilePath}'", jsonFilePath);
                         return (false, "Error de E/S accediendo al archivo JSON.", null);
                     }
                     catch (Exception ex2)
                     {
-                        Console.WriteLine($"[Error] Excepción verificando archivo JSON '{jsonFilePath}': {ex2.Message}");
+                        Log.Error(ex2, "Excepción verificando archivo JSON '{JsonFilePath}'", jsonFilePath);
                         return (false, "Error verificando el archivo JSON.", null);
                     }
                 }
 
-                // Lectura y parseado con manejo explícito de JsonException
                 try
                 {
                     var jsonString = await File.ReadAllTextAsync(jsonFilePath);
@@ -168,159 +145,141 @@ namespace StimulsoftReport.Services
                         jsonNode = JsonNode.Parse(jsonString);
                         if (jsonNode == null)
                         {
-                            Console.WriteLine("[Error] JSON inválido o vacío.");
+                            Log.Error("JSON inválido o vacío.");
                             return (false, "JSON inválido o vacío.", null);
                         }
                     }
                     catch (JsonException jex)
                     {
-                        // Mensaje claro para JSON mal formado (incluye detalle de excepción)
-                        Console.WriteLine($"[Error] JSON mal formado en '{jsonFilePath}': {jex.Message}");
+                        Log.Error(jex, "JSON mal formado en '{JsonFilePath}'", jsonFilePath);
                         return (false, $"JSON mal formado: {jex.Message}", null);
                     }
                 }
-                catch (UnauthorizedAccessException)
+                catch (UnauthorizedAccessException uex)
                 {
-                    Console.WriteLine($"[Error] Sin permisos para leer el archivo JSON: {jsonFilePath}");
+                    Log.Error(uex, "Sin permisos para leer el archivo JSON: {JsonFilePath}", jsonFilePath);
                     return (false, "Permisos insuficientes para leer el archivo JSON.", null);
                 }
-                catch (FileNotFoundException)
+                catch (FileNotFoundException fnf)
                 {
-                    Console.WriteLine($"[Error] Archivo JSON no encontrado en: {jsonFilePath}");
+                    Log.Error(fnf, "Archivo JSON no encontrado en: {JsonFilePath}", jsonFilePath);
                     return (false, "Archivo JSON no encontrado.", null);
                 }
                 catch (IOException ex)
                 {
-                    Console.WriteLine($"[Error] Error de E/S leyendo el JSON '{jsonFilePath}': {ex.Message}");
+                    Log.Error(ex, "Error de E/S leyendo el JSON '{JsonFilePath}'", jsonFilePath);
                     return (false, "Error de E/S leyendo el archivo JSON.", null);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Error] Excepción leyendo/parsing JSON '{jsonFilePath}': {ex.Message}");
+                    Log.Error(ex, "Excepción leyendo/parsing JSON '{JsonFilePath}'", jsonFilePath);
                     return (false, "Error leyendo o parseando JSON.", null);
                 }
             }
             else if (sqlParams != null)
             {
-                Console.WriteLine("[Info] Obtención de datos desde SQL no implementada.");
+                Log.Information("Obtención de datos desde SQL no implementada.");
                 return (false, "La obtención de datos desde SQL aún no está implementada.", null);
             }
             else
             {
-                Console.WriteLine("[Error] No se proporcionó ni JSON ni parámetros SQL.");
+                Log.Error("No se proporcionó ni JSON ni parámetros SQL.");
                 return (false, "No se proporcionó ni JSON ni parámetros SQL.", null);
             }
 
             try
             {
-                Console.WriteLine("[Info] Cargando plantilla y registrando datos...");
+                Log.Information("Cargando plantilla y registrando datos...");
                 var report = new StiReport();
 
-                // Load plantilla con manejo explícito
                 try
                 {
                     report.Load(templatePath);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Error] No se pudo cargar la plantilla: {ex.Message}");
+                    Log.Error(ex, "No se pudo cargar la plantilla desde {TemplatePath}", templatePath);
                     return (false, "Error cargando la plantilla del reporte.", null);
                 }
 
-                // Registrar datos en el reporte — envolvemos para capturar errores de procesamiento
                 try
                 {
                     RegisterData(report, jsonNode, config, reportName);
-                    Console.WriteLine("[Info] Datos registrados en el reporte.");
+                    Log.Information("Datos registrados en el reporte.");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Error] Excepción registrando datos en el reporte: {ex.Message}");
+                    Log.Error(ex, "Excepción registrando datos en el reporte '{ReportName}'", reportName);
                     return (false, $"Error procesando datos del reporte: {ex.Message}", null);
                 }
 
-                // Limpia bases (por si hay algo) y sincroniza diccionario
                 try
                 {
                     report.Dictionary.Databases.Clear();
                     report.Dictionary.Synchronize();
-                    Console.WriteLine("[Info] Diccionario sincronizado.");
+                    Log.Information("Diccionario sincronizado.");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Error] Error sincronizando diccionario del reporte: {ex.Message}");
+                    Log.Error(ex, "Error sincronizando diccionario del reporte");
                     return (false, "Error sincronizando diccionario del reporte.", null);
                 }
 
-                // Compilar
                 try
                 {
                     report.Compile();
-                    Console.WriteLine("[Info] Reporte compilado.");
+                    Log.Information("Reporte compilado.");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Error] Error compilando reporte: {ex.Message}");
+                    Log.Error(ex, "Error compilando reporte");
                     return (false, "Error compilando el reporte.", null);
                 }
 
-                // Renderizar
                 try
                 {
                     report.Render(false);
-                    Console.WriteLine("[Info] Reporte renderizado.");
+                    Log.Information("Reporte renderizado.");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Error] Error renderizando reporte: {ex.Message}");
+                    Log.Error(ex, "Error renderizando reporte");
                     return (false, "Error renderizando el reporte.", null);
                 }
 
-                // Preparar ruta de export
                 var directory = Path.GetDirectoryName(jsonFilePath ?? "tmp") ?? "tmp";
                 var jsonBaseName = Path.GetFileNameWithoutExtension(jsonFilePath ?? reportName);
                 var pdfFileName = $"{jsonBaseName}.pdf";
                 var pdfFullPath = Path.Combine(directory, pdfFileName);
 
-                // Exportar PDF
                 try
                 {
                     report.ExportDocument(StiExportFormat.Pdf, pdfFullPath);
-                    Console.WriteLine($"[Info] Archivo PDF exportado a: {pdfFullPath}");
+                    Log.Information("Archivo PDF exportado a: {PdfFullPath}", pdfFullPath);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Error] Error exportando PDF: {ex.Message}");
+                    Log.Error(ex, "Error exportando PDF a {PdfFullPath}", pdfFullPath);
                     return (false, "Error exportando el PDF del reporte.", null);
                 }
 
-                Console.WriteLine("[Fin] Reporte generado correctamente.");
+                Log.Information("Reporte generado correctamente.");
                 return (true, "Reporte generado correctamente", pdfFullPath);
             }
             catch (Exception ex)
             {
-                // Punto de captura por si algo se escapó
-                Console.WriteLine($"[Error] Excepción generando reporte: {ex.Message}");
+                Log.Error(ex, "Excepción generando reporte");
                 return (false, $"Error generando reporte: {ex.Message}", null);
             }
         }
 
-        /// <summary>
-        /// Transforma el JSON de entrada a DataTables y los registra en el reporte según la configuración.
-        /// Aplica reglas específicas por tipo de reporte para balancear filas entre tablas relacionadas.
-        /// </summary>
-        /// <param name="report">Instancia de StiReport.</param>
-        /// <param name="jsonNode">Nodo raíz de los datos JSON.</param>
-        /// <param name="config">Configuración del reporte (mapeos, requeridos, etc.).</param>
-        /// <param name="reportName">Nombre lógico del reporte para reglas específicas.</param>
         private void RegisterData(StiReport report, JsonNode? jsonNode, ReportConfig config, string reportName)
         {
-            Console.WriteLine($"[Info] Registrando datos para reporte '{reportName}'...");
+            Log.Information("Registrando datos para reporte '{ReportName}'...", reportName);
 
             if (report == null) return;
             if (jsonNode == null) return;
 
-            // Detecta si el JSON raíz es objeto o arreglo
             JsonArray? rootArray = null;
             JsonObject? rootObject = null;
 
@@ -331,13 +290,11 @@ namespace StimulsoftReport.Services
             else
                 return;
 
-            // Determina el DataSource principal y su ruta dentro del JSON (si existe)
             string mainDataSourceName = "";
             string mainJsonPath = "";
 
             if (config.DataSourceMappings != null)
             {
-                // Busca mapeo principal (cuando el valor esté vacío, se interpreta como raíz)
                 var mainMapping = config.DataSourceMappings.FirstOrDefault(kvp => string.IsNullOrEmpty(kvp.Value));
                 if (!string.IsNullOrEmpty(mainMapping.Key))
                 {
@@ -346,7 +303,6 @@ namespace StimulsoftReport.Services
                 }
             }
 
-            // Fallback si no se definió explícitamente
             if (string.IsNullOrEmpty(mainDataSourceName))
             {
                 mainDataSourceName = config.RequiredDataSources?.FirstOrDefault() ?? "";
@@ -355,11 +311,9 @@ namespace StimulsoftReport.Services
                     : mainDataSourceName;
             }
 
-            // Resuelve el nodo principal desde el JSON
             JsonNode? mainNode = null;
             if (string.IsNullOrEmpty(mainJsonPath))
             {
-                // Si no hay ruta, usa el JSON tal cual
                 mainNode = jsonNode;
             }
             else if (rootObject != null)
@@ -368,19 +322,16 @@ namespace StimulsoftReport.Services
             }
             else if (rootArray != null)
             {
-                // No implementado: navegación por rutas sobre raíz que es array
                 mainNode = null;
             }
 
-            // Si no se encuentra nodo principal, registra tabla vacía para no romper el reporte
             if (mainNode == null)
             {
-                Console.WriteLine($"[Warning] Nodo principal '{mainDataSourceName}' no encontrado en JSON. Se registra tabla vacía.");
+                Log.Warning("Nodo principal '{MainDataSourceName}' no encontrado en JSON. Se registra tabla vacía.", mainDataSourceName);
                 report.RegData(mainDataSourceName, CreateEmptyTable(mainDataSourceName));
                 return;
             }
 
-            // Normaliza a arreglo para construir tabla principal
             JsonArray mainArray;
             if (mainNode is JsonArray mainArr)
                 mainArray = mainArr;
@@ -393,14 +344,21 @@ namespace StimulsoftReport.Services
             }
 
             var mainTable = CreateTableFromArrayOfObjects(mainDataSourceName, mainArray);
-            var pkColumnName = $"{mainDataSourceName}Id"; // PK sintética por fila del principal
+            var pkColumnName = $"{mainDataSourceName}Id";
 
-            // Ajusta/crea columna PK consistente
             if (mainTable.Columns.Contains("Id") && !mainTable.Columns.Contains(pkColumnName))
             {
                 try
                 {
-                    mainTable.Columns["Id"].ColumnName = pkColumnName;
+                    var idColumn = mainTable.Columns["Id"];
+                    if (idColumn != null)
+                    {
+                        idColumn.ColumnName = pkColumnName;
+                    }
+                    else
+                    {
+                        Log.Warning("La columna 'Id' no existe en mainTable.Columns aunque Contains devolvió true.");
+                    }
                 }
                 catch
                 {
@@ -416,19 +374,15 @@ namespace StimulsoftReport.Services
                     mainTable.Columns.Add(pkColumnName, typeof(int));
             }
 
-            // Asigna PK incremental 1..N
             for (int i = 0; i < mainTable.Rows.Count; i++)
             {
                 mainTable.Rows[i][pkColumnName] = i + 1;
             }
 
-            // Registra DataSource principal
             report.RegData(mainDataSourceName, mainTable);
 
-            // Diccionario de tablas generadas (subnodos)
             var createdTables = new Dictionary<string, DataTable>(StringComparer.OrdinalIgnoreCase);
 
-            // Recorre cada item del principal y procesa subpropiedades recursivamente
             for (int i = 0; i < mainArray.Count; i++)
             {
                 var item = mainArray[i];
@@ -437,22 +391,20 @@ namespace StimulsoftReport.Services
 
                 foreach (var prop in itemObj)
                 {
-                    // Cada propiedad compleja (objeto/array) se convierte en tabla hija
                     ProcessNodeRecursive(prop.Value, prop.Key, i + 1, pkColumnName, null, null, new List<(string, int)>(), createdTables);
                 }
             }
 
-            // Aplica reglas específicas por reporte (balanceo y relleno de filas)
             if (string.Equals(reportName, "ReporteCfdiAsimilados", StringComparison.OrdinalIgnoreCase))
             {
                 try
                 {
-                    Console.WriteLine("[Info] Aplicando reglas para ReporteCfdiAsimilados");
+                    Log.Information("Aplicando reglas para ReporteCfdiAsimilados");
                     ApplyAsimiladosRules(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Error] Aplicando reglas para ReporteCfdiAsimilados: {ex.Message}");
+                    Log.Error(ex, "Aplicando reglas para ReporteCfdiAsimilados");
                 }
             }
 
@@ -460,12 +412,12 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
-                    Console.WriteLine("[Info] Aplicando reglas para ReporteCfdi");
+                    Log.Information("Aplicando reglas para ReporteCfdi");
                     ApplyReporteCfdiRules(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Error] Aplicando reglas para ReporteCfdi: {ex.Message}");
+                    Log.Error(ex, "Aplicando reglas para ReporteCfdi");
                 }
             }
 
@@ -473,12 +425,12 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
-                    Console.WriteLine("[Info] Aplicando reglas para ReporteA3o");
+                    Log.Information("Aplicando reglas para ReporteA3o");
                     ApplyReporteA3oRules(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Error] Aplicando reglas para ReporteA3o: {ex.Message}");
+                    Log.Error(ex, "Aplicando reglas para ReporteA3o");
                 }
             }
 
@@ -486,12 +438,12 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
-                    Console.WriteLine("[Info] Aplicando reglas para ReporteCFDIMc");
+                    Log.Information("Aplicando reglas para ReporteCFDIMc");
                     ApplyReporteCfdiRules(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Error] Aplicando reglas para ReporteCFDIMc: {ex.Message}");
+                    Log.Error(ex, "Aplicando reglas para ReporteCFDIMc");
                 }
             }
 
@@ -499,47 +451,38 @@ namespace StimulsoftReport.Services
             {
                 try
                 {
-                    Console.WriteLine("[Info] Aplicando reglas para ReporteResLugarTrabajo");
+                    Log.Information("Aplicando reglas para ReporteResLugarTrabajo");
                     ApplyReporteLugarTrabajo(createdTables, pkColumnName, mainTable);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Error] Aplicando reglas para ReporteResLugarTrabajo: {ex.Message}");
+                    Log.Error(ex, "Aplicando reglas para ReporteResLugarTrabajo");
                 }
             }
 
-            // Registra todas las tablas creadas en el diccionario del reporte
             foreach (var kvp in createdTables)
             {
                 report.RegData(kvp.Key, kvp.Value);
             }
 
-            Console.WriteLine($"[Info] Datos registrados para reporte '{reportName}'.");
+            Log.Information("Datos registrados para reporte '{ReportName}'.", reportName);
         }
 
-        /// <summary>
-        /// Reglas específicas para ReporteCfdiAsimilados:
-        /// - Balancea filas entre Percepciones y Deducciones por registro.
-        /// - Asegura que OtrosPagos tenga al menos 2 filas por registro.
-        /// </summary>
         private void ApplyAsimiladosRules(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
         {
-            Console.WriteLine("Aplicando reglas para ReporteCfdiAsimilados");
+            Log.Information("Aplicando reglas para ReporteCfdiAsimilados");
 
-            // Obtiene tablas clave
             if (!createdTables.TryGetValue("Percepciones", out var percepcionesTable) ||
                 !createdTables.TryGetValue("Deducciones", out var deduccionesTable))
             {
-                Console.WriteLine("Tablas necesarias no encontradas para ReporteCfdiAsimilados");
+                Log.Warning("Tablas necesarias no encontradas para ReporteCfdiAsimilados");
                 return;
             }
 
-            // Garantiza existencia de OtrosPagos y columna PK
             if (!createdTables.TryGetValue("OtrosPagos", out var otrosPagosTable))
             {
                 otrosPagosTable = new DataTable("OtrosPagos");
                 otrosPagosTable.Columns.Add(pkColumnName, typeof(int));
-                // Columna de ejemplo; ajustar según diseño necesario
                 otrosPagosTable.Columns.Add("someColumn", typeof(string));
                 createdTables["OtrosPagos"] = otrosPagosTable;
             }
@@ -547,7 +490,6 @@ namespace StimulsoftReport.Services
             if (!otrosPagosTable.Columns.Contains(pkColumnName))
                 otrosPagosTable.Columns.Add(pkColumnName, typeof(int));
 
-            // Recorre cada registro principal para balancear y completar mínimos
             foreach (DataRow mainRow in mainTable.Rows)
             {
                 var mainIdObj = mainRow[pkColumnName];
@@ -560,41 +502,32 @@ namespace StimulsoftReport.Services
 
                 int maxCount = Math.Max(pCount, dCount);
 
-                // Rellena filas vacías para alinear altura visual
                 if (pCount < maxCount)
                     AddEmptyRowsWithPk(percepcionesTable, maxCount - pCount, pkColumnName, mainId);
                 if (dCount < maxCount)
                     AddEmptyRowsWithPk(deduccionesTable, maxCount - dCount, pkColumnName, mainId);
 
-                // Mínimo 2 filas en OtrosPagos
                 if (oCount < 2)
                     AddEmptyRowsWithPk(otrosPagosTable, 2 - oCount, pkColumnName, mainId);
             }
         }
 
-        /// <summary>
-        /// Reglas para ReporteCfdi y ReporteCFDIMc:
-        /// balancea el número de filas entre Percepciones y Deducciones por registro.
-        /// </summary>
         private void ApplyReporteCfdiRules(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
         {
-            Console.WriteLine("Aplicando reglas para ReporteCfdi");
+            Log.Information("Aplicando reglas para ReporteCfdi");
 
-            // Verifica tablas requeridas
             if (!createdTables.TryGetValue("Percepciones", out var percepcionesTable) ||
                 !createdTables.TryGetValue("Deducciones", out var deduccionesTable))
             {
-                Console.WriteLine("Tablas necesarias no encontradas para ReporteCfdi");
+                Log.Warning("Tablas necesarias no encontradas para ReporteCfdi");
                 return;
             }
 
-            // Garantiza que ambas tablas tengan columna PK
             if (!percepcionesTable.Columns.Contains(pkColumnName))
                 percepcionesTable.Columns.Add(pkColumnName, typeof(int));
             if (!deduccionesTable.Columns.Contains(pkColumnName))
                 deduccionesTable.Columns.Add(pkColumnName, typeof(int));
 
-            // Balancea filas por cada registro principal
             foreach (DataRow mainRow in mainTable.Rows)
             {
                 var mainIdObj = mainRow[pkColumnName];
@@ -613,52 +546,33 @@ namespace StimulsoftReport.Services
             }
         }
 
-        /// <summary>
-        /// Reglas para ReporteResLugarTrabajo:
-        /// balancea filas entre Percepciones, Deducciones y sus sumarios por registro.
-        /// </summary>
         private void ApplyReporteLugarTrabajo(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
         {
-            Console.WriteLine("Aplicando reglas para ReporteResLugarTrabajo");
+            Log.Information("Aplicando reglas para ReporteResLugarTrabajo");
 
-            // Verifica existencia de todas las tablas necesarias
-            if (!createdTables.TryGetValue("Percepciones", out var percepcionesTable) ||
-                !createdTables.TryGetValue("Deducciones", out var deduccionesTable) ||
-                !createdTables.TryGetValue("DeduccionesSumario", out var deduccionesSumarioTable) ||
+            if (!createdTables.TryGetValue("DeduccionesSumario", out var deduccionesSumarioTable) ||
                 !createdTables.TryGetValue("PercepcionesSumario", out var percepcionesSumarioTable))
             {
-                Console.WriteLine("Tablas necesarias no encontradas para ReporteResLugarTrabajo");
+                Log.Warning("Tablas necesarias no encontradas para ReporteResLugarTrabajo");
                 return;
             }
 
-            // Asegura presencia de PK en todas
-            if (!percepcionesTable.Columns.Contains(pkColumnName))
-                percepcionesTable.Columns.Add(pkColumnName, typeof(int));
-            if (!deduccionesTable.Columns.Contains(pkColumnName))
-                deduccionesTable.Columns.Add(pkColumnName, typeof(int));
             if (!deduccionesSumarioTable.Columns.Contains(pkColumnName))
                 deduccionesSumarioTable.Columns.Add(pkColumnName, typeof(int));
             if (!percepcionesSumarioTable.Columns.Contains(pkColumnName))
                 percepcionesSumarioTable.Columns.Add(pkColumnName, typeof(int));
 
-            // Balancea filas al máximo entre las cuatro tablas por registro
             foreach (DataRow mainRow in mainTable.Rows)
             {
                 var mainIdObj = mainRow[pkColumnName];
                 if (mainIdObj == null || mainIdObj == DBNull.Value) continue;
                 int mainId = Convert.ToInt32(mainIdObj);
 
-                int pCount = percepcionesTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
-                int dCount = deduccionesTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
                 int dsCount = deduccionesSumarioTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
                 int psCount = percepcionesSumarioTable.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
 
-                int maxCount = Math.Max(Math.Max(pCount, dCount), Math.Max(dsCount, psCount));
+                int maxCount = Math.Max(dsCount, psCount);
 
-                if (pCount < maxCount)
-                    AddEmptyRowsWithPk(percepcionesTable, maxCount - pCount, pkColumnName, mainId);
-                if (dCount < maxCount)
-                    AddEmptyRowsWithPk(deduccionesTable, maxCount - dCount, pkColumnName, mainId);
                 if (dsCount < maxCount)
                     AddEmptyRowsWithPk(deduccionesSumarioTable, maxCount - dsCount, pkColumnName, mainId);
                 if (psCount < maxCount)
@@ -666,13 +580,9 @@ namespace StimulsoftReport.Services
             }
         }
 
-        /// <summary>
-        /// Reglas especiales para ReporteA3o:
-        /// balancea filas entre Percepciones, OtrosPagos y Deducciones por registro.
-        /// </summary>
         private void ApplyReporteA3oRules(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
         {
-            Console.WriteLine("Aplicando reglas especiales para ReporteA3o (balance filas Percepciones, OtrosPagos y Deducciones) por registro");
+            Log.Information("Aplicando reglas especiales para ReporteA3o (balance filas Percepciones, OtrosPagos y Deducciones) por registro");
 
             try
             {
@@ -682,21 +592,20 @@ namespace StimulsoftReport.Services
 
                 if (percepcionesTable == null)
                 {
-                    Console.WriteLine("ERROR: Tabla 'Percepciones' no encontrada.");
+                    Log.Error("Tabla 'Percepciones' no encontrada.");
                     return;
                 }
                 if (otrosPagosTable == null)
                 {
-                    Console.WriteLine("ERROR: Tabla 'OtrosPagos' no encontrada.");
+                    Log.Error("Tabla 'OtrosPagos' no encontrada.");
                     return;
                 }
                 if (deduccionesTable == null)
                 {
-                    Console.WriteLine("ERROR: Tabla 'Deducciones' no encontrada.");
+                    Log.Error("Tabla 'Deducciones' no encontrada.");
                     return;
                 }
 
-                // Garantiza PK en todas las tablas
                 if (!percepcionesTable.Columns.Contains(pkColumnName))
                     percepcionesTable.Columns.Add(pkColumnName, typeof(int));
                 if (!otrosPagosTable.Columns.Contains(pkColumnName))
@@ -704,7 +613,6 @@ namespace StimulsoftReport.Services
                 if (!deduccionesTable.Columns.Contains(pkColumnName))
                     deduccionesTable.Columns.Add(pkColumnName, typeof(int));
 
-                // Balancea al máximo entre las tres
                 foreach (DataRow mainRow in mainTable.Rows)
                 {
                     var mainIdObj = mainRow[pkColumnName];
@@ -719,133 +627,242 @@ namespace StimulsoftReport.Services
 
                     if (pCount < maxCount)
                     {
-                        Console.WriteLine($"[mainId={mainId}] Agregando {maxCount - pCount} filas vacías a 'Percepciones'");
+                        Log.Debug("[mainId={MainId}] Agregando {Count} filas vacías a 'Percepciones'", mainId, maxCount - pCount);
                         AddEmptyRowsWithPk(percepcionesTable, maxCount - pCount, pkColumnName, mainId);
                     }
                     if (oCount < maxCount)
                     {
-                        Console.WriteLine($"[mainId={mainId}] Agregando {maxCount - oCount} filas vacías a 'OtrosPagos'");
+                        Log.Debug("[mainId={MainId}] Agregando {Count} filas vacías a 'OtrosPagos'", mainId, maxCount - oCount);
                         AddEmptyRowsWithPk(otrosPagosTable, maxCount - oCount, pkColumnName, mainId);
                     }
                     if (dCount < maxCount)
                     {
-                        Console.WriteLine($"[mainId={mainId}] Agregando {maxCount - dCount} filas vacías a 'Deducciones'");
+                        Log.Debug("[mainId={MainId}] Agregando {Count} filas vacías a 'Deducciones'", mainId, maxCount - dCount);
                         AddEmptyRowsWithPk(deduccionesTable, maxCount - dCount, pkColumnName, mainId);
                     }
                 }
 
-                Console.WriteLine("Reglas especiales para ReporteA3o aplicadas por registro.");
+                Log.Information("Reglas especiales para ReporteA3o aplicadas por registro.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error en ApplyReporteA3oRules: {ex.Message}");
+                Log.Error(ex, "Error en ApplyReporteA3oRules");
             }
         }
 
-        /// <summary>
-        /// Convierte un nodo JSON a tablas (DataTables) de forma recursiva.
-        /// - Arrays: generan filas; Objetos: generan columnas.
-        /// - Se agrega una PK sintética para relacionar con el principal.
-        /// </summary>
-       private void ProcessNodeRecursive(JsonNode? node, string nodeName, int mainId, string mainPkColumnName, int? parentRowId, string? parentNodeName, List<(string name, int id)> ancestors, Dictionary<string, DataTable> createdTables)
-{
-    if (node == null) return;
-
-    // Ensure ancestors list is not null
-    ancestors ??= new List<(string name, int id)>();
-
-    if (node is JsonArray arr)
-    {
-        // Crea/ajusta esquema de tabla para el array actual
-        if (!createdTables.TryGetValue(nodeName, out var table))
+        private void ProcessNodeRecursive(JsonNode? node, string nodeName, int mainId, string mainPkColumnName, int? parentRowId, string? parentNodeName, List<(string name, int id)> ancestors, Dictionary<string, DataTable> createdTables)
         {
-            table = BuildTableSchemaFromArray(nodeName, arr);
-            createdTables[nodeName] = table;
-        }
-        else
-        {
-            // Agrega columnas nuevas que aparezcan en otros elementos del array
-            var allKeys = CollectKeysFromArray(arr);
-            foreach (var k in allKeys)
-                if (!table.Columns.Contains(k))
-                    table.Columns.Add(k, typeof(string));
-        }
+            if (node == null) return;
 
-        // Asegura columnas de id principales y de ancestros
-        if (!table.Columns.Contains(mainPkColumnName))
-            table.Columns.Add(mainPkColumnName, typeof(int));
-        // Columna propia del nodo
-        var ownIdCol = $"{nodeName}Id";
-        if (!table.Columns.Contains(ownIdCol))
-            table.Columns.Add(ownIdCol, typeof(int));
-        // Columnas para ancestros
-        foreach (var anc in ancestors)
-        {
-            var ancCol = $"{anc.name}Id";
-            if (!table.Columns.Contains(ancCol))
-                table.Columns.Add(ancCol, typeof(int));
-        }
+            ancestors ??= new List<(string name, int id)>();
 
-        // Inicializa contador si hace falta
-        lock (_idLock)
-        {
-            if (!_idCounters.ContainsKey(nodeName))
+            if (node is JsonArray arr)
             {
-                try
+                if (!createdTables.TryGetValue(nodeName, out var table))
                 {
-                    var existingMax = table.Rows.Cast<DataRow>()
-                        .Where(r => r[ownIdCol] != DBNull.Value)
-                        .Select(r => Convert.ToInt32(r[ownIdCol]))
-                        .DefaultIfEmpty(0)
-                        .Max();
-                    _idCounters[nodeName] = existingMax;
+                    table = BuildTableSchemaFromArray(nodeName, arr);
+                    createdTables[nodeName] = table;
+                    Log.Debug("Creada tabla {TableName} con columnas iniciales.", nodeName);
                 }
-                catch
+                else
                 {
-                    _idCounters[nodeName] = table.Rows.Count;
+                    var allKeys = CollectKeysFromArray(arr);
+                    foreach (var k in allKeys)
+                        if (!table.Columns.Contains(k))
+                            table.Columns.Add(k, typeof(string));
                 }
-            }
-        }
 
-        // Itera cada elemento del array
-        foreach (var element in arr)
-        {
-            if (element is JsonObject childObj)
-            {
-                var row = table.NewRow();
-
-                // Copia propiedades conocidas a columnas; rellena faltantes con ""
-                foreach (DataColumn col in table.Columns)
+                if (!table.Columns.Contains(mainPkColumnName))
+                    table.Columns.Add(mainPkColumnName, typeof(int));
+                var ownIdCol = $"{nodeName}Id";
+                if (!table.Columns.Contains(ownIdCol))
+                    table.Columns.Add(ownIdCol, typeof(int));
+                foreach (var anc in ancestors)
                 {
-                    var colName = col.ColumnName;
-                    if (colName == mainPkColumnName || colName == ownIdCol) continue; // se asignan abajo
-                    // si es columna de ancestro la asignaremos abajo
-                    if (ancestors.Any(a => $"{a.name}Id" == colName)) continue;
+                    var ancCol = $"{anc.name}Id";
+                    if (!table.Columns.Contains(ancCol))
+                        table.Columns.Add(ancCol, typeof(int));
+                }
 
-                    if (childObj.TryGetPropertyValue(colName, out var val))
+                lock (_idLock)
+                {
+                    if (!_idCounters.ContainsKey(nodeName))
                     {
-                        // Respeta el tipo de la columna
-                        var converted = ConvertJsonNodeToColumnValue(val, col.DataType);
-                        row[colName] = converted ?? DBNull.Value;
+                        try
+                        {
+                            var existingMax = table.Rows.Cast<DataRow>()
+                                .Where(r => r[ownIdCol] != DBNull.Value)
+                                .Select(r => Convert.ToInt32(r[ownIdCol]))
+                                .DefaultIfEmpty(0)
+                                .Max();
+                            _idCounters[nodeName] = existingMax;
+                        }
+                        catch
+                        {
+                            _idCounters[nodeName] = table.Rows.Count;
+                        }
+                    }
+                }
+
+                foreach (var element in arr)
+                {
+                    if (element is JsonObject childObj)
+                    {
+                        var row = table.NewRow();
+
+                        foreach (DataColumn col in table.Columns)
+                        {
+                            var colName = col.ColumnName;
+                            if (colName == mainPkColumnName || colName == ownIdCol) continue;
+                            if (ancestors.Any(a => $"{a.name}Id" == colName)) continue;
+
+                            if (childObj.TryGetPropertyValue(colName, out var val))
+                            {
+                                var converted = ConvertJsonNodeToColumnValue(val, col.DataType);
+                                row[colName] = converted ?? DBNull.Value;
+                            }
+                            else
+                            {
+                                row[colName] = (col.DataType == typeof(string)) ? "" : DBNull.Value;
+                            }
+                        }
+
+                        row[mainPkColumnName] = mainId;
+
+                        foreach (var anc in ancestors)
+                        {
+                            var ancCol = $"{anc.name}Id";
+                            row[ancCol] = anc.id;
+                        }
+
+                        if (parentRowId.HasValue && !string.IsNullOrEmpty(parentNodeName) && !ancestors.Any(a => a.name == parentNodeName))
+                        {
+                            var parentCol = $"{parentNodeName}Id";
+                            if (!table.Columns.Contains(parentCol))
+                                table.Columns.Add(parentCol, typeof(int));
+                            row[parentCol] = parentRowId.Value;
+                        }
+
+                        int newId;
+                        lock (_idLock)
+                        {
+                            _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
+                            newId = _idCounters[nodeName];
+                        }
+                        row[ownIdCol] = newId;
+
+                        table.Rows.Add(row);
+
+                        var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
+
+                        foreach (var p in childObj)
+                        {
+                            if (p.Value is JsonArray || p.Value is JsonObject)
+                                ProcessNodeRecursive(p.Value, p.Key, mainId, mainPkColumnName, newId, nodeName, newAncestors, createdTables);
+                        }
                     }
                     else
                     {
-                        // Si no viene la propiedad en JSON, coloca DBNull o "" según tipo
-                        row[colName] = (col.DataType == typeof(string)) ? "" : DBNull.Value;
+                        if (!table.Columns.Contains("Value"))
+                            table.Columns.Add("Value", typeof(string));
+
+                        var row = table.NewRow();
+                        if (table.Columns.Contains("Value"))
+                            row["Value"] = element?.ToString() ?? "";
+
+                        row[mainPkColumnName] = mainId;
+
+                        foreach (var anc in ancestors)
+                        {
+                            var ancCol = $"{anc.name}Id";
+                            row[ancCol] = anc.id;
+                        }
+
+                        var ownIdColLocal = $"{nodeName}Id";
+                        int newId;
+                        lock (_idLock)
+                        {
+                            _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
+                            newId = _idCounters[nodeName];
+                        }
+                        row[ownIdColLocal] = newId;
+
+                        table.Rows.Add(row);
+                    }
+                }
+            }
+            else if (node is JsonObject obj)
+            {
+                if (!createdTables.TryGetValue(nodeName, out var table))
+                {
+                    table = BuildTableSchemaFromObject(nodeName, obj);
+                    createdTables[nodeName] = table;
+                    Log.Debug("Creada tabla {TableName} desde objeto.", nodeName);
+                }
+                else
+                {
+                    foreach (var p in obj)
+                        if (!table.Columns.Contains(p.Key))
+                            table.Columns.Add(p.Key, typeof(string));
+                }
+
+                if (!table.Columns.Contains(mainPkColumnName))
+                    table.Columns.Add(mainPkColumnName, typeof(int));
+                var ownIdCol = $"{nodeName}Id";
+                if (!table.Columns.Contains(ownIdCol))
+                    table.Columns.Add(ownIdCol, typeof(int));
+                foreach (var anc in ancestors)
+                {
+                    var ancCol = $"{anc.name}Id";
+                    if (!table.Columns.Contains(ancCol))
+                        table.Columns.Add(ancCol, typeof(int));
+                }
+
+                lock (_idLock)
+                {
+                    if (!_idCounters.ContainsKey(nodeName))
+                    {
+                        try
+                        {
+                            var existingMax = table.Rows.Cast<DataRow>()
+                                .Where(r => r[ownIdCol] != DBNull.Value)
+                                .Select(r => Convert.ToInt32(r[ownIdCol]))
+                                .DefaultIfEmpty(0)
+                                .Max();
+                            _idCounters[nodeName] = existingMax;
+                        }
+                        catch
+                        {
+                            _idCounters[nodeName] = table.Rows.Count;
+                        }
                     }
                 }
 
-                // Asigna relación con el registro principal
-                row[mainPkColumnName] = mainId;
+                var row = table.NewRow();
+                foreach (DataColumn col in table.Columns)
+                {
+                    if (col.ColumnName == mainPkColumnName) continue;
+                    if (col.ColumnName == ownIdCol) continue;
+                    if (ancestors.Any(a => $"{a.name}Id" == col.ColumnName)) continue;
 
-                // Asigna columnas de ancestros
+                    if (obj.TryGetPropertyValue(col.ColumnName, out var val))
+                    {
+                        var converted = ConvertJsonNodeToColumnValue(val, col.DataType);
+                        row[col.ColumnName] = converted ?? DBNull.Value;
+                    }
+                    else
+                    {
+                        row[col.ColumnName] = (col.DataType == typeof(string)) ? "" : DBNull.Value;
+                    }
+                }
+
+                row[mainPkColumnName] = mainId;
                 foreach (var anc in ancestors)
                 {
                     var ancCol = $"{anc.name}Id";
                     row[ancCol] = anc.id;
                 }
 
-                // Si existe parentRowId/parentNodeName y no está en ancestors, asignarlo también
                 if (parentRowId.HasValue && !string.IsNullOrEmpty(parentNodeName) && !ancestors.Any(a => a.name == parentNodeName))
                 {
                     var parentCol = $"{parentNodeName}Id";
@@ -854,7 +871,6 @@ namespace StimulsoftReport.Services
                     row[parentCol] = parentRowId.Value;
                 }
 
-                // Calcula y asigna id propio incremental
                 int newId;
                 lock (_idLock)
                 {
@@ -863,14 +879,10 @@ namespace StimulsoftReport.Services
                 }
                 row[ownIdCol] = newId;
 
-
                 table.Rows.Add(row);
 
-                // Prepara lista de ancestros para hijos (incluye este nodo)
                 var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
-
-                // Procesa propiedades anidadas (objetos/arrays)
-                foreach (var p in childObj)
+                foreach (var p in obj)
                 {
                     if (p.Value is JsonArray || p.Value is JsonObject)
                         ProcessNodeRecursive(p.Value, p.Key, mainId, mainPkColumnName, newId, nodeName, newAncestors, createdTables);
@@ -878,213 +890,65 @@ namespace StimulsoftReport.Services
             }
             else
             {
-                // Elemento "simple" dentro del array: crea columna "Value"
-                if (!table.Columns.Contains("Value"))
+                if (!createdTables.TryGetValue(nodeName, out var table))
+                {
+                    table = new DataTable(nodeName);
                     table.Columns.Add("Value", typeof(string));
+                    createdTables[nodeName] = table;
+                }
+
+                if (!table.Columns.Contains(mainPkColumnName))
+                    table.Columns.Add(mainPkColumnName, typeof(int));
+                var ownIdCol2 = $"{nodeName}Id";
+                if (!table.Columns.Contains(ownIdCol2))
+                    table.Columns.Add(ownIdCol2, typeof(int));
+                foreach (var anc in ancestors)
+                {
+                    var ancCol = $"{anc.name}Id";
+                    if (!table.Columns.Contains(ancCol))
+                        table.Columns.Add(ancCol, typeof(int));
+                }
 
                 var row = table.NewRow();
-                if (table.Columns.Contains("Value"))
-                    row["Value"] = element?.ToString() ?? "";
-
+                row["Value"] = node.ToString() ?? "";
                 row[mainPkColumnName] = mainId;
-
-                // Asigna ancestros
                 foreach (var anc in ancestors)
                 {
                     var ancCol = $"{anc.name}Id";
                     row[ancCol] = anc.id;
                 }
 
-                // asigna id propio
-                var ownIdColLocal = $"{nodeName}Id";
                 int newId;
                 lock (_idLock)
                 {
                     _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
                     newId = _idCounters[nodeName];
                 }
-                row[ownIdColLocal] = newId;
-
+                row[ownIdCol2] = newId;
                 table.Rows.Add(row);
             }
         }
-    }
-    else if (node is JsonObject obj)
-    {
-        // Crea/ajusta esquema para objeto
-        if (!createdTables.TryGetValue(nodeName, out var table))
-        {
-            table = BuildTableSchemaFromObject(nodeName, obj);
-            createdTables[nodeName] = table;
-        }
-        else
-        {
-            // Agrega columnas nuevas si aparecen propiedades no vistas
-            foreach (var p in obj)
-                if (!table.Columns.Contains(p.Key))
-                    table.Columns.Add(p.Key, typeof(string));
-        }
 
-        // Asegura columnas de id principales y de ancestros
-        if (!table.Columns.Contains(mainPkColumnName))
-            table.Columns.Add(mainPkColumnName, typeof(int));
-        var ownIdCol = $"{nodeName}Id";
-        if (!table.Columns.Contains(ownIdCol))
-            table.Columns.Add(ownIdCol, typeof(int));
-        foreach (var anc in ancestors)
-        {
-            var ancCol = $"{anc.name}Id";
-            if (!table.Columns.Contains(ancCol))
-                table.Columns.Add(ancCol, typeof(int));
-        }
-
-        // Inicializa contador si hace falta
-        lock (_idLock)
-        {
-            if (!_idCounters.ContainsKey(nodeName))
-            {
-                try
-                {
-                    var existingMax = table.Rows.Cast<DataRow>()
-                        .Where(r => r[ownIdCol] != DBNull.Value)
-                        .Select(r => Convert.ToInt32(r[ownIdCol]))
-                        .DefaultIfEmpty(0)
-                        .Max();
-                    _idCounters[nodeName] = existingMax;
-                }
-                catch
-                {
-                    _idCounters[nodeName] = table.Rows.Count;
-                }
-            }
-        }
-
-        // Inserta fila con valores del objeto
-        var row = table.NewRow();
-        foreach (DataColumn col in table.Columns)
-        {
-            if (col.ColumnName == mainPkColumnName) continue;
-            if (col.ColumnName == ownIdCol) continue;
-            if (ancestors.Any(a => $"{a.name}Id" == col.ColumnName)) continue;
-
-            if (obj.TryGetPropertyValue(col.ColumnName, out var val))
-            {
-                // Respeta el tipo de la columna
-                var converted = ConvertJsonNodeToColumnValue(val, col.DataType);
-                row[col.ColumnName] = converted ?? DBNull.Value;
-            }
-            else
-            {
-                // Si no viene la propiedad en JSON, coloca DBNull o "" según tipo
-                row[col.ColumnName] = (col.DataType == typeof(string)) ? "" : DBNull.Value;
-            }
-        }
-
-        // Asigna ids
-        row[mainPkColumnName] = mainId;
-        foreach (var anc in ancestors)
-        {
-            var ancCol = $"{anc.name}Id";
-            row[ancCol] = anc.id;
-        }
-
-        if (parentRowId.HasValue && !string.IsNullOrEmpty(parentNodeName) && !ancestors.Any(a => a.name == parentNodeName))
-        {
-            var parentCol = $"{parentNodeName}Id";
-            if (!table.Columns.Contains(parentCol))
-                table.Columns.Add(parentCol, typeof(int));
-            row[parentCol] = parentRowId.Value;
-        }
-
-        // Calcula y asigna id propio
-        int newId;
-        lock (_idLock)
-        {
-            _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
-            newId = _idCounters[nodeName];
-        }
-        row[ownIdCol] = newId;
-
-        table.Rows.Add(row);
-
-        // Procesa propiedades anidadas
-        var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
-        foreach (var p in obj)
-        {
-            if (p.Value is JsonArray || p.Value is JsonObject)
-                ProcessNodeRecursive(p.Value, p.Key, mainId, mainPkColumnName, newId, nodeName, newAncestors, createdTables);
-        }
-    }
-    else
-    {
-        // Nodo simple (string/num/bool): crea tabla con columna Value
-        if (!createdTables.TryGetValue(nodeName, out var table))
-        {
-            table = new DataTable(nodeName);
-            table.Columns.Add("Value", typeof(string));
-            createdTables[nodeName] = table;
-        }
-
-        if (!table.Columns.Contains(mainPkColumnName))
-            table.Columns.Add(mainPkColumnName, typeof(int));
-        var ownIdCol2 = $"{nodeName}Id";
-        if (!table.Columns.Contains(ownIdCol2))
-            table.Columns.Add(ownIdCol2, typeof(int));
-        foreach (var anc in ancestors)
-        {
-            var ancCol = $"{anc.name}Id";
-            if (!table.Columns.Contains(ancCol))
-                table.Columns.Add(ancCol, typeof(int));
-        }
-
-        var row = table.NewRow();
-        row["Value"] = node.ToString() ?? "";
-        row[mainPkColumnName] = mainId;
-        foreach (var anc in ancestors)
-        {
-            var ancCol = $"{anc.name}Id";
-            row[ancCol] = anc.id;
-        }
-
-        int newId;
-        lock (_idLock)
-        {
-            _idCounters[nodeName] = _idCounters.GetValueOrDefault(nodeName) + 1;
-            newId = _idCounters[nodeName];
-        }
-        row[ownIdCol2] = newId;
-        table.Rows.Add(row);
-    }
-}
-
-        /// <summary>
-        /// Construye esquema de tabla a partir de un array de objetos JSON (union de claves).
-        /// </summary>
         private DataTable BuildTableSchemaFromArray(string tableName, JsonArray arr)
         {
             var dt = new DataTable(tableName);
             var keys = CollectKeysFromArray(arr);
             foreach (var k in keys)
                 dt.Columns.Add(k, typeof(string));
-            
-            // Asegurar existencia de ownId como Int32 desde el esquema
+
             var ownIdCol = $"{tableName}Id";
             if (!dt.Columns.Contains(ownIdCol))
                 dt.Columns.Add(ownIdCol, typeof(int));
 
-            // Inicializa contador para ids propios si no existe
             lock (_idLock)
             {
                 if (!_idCounters.ContainsKey(tableName))
                     _idCounters[tableName] = 0;
             }
-            
+
             return dt;
         }
 
-        /// <summary>
-        /// Construye esquema de tabla a partir de un objeto JSON (propiedades -> columnas).
-        /// </summary>
         private DataTable BuildTableSchemaFromObject(string tableName, JsonObject obj)
         {
             var dt = new DataTable(tableName);
@@ -1092,25 +956,20 @@ namespace StimulsoftReport.Services
             {
                 dt.Columns.Add(p.Key, typeof(string));
             }
-            
-            // Asegurar existencia de ownId como Int32 desde el esquema
+
             var ownIdCol = $"{tableName}Id";
             if (!dt.Columns.Contains(ownIdCol))
                 dt.Columns.Add(ownIdCol, typeof(int));
 
-            // Inicializa contador para ids propios si no existe
             lock (_idLock)
             {
                 if (!_idCounters.ContainsKey(tableName))
                     _idCounters[tableName] = 0;
             }
-            
+
             return dt;
         }
 
-        /// <summary>
-        /// Obtiene el conjunto de claves presentes en todos los objetos de un array.
-        /// </summary>
         private HashSet<string> CollectKeysFromArray(JsonArray arr)
         {
             var keys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -1125,10 +984,6 @@ namespace StimulsoftReport.Services
             return keys;
         }
 
-        /// <summary>
-        /// Navega un JSON por una ruta con notación de puntos y opcionalmente índices [i].
-        /// Ej: "Emisor.Domicilio[0].Calle"
-        /// </summary>
         private JsonNode? GetJsonNodeByPath(JsonObject root, string path)
         {
             if (string.IsNullOrWhiteSpace(path)) return root;
@@ -1167,7 +1022,6 @@ namespace StimulsoftReport.Services
                 }
                 else if (current is JsonArray arrFromCurrent)
                 {
-                    // Caso especial: parte sin nombre y con índice apunta directo al array actual
                     if (propName.Length == 0 && indexOpt.HasValue)
                     {
                         var idx = indexOpt.Value;
@@ -1188,9 +1042,6 @@ namespace StimulsoftReport.Services
             return current;
         }
 
-        /// <summary>
-        /// Parsea una parte de ruta con índice opcional. Ej: "Domicilio[0]" => ("Domicilio", 0)
-        /// </summary>
         private (string propName, int? index) ParsePartWithIndex(string part)
         {
             var name = part;
@@ -1211,9 +1062,6 @@ namespace StimulsoftReport.Services
             return (name, index);
         }
 
-        /// <summary>
-        /// Crea una tabla vacía con una columna placeholder para registrar en el reporte.
-        /// </summary>
         private DataTable CreateEmptyTable(string tableName)
         {
             var dt = new DataTable(tableName);
@@ -1221,10 +1069,6 @@ namespace StimulsoftReport.Services
             return dt;
         }
 
-        /// <summary>
-        /// Agrega filas vacías a una tabla conservando tipos de columnas y asignando la PK.
-        /// Útil para balancear alturas visuales entre bandas/tablas.
-        /// </summary>
         private void AddEmptyRowsWithPk(DataTable table, int count, string pkColumnName, int parentId)
         {
             if (count <= 0) return;
@@ -1238,7 +1082,6 @@ namespace StimulsoftReport.Services
             if (!table.Columns.Contains(ownIdCol))
                 table.Columns.Add(ownIdCol, typeof(int));
 
-            // Inicializa contador para esta tabla si hace falta
             lock (_idLock)
             {
                 if (!_idCounters.TryGetValue(table.TableName, out var counter))
@@ -1263,7 +1106,6 @@ namespace StimulsoftReport.Services
             {
                 var row = table.NewRow();
 
-                // Coloca valores por defecto por tipo (sin tocar PK ni ownId aún)
                 foreach (DataColumn col in table.Columns)
                 {
                     if (col.ColumnName == pkColumnName) continue;
@@ -1279,7 +1121,6 @@ namespace StimulsoftReport.Services
 
                 row[pkColumnName] = parentId;
 
-                // asigna own id incremental de forma thread-safe
                 int newId;
                 lock (_idLock)
                 {
@@ -1292,17 +1133,11 @@ namespace StimulsoftReport.Services
             }
         }
 
-        /// <summary>
-        /// Crea un DataTable a partir de un array de objetos JSON:
-        /// - Columnas: unión de todas las claves presentes.
-        /// - Filas: valores por objeto.
-        /// </summary>
         private DataTable CreateTableFromArrayOfObjects(string tableName, JsonArray jsonArray)
         {
             var dt = new DataTable(tableName);
             if (jsonArray.Count == 0) return dt;
 
-            // Determina columnas por unión de claves
             var allKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             foreach (var item in jsonArray)
             {
@@ -1316,7 +1151,6 @@ namespace StimulsoftReport.Services
             foreach (var key in allKeys)
                 dt.Columns.Add(key, typeof(string));
 
-            // Crea filas con valores por clave; faltantes se llenan con ""
             foreach (var item in jsonArray)
             {
                 if (item is JsonObject obj)
@@ -1333,18 +1167,13 @@ namespace StimulsoftReport.Services
 
             return dt;
         }
-        
-        /// <summary>
-        /// Convierte un JsonNode a un valor compatible con el tipo de una columna.
-        /// </summary>
+
         private object ConvertJsonNodeToColumnValue(JsonNode? node, Type targetType)
         {
             if (node == null) return DBNull.Value;
 
-            // Obtiene la representación textual (si es JsonValue esto es el valor serializado)
             var s = node.ToString() ?? "";
 
-            // Normal caso: cadena vacía => DBNull para tipos no string
             if (string.IsNullOrEmpty(s))
             {
                 if (targetType == typeof(string)) return "";
@@ -1378,7 +1207,6 @@ namespace StimulsoftReport.Services
                 if (targetType == typeof(bool))
                 {
                     if (bool.TryParse(s, out var b)) return b;
-                    // a veces booleans vienen como "0"/"1"
                     if (s == "0") return false;
                     if (s == "1") return true;
                     return DBNull.Value;
@@ -1389,7 +1217,6 @@ namespace StimulsoftReport.Services
                     return DBNull.Value;
                 }
 
-                // Fallback: intenta conversión general
                 return Convert.ChangeType(s, targetType);
             }
             catch

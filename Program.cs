@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -7,12 +8,44 @@ using Microsoft.AspNetCore.Http;
 using StimulsoftReport.Configuration;
 using StimulsoftReport.Services;
 using Stimulsoft.Base;
+using Serilog;
+using Serilog.Core;
+using Serilog.Events;
 using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Leer solo retainedFileCountLimit con valor por defecto 10
+int retainedFileCountLimit = builder.Configuration.GetValue<int?>("SerilogSettings:RetainedFileCountLimit") ?? 10;
+
+// Crear el switch para controlar el nivel de logging dinámicamente
+var levelSwitch = new LoggingLevelSwitch
+{
+    MinimumLevel = LogEventLevel.Information // Nivel inicial fijo, se controla dinámicamente luego
+};
+
+// ----------------------------
+// Configurar Serilog
+// ----------------------------
+var loggerConfig = new LoggerConfiguration()
+    .MinimumLevel.ControlledBy(levelSwitch)
+    .WriteTo.Console()
+    .WriteTo.File(
+        path: Path.Combine(builder.Environment.ContentRootPath, "Logs", "log-.txt"),
+        rollingInterval: RollingInterval.Day,
+        retainedFileCountLimit: retainedFileCountLimit,
+        shared: true,
+        flushToDiskInterval: TimeSpan.FromSeconds(1));
+
+Log.Logger = loggerConfig.CreateLogger();
+
+builder.Host.UseSerilog();
+
+// Registrar el switch en DI para usarlo en el controlador
+builder.Services.AddSingleton(levelSwitch);
 
 // ------------------------------------------------------------------
 // 1. Cargar licencia de Stimulsoft usando directorio raíz de la app
@@ -31,7 +64,6 @@ builder.Services.AddControllers();
 // 3. Configurar HealthChecks personalizados
 // ------------------------------------------------------------------
 builder.Services.AddHealthChecks()
-    // Validación: carpeta de plantillas
     .AddCheck("templates-folder", () =>
     {
         var templatesPath = builder.Configuration["ReportSettings:TemplatesFolder"];
@@ -48,7 +80,6 @@ builder.Services.AddHealthChecks()
 
         return HealthCheckResult.Healthy($"Carpeta de plantillas OK - Se encontraron {templateFiles.Length} archivos .mrt");
     })
-    // Validación: carpeta de configuraciones
     .AddCheck("configs-folder", () =>
     {
         var configsPath = builder.Configuration["ReportSettings:ConfigsFolder"];
@@ -65,7 +96,6 @@ builder.Services.AddHealthChecks()
 
         return HealthCheckResult.Healthy($"Carpeta de configuraciones OK - Se encontraron {jsonFiles.Length} archivos .json");
     })
-    // Validación: licencia de Stimulsoft
     .AddCheck("stimulsoft-license", () =>
     {
         try
@@ -93,27 +123,18 @@ app.MapControllers();
 // ------------------------------------------------------------------
 // 5. Endpoints de HealthChecks
 // ------------------------------------------------------------------
-
-// Endpoint básico (estado simple: 200 OK o 503)
 app.MapHealthChecks("/health");
 
-// Endpoint detallado (con JSON extendido)
 app.MapHealthChecks("/health/detailed", new HealthCheckOptions
 {
     ResponseWriter = async (context, report) =>
     {
         context.Response.ContentType = "application/json";
 
-        // ----------------------------------------------------------
-        // Obtener versión desde Assembly
-        // ----------------------------------------------------------
         var version = Assembly.GetExecutingAssembly()
             .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?
             .InformationalVersion ?? "unknown";
 
-        // ----------------------------------------------------------
-        // Obtener lista de reportes .mrt con su última modificación
-        // ----------------------------------------------------------
         var templatesPath = builder.Configuration["ReportSettings:TemplatesFolder"];
         var reportes = Array.Empty<object>();
 
@@ -128,13 +149,10 @@ app.MapHealthChecks("/health/detailed", new HealthCheckOptions
                 .ToArray();
         }
 
-        // ----------------------------------------------------------
-        // Construcción de respuesta JSON
-        // ----------------------------------------------------------
         var response = new
         {
             estado = report.Status.ToString(),
-            marca_tiempo = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), // Local, legible
+            marca_tiempo = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),
             version = version,
             duracion_ms = report.TotalDuration.TotalMilliseconds,
             verificaciones = report.Entries.Select(x => new

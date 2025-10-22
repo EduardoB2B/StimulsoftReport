@@ -37,11 +37,16 @@
       Si quieres que aparezca el commit en "commit", lo dejamos en true (valor por defecto).
     -->
     <!-- <Deterministic>false</Deterministic> -->
+
+    <!-- Suprime warnings de compatibilidad de paquetes con TargetFramework -->
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- Paquete oficial de SQL Client para acceso a bases SQL Server -->
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.5" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
 
     <!-- Paquete de Stimulsoft para trabajar con reportes en ASP.NET Core -->
     <PackageReference Include="Stimulsoft.Reports.Web.NetCore" Version="2023.4.1" />
