@@ -36,6 +36,3 @@ Este documento contiene la lista de endpoints disponibles en la API, con su ruta
 - **Descripción:** Proporciona información general sobre el entorno, versión y configuración del API instalada.
 
 ---
-
-*Nota:*  
-Si se agregan nuevos endpoints o se requiere documentación más detallada, se recomienda usar herramientas como Swagger/OpenAPI para mantener la documentación actualizada automáticamente.
