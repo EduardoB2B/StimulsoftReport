@@ -1,0 +1,1039 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <CalculationMode>Interpretation</CalculationMode>
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="13">
+      <Data Ref="2" type="DataTableSource" isKey="true">
+        <Alias>Data</Alias>
+        <Columns isList="true" count="4">
+          <value>ORIGINAL,isLogoLargo,isLogoLargo,isLogoLargo,System.String,_x0036_6a574d12026411783ba2d25e901848e</value>
+          <value>ORIGINAL,logo,logo,logo,System.String,aaedc6d7681c41d8b9f0f6930f3d153d</value>
+          <value>ORIGINAL,isFechaLargo,isFechaLargo,isFechaLargo,System.String,_x0037_c1f136b608c4a98a60df3953842d9a1</value>
+          <value>ORIGINAL,fecha,fecha,fecha,System.String,d17a208df59a41558cd74942614a5b3d</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>986b3afcbe294cebafa4018fd0978d1f</Key>
+        <Name>Data</Name>
+        <NameInSource>Data</NameInSource>
+      </Data>
+      <Recibo Ref="3" type="DataTableSource" isKey="true">
+        <Alias>Recibo</Alias>
+        <Columns isList="true" count="5">
+          <value>ORIGINAL,isPrintNumRecibo,isPrintNumRecibo,isPrintNumRecibo,System.String,_x0031_aab2ffee61845adbb50454aeee58c33</value>
+          <value>ORIGINAL,ReciboId,ReciboId,ReciboId,System.String,da5cdc22a1d343338316a1b3127f6f44</value>
+          <value>ORIGINAL,numRecibo,numRecibo,numRecibo,System.String,_x0039_ba4409df29c4f08b6ffaf756f4af5e1</value>
+          <value>ORIGINAL,isPrintNombre,isPrintNombre,isPrintNombre,System.String,_x0033_267a66668c34dc6994f0154988885c2</value>
+          <value>ORIGINAL,nombre,nombre,nombre,System.String,_x0031_eb59a35f58d4964a8502f2e279d4c30</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>eb242812410f426fad564041eb124c3c</Key>
+        <Name>Recibo</Name>
+        <NameInSource>Recibo</NameInSource>
+      </Recibo>
+      <PerPago Ref="4" type="DataTableSource" isKey="true">
+        <Alias>PerPago</Alias>
+        <Columns isList="true" count="4">
+          <value>ORIGINAL,isPrint,isPrint,isPrint,System.String,d8fec0bc30cf42d8be3e727c615143e5</value>
+          <value>CPFecIni,System.String</value>
+          <value>CPFecFin,System.String</value>
+          <value>ReciboId,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>7575f6e2fdf644ce8ac2039b627dde92</Key>
+        <Name>PerPago</Name>
+        <NameInSource>PerPago</NameInSource>
+      </PerPago>
+      <nombre Ref="5" type="DataTableSource" isKey="true">
+        <Alias>nombre</Alias>
+        <Columns isList="true" count="3">
+          <value>nombre,System.String</value>
+          <value>isPrint,System.String</value>
+          <value>ORIGINAL,ReciboId,ReciboId,ReciboId,System.String,_x0034_9830b9b3e2e4033aa1f0fd0336d58b3</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>22bf57c1839c4a178ad1ccb60364d6ca</Key>
+        <Name>nombre</Name>
+        <NameInSource>nombre</NameInSource>
+      </nombre>
+      <EmpRFC Ref="6" type="DataTableSource" isKey="true">
+        <Alias>EmpRFC</Alias>
+        <Columns isList="true" count="3">
+          <value>ORIGINAL,EmpRFC,EmpRFC,EmpRFC,System.String,_x0031_2243a1f9f0e4061b831c83059d3829b</value>
+          <value>ORIGINAL,isPrint,isPrint,isPrint,System.String,_x0037_85e5ccbca924cc5a419e9846a62765d</value>
+          <value>ORIGINAL,ReciboId,ReciboId,ReciboId,System.String,_x0038_1e516f195f840dd8f1cd9528de82e69</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>d9273ae0e0814d61b7afb7873c2589af</Key>
+        <Name>EmpRFC</Name>
+        <NameInSource>EmpRFC</NameInSource>
+      </EmpRFC>
+      <PuestoDsc Ref="7" type="DataTableSource" isKey="true">
+        <Alias>PuestoDsc</Alias>
+        <Columns isList="true" count="3">
+          <value>PuestoDsc,System.String</value>
+          <value>isPrint,System.String</value>
+          <value>ORIGINAL,ReciboId,ReciboId,ReciboId,System.String,_x0039_4bd6e4307934a798eae9ba0ae46f249</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>342007f0dca24d5ba6673b13fd8555dd</Key>
+        <Name>PuestoDsc</Name>
+        <NameInSource>PuestoDsc</NameInSource>
+      </PuestoDsc>
+      <Detalle Ref="8" type="DataTableSource" isKey="true">
+        <Alias>Detalle</Alias>
+        <Columns isList="true" count="3">
+          <value>ORIGINAL,Monto_cal,Monto_cal,Monto_cal,System.String,e20ac380cfa343898a7eeca3bd4f7811</value>
+          <value>ORIGINAL,Monto_calDeducciones,Monto_calDeducciones,Monto_calDeducciones,System.String,_x0032_b2a2f983e0e4e2bbf96b67ddfdf9f00</value>
+          <value>ORIGINAL,ReciboId,ReciboId,ReciboId,System.String,a7abd7edd94b439d959f4dfc66d52cb2</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>e2e953da0e0040aa9c1219a0e3266147</Key>
+        <Name>Detalle</Name>
+        <NameInSource>Detalle</NameInSource>
+      </Detalle>
+      <Deducciones Ref="9" type="DataTableSource" isKey="true">
+        <Alias>Deducciones</Alias>
+        <Columns isList="true" count="4">
+          <value>ORIGINAL,id_nombre1,id_nombre1,id_nombre1,System.String,_x0039_9a63539bb19439e805f254fa59a0cfc</value>
+          <value>ORIGINAL,id_glosa,id_glosa,id_glosa,System.String,_x0033_d13a14957b7437f9b05d6552cc017ef</value>
+          <value>ORIGINAL,Monto_calD,Monto_calD,Monto_calD,System.String,_x0036_2a93e3336144cc1a6bc2e5dd8e66f03</value>
+          <value>ORIGINAL,ReciboId,ReciboId,ReciboId,System.String,_x0036_87c6e88c44c4519baae86c52315880e</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>9139408561cd4ac7a05d6df193cefe86</Key>
+        <Name>Deducciones</Name>
+        <NameInSource>Deducciones</NameInSource>
+      </Deducciones>
+      <Leyenda Ref="10" type="DataTableSource" isKey="true">
+        <Alias>Leyenda</Alias>
+        <Columns isList="true" count="3">
+          <value>ORIGINAL,isPrint,isPrint,isPrint,System.String,_x0039_2c8f43ced7a41e3ab6bf71cb724272b</value>
+          <value>ORIGINAL,leyenda,leyenda,leyenda,System.String,_x0039_9aa5704b60e4cd3a0d892caef231ba9</value>
+          <value>ORIGINAL,ReciboId,ReciboId,ReciboId,System.String,_x0031_8bff20ade8e4df089e48fdfb545c159</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>0975e269c5b840b8a846bf76d39bed35</Key>
+        <Name>Leyenda</Name>
+        <NameInSource>Leyenda</NameInSource>
+      </Leyenda>
+      <Leyenda2 Ref="11" type="DataTableSource" isKey="true">
+        <Alias>Leyenda2</Alias>
+        <Columns isList="true" count="3">
+          <value>isPrint,System.String</value>
+          <value>leyenda2,System.String</value>
+          <value>ORIGINAL,ReciboId,ReciboId,ReciboId,System.String,_x0033_3d5211073af4481928fdf63c9a76259</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>a2f9d5d7d6f3453d80fcdccdb3a9cb6d</Key>
+        <Name>Leyenda2</Name>
+        <NameInSource>Leyenda2</NameInSource>
+      </Leyenda2>
+      <Leyenda3 Ref="12" type="DataTableSource" isKey="true">
+        <Alias>Leyenda3</Alias>
+        <Columns isList="true" count="3">
+          <value>ORIGINAL,isPrint,isPrint,isPrint,System.String,fb1411626b7e4273b5a786566d43f7ac</value>
+          <value>ORIGINAL,leyenda3,leyenda3,leyenda3,System.String,c8e4d3c4f24e4715b26adddb0a3b3c20</value>
+          <value>ORIGINAL,ReciboId,ReciboId,ReciboId,System.String,_x0030_da8b79741ae4460aa0b3d6e6aa4d0ba</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>7af94fe99467441886bdc83923b0ffc3</Key>
+        <Name>Leyenda3</Name>
+        <NameInSource>Leyenda3</NameInSource>
+      </Leyenda3>
+      <Leyenda4 Ref="13" type="DataTableSource" isKey="true">
+        <Alias>Leyenda4</Alias>
+        <Columns isList="true" count="3">
+          <value>ORIGINAL,isPrint,isPrint,isPrint,System.String,_x0034_c5430ed19a0473085cca5475160cd11</value>
+          <value>ORIGINAL,leyenda4,leyenda4,leyenda4,System.String,_x0032_c43be666aad4aaea6a8df87deab1885</value>
+          <value>ORIGINAL,ReciboId,ReciboId,ReciboId,System.String,_x0032_691ff925ab34b85bbd16c43562bf097</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>faf2a1b56a694e99a0c8020a7f1a596b</Key>
+        <Name>Leyenda4</Name>
+        <NameInSource>Leyenda4</NameInSource>
+      </Leyenda4>
+      <Fin Ref="14" type="DataTableSource" isKey="true">
+        <Alias>Fin</Alias>
+        <Columns isList="true" count="4">
+          <value>ORIGINAL,isPrint,isPrint,isPrint,System.String,b0020e55a4344b208fe13623f98c752b</value>
+          <value>ORIGINAL,Cadena1,Cadena1,Cadena1,System.String,_x0036_3a85395c15c44ada32e4bdd0017ef18</value>
+          <value>ORIGINAL,Cadena2,Cadena2,Cadena2,System.String,_x0034_cf4b6c2faa94593b7fbe0c737b72881</value>
+          <value>ORIGINAL,ReciboId,ReciboId,ReciboId,System.String,_x0030_fd11188202842eaba0534ea126cfd8a</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>fae6e5e4a9ca4b19b9780287e3e99cbf</Key>
+        <Name>Fin</Name>
+        <NameInSource>Fin</NameInSource>
+      </Fin>
+    </DataSources>
+    <Relations isList="true" count="11">
+      <Relation Ref="15" type="DataRelation" isKey="true">
+        <Alias>Relation</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ChildColumns>
+        <ChildSource isRef="4" />
+        <Dictionary isRef="1" />
+        <Name>Relation</Name>
+        <NameInSource>Relation</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </Relation>
+      <Relation2 Ref="16" type="DataRelation" isKey="true">
+        <Alias>Relation2</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ChildColumns>
+        <ChildSource isRef="5" />
+        <Dictionary isRef="1" />
+        <Name>Relation2</Name>
+        <NameInSource>Relation2</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </Relation2>
+      <Relation3 Ref="17" type="DataRelation" isKey="true">
+        <Alias>Relation3</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ChildColumns>
+        <ChildSource isRef="6" />
+        <Dictionary isRef="1" />
+        <Key>24781585756d4039b587c352393476cb</Key>
+        <Name>Relation3</Name>
+        <NameInSource>Relation3</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </Relation3>
+      <Relation4 Ref="18" type="DataRelation" isKey="true">
+        <Alias>Relation4</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ChildColumns>
+        <ChildSource isRef="7" />
+        <Dictionary isRef="1" />
+        <Name>Relation4</Name>
+        <NameInSource>Relation4</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </Relation4>
+      <Relation5 Ref="19" type="DataRelation" isKey="true">
+        <Alias>Relation5</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ChildColumns>
+        <ChildSource isRef="8" />
+        <Dictionary isRef="1" />
+        <Key>ef0c607c04834c40aeb2779e2ecf4c6b</Key>
+        <Name>Relation5</Name>
+        <NameInSource>Relation5</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </Relation5>
+      <Relation6 Ref="20" type="DataRelation" isKey="true">
+        <Alias>Relation6</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ChildColumns>
+        <ChildSource isRef="9" />
+        <Dictionary isRef="1" />
+        <Key>044e4d15da1d4552bf89d820189ee5b7</Key>
+        <Name>Relation6</Name>
+        <NameInSource>Relation6</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </Relation6>
+      <Relation7 Ref="21" type="DataRelation" isKey="true">
+        <Alias>Relation7</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ChildColumns>
+        <ChildSource isRef="10" />
+        <Dictionary isRef="1" />
+        <Key>df84ce329b0248f89044ddeca49593bd</Key>
+        <Name>Relation7</Name>
+        <NameInSource>Relation7</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </Relation7>
+      <Relation8 Ref="22" type="DataRelation" isKey="true">
+        <Alias>Relation8</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ChildColumns>
+        <ChildSource isRef="11" />
+        <Dictionary isRef="1" />
+        <Name>Relation8</Name>
+        <NameInSource>Relation8</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </Relation8>
+      <Relation9 Ref="23" type="DataRelation" isKey="true">
+        <Alias>Relation9</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ChildColumns>
+        <ChildSource isRef="12" />
+        <Dictionary isRef="1" />
+        <Key>3410bdd6f8354de6bf683d00241d4ba0</Key>
+        <Name>Relation9</Name>
+        <NameInSource>Relation9</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </Relation9>
+      <Relation10 Ref="24" type="DataRelation" isKey="true">
+        <Alias>Relation10</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ChildColumns>
+        <ChildSource isRef="13" />
+        <Dictionary isRef="1" />
+        <Key>fa80f31d2a884448b04a957ca7104dc5</Key>
+        <Name>Relation10</Name>
+        <NameInSource>Relation10</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </Relation10>
+      <Relation11 Ref="25" type="DataRelation" isKey="true">
+        <Alias>Relation11</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ChildColumns>
+        <ChildSource isRef="14" />
+        <Dictionary isRef="1" />
+        <Key>6e0ba331e12345d292b1edf61bf6346c</Key>
+        <Name>Relation11</Name>
+        <NameInSource>Relation11</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ReciboId</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </Relation11>
+    </Relations>
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <UserFunctions isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>8e0b45218dd94ef3bc5f477ed680bd6c</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="26" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="12">
+        <ReciboBand Ref="27" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19.6,3.2</ClientRectangle>
+          <Components isList="true" count="4">
+            <Image1 Ref="28" type="Image" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,19.6,2.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DataColumn>Data.logo</DataColumn>
+              <Enabled>False</Enabled>
+              <Expressions isList="true" count="1">
+                <value>Enabled,_x007B_Data.isLogoLargo_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+              </Expressions>
+              <IconColor>68, 114, 196</IconColor>
+              <Name>Image1</Name>
+              <Page isRef="26" />
+              <Parent isRef="27" />
+              <Stretch>True</Stretch>
+            </Image1>
+            <Text1 Ref="29" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.6,2.2,2.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
+              <Expressions isList="true" count="1">
+                <value>Enabled,_x007B_Data.isLogoLargo_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+              </Expressions>
+              <Font>Verdana,9</Font>
+              <Name>Text1</Name>
+              <Page isRef="26" />
+              <Parent isRef="27" />
+              <Text>{Data.fecha}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text1>
+            <Image2 Ref="30" type="Image" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,4.4,2.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DataColumn>Data.logo</DataColumn>
+              <Enabled>False</Enabled>
+              <Expressions isList="true" count="1">
+                <value>Enabled,_x007B_Data.isLogoLargo_x0020__x003D__x003D__x0020__x0022_false_x0022__x007D_</value>
+              </Expressions>
+              <IconColor>68, 114, 196</IconColor>
+              <Name>Image2</Name>
+              <Page isRef="26" />
+              <Parent isRef="27" />
+              <Stretch>True</Stretch>
+            </Image2>
+            <Text29 Ref="31" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16,1,2.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
+              <Expressions isList="true" count="1">
+                <value>Enabled,_x007B_Data.isLogoLargo_x0020__x003D__x003D__x0020__x0022_false_x0022__x007D_</value>
+              </Expressions>
+              <Font>Verdana,9</Font>
+              <Name>Text29</Name>
+              <Page isRef="26" />
+              <Parent isRef="27" />
+              <Text>{Data.fecha}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text29>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>Recibo</DataSourceName>
+          <Expressions isList="true" count="0" />
+          <Filters isList="true" count="0" />
+          <Name>ReciboBand</Name>
+          <Page isRef="26" />
+          <Parent isRef="26" />
+          <Sort isList="true" count="0" />
+        </ReciboBand>
+        <DataBand2 Ref="32" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4.4,19.6,0.4</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text2 Ref="33" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9</Font>
+              <Name>Text2</Name>
+              <Page isRef="26" />
+              <Parent isRef="32" />
+              <Text>{PerPago.CPFecIni}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text2>
+            <Text3 Ref="34" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.2,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9</Font>
+              <Name>Text3</Name>
+              <Page isRef="26" />
+              <Parent isRef="32" />
+              <Text>{PerPago.CPFecFin}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text3>
+            <Text4 Ref="35" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text4</Name>
+              <Page isRef="26" />
+              <Parent isRef="32" />
+              <Text>Periodo de Pago</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text4>
+            <Text5 Ref="36" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,0,0.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text5</Name>
+              <Page isRef="26" />
+              <Parent isRef="32" />
+              <Text>al</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text5>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation</DataRelationName>
+          <DataSourceName>PerPago</DataSourceName>
+          <Enabled>False</Enabled>
+          <Expressions isList="true" count="1">
+            <value>Enabled,_x007B_PerPago.isPrint_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+          </Expressions>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="27" />
+          <Name>DataBand2</Name>
+          <Page isRef="26" />
+          <Parent isRef="26" />
+          <Sort isList="true" count="0" />
+        </DataBand2>
+        <DataBand3 Ref="37" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,5.6,19.6,0.4</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text7 Ref="38" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.2,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9</Font>
+              <Name>Text7</Name>
+              <Page isRef="26" />
+              <Parent isRef="37" />
+              <Text>{nombre.nombre}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text7>
+            <Text16 Ref="39" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text16</Name>
+              <Page isRef="26" />
+              <Parent isRef="37" />
+              <Text>Nombre</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text16>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation2</DataRelationName>
+          <DataSourceName>nombre</DataSourceName>
+          <Enabled>False</Enabled>
+          <Expressions isList="true" count="1">
+            <value>Enabled,_x007B_nombre.isPrint_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+          </Expressions>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="27" />
+          <Name>DataBand3</Name>
+          <Page isRef="26" />
+          <Parent isRef="26" />
+          <Sort isList="true" count="0" />
+        </DataBand3>
+        <DataBand4 Ref="40" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,6.8,19.6,0.4</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text9 Ref="41" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.2,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9</Font>
+              <Name>Text9</Name>
+              <Page isRef="26" />
+              <Parent isRef="40" />
+              <Text>{EmpRFC.EmpRFC}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text9>
+            <Text17 Ref="42" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text17</Name>
+              <Page isRef="26" />
+              <Parent isRef="40" />
+              <Text>R.F.C.</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text17>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation3</DataRelationName>
+          <DataSourceName>EmpRFC</DataSourceName>
+          <Enabled>False</Enabled>
+          <Expressions isList="true" count="1">
+            <value>Enabled,_x007B_EmpRFC.isPrint_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+          </Expressions>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="27" />
+          <Name>DataBand4</Name>
+          <Page isRef="26" />
+          <Parent isRef="26" />
+          <Sort isList="true" count="0" />
+        </DataBand4>
+        <DataBand5 Ref="43" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,8,19.6,0.8</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text11 Ref="44" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.2,0,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9</Font>
+              <Name>Text11</Name>
+              <Page isRef="26" />
+              <Parent isRef="43" />
+              <Text>{PuestoDsc.PuestoDsc}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text11>
+            <Text18 Ref="45" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text18</Name>
+              <Page isRef="26" />
+              <Parent isRef="43" />
+              <Text>Puesto</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text18>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation4</DataRelationName>
+          <DataSourceName>PuestoDsc</DataSourceName>
+          <Enabled>False</Enabled>
+          <Expressions isList="true" count="1">
+            <value>Enabled,_x007B_PuestoDsc.isPrint_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+          </Expressions>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="27" />
+          <Name>DataBand5</Name>
+          <Page isRef="26" />
+          <Parent isRef="26" />
+          <Sort isList="true" count="0" />
+        </DataBand5>
+        <DataBand1 Ref="46" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,9.6,19.6,0.8</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text6 Ref="47" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
+              <Expressions isList="true" count="1">
+                <value>Enabled,_x007B_Detalle.isPrintMonto_cal_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+              </Expressions>
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text6</Name>
+              <Page isRef="26" />
+              <Parent isRef="46" />
+              <Text>Total de Percepciones</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text6>
+            <Text8 Ref="48" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
+              <Expressions isList="true" count="1">
+                <value>Enabled,_x007B_Detalle.isPrintMonto_cal_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+              </Expressions>
+              <Font>Verdana,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text8</Name>
+              <Page isRef="26" />
+              <Parent isRef="46" />
+              <Text>{Detalle.Monto_cal}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text8>
+            <Text10 Ref="49" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.4,4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
+              <Expressions isList="true" count="1">
+                <value>Enabled,_x007B_Detalle.isPrintMonto_calDeducciones_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+              </Expressions>
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text10</Name>
+              <Page isRef="26" />
+              <Parent isRef="46" />
+              <Text>Retención ISR</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text10>
+            <Text12 Ref="50" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8,0.4,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
+              <Expressions isList="true" count="1">
+                <value>Enabled,_x007B_Detalle.isPrintMonto_calDeducciones_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+              </Expressions>
+              <Font>Verdana,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text12</Name>
+              <Page isRef="26" />
+              <Parent isRef="46" />
+              <Text>{Detalle.Monto_calDeducciones}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text12>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation5</DataRelationName>
+          <DataSourceName>Detalle</DataSourceName>
+          <Expressions isList="true" count="0" />
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="27" />
+          <Name>DataBand1</Name>
+          <Page isRef="26" />
+          <Parent isRef="26" />
+          <Sort isList="true" count="0" />
+        </DataBand1>
+        <DataBand6 Ref="51" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,11.2,19.6,0.6</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text13 Ref="52" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text13</Name>
+              <Page isRef="26" />
+              <Parent isRef="51" />
+              <Text>{Deducciones.id_nombre1}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text13>
+            <Text14 Ref="53" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.4,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text14</Name>
+              <Page isRef="26" />
+              <Parent isRef="51" />
+              <Text>{Deducciones.id_glosa}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text14>
+            <Text15 Ref="54" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text15</Name>
+              <Page isRef="26" />
+              <Parent isRef="51" />
+              <Text>{Deducciones.Monto_calD}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text15>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation6</DataRelationName>
+          <DataSourceName>Deducciones</DataSourceName>
+          <Expressions isList="true" count="0" />
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="27" />
+          <Name>DataBand6</Name>
+          <Page isRef="26" />
+          <Parent isRef="26" />
+          <Sort isList="true" count="0" />
+        </DataBand6>
+        <DataBand7 Ref="55" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,12.6,19.6,0.4</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text19 Ref="56" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9</Font>
+              <Name>Text19</Name>
+              <Page isRef="26" />
+              <Parent isRef="55" />
+              <Text>{Leyenda.leyenda}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text19>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation7</DataRelationName>
+          <DataSourceName>Leyenda</DataSourceName>
+          <Enabled>False</Enabled>
+          <Expressions isList="true" count="1">
+            <value>Enabled,_x007B_leyenda.isPrint_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+          </Expressions>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="27" />
+          <Name>DataBand7</Name>
+          <Page isRef="26" />
+          <Parent isRef="26" />
+          <Sort isList="true" count="0" />
+        </DataBand7>
+        <DataBand8 Ref="57" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,13.8,19.6,0.4</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text20 Ref="58" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9</Font>
+              <Name>Text20</Name>
+              <Page isRef="26" />
+              <Parent isRef="57" />
+              <Text>{Leyenda2.leyenda2}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text20>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation8</DataRelationName>
+          <DataSourceName>Leyenda2</DataSourceName>
+          <Enabled>False</Enabled>
+          <Expressions isList="true" count="1">
+            <value>Enabled,_x007B_leyenda2.isPrint_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+          </Expressions>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="27" />
+          <Name>DataBand8</Name>
+          <Page isRef="26" />
+          <Parent isRef="26" />
+          <Sort isList="true" count="0" />
+        </DataBand8>
+        <DataBand9 Ref="59" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,15,19.6,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text21 Ref="60" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,20.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9</Font>
+              <Name>Text21</Name>
+              <Page isRef="26" />
+              <Parent isRef="59" />
+              <Text>{Leyenda3.leyenda3}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </Text21>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation9</DataRelationName>
+          <DataSourceName>Leyenda3</DataSourceName>
+          <Enabled>False</Enabled>
+          <Expressions isList="true" count="1">
+            <value>Enabled,_x007B_leyenda3.isPrint_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+          </Expressions>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="27" />
+          <Name>DataBand9</Name>
+          <Page isRef="26" />
+          <Parent isRef="26" />
+          <Sort isList="true" count="0" />
+        </DataBand9>
+        <DataBand10 Ref="61" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,16.6,19.6,0.4</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text22 Ref="62" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9</Font>
+              <Name>Text22</Name>
+              <Page isRef="26" />
+              <Parent isRef="61" />
+              <Text>{Leyenda4.leyenda4}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text22>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation10</DataRelationName>
+          <DataSourceName>Leyenda4</DataSourceName>
+          <Enabled>False</Enabled>
+          <Expressions isList="true" count="1">
+            <value>Enabled,_x007B_leyenda4.isPrint_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+          </Expressions>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="27" />
+          <Name>DataBand10</Name>
+          <Page isRef="26" />
+          <Parent isRef="26" />
+          <Sort isList="true" count="0" />
+        </DataBand10>
+        <DataBand11 Ref="63" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,17.8,19.6,4.2</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text26 Ref="64" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.4,3.8,3.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text26</Name>
+              <Page isRef="26" />
+              <Parent isRef="63" />
+              <Text>Recibo Número:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text26>
+            <Panel1 Ref="65" type="Panel" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,19.6,3.8</ClientRectangle>
+              <Components isList="true" count="2">
+                <Text24 Ref="66" type="Text" isKey="true">
+                  <AutoWidth>True</AutoWidth>
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0,0.4,1.6,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,9</Font>
+                  <Name>Text24</Name>
+                  <Page isRef="26" />
+                  <Parent isRef="65" />
+                  <Text>{Fin.Cadena2}</Text>
+                  <TextBrush>Black</TextBrush>
+                </Text24>
+                <Text23 Ref="67" type="Text" isKey="true">
+                  <AutoWidth>True</AutoWidth>
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,9</Font>
+                  <Name>Text23</Name>
+                  <Page isRef="26" />
+                  <Parent isRef="65" />
+                  <Text>{Fin.Cadena1}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>DataColumn</Type>
+                </Text23>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
+              <Expressions isList="true" count="1">
+                <value>Enabled,_x007B_fin.isPrint_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+              </Expressions>
+              <Name>Panel1</Name>
+              <Page isRef="26" />
+              <Parent isRef="63" />
+            </Panel1>
+            <Text25 Ref="68" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.8,3.8,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9</Font>
+              <Name>Text25</Name>
+              <Page isRef="26" />
+              <Parent isRef="63" />
+              <Text>{Recibo.numRecibo}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text25>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation11</DataRelationName>
+          <DataSourceName>Fin</DataSourceName>
+          <Expressions isList="true" count="0" />
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="27" />
+          <Name>DataBand11</Name>
+          <Page isRef="26" />
+          <Parent isRef="26" />
+          <Sort isList="true" count="0" />
+        </DataBand11>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Expressions isList="true" count="0" />
+      <Guid>8013b08514c840a2823ba54461b7b6b3</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>27.9</PageHeight>
+      <PageWidth>21.6</PageWidth>
+      <PaperSize>Letter</PaperSize>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportAuthor>Eduardo Hernández</ReportAuthor>
+  <ReportChanged>11/12/2025 3:17:32 PM</ReportChanged>
+  <ReportCreated>11/11/2025 10:04:28 AM</ReportCreated>
+  <ReportFile>C:\Users\EduardoHernándezHern\Documents\GitHub\StimulsoftReport\Reports\ReporteRecAsimiladosHis.mrt</ReportFile>
+  <ReportGuid>6c84a1d70bc3401582f0872dbc2eb105</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2025.4.1.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+  <UsePlatformDependentScript>False</UsePlatformDependentScript>
+</StiSerializer>

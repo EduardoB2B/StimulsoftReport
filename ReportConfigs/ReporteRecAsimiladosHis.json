@@ -1,0 +1,35 @@
+{
+  "TemplateFile": "ReporteRecAsimiladosHis.mrt",
+  "DataSourceMappings": {
+    "Data": "",
+    "Recibo": "Recibo",
+    "PerPago": "Recibo.PerPago",
+    "nombre": "Recibo.Empleado.nombre",
+    "EmpRFC": "Recibo.Empleado.EmpRFC",
+    "PuestoDsc": "Recibo.Empleado.PuestoDsc",
+    "Detalle": "Recibo.Detalle",
+    "Deducciones": "Recibo.Detalle.Deducciones",
+    "LeyendasConceptos": "Recibo.LeyendasConceptos",
+    "Leyenda": "Recibo.LeyendasConceptos.leyenda",
+    "Leyenda2": "Recibo.LeyendasConceptos.leyenda2",
+    "Leyenda3": "Recibo.LeyendasConceptos.leyenda3",
+    "Leyenda4": "Recibo.LeyendasConceptos.leyenda4",
+    "Fin": "Recibo.LeyendasConceptos.fin"
+  },
+  "RequiredDataSources": [
+    "Data",
+    "Recibo",
+    "PerPago",
+    "nombre",
+    "EmpRFC",
+    "PuestoDsc",
+    "Detalle",
+    "Deducciones",
+    "LeyendasConceptos",
+    "Leyenda",
+    "Leyenda2",
+    "Leyenda3",
+    "Leyenda4",
+    "Fin"
+  ]
+}
