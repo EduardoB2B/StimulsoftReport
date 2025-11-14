@@ -20,12 +20,13 @@
       </Data>
       <Recibo Ref="3" type="DataTableSource" isKey="true">
         <Alias>Recibo</Alias>
-        <Columns isList="true" count="5">
+        <Columns isList="true" count="6">
           <value>ORIGINAL,isPrintNumRecibo,isPrintNumRecibo,isPrintNumRecibo,System.String,_x0031_aab2ffee61845adbb50454aeee58c33</value>
           <value>ORIGINAL,ReciboId,ReciboId,ReciboId,System.String,da5cdc22a1d343338316a1b3127f6f44</value>
           <value>ORIGINAL,numRecibo,numRecibo,numRecibo,System.String,_x0039_ba4409df29c4f08b6ffaf756f4af5e1</value>
           <value>ORIGINAL,isPrintNombre,isPrintNombre,isPrintNombre,System.String,_x0033_267a66668c34dc6994f0154988885c2</value>
           <value>ORIGINAL,nombre,nombre,nombre,System.String,_x0031_eb59a35f58d4964a8502f2e279d4c30</value>
+          <value>ORIGINAL,isPrintCopia,isPrintCopia,isPrintCopia,System.String,_x0031_5a985f7342f44b5948bf4df05eca7f8</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>eb242812410f426fad564041eb124c3c</Key>
@@ -347,6 +348,7 @@
       <Components isList="true" count="12">
         <ReciboBand Ref="27" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,0.4,19.6,3.2</ClientRectangle>
           <Components isList="true" count="4">
             <Image1 Ref="28" type="Image" isKey="true">
@@ -370,7 +372,7 @@
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Expressions isList="true" count="1">
-                <value>Enabled,_x007B_Data.isLogoLargo_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+                <value>Enabled,_x007B_Data.isLogoLargo_x0020__x003D__x003D__x0020__x0022_true_x0022__x0020__x0026__x0026__x0020_Recibo.isPrintCopia_x0020__x003D__x003D__x0020__x0022_false_x0022__x007D_</value>
               </Expressions>
               <Font>Verdana,9</Font>
               <Name>Text1</Name>
@@ -400,7 +402,7 @@
               <Conditions isList="true" count="0" />
               <Enabled>False</Enabled>
               <Expressions isList="true" count="1">
-                <value>Enabled,_x007B_Data.isLogoLargo_x0020__x003D__x003D__x0020__x0022_false_x0022__x007D_</value>
+                <value>Enabled,_x007B_Data.isLogoLargo_x0020__x003D__x003D__x0020__x0022_false_x0022__x0020__x0026__x0026__x0020_Recibo.isPrintCopia_x0020__x003D__x003D__x0020__x0022_false_x0022__x007D_</value>
               </Expressions>
               <Font>Verdana,9</Font>
               <Name>Text29</Name>
@@ -422,6 +424,7 @@
         </ReciboBand>
         <DataBand2 Ref="32" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,4.4,19.6,0.4</ClientRectangle>
           <Components isList="true" count="4">
             <Text2 Ref="33" type="Text" isKey="true">
@@ -493,6 +496,7 @@
         </DataBand2>
         <DataBand3 Ref="37" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,5.6,19.6,0.4</ClientRectangle>
           <Components isList="true" count="2">
             <Text7 Ref="38" type="Text" isKey="true">
@@ -539,6 +543,7 @@
         </DataBand3>
         <DataBand4 Ref="40" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,6.8,19.6,0.4</ClientRectangle>
           <Components isList="true" count="2">
             <Text9 Ref="41" type="Text" isKey="true">
@@ -585,6 +590,7 @@
         </DataBand4>
         <DataBand5 Ref="43" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,8,19.6,0.8</ClientRectangle>
           <Components isList="true" count="2">
             <Text11 Ref="44" type="Text" isKey="true">
@@ -631,6 +637,7 @@
         </DataBand5>
         <DataBand1 Ref="46" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,9.6,19.6,0.8</ClientRectangle>
           <Components isList="true" count="4">
             <Text6 Ref="47" type="Text" isKey="true">
@@ -715,6 +722,7 @@
         </DataBand1>
         <DataBand6 Ref="51" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,11.2,19.6,0.6</ClientRectangle>
           <Components isList="true" count="3">
             <Text13 Ref="52" type="Text" isKey="true">
@@ -771,6 +779,7 @@
         </DataBand6>
         <DataBand7 Ref="55" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,12.6,19.6,0.4</ClientRectangle>
           <Components isList="true" count="1">
             <Text19 Ref="56" type="Text" isKey="true">
@@ -803,6 +812,7 @@
         </DataBand7>
         <DataBand8 Ref="57" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,13.8,19.6,0.4</ClientRectangle>
           <Components isList="true" count="1">
             <Text20 Ref="58" type="Text" isKey="true">
@@ -835,6 +845,7 @@
         </DataBand8>
         <DataBand9 Ref="59" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,15,19.6,0.8</ClientRectangle>
           <Components isList="true" count="1">
             <Text21 Ref="60" type="Text" isKey="true">
@@ -867,6 +878,7 @@
         </DataBand9>
         <DataBand10 Ref="61" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,16.6,19.6,0.4</ClientRectangle>
           <Components isList="true" count="1">
             <Text22 Ref="62" type="Text" isKey="true">
@@ -899,11 +911,12 @@
         </DataBand10>
         <DataBand11 Ref="63" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,17.8,19.6,4.2</ClientRectangle>
           <Components isList="true" count="3">
             <Text26 Ref="64" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>14.4,3.8,3.2,0.4</ClientRectangle>
+              <ClientRectangle>14.4,3.8,3,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Verdana,9,Bold</Font>
@@ -957,7 +970,7 @@
             </Panel1>
             <Text25 Ref="68" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>17.8,3.8,1.8,0.4</ClientRectangle>
+              <ClientRectangle>17.4,3.8,1.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Verdana,9</Font>
@@ -1003,10 +1016,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>Eduardo Hernández</ReportAuthor>
-  <ReportChanged>11/12/2025 3:17:32 PM</ReportChanged>
+  <ReportChanged>11/13/2025 3:23:54 PM</ReportChanged>
   <ReportCreated>11/11/2025 10:04:28 AM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\Documents\GitHub\StimulsoftReport\Reports\ReporteRecAsimiladosHis.mrt</ReportFile>
-  <ReportGuid>6c84a1d70bc3401582f0872dbc2eb105</ReportGuid>
+  <ReportGuid>53d4a0c1976940c9836b076d11ffe33b</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.4.1.0</ReportVersion>

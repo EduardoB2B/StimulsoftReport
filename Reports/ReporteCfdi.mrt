@@ -25,7 +25,7 @@
       </Empleado>
       <Colaborador Ref="3" type="DataTableSource" isKey="true">
         <Alias>Colaborador</Alias>
-        <Columns isList="true" count="37">
+        <Columns isList="true" count="38">
           <value>ORIGINAL,NumEmpleado,NumEmpleado,NumEmpleado,System.String,_x0035_207f767d9304dab86f22579f94010e4</value>
           <value>ORIGINAL,EmpaNombreCompleto,EmpaNombreCompleto,EmpaNombreCompleto,System.String,_x0037_227337c81d44e068e1fc7cce7315755</value>
           <value>ORIGINAL,EmpaCURP,EmpaCURP,EmpaCURP,System.String,_x0038_ad2605c9e504a568b86abf5319d7cf9</value>
@@ -63,6 +63,7 @@
           <value>ORIGINAL,datoDin2,datoDin2,datoDin2,System.String,dc89fbb9935f4b029affee6cc3be1799</value>
           <value>ORIGINAL,AntSemanas,AntSemanas,AntSemanas,System.String,eb32a1d42ecd4ab590a3bc27bf101c63</value>
           <value>ORIGINAL,ImporteTotalLetra,ImporteTotalLetra,ImporteTotalLetra,System.String,_x0033_4ed5a1ca9b54fc3bf28d421a5831202</value>
+          <value>ORIGINAL,Colaborador,LblAntiguedad,LblAntiguedad,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>cd9473dd91e74f8fb5916b3a383a2229</Key>
@@ -1087,9 +1088,9 @@
                           <Name>Text183</Name>
                           <Page isRef="27" />
                           <Parent isRef="67" />
-                          <Text>Antigüedad</Text>
+                          <Text>{Colaborador.LblAntiguedad}</Text>
                           <TextBrush>Black</TextBrush>
-                          <Type>Expression</Type>
+                          <Type>DataColumn</Type>
                         </Text183>
                         <Text184 Ref="80" type="Text" isKey="true">
                           <Brush>Transparent</Brush>
@@ -2975,13 +2976,13 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/29/2025 6:27:14 PM</ReportChanged>
+  <ReportChanged>11/13/2025 5:12:19 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
-  <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdi.mrt</ReportFile>
-  <ReportGuid>805fd00199ab4c8ba5a06c3e32861ad3</ReportGuid>
+  <ReportFile>C:\Users\EduardoHernándezHern\Documents\GitHub\StimulsoftReport\Reports\ReporteCfdi.mrt</ReportFile>
+  <ReportGuid>ffecc610ba254286af209a51e5d878ff</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
-  <ReportVersion>2025.3.2.0</ReportVersion>
+  <ReportVersion>2025.4.1.0</ReportVersion>
   <Script>using System;
 using System.Drawing;
 using System.Windows.Forms;
