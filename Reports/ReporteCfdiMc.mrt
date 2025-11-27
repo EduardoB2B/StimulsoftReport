@@ -24,7 +24,7 @@
       </Empleado>
       <Colaborador Ref="3" type="DataTableSource" isKey="true">
         <Alias>Colaborador</Alias>
-        <Columns isList="true" count="40">
+        <Columns isList="true" count="39">
           <value>ORIGINAL,NumEmpleado,NumEmpleado,NumEmpleado,System.String,_x0035_207f767d9304dab86f22579f94010e4</value>
           <value>ORIGINAL,EmpaNombreCompleto,EmpaNombreCompleto,EmpaNombreCompleto,System.String,_x0037_227337c81d44e068e1fc7cce7315755</value>
           <value>ORIGINAL,EmpaCURP,EmpaCURP,EmpaCURP,System.String,_x0038_ad2605c9e504a568b86abf5319d7cf9</value>
@@ -64,7 +64,6 @@
           <value>VarDatEmplTit,System.String</value>
           <value>VarDatEmplTitSDI,System.String</value>
           <value>ORIGINAL,duplica,duplica,duplica,System.String,_x0038_7bc66c6223e45e28b684bb6fefae9e9</value>
-          <value>ORIGINAL,LblAntiguedad,LblAntiguedad,LblAntiguedad,System.String,_x0037_90f5f1d28d041ea8610ff2e959f01d1</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>cd9473dd91e74f8fb5916b3a383a2229</Key>
@@ -2977,10 +2976,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>11/13/2025 5:24:06 PM</ReportChanged>
+  <ReportChanged>11/21/2025 5:02:59 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\Documents\GitHub\StimulsoftReport\Reports\ReporteCfdiMc.mrt</ReportFile>
-  <ReportGuid>7ff603a6abab4ee6acbad85c2cd85e03</ReportGuid>
+  <ReportGuid>5bd03388a5d845d0b673646319246263</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.4.1.0</ReportVersion>
