@@ -1,0 +1,17 @@
+{
+  "TemplateFile": "ReporteResNomPaMul.mrt",
+  "DataSourceMappings": {
+    "Data": "",
+    "Percepciones": "Detalle.Percepciones",
+    "Deducciones": "Detalle.Deducciones",
+    "EmplesEmpre": "Empleados",
+    "Provisiones": "Proviciones",
+    "Resumen": "Resumen",
+    "Validacion": "Prints"
+  },
+  "RequiredDataSources": [
+    "Data",
+    "Percepciones", 
+    "Deducciones"
+  ]
+}

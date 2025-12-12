@@ -1,0 +1,2217 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <CalculationMode>Interpretation</CalculationMode>
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="12">
+      <Data Ref="2" type="DataTableSource" isKey="true">
+        <Alias>Data</Alias>
+        <Columns isList="true" count="4">
+          <value>ORIGINAL,TotalPercepcionesCCTFormat,TotalPercepcionesCCTFormat,TotalPercepcionesCCTFormat,System.String,ba279e7347344686b0975943b3fbd623</value>
+          <value>ORIGINAL,TotalDeduccionesCCTFormat,TotalDeduccionesCCTFormat,TotalDeduccionesCCTFormat,System.String,_x0036_7229ee1a877431e99cd19c98ee41d4c</value>
+          <value>ORIGINAL,NetoCCTFormat,NetoCCTFormat,NetoCCTFormat,System.String,_x0033_71baa4ac5b14e5086a8b8a15cfa5b0f</value>
+          <value>ORIGINAL,RES_General,RES_General,RES_General,System.String,f828a382e90c459da6db3a1afde32a4f</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>6c13b2dc19a541aaaaee478972672329</Key>
+        <Name>Data</Name>
+        <NameInSource>Data</NameInSource>
+      </Data>
+      <Filtros Ref="3" type="DataTableSource" isKey="true">
+        <Alias>Filtros</Alias>
+        <Columns isList="true" count="15">
+          <value>ORIGINAL,ComId,ComId,ComId,System.String,_x0035_65e525cd583410e9a310164816c61bd</value>
+          <value>ORIGINAL,ComDsc,ComDsc,ComDsc,System.String,_x0034_b833a277dc34d40a11e718e50fd6271</value>
+          <value>ORIGINAL,ComRazSoc,ComRazSoc,ComRazSoc,System.String,_x0037_b3863bca73149e1bc39459694e6131e</value>
+          <value>ORIGINAL,TipRep,TipRep,TipRep,System.String,_x0032_9863a2155d0492ea436170362d88f90</value>
+          <value>ORIGINAL,ComRFC,ComRFC,ComRFC,System.String,b72f0ea2dbd3409bb478284ba0ec9a90</value>
+          <value>ORIGINAL,per_proc,per_proc,per_proc,System.String,_x0035_e6df2301ed94fa7bde593baea1c99c8</value>
+          <value>ORIGINAL,Ano_proc,Ano_proc,Ano_proc,System.String,_x0036_c069e66a1ef4a1997b01d4ad6b50594</value>
+          <value>ORIGINAL,CatCCostDsc,CatCCostDsc,CatCCostDsc,System.String,_x0039_db786d546584405a8918c92bbcd662e</value>
+          <value>ORIGINAL,Nomi_tipo,Nomi_tipo,Nomi_tipo,System.String,a7804bf1e02246e097359368073afc9e</value>
+          <value>ORIGINAL,Nomi_des,Nomi_des,Nomi_des,System.String,c38851f61cf547199492209f34f19165</value>
+          <value>ORIGINAL,PrCodigo,PrCodigo,PrCodigo,System.String,debd2bee0ab24e09b2f84cb969d56600</value>
+          <value>ORIGINAL,CPFecIni,CPFecIni,CPFecIni,System.String,_x0039_b4f9110fe3645e884ac240ac2dec2b5</value>
+          <value>ORIGINAL,CPFecFin,CPFecFin,CPFecFin,System.String,_x0032_c26e1760c314deb9e4a1d29082d32fd</value>
+          <value>Fecha,System.String</value>
+          <value>Hora,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>7148bc9bc45b44a38016615c0aa7e1c9</Key>
+        <Name>Filtros</Name>
+        <NameInSource>Filtros</NameInSource>
+      </Filtros>
+      <Catalogo Ref="4" type="DataTableSource" isKey="true">
+        <Alias>Catalogo</Alias>
+        <Columns isList="true" count="3">
+          <value>ORIGINAL,CatCCostId,CatCCostId,CatCCostId,System.String,_x0031_7e75eb59599490eb64187c4da562b34</value>
+          <value>ORIGINAL,CatCCostDsc,CatCCostDsc,CatCCostDsc,System.String,ca754775d34f41899402bcc63479b5a8</value>
+          <value>ORIGINAL,CatalogoId,CatalogoId,CatalogoId,System.String,_x0034_c5ac83768854273b72acc0d0728200d</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>7f13a81725424c9d802264d51a2e6e57</Key>
+        <Name>Catalogo</Name>
+        <NameInSource>Catalogo</NameInSource>
+      </Catalogo>
+      <Empleado Ref="5" type="DataTableSource" isKey="true">
+        <Alias>Empleado</Alias>
+        <Columns isList="true" count="15">
+          <value>ORIGINAL,Emp_nie,Emp_nie,Emp_nie,System.String,_x0039_06112e2bf8d4fd3a1b677ef1fc8f4aa</value>
+          <value>ORIGINAL,NOMBRES,NOMBRES,NOMBRES,System.String,d669b5af938840958a6340f9282ca37b</value>
+          <value>ORIGINAL,PuestoId,PuestoId,PuestoId,System.String,_x0033_97cba7f177e4e1fb162bfbc01efc5c7</value>
+          <value>ORIGINAL,PuestoDsc,PuestoDsc,PuestoDsc,System.String,c66258627c554828a72b98cb8f2256d8</value>
+          <value>ORIGINAL,EmpFechaIngreso,EmpFechaIngreso,EmpFechaIngreso,System.String,e7a8035c1ded446c9ba8c5ecb579dec5</value>
+          <value>ORIGINAL,EmpRFC,EmpRFC,EmpRFC,System.String,_x0031_945f521a41e492ca8e830b36ad6bedb</value>
+          <value>ORIGINAL,EmpCURP,EmpCURP,EmpCURP,System.String,d17b4974eeb84dd4956a9267513acfd3</value>
+          <value>ORIGINAL,EmpNumeroIMSS,EmpNumeroIMSS,EmpNumeroIMSS,System.String,c09a6d714d06440e9797cc682383c64e</value>
+          <value>ORIGINAL,SueldoBaseBrutoDFormat,SueldoBaseBrutoDFormat,SueldoBaseBrutoDFormat,System.String,_x0036_a409096cc0c44bb8e437f729b8b7afe</value>
+          <value>ORIGINAL,SDINetoFormat,SDINetoFormat,SDINetoFormat,System.String,_x0037_aa6fbd9e6c34e319861b69bdf530b66</value>
+          <value>ORIGINAL,TotalPercepcionesFormat,TotalPercepcionesFormat,TotalPercepcionesFormat,System.String,_x0031_d70b07bce1b41e68355f51a48f16f08</value>
+          <value>ORIGINAL,TotalDeduccionesFormat,TotalDeduccionesFormat,TotalDeduccionesFormat,System.String,_x0035_1fd0a41a20f4066b19863621b4616ac</value>
+          <value>ORIGINAL,NetoFormat,NetoFormat,NetoFormat,System.String,_x0038_aa1be77f04e45dab0a348cd66753bc1</value>
+          <value>ORIGINAL,CatalogoId,CatalogoId,CatalogoId,System.String,ad70e18bfa614b95aca890b67fa31d3f</value>
+          <value>ORIGINAL,Percepciones,EmpleadoId,EmpleadoId,System.String,_x0031_fba13ea6cf6413c9aca87f08326e977</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>c3a5976eb5b24e1bb5390f1c7e8f7c52</Key>
+        <Name>Empleado</Name>
+        <NameInSource>Empleado</NameInSource>
+      </Empleado>
+      <DetalleResumenCC Ref="6" type="DataTableSource" isKey="true">
+        <Alias>DetalleResumenCC</Alias>
+        <Columns isList="true" count="4">
+          <value>ORIGINAL,TotalPercepcionesCCFormat,TotalPercepcionesCCFormat,TotalPercepcionesCCFormat,System.String,_x0032_36f1e9e6ede442b967a1f0400f1bc0b</value>
+          <value>ORIGINAL,TotalDeduccionesCCFormat,TotalDeduccionesCCFormat,TotalDeduccionesCCFormat,System.String,c084a2595c6e47f3ac60297579f19562</value>
+          <value>ORIGINAL,NetoCCFormat,NetoCCFormat,NetoCCFormat,System.String,_x0033_1457e3ed6be4db4abd78477d97110e9</value>
+          <value>ORIGINAL,CatalogoId,CatalogoId,CatalogoId,System.String,_x0034_672c4d8785744429748ce835afa7ad8</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>38a6ff767e9a446ea0f8d42180f10bf2</Key>
+        <Name>DetalleResumenCC</Name>
+        <NameInSource>DetalleResumenCC</NameInSource>
+      </DetalleResumenCC>
+      <PercepcionesResumenCC Ref="7" type="DataTableSource" isKey="true">
+        <Alias>PercepcionesResumenCC</Alias>
+        <Columns isList="true" count="4">
+          <value>ORIGINAL,Id_nombreSDTP,Id_nombreSDTP,Id_nombreSDTP,System.String,_x0030_b15887768b84159b37c4c14b25197b3</value>
+          <value>ORIGINAL,Id_glosaSDTP,Id_glosaSDTP,Id_glosaSDTP,System.String,_x0033_60efe2b801d481789fd07643170c141</value>
+          <value>ORIGINAL,Monto_CalPCFormat,Monto_CalPCFormat,Monto_CalPCFormat,System.String,_x0030_03ec7a4c84147f8bbf2bf2581a6ad98</value>
+          <value>ORIGINAL,CatalogoId,CatalogoId,CatalogoId,System.String,_x0038_a2cba80fbf54d32aec6831e15937118</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>303efb2e6253449d992813cabd69715e</Key>
+        <Name>PercepcionesResumenCC</Name>
+        <NameInSource>PercepcionesResumenCC</NameInSource>
+      </PercepcionesResumenCC>
+      <DeduccionesResumenCC Ref="8" type="DataTableSource" isKey="true">
+        <Alias>DeduccionesResumenCC</Alias>
+        <Columns isList="true" count="4">
+          <value>ORIGINAL,Id_nombreSDTD,Id_nombreSDTD,Id_nombreSDTD,System.String,a5b599020b1640289edd965967507832</value>
+          <value>ORIGINAL,Id_glosaSDTD,Id_glosaSDTD,Id_glosaSDTD,System.String,a3260207cb964df5843e8362b035e365</value>
+          <value>ORIGINAL,monto_calDCFormat,monto_calDCFormat,monto_calDCFormat,System.String,e9ef7cdc3fcc4b34ba55c146153ded01</value>
+          <value>ORIGINAL,CatalogoId,CatalogoId,CatalogoId,System.String,_x0036_9e67f4e0a2c4ef5be6850a8ed2ad2dd</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>2680e1ae03b24db7920c31d8ad70c8e5</Key>
+        <Name>DeduccionesResumenCC</Name>
+        <NameInSource>DeduccionesResumenCC</NameInSource>
+      </DeduccionesResumenCC>
+      <Percepciones Ref="9" type="DataTableSource" isKey="true">
+        <Alias>Percepciones</Alias>
+        <Columns isList="true" count="7">
+          <value>ORIGINAL,Id_nombreSDTP,Id_nombreSDTP,Id_nombreSDTP,System.String,e1bbe51f1ba947bf952be4d13461f660</value>
+          <value>ORIGINAL,Id_glosaSDTP,Id_glosaSDTP,Id_glosaSDTP,System.String,_x0037_23be8646efb497680a11180eead0d61</value>
+          <value>ORIGINAL,Monto_CalPCFormat,Monto_CalPCFormat,Monto_CalPCFormat,System.String,deda4182e1ee4ba4af86cc1a814f8d8f</value>
+          <value>ORIGINAL,Monto_CalPResC,Monto_CalPResC,Monto_CalPResC,System.String,_x0035_6d0c59748ab4c0ea740fc020031615e</value>
+          <value>ORIGINAL,ValDscP,ValDscP,ValDscP,System.String,_x0031_426d05cf9534dc283c3972f36200e9e</value>
+          <value>ORIGINAL,CatalogoId,CatalogoId,CatalogoId,System.String,_x0030_46c889d3eab46f9b9367b3c3fb8dc06</value>
+          <value>ORIGINAL,Percepciones,EmpleadoId,EmpleadoId,System.String,e798e1c80ad4434e886dcacaade54f3f</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>a615500e1aec415a8cbfe87503098aab</Key>
+        <Name>Percepciones</Name>
+        <NameInSource>Percepciones</NameInSource>
+      </Percepciones>
+      <Deducciones Ref="10" type="DataTableSource" isKey="true">
+        <Alias>Deducciones</Alias>
+        <Columns isList="true" count="7">
+          <value>ORIGINAL,Id_nombreSDTD,Id_nombreSDTD,Id_nombreSDTD,System.String,_x0039_169313388ac425cb59ac3d1d09e0357</value>
+          <value>ORIGINAL,Id_glosaSDTD,Id_glosaSDTD,Id_glosaSDTD,System.String,_x0030_9f6f4c1be824a05b7c001e9655d9449</value>
+          <value>ORIGINAL,monto_calDCFormat,monto_calDCFormat,monto_calDCFormat,System.String,bfa8df354c094502a42d63ba33104641</value>
+          <value>ORIGINAL,Monto_CalDRescC,Monto_CalDRescC,Monto_CalDRescC,System.String,aec3940bbcea4d55b0114145a77013fb</value>
+          <value>ORIGINAL,ValDscD,ValDscD,ValDscD,System.String,b7489e047c694a82a0730a2010acb2de</value>
+          <value>ORIGINAL,CatalogoId,CatalogoId,CatalogoId,System.String,_x0036_ae5b8c6e374466e97fab21ea1f3bc0c</value>
+          <value>ORIGINAL,Percepciones,EmpleadoId,EmpleadoId,System.String,_x0037_9dc2a350925472f935bfc27d03f97a4</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>d142101fd8be477696de13c4af6c016c</Key>
+        <Name>Deducciones</Name>
+        <NameInSource>Deducciones</NameInSource>
+      </Deducciones>
+      <ResumenGeneral Ref="11" type="DataTableSource" isKey="true">
+        <Alias>ResumenGeneral</Alias>
+        <Columns isList="true" count="2">
+          <value>DscConceptoGen,System.String</value>
+          <value>montoGenAgrup,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>e735f1e4bbeb47929b09a14da2331ff3</Key>
+        <Name>ResumenGeneral</Name>
+        <NameInSource>ResumenGeneral</NameInSource>
+      </ResumenGeneral>
+      <PercepcionesCCT Ref="12" type="DataTableSource" isKey="true">
+        <Alias>PercepcionesCCT</Alias>
+        <Columns isList="true" count="3">
+          <value>ORIGINAL,Id_nombreSDTP,Id_nombreSDTP,Id_nombreSDTP,System.String,_x0033_1bfd55e232841398105b0754ef46f66</value>
+          <value>ORIGINAL,Id_glosaSDTP,Id_glosaSDTP,Id_glosaSDTP,System.String,_x0035_5e4fa79949440209cfb7e0878f78b69</value>
+          <value>ORIGINAL,Monto_CalPCFormat,Monto_CalPCFormat,Monto_CalPCFormat,System.String,bb8b21f09ddd415b8576038e841db337</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>46d6db32ba2741878cd68dc0b5291834</Key>
+        <Name>PercepcionesCCT</Name>
+        <NameInSource>PercepcionesCCT</NameInSource>
+      </PercepcionesCCT>
+      <DeduccionesCCT Ref="13" type="DataTableSource" isKey="true">
+        <Alias>DeduccionesCCT</Alias>
+        <Columns isList="true" count="3">
+          <value>ORIGINAL,Id_nombreSDTD,Id_nombreSDTD,Id_nombreSDTD,System.String,eeca66ab7db249c5a49d8bdbd9818f11</value>
+          <value>ORIGINAL,Id_glosaSDTD,Id_glosaSDTD,Id_glosaSDTD,System.String,dd1de2b7d8c04959b69137fc0b9e2bb0</value>
+          <value>ORIGINAL,monto_calDCFormat,monto_calDCFormat,monto_calDCFormat,System.String,_x0039_0e707a4a41949e19302b717b98e6e1a</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>63a87db283744bb7b719ea55cb98afc1</Key>
+        <Name>DeduccionesCCT</Name>
+        <NameInSource>DeduccionesCCT</NameInSource>
+      </DeduccionesCCT>
+    </DataSources>
+    <Relations isList="true" count="8">
+      <Relation Ref="14" type="DataRelation" isKey="true">
+        <Alias>Relation</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CatalogoId</value>
+        </ChildColumns>
+        <ChildSource isRef="5" />
+        <Dictionary isRef="1" />
+        <Key>f87544a8e6bc4afaafecbb00b9d9ec21</Key>
+        <Name>Relation</Name>
+        <NameInSource>Relation</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CatalogoId</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </Relation>
+      <RelCatPercepCC Ref="15" type="DataRelation" isKey="true">
+        <Alias>RelCatPercepCC</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CatalogoId</value>
+        </ChildColumns>
+        <ChildSource isRef="7" />
+        <Dictionary isRef="1" />
+        <Key>1901f731622f4c609d8402942c63769b</Key>
+        <Name>RelCatPercepCC</Name>
+        <NameInSource>RelCatPercepCC</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CatalogoId</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </RelCatPercepCC>
+      <RelCatDeduCC Ref="16" type="DataRelation" isKey="true">
+        <Alias>RelCatDeduCC</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CatalogoId</value>
+        </ChildColumns>
+        <ChildSource isRef="8" />
+        <Dictionary isRef="1" />
+        <Key>d01cc0f4a2a34aca8bdd8a3090f56b77</Key>
+        <Name>RelCatDeduCC</Name>
+        <NameInSource>RelCatDeduCC</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CatalogoId</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </RelCatDeduCC>
+      <RelCatDetalleRes Ref="17" type="DataRelation" isKey="true">
+        <Alias>RelCatDetalleRes</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CatalogoId</value>
+        </ChildColumns>
+        <ChildSource isRef="6" />
+        <Dictionary isRef="1" />
+        <Key>9d1fc23a1bf84ef19154bfd78bc2fddd</Key>
+        <Name>RelCatDetalleRes</Name>
+        <NameInSource>RelCatDetalleRes</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CatalogoId</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </RelCatDetalleRes>
+      <RelCatPercepciones Ref="18" type="DataRelation" isKey="true">
+        <Alias>RelCatPercepciones</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CatalogoId</value>
+        </ChildColumns>
+        <ChildSource isRef="9" />
+        <Dictionary isRef="1" />
+        <Key>5be221202a8547eea7c485a157f2a8bf</Key>
+        <Name>RelCatPercepciones</Name>
+        <NameInSource>RelCatPercepciones</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CatalogoId</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </RelCatPercepciones>
+      <RelCatDeducciones Ref="19" type="DataRelation" isKey="true">
+        <Alias>RelCatDeducciones</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CatalogoId</value>
+        </ChildColumns>
+        <ChildSource isRef="10" />
+        <Dictionary isRef="1" />
+        <Key>7e216b639e38454d83660d72817cab66</Key>
+        <Name>RelCatDeducciones</Name>
+        <NameInSource>RelCatDeducciones</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CatalogoId</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </RelCatDeducciones>
+      <RelEmplPercep Ref="20" type="DataRelation" isKey="true">
+        <Alias>RelEmplPercep</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>EmpleadoId</value>
+        </ChildColumns>
+        <ChildSource isRef="9" />
+        <Dictionary isRef="1" />
+        <Key>fe8ab7a0d32c4aa9a319f0628b8fc0d1</Key>
+        <Name>RelEmplPercep</Name>
+        <NameInSource>RelEmplPercep</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>EmpleadoId</value>
+        </ParentColumns>
+        <ParentSource isRef="5" />
+      </RelEmplPercep>
+      <RelEmplDeduc Ref="21" type="DataRelation" isKey="true">
+        <Alias>RelEmplDeduc</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>EmpleadoId</value>
+        </ChildColumns>
+        <ChildSource isRef="10" />
+        <Dictionary isRef="1" />
+        <Key>6d811159f6204b6da01631c256a485c8</Key>
+        <Name>RelEmplDeduc</Name>
+        <NameInSource>RelEmplDeduc</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>EmpleadoId</value>
+        </ParentColumns>
+        <ParentSource isRef="5" />
+      </RelEmplDeduc>
+    </Relations>
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <UserFunctions isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>dceffc72618640e2b431eaec8b5a76bd</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="22" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="6">
+        <PageHeaderBand1 Ref="23" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,20,3.2</ClientRectangle>
+          <Components isList="true" count="25">
+            <Text1 Ref="24" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.4,0,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text1</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>Empresa</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
+            <Text5 Ref="25" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.8,2.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8,Bold</Font>
+              <Name>Text5</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>Razón Social</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text5>
+            <Text6 Ref="26" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.2,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8,Bold</Font>
+              <Name>Text6</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>RFC</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text6>
+            <Text7 Ref="27" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8,Bold</Font>
+              <Name>Text7</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>Nómina</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text7>
+            <Text8 Ref="28" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.8,1.2,0.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8,Bold</Font>
+              <Name>Text8</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>Tipo</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text8>
+            <Text9 Ref="29" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.8,1.2,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8,Bold</Font>
+              <Name>Text9</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>Periodo</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text9>
+            <Text10 Ref="30" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.8,1.6,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8,Bold</Font>
+              <Name>Text10</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>Proceso</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text10>
+            <Text2 Ref="31" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.4,0,1.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8,Bold</Font>
+              <Name>Text2</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>Página</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text2>
+            <Text3 Ref="32" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.4,0.4,1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8,Bold</Font>
+              <Name>Text3</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>Fecha</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text3>
+            <Text4 Ref="33" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.4,0.8,0.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8,Bold</Font>
+              <Name>Text4</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>Hora</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text4>
+            <Text13 Ref="34" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.6,0,1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text13</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>{PageNumber}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text13>
+            <Text11 Ref="35" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.2,1.6,0.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8,Bold</Font>
+              <Name>Text11</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>Del</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text11>
+            <Text12 Ref="36" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.8,1.6,0.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8,Bold</Font>
+              <Name>Text12</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>Al</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text12>
+            <Panel2 Ref="37" type="Panel" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,2.2,20,0.8</ClientRectangle>
+              <Components isList="true" count="10">
+                <Text94 Ref="38" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.2,0.4,1,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text94</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="37" />
+                  <Text>Clave</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text94>
+                <Text95 Ref="39" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>1.6,0.4,1.6,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text95</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="37" />
+                  <Text>Descripción</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text95>
+                <Text96 Ref="40" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>8.2,0.4,1.2,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text96</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="37" />
+                  <Text>Importe</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text96>
+                <Text97 Ref="41" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>10.2,0.4,0.8,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text97</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="37" />
+                  <Text>Clave</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text97>
+                <Text98 Ref="42" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>12.2,0.4,1.6,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text98</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="37" />
+                  <Text>Descripción</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text98>
+                <Text99 Ref="43" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>18.8,0.4,1.2,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text99</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="37" />
+                  <Text>Importe</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text99>
+                <Text100 Ref="44" type="Text" isKey="true">
+                  <AutoWidth>True</AutoWidth>
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>13.4,0,2.4,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,8,Bold</Font>
+                  <Name>Text100</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="37" />
+                  <Text>DEDUCCIONES</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text100>
+                <Text101 Ref="45" type="Text" isKey="true">
+                  <AutoWidth>True</AutoWidth>
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.2,0,2.6,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,8,Bold</Font>
+                  <Name>Text101</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="37" />
+                  <Text>PERCEPCIONES</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text101>
+                <Text14 Ref="46" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>5.8,0.4,1.2,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text14</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="37" />
+                  <Text>Unidad</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text14>
+                <Text15 Ref="47" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>15.8,0.4,1.2,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text15</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="37" />
+                  <Text>Unidad</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text15>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>Panel2</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+            </Panel2>
+            <Text16 Ref="48" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,1.2,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text16</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>{Filtros.TipRep}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text16>
+            <Text17 Ref="49" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,1.2,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text17</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>{Filtros.per_proc}/{Filtros.Ano_proc}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text17>
+            <Text18 Ref="50" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.2,1.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text18</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>{Filtros.Nomi_tipo}   {Filtros.Nomi_des}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text18>
+            <Text19 Ref="51" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,1.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text19</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>{Filtros.PrCodigo}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text19>
+            <Text20 Ref="52" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.4,1.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text20</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>{ DateTime.Parse(Filtros.CPFecFin).ToString("dd/MM/yyyy") }</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text20>
+            <Text21 Ref="53" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.8,1.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text21</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>{ DateTime.Parse(Filtros.CPFecIni).ToString("dd/MM/yyyy") }</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text21>
+            <Text108 Ref="54" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.8,0.8,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text108</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>{Filtros.ComRazSoc}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text108>
+            <Text109 Ref="55" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.2,1.2,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text109</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>{Filtros.ComRFC}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text109>
+            <Text110 Ref="56" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.6,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text110</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>{Filtros.ComDsc}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text110>
+            <Text111 Ref="57" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.6,0.4,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text111</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>{ DateTime.Parse(Filtros.Fecha).ToString("dd/MM/yyyy") }</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text111>
+            <Text112 Ref="58" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.6,0.8,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text112</Name>
+              <Page isRef="22" />
+              <Parent isRef="23" />
+              <Text>{Filtros.Hora}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text112>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="22" />
+          <Parent isRef="22" />
+        </PageHeaderBand1>
+        <BandCatalogo Ref="59" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,4.4,20,0.6</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text22 Ref="60" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0,1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text22</Name>
+              <Page isRef="22" />
+              <Parent isRef="59" />
+              <Text>{Catalogo.CatCCostId}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text22>
+            <Text23 Ref="61" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,9,Bold</Font>
+              <Name>Text23</Name>
+              <Page isRef="22" />
+              <Parent isRef="59" />
+              <Text>{Catalogo.CatCCostDsc}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text23>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>Catalogo</DataSourceName>
+          <Expressions isList="true" count="0" />
+          <Filters isList="true" count="0" />
+          <Name>BandCatalogo</Name>
+          <Page isRef="22" />
+          <Parent isRef="22" />
+          <Sort isList="true" count="0" />
+        </BandCatalogo>
+        <BandEmpleado Ref="62" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,5.8,20,3.5</ClientRectangle>
+          <Components isList="true" count="25">
+            <Text25 Ref="63" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.2,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7</Font>
+              <Name>Text25</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>{Empleado.Emp_nie} {Empleado.NOMBRES}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text25>
+            <Text26 Ref="64" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.4,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7</Font>
+              <Name>Text26</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>{Empleado.PuestoId}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text26>
+            <Text27 Ref="65" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7</Font>
+              <Name>Text27</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>{Empleado.PuestoDsc}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text27>
+            <Text28 Ref="66" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.4,0.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7</Font>
+              <Name>Text28</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>{ DateTime.Parse(Empleado.EmpFechaIngreso).ToString("dd/MM/yyyy") }</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text28>
+            <Text29 Ref="67" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0.6,1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text29</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>R.F.C.</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text29>
+            <Text30 Ref="68" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.2,0.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7</Font>
+              <Name>Text30</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>{Empleado.EmpRFC}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text30>
+            <Text31 Ref="69" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.6,0.6,1.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text31</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>C.U.R.P.</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text31>
+            <Text32 Ref="70" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.8,0.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7</Font>
+              <Name>Text32</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>{Empleado.EmpCURP}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text32>
+            <Text33 Ref="71" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11,0.6,0.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text33</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>IMSS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text33>
+            <Text34 Ref="72" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.8,0.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7</Font>
+              <Name>Text34</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>{Empleado.EmpNumeroIMSS}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text34>
+            <Text35 Ref="73" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,0.6,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text35</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>Sueldo Diario</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text35>
+            <Text36 Ref="74" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.8,0.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7</Font>
+              <Name>Text36</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>{Empleado.SueldoBaseBrutoDFormat}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text36>
+            <Text37 Ref="75" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.4,0.6,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text37</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>SDI Neto</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text37>
+            <Text38 Ref="76" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.8,0.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7</Font>
+              <Name>Text38</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>{Empleado.SDINetoFormat}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text38>
+            <Text24 Ref="77" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.6,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text24</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>Fech. Inc</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text24>
+            <Panel1 Ref="78" type="Panel" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.2,10,0.8</ClientRectangle>
+              <Components isList="true" count="1">
+                <BandPercepciones Ref="79" type="DataBand" isKey="true">
+                  <Border>Right;Black;1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
+                  <CanBreak>True</CanBreak>
+                  <ClientRectangle>0,0.4,10,0.4</ClientRectangle>
+                  <Components isList="true" count="4">
+                    <Text39 Ref="80" type="Text" isKey="true">
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>0,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <Name>Text39</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="79" />
+                      <Text>{Percepciones.Id_nombreSDTP}</Text>
+                      <TextBrush>Black</TextBrush>
+                    </Text39>
+                    <Text40 Ref="81" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>1.6,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <Name>Text40</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="79" />
+                      <Text>{Percepciones.Id_glosaSDTP}</Text>
+                      <TextBrush>Black</TextBrush>
+                    </Text40>
+                    <Text41 Ref="82" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>8.2,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <HorAlignment>Right</HorAlignment>
+                      <Name>Text41</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="79" />
+                      <Text>{Percepciones.Monto_CalPCFormat}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
+                    </Text41>
+                    <Text54 Ref="83" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>5.8,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <HorAlignment>Right</HorAlignment>
+                      <Name>Text54</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="79" />
+                      <Text>{Percepciones.Monto_CalPResC} {Percepciones.ValDscP}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
+                    </Text54>
+                  </Components>
+                  <Conditions isList="true" count="0" />
+                  <DataRelationName>RelEmplPercep</DataRelationName>
+                  <DataSourceName>Percepciones</DataSourceName>
+                  <Expressions isList="true" count="0" />
+                  <Filters isList="true" count="0" />
+                  <MasterComponent isRef="59" />
+                  <Name>BandPercepciones</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="78" />
+                  <Sort isList="true" count="0" />
+                </BandPercepciones>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>Panel1</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+            </Panel1>
+            <Panel3 Ref="84" type="Panel" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10,1.2,10,0.8</ClientRectangle>
+              <Components isList="true" count="1">
+                <BandDeducciones Ref="85" type="DataBand" isKey="true">
+                  <Border>Left;Black;1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
+                  <CanBreak>True</CanBreak>
+                  <ClientRectangle>0,0.4,10,0.4</ClientRectangle>
+                  <Components isList="true" count="4">
+                    <Text42 Ref="86" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>0.2,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <Name>Text42</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="85" />
+                      <Text>{Deducciones.Id_nombreSDTD}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>DataColumn</Type>
+                    </Text42>
+                    <Text43 Ref="87" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>2.4,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <Name>Text43</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="85" />
+                      <Text>{Deducciones.Id_glosaSDTD}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>DataColumn</Type>
+                    </Text43>
+                    <Text44 Ref="88" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>8.4,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <HorAlignment>Right</HorAlignment>
+                      <Name>Text44</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="85" />
+                      <Text>{Deducciones.monto_calDCFormat}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
+                    </Text44>
+                    <Text55 Ref="89" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>5.8,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <HorAlignment>Right</HorAlignment>
+                      <Name>Text55</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="85" />
+                      <Text>{Deducciones.Monto_CalDRescC} {Deducciones.ValDscD}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
+                    </Text55>
+                  </Components>
+                  <Conditions isList="true" count="0" />
+                  <DataRelationName>RelEmplDeduc</DataRelationName>
+                  <DataSourceName>Deducciones</DataSourceName>
+                  <Expressions isList="true" count="0" />
+                  <Filters isList="true" count="0" />
+                  <MasterComponent isRef="59" />
+                  <Name>BandDeducciones</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="84" />
+                  <Sort isList="true" count="0" />
+                </BandDeducciones>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>Panel3</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+            </Panel3>
+            <Text45 Ref="90" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.2,2.2,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text45</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>${Empleado.TotalPercepcionesFormat}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text45>
+            <Text46 Ref="91" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.4,2.2,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text46</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>${Empleado.TotalDeduccionesFormat}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text46>
+            <Text47 Ref="92" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.4,2.7,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text47</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>${Empleado.NetoFormat}</Text>
+              <TextBrush>[192:0:0]</TextBrush>
+              <Type>Expression</Type>
+            </Text47>
+            <Text49 Ref="93" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.2,2.2,2.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text49</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>Total Deducciones</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text49>
+            <Text48 Ref="94" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.6,2.2,2.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text48</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>Total Percepciones</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text48>
+            <Text50 Ref="95" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.4,2.7,2.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,10,Bold</Font>
+              <Name>Text50</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>Neto a Pagar</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text50>
+            <Text51 Ref="96" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.2,0,1.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text51</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+              <Text>Puesto</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text51>
+            <Panel4 Ref="97" type="Panel" isKey="true">
+              <Border>Top;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,3.3,20,0.2</ClientRectangle>
+              <Components isList="true" count="0" />
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>Panel4</Name>
+              <Page isRef="22" />
+              <Parent isRef="62" />
+            </Panel4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation</DataRelationName>
+          <DataSourceName>Empleado</DataSourceName>
+          <Expressions isList="true" count="0" />
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="59" />
+          <Name>BandEmpleado</Name>
+          <Page isRef="22" />
+          <Parent isRef="22" />
+          <Sort isList="true" count="0" />
+        </BandEmpleado>
+        <BandDetalleRes Ref="98" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,10.1,20,3.5</ClientRectangle>
+          <Components isList="true" count="12">
+            <Text52 Ref="99" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Name>Text52</Name>
+              <Page isRef="22" />
+              <Parent isRef="98" />
+              <Text>Total centro de costo:</Text>
+              <TextBrush>[0:7:197]</TextBrush>
+              <Type>Expression</Type>
+            </Text52>
+            <Text53 Ref="100" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,0,6.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Name>Text53</Name>
+              <Page isRef="22" />
+              <Parent isRef="98" />
+              <Text>{Catalogo.CatCCostId} {Catalogo.CatCCostDsc}</Text>
+              <TextBrush>[0:7:197]</TextBrush>
+              <Type>Expression</Type>
+            </Text53>
+            <Panel5 Ref="101" type="Panel" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.4,10,0.8</ClientRectangle>
+              <Components isList="true" count="1">
+                <DataBand2 Ref="102" type="DataBand" isKey="true">
+                  <Border>Right;Black;1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
+                  <ClientRectangle>0,0.4,10,0.4</ClientRectangle>
+                  <Components isList="true" count="3">
+                    <Text64 Ref="103" type="Text" isKey="true">
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>0.6,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <HorAlignment>Right</HorAlignment>
+                      <Name>Text64</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="102" />
+                      <Text>{PercepcionesResumenCC.Id_nombreSDTP}</Text>
+                      <TextBrush>Black</TextBrush>
+                    </Text64>
+                    <Text65 Ref="104" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>3.2,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <Name>Text65</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="102" />
+                      <Text>{PercepcionesResumenCC.Id_glosaSDTP}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>DataColumn</Type>
+                    </Text65>
+                    <Text66 Ref="105" type="Text" isKey="true">
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>7.8,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <HorAlignment>Right</HorAlignment>
+                      <Name>Text66</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="102" />
+                      <Text>{PercepcionesResumenCC.Monto_CalPCFormat}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
+                    </Text66>
+                  </Components>
+                  <Conditions isList="true" count="0" />
+                  <DataRelationName>RelCatPercepCC</DataRelationName>
+                  <DataSourceName>PercepcionesResumenCC</DataSourceName>
+                  <Expressions isList="true" count="0" />
+                  <Filters isList="true" count="0" />
+                  <MasterComponent isRef="59" />
+                  <Name>DataBand2</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="101" />
+                  <Sort isList="true" count="0" />
+                </DataBand2>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>Panel5</Name>
+              <Page isRef="22" />
+              <Parent isRef="98" />
+            </Panel5>
+            <Panel6 Ref="106" type="Panel" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10,1.4,10,0.8</ClientRectangle>
+              <Components isList="true" count="1">
+                <DataBand3 Ref="107" type="DataBand" isKey="true">
+                  <Border>Left;Black;1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
+                  <ClientRectangle>0,0.4,10,0.4</ClientRectangle>
+                  <Components isList="true" count="3">
+                    <Text67 Ref="108" type="Text" isKey="true">
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>1.4,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <Name>Text67</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="107" />
+                      <Text>{DeduccionesResumenCC.Id_nombreSDTD}</Text>
+                      <TextBrush>Black</TextBrush>
+                    </Text67>
+                    <Text68 Ref="109" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>3.4,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <Name>Text68</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="107" />
+                      <Text>{DeduccionesResumenCC.Id_glosaSDTD}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>DataColumn</Type>
+                    </Text68>
+                    <Text69 Ref="110" type="Text" isKey="true">
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>7.4,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <HorAlignment>Right</HorAlignment>
+                      <Name>Text69</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="107" />
+                      <Text>{DeduccionesResumenCC.monto_calDCFormat}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>DataColumn</Type>
+                    </Text69>
+                  </Components>
+                  <Conditions isList="true" count="0" />
+                  <DataRelationName>RelCatDeduCC</DataRelationName>
+                  <DataSourceName>DeduccionesResumenCC</DataSourceName>
+                  <Expressions isList="true" count="0" />
+                  <Filters isList="true" count="0" />
+                  <MasterComponent isRef="59" />
+                  <Name>DataBand3</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="106" />
+                  <Sort isList="true" count="0" />
+                </DataBand3>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>Panel6</Name>
+              <Page isRef="22" />
+              <Parent isRef="98" />
+            </Panel6>
+            <Panel7 Ref="111" type="Panel" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.6,20,0.8</ClientRectangle>
+              <Components isList="true" count="8">
+                <Text56 Ref="112" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>1.2,0.4,1,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text56</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="111" />
+                  <Text>Clave</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text56>
+                <Text57 Ref="113" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.4,0.4,1.6,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text57</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="111" />
+                  <Text>Descripción</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text57>
+                <Text58 Ref="114" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>8.2,0.4,1.2,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text58</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="111" />
+                  <Text>Importe</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text58>
+                <Text59 Ref="115" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>11.4,0.4,0.8,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text59</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="111" />
+                  <Text>Clave</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text59>
+                <Text60 Ref="116" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>13.4,0.4,1.6,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text60</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="111" />
+                  <Text>Descripción</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text60>
+                <Text61 Ref="117" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>17.8,0.4,1.2,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text61</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="111" />
+                  <Text>Importe</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text61>
+                <Text62 Ref="118" type="Text" isKey="true">
+                  <AutoWidth>True</AutoWidth>
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>13.4,0,2.4,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,8,Bold</Font>
+                  <Name>Text62</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="111" />
+                  <Text>DEDUCCIONES</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text62>
+                <Text63 Ref="119" type="Text" isKey="true">
+                  <AutoWidth>True</AutoWidth>
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.2,0,2.6,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,8,Bold</Font>
+                  <Name>Text63</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="111" />
+                  <Text>PERCEPCIONES</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text63>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>Panel7</Name>
+              <Page isRef="22" />
+              <Parent isRef="98" />
+            </Panel7>
+            <Text70 Ref="120" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.6,2.3,2.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text70</Name>
+              <Page isRef="22" />
+              <Parent isRef="98" />
+              <Text>Total Percepciones</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text70>
+            <Text72 Ref="121" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.4,2.8,2.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,10,Bold</Font>
+              <Name>Text72</Name>
+              <Page isRef="22" />
+              <Parent isRef="98" />
+              <Text>Neto a Pagar</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text72>
+            <Text73 Ref="122" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.8,2.3,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <Name>Text73</Name>
+              <Page isRef="22" />
+              <Parent isRef="98" />
+              <Text>${DetalleResumenCC.TotalPercepcionesCCFormat}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text73>
+            <Text75 Ref="123" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.4,2.8,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text75</Name>
+              <Page isRef="22" />
+              <Parent isRef="98" />
+              <Text>{DetalleResumenCC.NetoCCFormat}</Text>
+              <TextBrush>[0:7:197]</TextBrush>
+              <Type>DataColumn</Type>
+            </Text75>
+            <Panel9 Ref="124" type="Panel" isKey="true">
+              <Border>Top;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,3.3,20,0.2</ClientRectangle>
+              <Components isList="true" count="0" />
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>Panel9</Name>
+              <Page isRef="22" />
+              <Parent isRef="98" />
+            </Panel9>
+            <Text71 Ref="125" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,2.3,2.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text71</Name>
+              <Page isRef="22" />
+              <Parent isRef="98" />
+              <Text>Total Deducciones</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text71>
+            <Text74 Ref="126" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.4,2.3,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text74</Name>
+              <Page isRef="22" />
+              <Parent isRef="98" />
+              <Text>${DetalleResumenCC.TotalDeduccionesCCFormat}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text74>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>RelCatDetalleRes</DataRelationName>
+          <DataSourceName>DetalleResumenCC</DataSourceName>
+          <Expressions isList="true" count="0" />
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="59" />
+          <Name>BandDetalleRes</Name>
+          <Page isRef="22" />
+          <Parent isRef="22" />
+          <Sort isList="true" count="0" />
+        </BandDetalleRes>
+        <DataBand1 Ref="127" type="DataBand" isKey="true">
+          <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,14.4,20,3.3</ClientRectangle>
+          <Components isList="true" count="10">
+            <Text76 Ref="128" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,6.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Name>Text76</Name>
+              <Page isRef="22" />
+              <Parent isRef="127" />
+              <Text>Total centro de costo General</Text>
+              <TextBrush>[0:7:197]</TextBrush>
+              <Type>Expression</Type>
+            </Text76>
+            <Panel8 Ref="129" type="Panel" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.6,20,0.8</ClientRectangle>
+              <Components isList="true" count="8">
+                <Text81 Ref="130" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>1.2,0.4,1,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text81</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="129" />
+                  <Text>Clave</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text81>
+                <Text82 Ref="131" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.4,0.4,1.6,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text82</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="129" />
+                  <Text>Descripción</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text82>
+                <Text83 Ref="132" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>8.2,0.4,1.2,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text83</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="129" />
+                  <Text>Importe</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text83>
+                <Text84 Ref="133" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>11.4,0.4,0.8,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text84</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="129" />
+                  <Text>Clave</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text84>
+                <Text85 Ref="134" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>13.6,0.4,1.6,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text85</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="129" />
+                  <Text>Descripción</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text85>
+                <Text86 Ref="135" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>17.8,0.4,1.2,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,7,Bold</Font>
+                  <Name>Text86</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="129" />
+                  <Text>Importe</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text86>
+                <Text87 Ref="136" type="Text" isKey="true">
+                  <AutoWidth>True</AutoWidth>
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>13.4,0,2.4,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,8,Bold</Font>
+                  <Name>Text87</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="129" />
+                  <Text>DEDUCCIONES</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text87>
+                <Text88 Ref="137" type="Text" isKey="true">
+                  <AutoWidth>True</AutoWidth>
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.2,0,2.6,0.4</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Expressions isList="true" count="0" />
+                  <Font>Verdana,8,Bold</Font>
+                  <Name>Text88</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="129" />
+                  <Text>PERCEPCIONES</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                </Text88>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>Panel8</Name>
+              <Page isRef="22" />
+              <Parent isRef="127" />
+            </Panel8>
+            <Panel10 Ref="138" type="Panel" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.4,10,0.8</ClientRectangle>
+              <Components isList="true" count="1">
+                <DataBand4 Ref="139" type="DataBand" isKey="true">
+                  <Border>Right;Black;1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
+                  <ClientRectangle>0,0.4,10,0.4</ClientRectangle>
+                  <Components isList="true" count="3">
+                    <Text89 Ref="140" type="Text" isKey="true">
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>1.2,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <Name>Text89</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="139" />
+                      <Text>{PercepcionesCCT.Id_nombreSDTP}</Text>
+                      <TextBrush>Black</TextBrush>
+                    </Text89>
+                    <Text90 Ref="141" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>3.4,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <Name>Text90</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="139" />
+                      <Text>{PercepcionesCCT.Id_glosaSDTP}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>DataColumn</Type>
+                    </Text90>
+                    <Text91 Ref="142" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>7.8,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <HorAlignment>Right</HorAlignment>
+                      <Name>Text91</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="139" />
+                      <Text>{PercepcionesCCT.Monto_CalPCFormat}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
+                    </Text91>
+                  </Components>
+                  <Conditions isList="true" count="0" />
+                  <DataRelationName isNull="true" />
+                  <DataSourceName>PercepcionesCCT</DataSourceName>
+                  <Expressions isList="true" count="0" />
+                  <Filters isList="true" count="0" />
+                  <Name>DataBand4</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="138" />
+                  <Sort isList="true" count="0" />
+                </DataBand4>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>Panel10</Name>
+              <Page isRef="22" />
+              <Parent isRef="127" />
+            </Panel10>
+            <Panel11 Ref="143" type="Panel" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10,1.4,10,0.8</ClientRectangle>
+              <Components isList="true" count="1">
+                <DataBand5 Ref="144" type="DataBand" isKey="true">
+                  <Border>Left;Black;1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
+                  <ClientRectangle>0,0.4,10,0.4</ClientRectangle>
+                  <Components isList="true" count="3">
+                    <Text92 Ref="145" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>1.4,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <Name>Text92</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="144" />
+                      <Text>{DeduccionesCCT.Id_nombreSDTD}</Text>
+                      <TextBrush>Black</TextBrush>
+                    </Text92>
+                    <Text93 Ref="146" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>3.4,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <Name>Text93</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="144" />
+                      <Text>{DeduccionesCCT.Id_glosaSDTD}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>DataColumn</Type>
+                    </Text93>
+                    <Text102 Ref="147" type="Text" isKey="true">
+                      <AutoWidth>True</AutoWidth>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>7.4,0,1.6,0.4</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Expressions isList="true" count="0" />
+                      <Font>Verdana,7</Font>
+                      <HorAlignment>Right</HorAlignment>
+                      <Name>Text102</Name>
+                      <Page isRef="22" />
+                      <Parent isRef="144" />
+                      <Text>{DeduccionesCCT.monto_calDCFormat}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <Type>Expression</Type>
+                    </Text102>
+                  </Components>
+                  <Conditions isList="true" count="0" />
+                  <DataRelationName isNull="true" />
+                  <DataSourceName>DeduccionesCCT</DataSourceName>
+                  <Expressions isList="true" count="0" />
+                  <Filters isList="true" count="0" />
+                  <Name>DataBand5</Name>
+                  <Page isRef="22" />
+                  <Parent isRef="143" />
+                  <Sort isList="true" count="0" />
+                </DataBand5>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>Panel11</Name>
+              <Page isRef="22" />
+              <Parent isRef="127" />
+            </Panel11>
+            <Text103 Ref="148" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.4,2.7,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,10,Bold</Font>
+              <Name>Text103</Name>
+              <Page isRef="22" />
+              <Parent isRef="127" />
+              <Text>Neto a Pagar</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text103>
+            <Text104 Ref="149" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.4,2.7,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text104</Name>
+              <Page isRef="22" />
+              <Parent isRef="127" />
+              <Text>{Data.NetoCCTFormat}</Text>
+              <TextBrush>[0:7:197]</TextBrush>
+              <Type>Expression</Type>
+            </Text104>
+            <Text78 Ref="150" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,2.3,2.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text78</Name>
+              <Page isRef="22" />
+              <Parent isRef="127" />
+              <Text>Total Deducciones</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text78>
+            <Text80 Ref="151" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.4,2.3,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text80</Name>
+              <Page isRef="22" />
+              <Parent isRef="127" />
+              <Text>${Data.TotalDeduccionesCCTFormat}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text80>
+            <Text77 Ref="152" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.6,2.3,2.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7,Bold</Font>
+              <Name>Text77</Name>
+              <Page isRef="22" />
+              <Parent isRef="127" />
+              <Text>Total Percepciones</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text77>
+            <Text79 Ref="153" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.8,2.3,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,8</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text79</Name>
+              <Page isRef="22" />
+              <Parent isRef="127" />
+              <Text>${Data.TotalPercepcionesCCTFormat}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text79>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>Data</DataSourceName>
+          <Expressions isList="true" count="0" />
+          <Filters isList="true" count="0" />
+          <Name>DataBand1</Name>
+          <Page isRef="22" />
+          <Parent isRef="22" />
+          <Sort isList="true" count="0" />
+        </DataBand1>
+        <DataBand6 Ref="154" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,18.5,20,0.8</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text105 Ref="155" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0,3.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,10</Font>
+              <Name>Text105</Name>
+              <Page isRef="22" />
+              <Parent isRef="154" />
+              <Text>Resumen General</Text>
+              <TextBrush>[0:0:0]</TextBrush>
+              <Type>Expression</Type>
+            </Text105>
+            <Text106 Ref="156" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1,0.4,3.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7</Font>
+              <Name>Text106</Name>
+              <Page isRef="22" />
+              <Parent isRef="154" />
+              <Text>{ResumenGeneral.DscConceptoGen}</Text>
+              <TextBrush>[0:0:0]</TextBrush>
+            </Text106>
+            <Text107 Ref="157" type="Text" isKey="true">
+              <AutoWidth>True</AutoWidth>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8,0.4,2.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Verdana,7</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text107</Name>
+              <Page isRef="22" />
+              <Parent isRef="154" />
+              <Text>{ResumenGeneral.montoGenAgrup}</Text>
+              <TextBrush>[0:0:0]</TextBrush>
+            </Text107>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>ResumenGeneral</DataSourceName>
+          <Expressions isList="true" count="0" />
+          <Filters isList="true" count="0" />
+          <Name>DataBand6</Name>
+          <Page isRef="22" />
+          <Parent isRef="22" />
+          <Sort isList="true" count="0" />
+        </DataBand6>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Expressions isList="true" count="0" />
+      <Guid>7d065d84394042ac9805c5828f8f964f</Guid>
+      <Margins>0.8,0.8,1,0.8</Margins>
+      <Name>Page1</Name>
+      <PageHeight>27.9</PageHeight>
+      <PageWidth>21.6</PageWidth>
+      <PaperSize>Letter</PaperSize>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportAuthor>Eduardo Hernández</ReportAuthor>
+  <ReportChanged>11/23/2025 11:24:31 PM</ReportChanged>
+  <ReportCreated>11/12/2025 8:41:50 PM</ReportCreated>
+  <ReportFile>C:\Users\EduardoHernándezHern\Documents\GitHub\StimulsoftReport\Reports\ReporteRegNomCenCos.mrt</ReportFile>
+  <ReportGuid>ac9b64f2b58f4cba89ac50a1b178d00b</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2025.4.1.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+  <UsePlatformDependentScript>False</UsePlatformDependentScript>
+</StiSerializer>

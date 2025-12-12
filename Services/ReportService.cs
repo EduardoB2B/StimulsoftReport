@@ -41,6 +41,9 @@ namespace StimulsoftReport.Services
             _reportConfigs = LoadReportConfigs(_configsFolder);
         }
 
+        /// <summary>
+        /// Carga todas las configuraciones de reportes desde archivos JSON en la carpeta de configs.
+        /// </summary>
         private Dictionary<string, ReportConfig> LoadReportConfigs(string folder)
         {
             var configs = new Dictionary<string, ReportConfig>(StringComparer.OrdinalIgnoreCase);
@@ -68,6 +71,9 @@ namespace StimulsoftReport.Services
             return configs;
         }
 
+        /// <summary>
+        /// Genera un reporte en formato PDF a partir de un archivo JSON de datos.
+        /// </summary>
         public async Task<(bool Success, string Message, string? PdfPath)> GenerateReportAsync(string reportName, string? jsonFilePath, Dictionary<string, object>? sqlParams = null)
         {
             Log.Information("Solicitud para generar reporte: '{ReportName}'", reportName);
@@ -273,6 +279,9 @@ namespace StimulsoftReport.Services
             }
         }
 
+        /// <summary>
+        /// Registra los datos del JSON en el reporte Stimulsoft, creando DataTables y aplicando reglas de balance de filas.
+        /// </summary>
         private void RegisterData(StiReport report, JsonNode? jsonNode, ReportConfig config, string reportName)
         {
             Log.Information("Registrando datos para reporte '{ReportName}'...", reportName);
@@ -290,6 +299,7 @@ namespace StimulsoftReport.Services
             else
                 return;
 
+            // Determinar el DataSource principal y su ruta en el JSON
             string mainDataSourceName = "";
             string mainJsonPath = "";
 
@@ -311,6 +321,7 @@ namespace StimulsoftReport.Services
                     : mainDataSourceName;
             }
 
+            // Obtener el nodo principal del JSON
             JsonNode? mainNode = null;
             if (string.IsNullOrEmpty(mainJsonPath))
             {
@@ -332,6 +343,7 @@ namespace StimulsoftReport.Services
                 return;
             }
 
+            // Convertir el nodo principal en un array de objetos
             JsonArray mainArray;
             if (mainNode is JsonArray mainArr)
                 mainArray = mainArr;
@@ -343,6 +355,7 @@ namespace StimulsoftReport.Services
                 return;
             }
 
+            // Crear la tabla principal y agregar columna de PK sintética
             var mainTable = CreateTableFromArrayOfObjects(mainDataSourceName, mainArray);
             var pkColumnName = $"{mainDataSourceName}Id";
 
@@ -374,13 +387,16 @@ namespace StimulsoftReport.Services
                     mainTable.Columns.Add(pkColumnName, typeof(int));
             }
 
+            // Asignar IDs secuenciales a cada fila de la tabla principal
             for (int i = 0; i < mainTable.Rows.Count; i++)
             {
                 mainTable.Rows[i][pkColumnName] = i + 1;
             }
 
+            // Registrar la tabla principal en el reporte
             report.RegData(mainDataSourceName, mainTable);
 
+            // Procesar recursivamente todos los nodos hijos para crear tablas relacionadas
             var createdTables = new Dictionary<string, DataTable>(StringComparer.OrdinalIgnoreCase);
 
             for (int i = 0; i < mainArray.Count; i++)
@@ -394,6 +410,12 @@ namespace StimulsoftReport.Services
                     ProcessNodeRecursive(prop.Value, prop.Key, i + 1, pkColumnName, null, null, new List<(string, int)>(), createdTables);
                 }
             }
+
+            // ========================================
+            // REGLAS ESPECÍFICAS POR REPORTE (LEGACY)
+            // Estas reglas están hard-codeadas y se mantienen por compatibilidad con reportes en producción.
+            // En el futuro, se migrarán a la configuración dinámica (RowBalanceRules).
+            // ========================================
 
             if (string.Equals(reportName, "ReporteCfdiAsimilados", StringComparison.OrdinalIgnoreCase))
             {
@@ -460,6 +482,26 @@ namespace StimulsoftReport.Services
                 }
             }
 
+            // ========================================
+            // REGLAS DINÁMICAS DE BALANCE DE FILAS (NUEVA FUNCIONALIDAD)
+            // Si el reporte tiene configuradas reglas de balance de filas (RowBalanceRules),
+            // se aplican aquí de forma dinámica sin necesidad de modificar el código.
+            // ========================================
+
+            if (config.RowBalanceRules != null && config.RowBalanceRules.Any())
+            {
+                try
+                {
+                    Log.Information("Aplicando reglas dinámicas de balance de filas para '{ReportName}'", reportName);
+                    ApplyDynamicRowBalanceRules(config.RowBalanceRules, createdTables, pkColumnName, mainTable);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error aplicando reglas dinámicas de balance de filas para '{ReportName}'", reportName);
+                }
+            }
+
+            // Registrar todas las tablas creadas en el reporte
             foreach (var kvp in createdTables)
             {
                 report.RegData(kvp.Key, kvp.Value);
@@ -468,6 +510,14 @@ namespace StimulsoftReport.Services
             Log.Information("Datos registrados para reporte '{ReportName}'. ", reportName);
         }
 
+        // ========================================
+        // MÉTODOS DE REGLAS ESPECÍFICAS (LEGACY)
+        // ========================================
+
+        /// <summary>
+        /// Aplica reglas específicas para el reporte ReporteCfdiAsimilados.
+        /// Balancea filas entre Percepciones y Deducciones, y garantiza al menos 2 filas en OtrosPagos.
+        /// </summary>
         private void ApplyAsimiladosRules(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
         {
             Log.Information("Aplicando reglas para ReporteCfdiAsimilados");
@@ -512,6 +562,10 @@ namespace StimulsoftReport.Services
             }
         }
 
+        /// <summary>
+        /// Aplica reglas específicas para los reportes ReporteCfdi y ReporteCFDIMc.
+        /// Balancea filas entre Percepciones y Deducciones.
+        /// </summary>
         private void ApplyReporteCfdiRules(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
         {
             Log.Information("Aplicando reglas para ReporteCfdi");
@@ -546,6 +600,10 @@ namespace StimulsoftReport.Services
             }
         }
 
+        /// <summary>
+        /// Aplica reglas específicas para el reporte ReporteResLugarTrabajo.
+        /// Balancea filas entre DeduccionesSumario y PercepcionesSumario.
+        /// </summary>
         private void ApplyReporteLugarTrabajo(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
         {
             Log.Information("Aplicando reglas para ReporteResLugarTrabajo");
@@ -580,6 +638,10 @@ namespace StimulsoftReport.Services
             }
         }
 
+        /// <summary>
+        /// Aplica reglas específicas para el reporte ReporteA3o.
+        /// Balancea filas entre Percepciones, OtrosPagos y Deducciones.
+        /// </summary>
         private void ApplyReporteA3oRules(Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
         {
             Log.Information("Aplicando reglas especiales para ReporteA3o (balance filas Percepciones, OtrosPagos y Deducciones) por registro");
@@ -650,6 +712,128 @@ namespace StimulsoftReport.Services
             }
         }
 
+        // ========================================
+        // MÉTODO DE REGLAS DINÁMICAS (NUEVA FUNCIONALIDAD)
+        // ========================================
+
+        /// <summary>
+        /// Aplica reglas dinámicas de balance de filas basadas en la configuración del reporte.
+        /// Permite emparejar el número de filas entre grupos de tablas sin modificar el código.
+        /// </summary>
+        /// <param name="rules">Lista de reglas de balance definidas en la configuración del reporte.</param>
+        /// <param name="createdTables">Diccionario de tablas creadas durante el procesamiento del JSON.</param>
+        /// <param name="pkColumnName">Nombre de la columna de clave primaria del registro principal.</param>
+        /// <param name="mainTable">Tabla principal del reporte.</param>
+        private void ApplyDynamicRowBalanceRules(List<RowBalanceRuleConfig> rules, Dictionary<string, DataTable> createdTables, string pkColumnName, DataTable mainTable)
+        {
+            if (rules == null || !rules.Any())
+                return;
+
+            Log.Information("Aplicando {Count} grupo(s) de reglas dinámicas de balance de filas", rules.Count);
+
+            // Iterar sobre cada registro principal (cada fila de mainTable)
+            foreach (DataRow mainRow in mainTable.Rows)
+            {
+                var mainIdObj = mainRow[pkColumnName];
+                if (mainIdObj == null || mainIdObj == DBNull.Value)
+                    continue;
+
+                int mainId = Convert.ToInt32(mainIdObj);
+
+                // Aplicar cada grupo de reglas de forma independiente
+                foreach (var rule in rules)
+                {
+                    if (rule.Tables == null || !rule.Tables.Any())
+                    {
+                        Log.Warning("Regla de balance sin tablas definidas, se omite.");
+                        continue;
+                    }
+
+                    // Obtener las tablas del grupo que existen en createdTables
+                    var tablesToBalance = new List<DataTable>();
+                    var tableNames = new List<string>();
+
+                    foreach (var tableName in rule.Tables)
+                    {
+                        if (createdTables.TryGetValue(tableName, out var table))
+                        {
+                            tablesToBalance.Add(table);
+                            tableNames.Add(tableName);
+
+                            // Asegurar que la tabla tiene la columna de PK
+                            if (!table.Columns.Contains(pkColumnName))
+                                table.Columns.Add(pkColumnName, typeof(int));
+                        }
+                        else
+                        {
+                            Log.Warning("Tabla '{TableName}' especificada en regla de balance no encontrada, se omite.", tableName);
+                        }
+                    }
+
+                    if (!tablesToBalance.Any())
+                    {
+                        Log.Warning("Ninguna tabla del grupo de balance fue encontrada.");
+                        continue;
+                    }
+
+                    // Contar cuántas filas tiene cada tabla para este mainId
+                    var counts = new Dictionary<string, int>();
+                    for (int i = 0; i < tablesToBalance.Count; i++)
+                    {
+                        var table = tablesToBalance[i];
+                        var tableName = tableNames[i];
+                        int count = table.AsEnumerable().Count(r => r.Field<int>(pkColumnName) == mainId);
+                        counts[tableName] = count;
+                    }
+
+                    // Determinar el máximo de filas entre todas las tablas del grupo
+                    int maxCount = counts.Values.Max();
+
+                    // Si hay MinRowsPerTable definido, aplicar esos mínimos
+                    if (rule.MinRowsPerTable != null && rule.MinRowsPerTable.Any())
+                    {
+                        foreach (var minRule in rule.MinRowsPerTable)
+                        {
+                            if (counts.ContainsKey(minRule.Key))
+                            {
+                                // Si el mínimo requerido es mayor que el maxCount actual, actualizar maxCount
+                                if (minRule.Value > maxCount)
+                                {
+                                    maxCount = minRule.Value;
+                                    Log.Debug("[mainId={MainId}] Tabla '{TableName}' requiere mínimo {MinRows} filas, ajustando maxCount", mainId, minRule.Key, minRule.Value);
+                                }
+                            }
+                        }
+                    }
+
+                    // Rellenar cada tabla del grupo hasta alcanzar maxCount
+                    for (int i = 0; i < tablesToBalance.Count; i++)
+                    {
+                        var table = tablesToBalance[i];
+                        var tableName = tableNames[i];
+                        int currentCount = counts[tableName];
+
+                        if (currentCount < maxCount)
+                        {
+                            int rowsToAdd = maxCount - currentCount;
+                            Log.Debug("[mainId={MainId}] Agregando {RowsToAdd} fila(s) vacía(s) a '{TableName}' (de {CurrentCount} a {MaxCount})",
+                                mainId, rowsToAdd, tableName, currentCount, maxCount);
+                            AddEmptyRowsWithPk(table, rowsToAdd, pkColumnName, mainId);
+                        }
+                    }
+                }
+            }
+
+            Log.Information("Reglas dinámicas de balance de filas aplicadas correctamente.");
+        }
+
+        // ========================================
+        // MÉTODOS AUXILIARES
+        // ========================================
+
+        /// <summary>
+        /// Procesa recursivamente un nodo JSON (objeto, array o valor) y crea tablas relacionadas.
+        /// </summary>
         private void ProcessNodeRecursive(JsonNode? node, string nodeName, int mainId, string mainPkColumnName, int? parentRowId, string? parentNodeName, List<(string name, int id)> ancestors, Dictionary<string, DataTable> createdTables)
         {
             if (node == null) return;
@@ -658,6 +842,7 @@ namespace StimulsoftReport.Services
 
             if (node is JsonArray arr)
             {
+                // Crear o extender la tabla para este array
                 if (!createdTables.TryGetValue(nodeName, out var table))
                 {
                     table = BuildTableSchemaFromArray(nodeName, arr);
@@ -672,6 +857,7 @@ namespace StimulsoftReport.Services
                             table.Columns.Add(k, typeof(string));
                 }
 
+                // Agregar columnas de relación
                 if (!table.Columns.Contains(mainPkColumnName))
                     table.Columns.Add(mainPkColumnName, typeof(int));
                 var ownIdCol = $"{nodeName}Id";
@@ -684,6 +870,7 @@ namespace StimulsoftReport.Services
                         table.Columns.Add(ancCol, typeof(int));
                 }
 
+                // Inicializar contador de IDs para esta tabla
                 lock (_idLock)
                 {
                     if (!_idCounters.ContainsKey(nodeName))
@@ -704,12 +891,14 @@ namespace StimulsoftReport.Services
                     }
                 }
 
+                // Procesar cada elemento del array
                 foreach (var element in arr)
                 {
                     if (element is JsonObject childObj)
                     {
                         var row = table.NewRow();
 
+                        // Llenar columnas con datos del objeto JSON
                         foreach (DataColumn col in table.Columns)
                         {
                             var colName = col.ColumnName;
@@ -727,6 +916,7 @@ namespace StimulsoftReport.Services
                             }
                         }
 
+                        // Asignar relaciones
                         row[mainPkColumnName] = mainId;
 
                         foreach (var anc in ancestors)
@@ -743,6 +933,7 @@ namespace StimulsoftReport.Services
                             row[parentCol] = parentRowId.Value;
                         }
 
+                        // Asignar ID único a esta fila
                         int newId;
                         lock (_idLock)
                         {
@@ -753,6 +944,7 @@ namespace StimulsoftReport.Services
 
                         table.Rows.Add(row);
 
+                        // Procesar nodos hijos recursivamente
                         var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
 
                         foreach (var p in childObj)
@@ -763,6 +955,7 @@ namespace StimulsoftReport.Services
                     }
                     else
                     {
+                        // Elemento primitivo en el array
                         if (!table.Columns.Contains("Value"))
                             table.Columns.Add("Value", typeof(string));
 
@@ -793,6 +986,7 @@ namespace StimulsoftReport.Services
             }
             else if (node is JsonObject obj)
             {
+                // Crear o extender la tabla para este objeto
                 if (!createdTables.TryGetValue(nodeName, out var table))
                 {
                     table = BuildTableSchemaFromObject(nodeName, obj);
@@ -806,6 +1000,7 @@ namespace StimulsoftReport.Services
                             table.Columns.Add(p.Key, typeof(string));
                 }
 
+                // Agregar columnas de relación
                 if (!table.Columns.Contains(mainPkColumnName))
                     table.Columns.Add(mainPkColumnName, typeof(int));
                 var ownIdCol = $"{nodeName}Id";
@@ -818,6 +1013,7 @@ namespace StimulsoftReport.Services
                         table.Columns.Add(ancCol, typeof(int));
                 }
 
+                // Inicializar contador de IDs
                 lock (_idLock)
                 {
                     if (!_idCounters.ContainsKey(nodeName))
@@ -839,6 +1035,8 @@ namespace StimulsoftReport.Services
                 }
 
                 var row = table.NewRow();
+
+                // Llenar columnas con datos del objeto JSON
                 foreach (DataColumn col in table.Columns)
                 {
                     if (col.ColumnName == mainPkColumnName) continue;
@@ -856,6 +1054,7 @@ namespace StimulsoftReport.Services
                     }
                 }
 
+                // Asignar relaciones
                 row[mainPkColumnName] = mainId;
                 foreach (var anc in ancestors)
                 {
@@ -871,6 +1070,7 @@ namespace StimulsoftReport.Services
                     row[parentCol] = parentRowId.Value;
                 }
 
+                // Asignar ID único
                 int newId;
                 lock (_idLock)
                 {
@@ -881,6 +1081,7 @@ namespace StimulsoftReport.Services
 
                 table.Rows.Add(row);
 
+                // Procesar nodos hijos recursivamente
                 var newAncestors = new List<(string name, int id)>(ancestors) { (nodeName, newId) };
                 foreach (var p in obj)
                 {
@@ -890,6 +1091,7 @@ namespace StimulsoftReport.Services
             }
             else
             {
+                // Nodo primitivo (string, number, bool, etc.)
                 if (!createdTables.TryGetValue(nodeName, out var table))
                 {
                     table = new DataTable(nodeName);
@@ -929,6 +1131,9 @@ namespace StimulsoftReport.Services
             }
         }
 
+        /// <summary>
+        /// Construye el esquema de una tabla a partir de un array JSON.
+        /// </summary>
         private DataTable BuildTableSchemaFromArray(string tableName, JsonArray arr)
         {
             var dt = new DataTable(tableName);
@@ -949,6 +1154,9 @@ namespace StimulsoftReport.Services
             return dt;
         }
 
+        /// <summary>
+        /// Construye el esquema de una tabla a partir de un objeto JSON.
+        /// </summary>
         private DataTable BuildTableSchemaFromObject(string tableName, JsonObject obj)
         {
             var dt = new DataTable(tableName);
@@ -970,6 +1178,9 @@ namespace StimulsoftReport.Services
             return dt;
         }
 
+        /// <summary>
+        /// Recolecta todas las claves únicas de los objetos dentro de un array JSON.
+        /// </summary>
         private HashSet<string> CollectKeysFromArray(JsonArray arr)
         {
             var keys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -984,6 +1195,9 @@ namespace StimulsoftReport.Services
             return keys;
         }
 
+        /// <summary>
+        /// Navega por un objeto JSON usando una ruta con notación de punto (ej. "data.items[0].name").
+        /// </summary>
         private JsonNode? GetJsonNodeByPath(JsonObject root, string path)
         {
             if (string.IsNullOrWhiteSpace(path)) return root;
@@ -1042,6 +1256,9 @@ namespace StimulsoftReport.Services
             return current;
         }
 
+        /// <summary>
+        /// Parsea una parte de una ruta JSON que puede incluir un índice de array (ej. "items[0]").
+        /// </summary>
         private (string propName, int? index) ParsePartWithIndex(string part)
         {
             var name = part;
@@ -1062,6 +1279,9 @@ namespace StimulsoftReport.Services
             return (name, index);
         }
 
+        /// <summary>
+        /// Crea una tabla vacía con una columna placeholder.
+        /// </summary>
         private DataTable CreateEmptyTable(string tableName)
         {
             var dt = new DataTable(tableName);
@@ -1069,6 +1289,14 @@ namespace StimulsoftReport.Services
             return dt;
         }
 
+        /// <summary>
+        /// Agrega filas vacías a una tabla, manteniendo la relación con el registro principal mediante la PK.
+        /// Utilizado para balancear el número de filas entre tablas relacionadas.
+        /// </summary>
+        /// <param name="table">Tabla a la que se agregarán filas vacías.</param>
+        /// <param name="count">Número de filas vacías a agregar.</param>
+        /// <param name="pkColumnName">Nombre de la columna de clave primaria del registro principal.</param>
+        /// <param name="parentId">ID del registro principal al que pertenecen estas filas.</param>
         private void AddEmptyRowsWithPk(DataTable table, int count, string pkColumnName, int parentId)
         {
             if (count <= 0) return;
@@ -1082,6 +1310,7 @@ namespace StimulsoftReport.Services
             if (!table.Columns.Contains(ownIdCol))
                 table.Columns.Add(ownIdCol, typeof(int));
 
+            // Inicializar o actualizar el contador de IDs para esta tabla
             lock (_idLock)
             {
                 if (!_idCounters.TryGetValue(table.TableName, out var counter))
@@ -1102,10 +1331,12 @@ namespace StimulsoftReport.Services
                 }
             }
 
+            // Agregar las filas vacías
             for (int i = 0; i < count; i++)
             {
                 var row = table.NewRow();
 
+                // Llenar todas las columnas con valores por defecto
                 foreach (DataColumn col in table.Columns)
                 {
                     if (col.ColumnName == pkColumnName) continue;
@@ -1119,8 +1350,10 @@ namespace StimulsoftReport.Services
                         row[col.ColumnName] = DBNull.Value;
                 }
 
+                // Asignar la relación con el registro principal
                 row[pkColumnName] = parentId;
 
+                // Asignar un ID único a esta fila
                 int newId;
                 lock (_idLock)
                 {
@@ -1133,6 +1366,9 @@ namespace StimulsoftReport.Services
             }
         }
 
+        /// <summary>
+        /// Crea una DataTable a partir de un array de objetos JSON.
+        /// </summary>
         private DataTable CreateTableFromArrayOfObjects(string tableName, JsonArray jsonArray)
         {
             var dt = new DataTable(tableName);
@@ -1168,6 +1404,9 @@ namespace StimulsoftReport.Services
             return dt;
         }
 
+        /// <summary>
+        /// Convierte un JsonNode a un valor compatible con el tipo de columna de DataTable.
+        /// </summary>
         private object ConvertJsonNodeToColumnValue(JsonNode? node, Type targetType)
         {
             if (node == null) return DBNull.Value;

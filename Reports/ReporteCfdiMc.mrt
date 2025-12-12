@@ -2847,9 +2847,9 @@
                               <Name>Text183</Name>
                               <Page isRef="29" />
                               <Parent isRef="193" />
-                              <Text>Antigüedad</Text>
+                              <Text>{Colaborador.LblAntiguedad}</Text>
                               <TextBrush>Black</TextBrush>
-                              <Type>Expression</Type>
+                              <Type>DataColumn</Type>
                               <VertAlignment>Center</VertAlignment>
                             </Text183>
                             <Text186 Ref="200" type="Text" isKey="true">
@@ -2976,13 +2976,13 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>SALVADOR GUERRERO A</ReportAuthor>
-  <ReportChanged>9/29/2025 12:59:24 PM</ReportChanged>
+  <ReportChanged>11/21/2025 5:02:59 PM</ReportChanged>
   <ReportCreated>9/8/2025 2:31:52 PM</ReportCreated>
-  <ReportFile>C:\Users\EduardoHernándezHern\OneDrive - Humansite, S.A de C.V\Documentos\Human\Stimulsoft\StimulsoftReport\Reports\ReporteCfdiMc.mrt</ReportFile>
-  <ReportGuid>251918e8938e4487af8562b7dfd8fbce</ReportGuid>
+  <ReportFile>C:\Users\EduardoHernándezHern\Documents\GitHub\StimulsoftReport\Reports\ReporteCfdiMc.mrt</ReportFile>
+  <ReportGuid>5bd03388a5d845d0b673646319246263</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
-  <ReportVersion>2025.3.2.0</ReportVersion>
+  <ReportVersion>2025.4.1.0</ReportVersion>
   <Script>using System;
 using System.Drawing;
 using System.Windows.Forms;
