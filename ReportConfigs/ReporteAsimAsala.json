@@ -1,0 +1,20 @@
+{
+  "TemplateFile": "ReporteAsimAsala.mrt",
+  "DataSourceMappings": {
+    "Data": "",
+    "Percepciones1": "Percepciones1",
+    "Deducciones1": "Deducciones1",
+    "Deducciones": "Deducciones"
+  },
+  "RequiredDataSources": [
+    "Data",
+    "Percepciones1",
+    "Deducciones1",
+    "Deducciones"
+  ],
+  "RowBalanceRules": [
+    {
+      "Tables": [ "Percepciones1", "Deducciones1" ]
+    }
+  ]
+}
