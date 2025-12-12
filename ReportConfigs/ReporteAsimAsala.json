@@ -1,0 +1,14 @@
+{
+    "TemplateFile": "ReporteAsimAsala.mrt",
+    "DataSourceMappings": {
+        "Data": "",
+        "Percepciones1": "Percepciones1",
+        "Deducciones1": "Deducciones1"
+
+    },
+    "RequiredDataSources": [
+        "Data",
+        "Percepciones1",
+        "Deducciones1"
+    ]
+}

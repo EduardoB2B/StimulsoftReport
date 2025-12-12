@@ -83,7 +83,7 @@
       </EmplesEmpre>
       <Provisiones Ref="7" type="DataTableSource" isKey="true">
         <Alias>Provisiones</Alias>
-        <Columns isList="true" count="23">
+        <Columns isList="true" count="24">
           <value>ORIGINAL,RegPatronalId,RegPatronalId,RegPatronalId,System.String,_x0039_0050c38997b404ba0c52926b8a74b5e</value>
           <value>ORIGINAL,RegPatronalDesc,RegPatronalDesc,RegPatronalDesc,System.String,_x0030_88105def57745928a09101b24dbcd44</value>
           <value>ORIGINAL,CuotaFija,CuotaFija,CuotaFija,System.String,_x0039_2e5772f6dd942208d365f8ff0fb9898</value>
@@ -107,6 +107,7 @@
           <value>PrimaVacacional,System.String</value>
           <value>Aguinaldo,System.String</value>
           <value>DataId,System.String</value>
+          <value>ImpuestoEstatal,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>dfc99c32d080497bb4681f3b63905b4b</Key>
@@ -1604,6 +1605,7 @@
                 </DataBand4>
                 <DataBand7 Ref="113" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
+                  <BusinessObjectGuid isNull="true" />
                   <ClientRectangle>0,8.8,19,1.2</ClientRectangle>
                   <Components isList="true" count="6">
                     <Text17 Ref="114" type="Text" isKey="true">
@@ -2357,10 +2359,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>Eduardo Hernández</ReportAuthor>
-  <ReportChanged>10/22/2025 5:03:36 PM</ReportChanged>
+  <ReportChanged>12/9/2025 6:50:08 PM</ReportChanged>
   <ReportCreated>7/15/2025 1:48:53 PM</ReportCreated>
-  <ReportFile>C:\Users\FranciscoRamírezRamí\Downloads\nuevo\StimulsoftReport\Reports\ReporteResNomHist.mrt</ReportFile>
-  <ReportGuid>1285a5a9edb644a5b40f0153b8703af5</ReportGuid>
+  <ReportFile>C:\Users\FranciscoRamírezRamí\Downloads\nuevo\StimulsoftReport\Reports\ReporteResNomPa.mrt</ReportFile>
+  <ReportGuid>0eae62f7d9ff4be5a4ad9909cce14cf1</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.2.5.0</ReportVersion>

@@ -1,0 +1,10 @@
+{
+    "TemplateFile": "ReporteNomStandar.mrt",
+    "DataSourceMappings": {
+        "Data": ""
+
+    },
+    "RequiredDataSources": [
+        "Data"
+    ]
+}
