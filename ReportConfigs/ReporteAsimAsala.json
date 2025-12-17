@@ -14,7 +14,13 @@
   ],
   "RowBalanceRules": [
     {
-      "Tables": [ "Percepciones1", "Deducciones1" ]
+      "Tables": [
+        "Percepciones1",
+        "Deducciones1"
+      ],
+      "MinRowsPerTable": {
+        "Percepciones1": 2
+      }
     }
   ]
 }
