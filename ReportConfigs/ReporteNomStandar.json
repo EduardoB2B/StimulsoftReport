@@ -1,10 +1,19 @@
 {
     "TemplateFile": "ReporteNomStandar.mrt",
     "DataSourceMappings": {
-        "Data": ""
+        "Data": "",
+        "Percepciones": "Percepciones",
+        "Deducciones": "Deducciones"
 
     },
     "RequiredDataSources": [
-        "Data"
+        "Data",
+        "Percepciones",
+        "Deducciones"
+    ],
+    "RowBalanceRules": [
+        {
+        "Tables": [ "Percepciones", "Deducciones" ]
+        }
     ]
 }

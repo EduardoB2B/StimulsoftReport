@@ -83,7 +83,7 @@
       </EmplesEmpre>
       <Provisiones Ref="7" type="DataTableSource" isKey="true">
         <Alias>Provisiones</Alias>
-        <Columns isList="true" count="24">
+        <Columns isList="true" count="23">
           <value>ORIGINAL,RegPatronalId,RegPatronalId,RegPatronalId,System.String,_x0039_0050c38997b404ba0c52926b8a74b5e</value>
           <value>ORIGINAL,RegPatronalDesc,RegPatronalDesc,RegPatronalDesc,System.String,_x0030_88105def57745928a09101b24dbcd44</value>
           <value>ORIGINAL,CuotaFija,CuotaFija,CuotaFija,System.String,_x0039_2e5772f6dd942208d365f8ff0fb9898</value>
@@ -107,7 +107,6 @@
           <value>PrimaVacacional,System.String</value>
           <value>Aguinaldo,System.String</value>
           <value>DataId,System.String</value>
-          <value>ImpuestoEstatal,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>dfc99c32d080497bb4681f3b63905b4b</Key>
@@ -334,7 +333,7 @@
                         <Text29 Ref="25" type="Text" isKey="true">
                           <AutoWidth>True</AutoWidth>
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>8,0,1.4,0.42</ClientRectangle>
+                          <ClientRectangle>7.2,0,1.4,0.42</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial,8</Font>
@@ -354,7 +353,7 @@
                         <Text69 Ref="27" type="Text" isKey="true">
                           <AutoWidth>True</AutoWidth>
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>2.8,0,3.8,0.42</ClientRectangle>
+                          <ClientRectangle>2.2,0,3.8,0.42</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial,8</Font>
@@ -414,7 +413,7 @@
                         <Text40 Ref="31" type="Text" isKey="true">
                           <AutoWidth>True</AutoWidth>
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>7.2,0,1.2,0.42</ClientRectangle>
+                          <ClientRectangle>6.8,0,1.2,0.42</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial,8</Font>
@@ -434,7 +433,7 @@
                         <Text41 Ref="33" type="Text" isKey="true">
                           <AutoWidth>True</AutoWidth>
                           <Brush>Transparent</Brush>
-                          <ClientRectangle>2.6,0,3.6,0.42</ClientRectangle>
+                          <ClientRectangle>2.4,0,3.6,0.42</ClientRectangle>
                           <Conditions isList="true" count="0" />
                           <Expressions isList="true" count="0" />
                           <Font>Arial,8</Font>
@@ -492,7 +491,7 @@
                 </Text43>
                 <Text44 Ref="36" type="Text" isKey="true">
                   <Brush>Transparent</Brush>
-                  <ClientRectangle>2.8,0.4,3.8,0.4</ClientRectangle>
+                  <ClientRectangle>2.2,0.4,3.8,0.4</ClientRectangle>
                   <Conditions isList="true" count="0" />
                   <Expressions isList="true" count="0" />
                   <Font>Arial,7,Bold</Font>
@@ -518,7 +517,7 @@
                 </Text46>
                 <Text48 Ref="38" type="Text" isKey="true">
                   <Brush>Transparent</Brush>
-                  <ClientRectangle>12.6,0.4,3.6,0.4</ClientRectangle>
+                  <ClientRectangle>12.4,0.4,3.6,0.4</ClientRectangle>
                   <Conditions isList="true" count="0" />
                   <Expressions isList="true" count="0" />
                   <Font>Arial,7,Bold</Font>
@@ -531,7 +530,7 @@
                 </Text48>
                 <Text49 Ref="39" type="Text" isKey="true">
                   <Brush>Transparent</Brush>
-                  <ClientRectangle>17.3,0.4,1.2,0.4</ClientRectangle>
+                  <ClientRectangle>17.2,0.4,1.2,0.4</ClientRectangle>
                   <Conditions isList="true" count="0" />
                   <Expressions isList="true" count="0" />
                   <Font>Arial,7,Bold</Font>
@@ -544,7 +543,7 @@
                 </Text49>
                 <Text50 Ref="40" type="Text" isKey="true">
                   <Brush>Transparent</Brush>
-                  <ClientRectangle>2.8,0,3.8,0.4</ClientRectangle>
+                  <ClientRectangle>2,0,3.8,0.4</ClientRectangle>
                   <Conditions isList="true" count="0" />
                   <Expressions isList="true" count="0" />
                   <Font>Arial,9,Bold</Font>
@@ -557,7 +556,7 @@
                 </Text50>
                 <Text51 Ref="41" type="Text" isKey="true">
                   <Brush>Transparent</Brush>
-                  <ClientRectangle>12.6,0,3.6,0.4</ClientRectangle>
+                  <ClientRectangle>12.2,0,3.6,0.4</ClientRectangle>
                   <Conditions isList="true" count="0" />
                   <Expressions isList="true" count="0" />
                   <Font>Microsoft Sans Serif,9,Bold</Font>
@@ -570,7 +569,7 @@
                 </Text51>
                 <Text12 Ref="42" type="Text" isKey="true">
                   <Brush>Transparent</Brush>
-                  <ClientRectangle>8.1,0.4,1.2,0.4</ClientRectangle>
+                  <ClientRectangle>7.2,0.4,1.2,0.4</ClientRectangle>
                   <Conditions isList="true" count="0" />
                   <Expressions isList="true" count="0" />
                   <Font>Arial,7,Bold</Font>
@@ -604,7 +603,7 @@
                     <Text16 Ref="45" type="Text" isKey="true">
                       <AutoWidth>True</AutoWidth>
                       <Brush>Transparent</Brush>
-                      <ClientRectangle>7.4,0,2,0.4</ClientRectangle>
+                      <ClientRectangle>6.8,0,2,0.4</ClientRectangle>
                       <Conditions isList="true" count="0" />
                       <Expressions isList="true" count="0" />
                       <Font>Arial,8</Font>
@@ -2163,7 +2162,7 @@
                   <Name>Text62</Name>
                   <Page isRef="17" />
                   <Parent isRef="139" />
-                  <Text>{Today.ToString("dd/MM/yy")}</Text>
+                  <Text>{Today.ToString("dd/MM/yyyy")}</Text>
                   <TextBrush>Black</TextBrush>
                   <Type>Expression</Type>
                   <VertAlignment>Bottom</VertAlignment>
@@ -2359,10 +2358,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>Eduardo Hernández</ReportAuthor>
-  <ReportChanged>12/15/2025 5:36:26 PM</ReportChanged>
+  <ReportChanged>11/5/2025 8:37:52 PM</ReportChanged>
   <ReportCreated>7/15/2025 1:48:53 PM</ReportCreated>
-  <ReportFile>C:\Users\FranciscoRamírezRamí\Downloads\nuevo\StimulsoftReport\Reports\ReporteResNomPa.mrt</ReportFile>
-  <ReportGuid>025f8093fc2545538888530851217cdd</ReportGuid>
+  <ReportFile>C:\Users\FranciscoRamírezRamí\Downloads\nuevo\StimulsoftReport\Reports\ReporteResNomHist.mrt</ReportFile>
+  <ReportGuid>ca9fe2ed77dd4d278bdabd4e70c034e2</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.2.5.0</ReportVersion>
