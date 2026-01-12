@@ -1,0 +1,45 @@
+{
+    "TemplateFile": "ReporteRegNomLT.mrt",
+    "DataSourceMappings": {
+        "Data": "",
+        "Filtros": "Filtros",
+        "CentrosCosto": "CentrosCosto",
+        "Emp_CC": "CentrosCosto.Emp_CC",
+        "Empleado": "CentrosCosto.Emp_CC.Empleado",
+        "Percepciones": "CentrosCosto.Emp_CC.Percepciones",
+        "Deducciones": "CentrosCosto.Emp_CC.Deducciones",
+        "SubtotalTotal": "CentrosCosto.Emp_CC.SubtotalTotal",
+        "ResumenCC": "CentrosCosto.ResumenCC",
+        "ResCCPercepciones": "CentrosCosto.ResumenCC.ResCCPercepciones",
+        "ResCCDeducciones": "CentrosCosto.ResumenCC.ResCCDeducciones",
+        "SubtotalTotalCC": "CentrosCosto.ResumenCC.SubtotalTotalCC"
+    },
+    "RequiredDataSources": [
+        "Data",
+        "Filtros",
+        "CentrosCosto",
+        "Emp_CC",
+        "Empleado",
+        "Percepciones",
+        "Deducciones",
+        "SubtotalTotal",
+        "ResumenCC",
+        "ResCCPercepciones",
+        "ResCCDeducciones",
+        "SubtotalTotalCC"
+    ],
+  "RowBalanceRules": [
+    {
+      "Tables": [
+        "Percepciones",
+        "Deducciones"
+      ]
+    },
+        {
+      "Tables": [
+        "ResCCPercepciones",
+        "ResCCDeducciones"
+      ]
+    }
+  ]
+}
