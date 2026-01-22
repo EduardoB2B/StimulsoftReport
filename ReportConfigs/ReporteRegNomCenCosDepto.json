@@ -1,0 +1,31 @@
+{
+  "TemplateFile": "ReporteRegNomCenCosDepto.mrt",
+  "DataSourceMappings": {
+    "Data": "",
+    "Filtros": "Filtros",
+    "Catalogo": "Catalogo",
+    "CatCCost": "Catalogo",
+    "DetalleDepartamento": "Catalogo.DetalleDepartamento",
+    "PercepcionesDepto": "Catalogo.DetalleDepartamento.PercepcionesDepto",
+    "DeduccionesDepto": "Catalogo.DetalleDepartamento.DeduccionesDepto",
+    "SubtotalDepto": "Catalogo.SubtotalDepto",
+    "TotalCentroCosto": "Catalogo.TotalCentroCosto",
+    "SubtotalPCentroCosto": "Catalogo.SubtotalPCentroCosto",
+    "SubtotalDCentroCosto": "Catalogo.SubtotalDCentroCosto",
+    "SubtotalCC": "Catalogo.SubtotalCC"
+  },
+  "RequiredDataSources": [
+    "Data",
+    "Filtros",
+    "Catalogo",
+    "CatCCost",
+    "DetalleDepartamento",
+    "PercepcionesDepto",
+    "DeduccionesDepto",
+    "SubtotalDepto",
+    "TotalCentroCosto",
+    "SubtotalPCentroCosto",
+    "SubtotalDCentroCosto",
+    "SubtotalCC"
+  ]
+}

@@ -918,7 +918,10 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>14.4,3.8,3,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
+              <Enabled>False</Enabled>
+              <Expressions isList="true" count="1">
+                <value>Enabled,_x007B_Recibo.isPrintNumRecibo_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+              </Expressions>
               <Font>Verdana,9,Bold</Font>
               <Name>Text26</Name>
               <Page isRef="26" />
@@ -972,7 +975,10 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>17.4,3.8,1.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
+              <Enabled>False</Enabled>
+              <Expressions isList="true" count="1">
+                <value>Enabled,_x007B_Recibo.isPrintNumRecibo_x0020__x003D__x003D__x0020__x0022_true_x0022__x007D_</value>
+              </Expressions>
               <Font>Verdana,9</Font>
               <Name>Text25</Name>
               <Page isRef="26" />
@@ -1016,10 +1022,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>Eduardo Hernández</ReportAuthor>
-  <ReportChanged>11/13/2025 3:23:54 PM</ReportChanged>
+  <ReportChanged>12/8/2025 10:07:23 AM</ReportChanged>
   <ReportCreated>11/11/2025 10:04:28 AM</ReportCreated>
   <ReportFile>C:\Users\EduardoHernándezHern\Documents\GitHub\StimulsoftReport\Reports\ReporteRecAsimiladosHis.mrt</ReportFile>
-  <ReportGuid>53d4a0c1976940c9836b076d11ffe33b</ReportGuid>
+  <ReportGuid>25f76ca225cb424b8567250cd50c63e5</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2025.4.1.0</ReportVersion>
