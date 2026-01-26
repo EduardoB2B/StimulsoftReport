@@ -1,0 +1,31 @@
+{
+    "TemplateFile": "ReporteResNomHistGem.mrt",
+    "DataSourceMappings": {
+        "Data": "",
+        "Filtros": "",
+        "Percepciones": "Percepciones",
+        "Deducciones": "Deducciones",
+        "subtotal": "subtotal",
+        "subtotalBC": "subtotalBC",
+        "netoBC": "netoBC",
+        "total": "total",
+        "EmplesEmpre": "EmplesEmpre",
+        "RegPat": "RegPat",
+        "proviciones": "RegPat.proviciones",
+        "Resumen": "Resumen"
+
+    },
+    "RequiredDataSources": [
+        "Data",
+        "Filtros",
+        "Percepciones",
+        "Deducciones",
+        "subtotal",
+        "subtotalBC",
+        "netoBC",
+        "total",
+        "EmplesEmpre",
+        "RegPat",
+        "Resumen"
+    ]
+}

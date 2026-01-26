@@ -1,0 +1,30 @@
+{
+    "TemplateFile": "ReporteTimPagAct.mrt",
+    "DataSourceMappings": {
+        "Data": "",
+        "DatComprobante": "DatComprobante",
+        "ComprobanteConcepto": "ComprobanteConcepto",
+        "Percepciones": "Percepciones",
+        "Deducciones": "Deducciones",
+        "OtrosPagos": "OtrosPagos",
+        "Sellos": "Sellos",
+        "Leyenda": "Leyenda",
+        "ConceptosVirtuales": "ConceptosVirtuales"
+    },
+    "RequiredDataSources": [
+        "Data",
+        "DatComprobante",
+        "ComprobanteConcepto",
+        "Percepciones",
+        "Deducciones",
+        "OtrosPagos",
+        "Sellos",
+        "Leyenda",
+        "ConceptosVirtuales"
+    ],
+    "RowBalanceRules": [
+        {
+        "Tables": [ "Percepciones", "Deducciones", "OtrosPagos"]
+        }
+    ]
+}

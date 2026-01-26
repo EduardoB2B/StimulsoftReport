@@ -1,0 +1,33 @@
+{
+  "TemplateFile": "ReporteResNomPagAct.mrt",
+  "DataSourceMappings": {
+    "Data": "",
+    "Filtros": "Data.Filtros",
+    "Percepciones": "Data.Detalle.Percepciones",
+    "Deducciones": "Data.Detalle.Deducciones",
+    "Subtotal": "Data.Detalle.Subtotal",
+    "Total": "Data.Detalle.Total",
+    "Empleados": "Data.Empleados",
+    "Proviciones": "Data.Proviciones",
+    "RegPat": "Data.Proviciones.RegPat",
+    "OtrasProviciones": "Data.Proviciones.OtrasProviciones",
+    "Label": "Data.Proviciones.OtrasProviciones.Label",
+    "Montos": "Data.Proviciones.OtrasProviciones.Montos",
+    "Resumen": "Data.Resumen"
+  },
+  "RequiredDataSources": [
+    "Data",
+    "Filtros",
+    "Percepciones",
+    "Deducciones",
+    "Subtotal",
+    "Total",
+    "Empleados",
+    "Proviciones",
+    "RegPat",
+    "OtrasProviciones",
+    "Label",
+    "Montos",
+    "Resumen"
+  ]
+}
