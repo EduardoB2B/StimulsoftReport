@@ -1,0 +1,43 @@
+{
+  "TemplateFile": "CFDI_RE.mrt",
+  "DataSourceMappings": {
+    "Data": "",
+    "datosComprobanteEmpleador": "datosComprobanteEmpleador",
+    "datosComprobanteColaborador": "datosComprobanteEmpleador.datosComprobanteColaborador",
+    "DetallePD": "datosComprobanteEmpleador.datosComprobanteColaborador.DetallePD",
+    "Percepciones": "datosComprobanteEmpleador.datosComprobanteColaborador.DetallePD.Percepciones",
+    "Deducciones": "datosComprobanteEmpleador.datosComprobanteColaborador.DetallePD.Deducciones",
+    "PBDetalleOtrosSubsidio": "datosComprobanteEmpleador.datosComprobanteColaborador.PBDetalleOtrosSubsidio",
+    "OtrosPagos": "datosComprobanteEmpleador.datosComprobanteColaborador.PBDetalleOtrosSubsidio.OtrosPagos",
+    "Subsidio": "datosComprobanteEmpleador.datosComprobanteColaborador.PBDetalleOtrosSubsidio.Subsidio",
+    "PBSubtotalesImporteLetra": "datosComprobanteEmpleador.datosComprobanteColaborador.PBSubtotalesImporteLetra",
+    "Sellos": "datosComprobanteEmpleador.datosComprobanteColaborador.Sellos"
+  },
+  "RequiredDataSources": [
+    "Data",
+    "datosComprobanteEmpleador",
+    "datosComprobanteColaborador",
+    "DetallePD",
+    "Percepciones",
+    "Deducciones",
+    "PBDetalleOtrosSubsidio",
+    "OtrosPagos",
+    "Subsidio",
+    "PBSubtotalesImporteLetra",
+    "Sellos"
+  ],
+  "RowBalanceRules": [
+    {
+      "Tables": [
+        "Percepciones",
+        "Deducciones"
+      ]
+    },
+    {
+      "Tables": [
+        "OtrosPagos",
+        "Subsidio"
+      ]
+    }
+  ]
+}
